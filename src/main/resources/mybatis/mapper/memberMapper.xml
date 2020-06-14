@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Member">
+	
+	<!-- <resultMap id="loginMemberResultMap" type="java.util.HashMap">
+		<id property="f_email" column="f_email"/>
+		<result property="f_password" column="f_password"/>
+		<result property="f_name" column="f_name"/>
+		<result property="f_birth" column="f_birth"/>
+		<result property="f_phone" column="f_phone"/>
+		<result property="f_postcode" column="f_postcode"/>
+		<result property="f_roadaddress" column="f_roadaddress"/>
+		<result property="f_jibernaddress" column="f_jibernaddress"/>
+		<result property="f_detailaddress" column="f_detailaddress"/>
+		<result property="f_otheraddress" column="f_otheraddress"/>
+		<result property="f_userpicture" column="f_userpicture"/>
+	</resultMap>
+	 -->
+
+
+	<select id="idCheck" resultType="_int">
+		select count(f_email) from member where f_email = #{f_email}
+	</select>
+	
+	<insert id="insertMember" parameterType="Map">
+		insert into member values(#{f_email},#{f_password},#{f_name},#{f_birth},#{f_phone},#{f_postcode},#{f_roadaddress},#{f_jibernaddress},#{f_detailaddress},#{f_otheraddress},'basicphoto','N')
+	</insert>
+	
+	<select id="selectLoginMember" parameterType="Map" resultType="HashMap">
+		select f_email,f_password,f_name,f_birth,f_phone,f_postcode,f_roadaddress,f_jibernaddress,f_detailaddress,f_otheraddress,f_userpicture,f_leaveyn from member where f_email = #{f_email} and f_password = #{f_password} and f_leaveyn = 'N'
+	</select>
+	
+	
+	<update id="updateLeaveMember" parameterType="string">
+		update member set f_leaveyn = 'Y' where f_email = #{f_email}
+	</update>
+	
+	<select id="selectFindEmailInfo" parameterType="Map" resultType="_int">
+		select count(*) from member where f_name = #{f_name} and f_birth = #{f_birth} and f_phone = #{f_phone}
+	</select>
+	
+	<select id="selectFindUserEmail" parameterType="Map" resultType="string">
+		select f_email from member where f_name = #{f_name} and f_birth = #{f_birth} and f_phone = #{f_phone}
+	</select>
+	
+	<select id="selectFindUserPasswordInfo" parameterType="Map" resultType="_int">
+		select count(*) from member where f_email = #{f_email} and f_name = #{f_name} and f_birth = #{f_birth}
+	</select>
+
+
+	<select id="selectFindUserPassword" parameterType="Map" resultType="string">
+		select f_password from member where f_name = #{f_name} and f_birth = #{f_birth} and f_email = #{f_email}
+	</select>
+	
+	<update id="updateUserInfo" parameterType="Map">
+		update member set f_password = #{f_password}, f_phone = #{f_phone}, f_postcode = #{f_postcode}, f_roadaddress = #{f_roadaddress}, f_jibernaddress = #{f_jibernaddress}, f_detailaddress = #{f_detailaddress}, f_otheraddress = #{f_otheraddress} , f_userpicture = #{f_userpicture} where f_email = #{f_email}
+	</update>
+</mapper>
+
+
