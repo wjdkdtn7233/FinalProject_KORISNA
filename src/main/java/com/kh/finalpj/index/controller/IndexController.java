@@ -17,7 +17,7 @@ import com.kh.finalpj.index.model.service.IndexService;
 @Controller
 @RequestMapping("/index")
 public class IndexController {
-	ased
+
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 	
 	@Autowired

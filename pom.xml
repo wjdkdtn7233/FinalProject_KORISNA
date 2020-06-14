@@ -289,10 +289,10 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<url> http://3.34.121.58:8080/manager/text</url>
-					<path>/springmvc</path>
+					<url> http://3.34.121.58/manager/text</url>
+					<path>/ccc</path>
 					<username>admin</username>
-					<password>admin</password>
+					<password>test11</password>
 				</configuration>
 			</plugin>
         </plugins>
