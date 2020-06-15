@@ -17,3 +17,6 @@ CREATE TABLE TB_MEMBER (
 
 -- 주 키 설정
 ALTER TABLE TB_MEMBER ADD CONSTRAINT TB_MEMBER_PK PRIMARY KEY ( m_email );
+
+
+select * from tb_member;
