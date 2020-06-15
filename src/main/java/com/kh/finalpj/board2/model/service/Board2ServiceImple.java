@@ -28,7 +28,7 @@ public class Board2ServiceImple implements Board2Service{
 	public List<Map<String, Object>> openApi(){
 		
 		 List<Map<String, Object>> listResult = new ArrayList<Map<String, Object>>();
-
+		 Board2 bd2 = new Board2();
 		//ArrayList<JSONObject> arrayJson = new ArrayList<JSONObject>();
 		String sb;
 		try {
@@ -63,15 +63,13 @@ public class Board2ServiceImple implements Board2Service{
 			//int totalCnt = ss.getAsJsonObject().get("totalCnt").getAsInt();
 			for(int i=0; i< ja.size(); i++) {
 			
-				//Map<String,Object> res = new HashMap<String, Object>();
+			
 				sb = oa.openApi(1,i);
 							
 				System.out.println(i+"번째"+sb);
 				
 				String yadmNm = ja.get(i).getAsJsonObject().get("yadmNm").getAsString();
 				System.out.println(yadmNm);
-				String clCdNm = ja.get(i).getAsJsonObject().get("clCdNm").getAsString();
-				System.out.println(clCdNm);
 				String sidoCdNm = ja.get(i).getAsJsonObject().get("sidoCdNm").getAsString();
 				System.out.println(sidoCdNm);
 				String sgguCdNm = ja.get(i).getAsJsonObject().get("sgguCdNm").getAsString();
@@ -85,16 +83,7 @@ public class Board2ServiceImple implements Board2Service{
 				String YPos = ja.get(i).getAsJsonObject().get("YPos").getAsString();
 				System.out.println(YPos);
 				
-//				res.put("yadmNm", yadmNm);
-//				res.put("clCdNm", clCdNm);
-//				res.put("sidoCdNm",sidoCdNm );
-//				res.put("sgguCdNm", sgguCdNm);
-//				//res.put("emdongNm", emdongNm);
-//				res.put("addr", addr);
-//				res.put("telno", telno);
-//				res.put("XPos", XPos);
-//				res.put("YPos", YPos);
-
+				
 				
 				
 				
