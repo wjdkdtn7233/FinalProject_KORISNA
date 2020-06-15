@@ -15,14 +15,14 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.kh.finalpj.board2.common.OpenApi;
+import com.kh.finalpj.board2.common.OpenApi2;
 import com.kh.finalpj.board2.model.vo.Board2;
 
 @Service
 public class Board2ServiceImple implements Board2Service{
 
 	@Autowired
-	private OpenApi oa;
+	private OpenApi2 oa;
 	
 	@Override 
 	public List<Map<String, Object>> openApi(){
@@ -32,10 +32,9 @@ public class Board2ServiceImple implements Board2Service{
 		//ArrayList<JSONObject> arrayJson = new ArrayList<JSONObject>();
 		String sb;
 		try {
-			sb = oa.openApi();
+			sb = oa.openApi(0,1);
 			JsonParser jp = new JsonParser();
 			JsonElement je = jp.parse(sb);
-			System.out.println(je.toString());
 			JsonElement pp = je.getAsJsonObject().get("response");
 			JsonElement ss = pp.getAsJsonObject().get("body");
 			JsonElement ee = ss.getAsJsonObject().get("items");
@@ -64,31 +63,46 @@ public class Board2ServiceImple implements Board2Service{
 			//int totalCnt = ss.getAsJsonObject().get("totalCnt").getAsInt();
 			for(int i=0; i< ja.size(); i++) {
 			
-				Map<String,Object> res = new HashMap<String, Object>();
-				
+				//Map<String,Object> res = new HashMap<String, Object>();
+				sb = oa.openApi(1,i);
 							
+				System.out.println(i+"번째"+sb);
 				
 				String yadmNm = ja.get(i).getAsJsonObject().get("yadmNm").getAsString();
+				System.out.println(yadmNm);
 				String clCdNm = ja.get(i).getAsJsonObject().get("clCdNm").getAsString();
+				System.out.println(clCdNm);
 				String sidoCdNm = ja.get(i).getAsJsonObject().get("sidoCdNm").getAsString();
+				System.out.println(sidoCdNm);
 				String sgguCdNm = ja.get(i).getAsJsonObject().get("sgguCdNm").getAsString();
-				//String emdongNm = ja.get(i).getAsJsonObject().get("emdongNm").getAsString();
+				System.out.println(sgguCdNm);
 				String addr = ja.get(i).getAsJsonObject().get("addr").getAsString();
+				System.out.println(addr);
 				String telno = ja.get(i).getAsJsonObject().get("telno").getAsString();
+				System.out.println(telno);
 				String XPos = ja.get(i).getAsJsonObject().get("XPos").getAsString();
+				System.out.println(XPos);
 				String YPos = ja.get(i).getAsJsonObject().get("YPos").getAsString();
+				System.out.println(YPos);
 				
-				res.put("yadmNm", yadmNm);
-				res.put("clCdNm", clCdNm);
-				res.put("sidoCdNm",sidoCdNm );
-				res.put("sgguCdNm", sgguCdNm);
-				//res.put("emdongNm", emdongNm);
-				res.put("addr", addr);
-				res.put("telno", telno);
-				res.put("XPos", XPos);
-				res.put("YPos", YPos);
+//				res.put("yadmNm", yadmNm);
+//				res.put("clCdNm", clCdNm);
+//				res.put("sidoCdNm",sidoCdNm );
+//				res.put("sgguCdNm", sgguCdNm);
+//				//res.put("emdongNm", emdongNm);
+//				res.put("addr", addr);
+//				res.put("telno", telno);
+//				res.put("XPos", XPos);
+//				res.put("YPos", YPos);
 
-				listResult.add(res);
+				
+				
+				
+				
+				
+				
+				
+				//listResult.add();
 				
 				//System.out.println("ja " + ja.get(i));
 					

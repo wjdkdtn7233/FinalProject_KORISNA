@@ -84,10 +84,8 @@ public class BoardServiceImpl implements BoardService {
 			System.out.println("service for end");
 
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
