@@ -16,7 +16,6 @@
 	<!-- Header -->
 	<%@ include file="../include/header.jsp"%>
 
-
 	<main>
 		<!-- Home Banner Area Start -->
 		<section class="home-banner-wrapper">

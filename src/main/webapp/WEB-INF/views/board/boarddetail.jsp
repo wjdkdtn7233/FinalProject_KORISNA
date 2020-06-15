@@ -3,134 +3,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!doctype html>
 <html class="no-js" lang="en">
-
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>NEWS || Korisna</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="manifest" href="site.webmanifest">
-
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/assets/css/bootstrap.min.css">
-
-	<!-- Owl-Carousel CSS -->
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/assets/css/owl.carousel.min.css">
-
-	<!-- Animate CSS -->
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/assets/css/animate.min.css">
-
-	<!-- Magnific-Popup CSS -->
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/assets/css/magnific-popup.css">
-
-	<!-- Flaticon CSS -->
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/assets/css/icofont.min.css">
-
-	<!-- Fontawesome CSS -->
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/assets/css/fontawesome.min.css">
-
-	<!-- Meanmenu CSS -->
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/assets/css/meanmenu.css">
-
-	<!-- Theme Main CSS -->
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/css/style.css">
-
-	<!-- Responsive CSS -->
-	<link rel="stylesheet" href="<%= request.getContextPath() %>/resources/assets/css/responsive.css">
-
-</head>
+<!-- HAED -->
+<%@ include file="../include/head.jsp"%>
 
 <body>
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
-    <!-- Preloader -->
-    <div id="preloader-body" class="no-scroll-y">
-        <div>
-            <div id="preloader">
-                <div id="ctn-preloader" class="ctn-preloader">
-                    <div class="animation-preloader">
+	<!-- Preloader -->
+	<%@ include file="../include/preloader.jsp"%>
 
-                        <div class="spinner"></div>
-
-                        <div class="txt-loading">
-                            <span data-text-preloader="K" class="letters-loading">K</span>
-                            <span data-text-preloader="O" class="letters-loading">O</span>
-                            <span data-text-preloader="R" class="letters-loading">R</span>
-                            <span data-text-preloader="I" class="letters-loading">I</span>
-                            <span data-text-preloader="S" class="letters-loading">S</span>
-                            <span data-text-preloader="N" class="letters-loading">N</span>
-                            <span data-text-preloader="A" class="letters-loading">A</span>
-                        </div>
-
-                    </div>
-
-                    <!-- Preloader sides - Model 1 -->
-                    <div class="loader-section section-left"></div>
-                    <div class="loader-section section-right"></div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Header Area Start -->
-    <header class="header-area-wrapper">
-        <div class="header-area header-sticky">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-2 col-lg-2 col-md-4">
-                        <div class="header-logo">
-                            <a href="index.html">
-                                <img src="./assets/img/logo.png" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-7 col-lg-7">
-                        <div class="main-menu">
-                            <nav id="mobile-menu">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="cases.html">NEWS</a> </li>
-                                    <li><a href="prevention.html">Prevention</a>
-                                    </li>
-                                    <li><a href="team.html">Pages</a>
-                                        <ul>
-                                            <li><a href="team.html">Team</a></li>
-                                            <li><a href="faq.html">Faq's</a></li>
-                                            <li><a href="error-page.html">404 Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li class="active"><a href="blog.html">NEWS Details</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 text-right">
-                        <div class="header-full-right">
-                            <div class="header-search">
-                                <a data-toggle="modal" data-target="#search-modal" href="#"
-                                    class="header-search-anchor common-hover-1"><i class="icofont-search-2"></i></a>
-                            </div>
-                            <div class="cta-btn">
-                                <a href="contact.html" class="call-button common-hover-1">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="mobile-menu"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Header Area End -->
+	<!-- Header -->
+	<%@ include file="../include/header.jsp"%>
 
     <main>
         <!-- Breadcrumb Area Start -->
@@ -269,68 +154,14 @@
 
     </main>
 
-    <div class="site-copyright-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="copyright-text">
-                        <h6>Korisna | Developed by: <a target="_blank" href="http://themedraft.com"
-                                class="copyright-anchor">Themedraft</a></h6>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="site-copyright-text text-right">
-                        <h6> &copy; Korisna 2020 | All Right Reserved</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  	<!-- footer -->
+	<%@ include file="../include/footer.jsp"%>
 
-    <!-- Modal -->
-    <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="search-modal"
-        aria-hidden="true">
-        <div class="modal-dialog " role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="modal-search">
-                        <form action="index.html">
-                            <input type="text" name="text" placeholder="Search here...">
-                            <button><i class="fas fa-search" aria-hidden="true"></i></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<!-- Modal -->
+	<%@ include file="../include/modal.jsp"%>
 
-
-   <!-- jQuery JS -->
-	<script src="<%= request.getContextPath() %>/resources/assets/js/jquery-1.12.4.min.js"></script>
-
-	<!-- Popper JS -->
-	<script src="<%= request.getContextPath() %>/resources/assets/js/popper.min.js"></script>
-
-	<!-- Boostrap JS -->
-	<script src="<%= request.getContextPath() %>/resources/assets/js/bootstrap.min.js"></script>
-
-	<!-- Owl-Carousel JS -->
-	<script src="<%= request.getContextPath() %>/resources/assets/js/owl.carousel.min.js"></script>
-
-	<!-- Meanmenu JS -->
-	<script src="<%= request.getContextPath() %>/resources/assets/js/jquery.meanmenu.js"></script>
-
-	<!-- Wow JS -->
-	<script src="<%= request.getContextPath() %>/resources/assets/js/wow.min.js"></script>
-
-	<!-- ScrollUp JS -->
-	<script src="<%= request.getContextPath() %>/resources/assets/js/jquery.scrollUp.min.js"></script>
-
-	<!-- Magnific-Popup JS -->
-	<script src="<%= request.getContextPath() %>/resources/assets/js/jquery.magnific-popup.min.js"></script>
-
-	<!-- Theme-Main JS -->
-	<script src="<%= request.getContextPath() %>/resources/assets/js/main.js"></script>
+	<!-- default JS -->
+	<%@ include file="../include/defaultJS.jsp"%>
 </body>
 
 </html>
