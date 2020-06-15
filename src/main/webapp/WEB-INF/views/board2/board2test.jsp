@@ -20,18 +20,18 @@
         <main>
             <!-- Breadcrumb Area Start -->
             <section class="breadcrumb-wrapper purple-bg">
-                <div class="breadcrumb-virus-shape breadcrumb-shape-1">
-                    <img src="assets/img/mini-white-shape.png" alt="">
-                </div>
-                <div class="breadcrumb-virus-shape breadcrumb-shape-2">
-                    <img src="assets/img/mini-white-shape.png" alt="">
-                </div>
-                <div class="breadcrumb-virus-shape breadcrumb-shape-3">
-                    <img src="assets/img/mini-white-shape.png" alt="">
-                </div>
-                <div class="breadcrumb-virus-shape breadcrumb-shape-4">
-                    <img src="assets/img/mini-white-shape.png" alt="">
-                </div>
+               <div class="breadcrumb-virus-shape breadcrumb-shape-1">
+				<img src="assets/img/mini-white-shape.png" alt="mini-white-shape">
+			</div>
+			<div class="breadcrumb-virus-shape breadcrumb-shape-2">
+				<img src="assets/img/mini-white-shape.png" alt="mini-white-shape">
+			</div>
+			<div class="breadcrumb-virus-shape breadcrumb-shape-3">
+				<img src="assets/img/mini-white-shape.png" alt="mini-white-shape">
+			</div>
+			<div class="breadcrumb-virus-shape breadcrumb-shape-4">
+				<img src="assets/img/mini-white-shape.png" alt="mini-white-shape">
+			</div>
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 my-auto">
