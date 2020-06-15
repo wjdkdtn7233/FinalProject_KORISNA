@@ -52,7 +52,7 @@ public class MemberController {
 	@RequestMapping("/member/infoconsent.do")
 	public ModelAndView infoConsent(ModelAndView mav,@RequestParam Map<String, Object> commandMap) {
 		
-		
+		System.out.println(commandMap.get("f_phone"));
 		mav.addObject("member",commandMap);
 		mav.setViewName("member/personalInformationConsent");
 		
