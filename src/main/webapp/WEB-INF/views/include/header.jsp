@@ -19,7 +19,7 @@
                                 <li class="active"><a href="index.html">Home</a></li>
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="<%= request.getContextPath() %>/board/board.do">NEWS</a> </li>
-                                <li><a href="prevention.html">Prevention</a>
+                                <li><a href="<%= request.getContextPath() %>/board2/board2.do">병원정보</a>
                                 </li>
                                 <li><a href="team.html">Pages</a>
                                     <ul>
