@@ -29,7 +29,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.finalpj.member.model.service.MemberService;
-import com.kh.finalpj.member.model.vo.Member;
 
 @Controller
 public class MemberController {

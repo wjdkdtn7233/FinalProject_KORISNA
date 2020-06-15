@@ -21,41 +21,41 @@
 
 
 	<select id="idCheck" resultType="_int">
-		select count(f_email) from member where f_email = #{f_email}
+		select count(f_email) from tb_member where f_email = #{f_email}
 	</select>
 	
 	<insert id="insertMember" parameterType="Map">
-		insert into member values(#{f_email},#{f_password},#{f_name},#{f_birth},#{f_phone},#{f_postcode},#{f_roadaddress},#{f_jibernaddress},#{f_detailaddress},#{f_otheraddress},'basicphoto','N')
+		insert into tb_member values(#{f_email},#{f_password},#{f_name},#{f_birth},#{f_phone},#{f_postcode},#{f_roadaddress},#{f_jibernaddress},#{f_detailaddress},#{f_otheraddress},'basicphoto','N')
 	</insert>
 	
 	<select id="selectLoginMember" parameterType="Map" resultType="HashMap">
-		select f_email,f_password,f_name,f_birth,f_phone,f_postcode,f_roadaddress,f_jibernaddress,f_detailaddress,f_otheraddress,f_userpicture,f_leaveyn from member where f_email = #{f_email} and f_password = #{f_password} and f_leaveyn = 'N'
+		select f_email,f_password,f_name,f_birth,f_phone,f_postcode,f_roadaddress,f_jibernaddress,f_detailaddress,f_otheraddress,f_userpicture,f_leaveyn from tb_member where f_email = #{f_email} and f_password = #{f_password} and f_leaveyn = 'N'
 	</select>
 	
 	
 	<update id="updateLeaveMember" parameterType="string">
-		update member set f_leaveyn = 'Y' where f_email = #{f_email}
+		update tb_member set f_leaveyn = 'Y' where f_email = #{f_email}
 	</update>
 	
 	<select id="selectFindEmailInfo" parameterType="Map" resultType="_int">
-		select count(*) from member where f_name = #{f_name} and f_birth = #{f_birth} and f_phone = #{f_phone}
+		select count(*) from tb_member where f_name = #{f_name} and f_birth = #{f_birth} and f_phone = #{f_phone}
 	</select>
 	
 	<select id="selectFindUserEmail" parameterType="Map" resultType="string">
-		select f_email from member where f_name = #{f_name} and f_birth = #{f_birth} and f_phone = #{f_phone}
+		select f_email from tb_member where f_name = #{f_name} and f_birth = #{f_birth} and f_phone = #{f_phone}
 	</select>
 	
 	<select id="selectFindUserPasswordInfo" parameterType="Map" resultType="_int">
-		select count(*) from member where f_email = #{f_email} and f_name = #{f_name} and f_birth = #{f_birth}
+		select count(*) from tb_member where f_email = #{f_email} and f_name = #{f_name} and f_birth = #{f_birth}
 	</select>
 
 
 	<select id="selectFindUserPassword" parameterType="Map" resultType="string">
-		select f_password from member where f_name = #{f_name} and f_birth = #{f_birth} and f_email = #{f_email}
+		select f_password from tb_member where f_name = #{f_name} and f_birth = #{f_birth} and f_email = #{f_email}
 	</select>
 	
 	<update id="updateUserInfo" parameterType="Map">
-		update member set f_password = #{f_password}, f_phone = #{f_phone}, f_postcode = #{f_postcode}, f_roadaddress = #{f_roadaddress}, f_jibernaddress = #{f_jibernaddress}, f_detailaddress = #{f_detailaddress}, f_otheraddress = #{f_otheraddress} , f_userpicture = #{f_userpicture} where f_email = #{f_email}
+		update tb_member set f_password = #{f_password}, f_phone = #{f_phone}, f_postcode = #{f_postcode}, f_roadaddress = #{f_roadaddress}, f_jibernaddress = #{f_jibernaddress}, f_detailaddress = #{f_detailaddress}, f_otheraddress = #{f_otheraddress} , f_userpicture = #{f_userpicture} where f_email = #{f_email}
 	</update>
 </mapper>
 
