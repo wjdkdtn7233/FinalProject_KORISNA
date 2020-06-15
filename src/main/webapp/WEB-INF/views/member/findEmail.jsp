@@ -337,7 +337,7 @@
 				<div class="col-xl-6 col-lg-6 col-md-6">
 					<div class="copyright-text">
 						<h6>
-							Korisna | Developed by: <a target="_blank" href="http://themedraft.com"
+							Korisna | Developed by: <a target="_blank" href="https://github.com/smina2017/finalproject"
 								class="copyright-anchor">Themedraft</a>
 						</h6>
 					</div>
