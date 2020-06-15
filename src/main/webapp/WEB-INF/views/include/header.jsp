@@ -18,7 +18,7 @@
                             <ul>
                                 <li class="active"><a href="index.html">Home</a></li>
                                 <li><a href="about.html">About</a></li>
-                                <li><a href="cases.html">Cases</a> </li>
+                                <li><a href="<%= request.getContextPath() %>/board/board.do">NEWS</a> </li>
                                 <li><a href="prevention.html">Prevention</a>
                                 </li>
                                 <li><a href="team.html">Pages</a>
