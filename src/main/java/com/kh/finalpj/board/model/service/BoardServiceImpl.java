@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.sound.midi.Soundbank;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,15 +54,22 @@ public class BoardServiceImpl implements BoardService {
 				for (int i = 0; i < ja.size(); i++) {
 					Map<String, Object> res = new HashMap<String, Object>();
 
+					System.out.println(i + "번째" + data);
+					
 					System.out.println("ja.get(i)" + ja.get(i).getAsJsonObject().get("countryEnName"));
 
 					String content = ja.get(i).getAsJsonObject().get("content").getAsString();
+					System.out.println(content);
 					String countryEnName = ja.get(i).getAsJsonObject().get("countryEnName").getAsString();
+					System.out.println(countryEnName);
 					String countryName = ja.get(i).getAsJsonObject().get("countryName").getAsString();
+					System.out.println(countryName);
 					String id = ja.get(i).getAsJsonObject().get("id").getAsString();
+					System.out.println(id);
 					String title = ja.get(i).getAsJsonObject().get("title").getAsString();
+					System.out.println(title);
 					String wrtDt = ja.get(i).getAsJsonObject().get("wrtDt").getAsString();
-
+					System.out.println(wrtDt);
 					// vo로 변경
 					res.put("content", content);
 					res.put("countryEnName", countryEnName);
@@ -75,10 +84,8 @@ public class BoardServiceImpl implements BoardService {
 			System.out.println("service for end");
 
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

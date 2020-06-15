@@ -17,28 +17,29 @@ public class BoardController {
 	@Autowired
 	private BoardService bs;
 
+	@RequestMapping("/index.do")
+	public ModelAndView index(ModelAndView mav) {
+		mav.setViewName("board/board");
+
+		return mav;
+	}
+	
 	@RequestMapping("/board.do")
 	public ModelAndView openApi() {
 		ModelAndView mav = new ModelAndView();
 
 		List<Map<String, Object>> res = bs.openApi();
-		
-		mav.addObject("data",res);
-		mav.setViewName("board/boardtest");
-	
-		return mav;
 
-	}
-	
-	@RequestMapping("/index.do")
-	public ModelAndView index(ModelAndView mav) {
-		
-		System.out.println("kekekekekekek");
-		
-		mav.setViewName("board/board");
-		
+		mav.addObject("data", res);
+		mav.setViewName("board/boardtest");
+
 		return mav;
 	}
-	
+
+	@RequestMapping("/board/boarddetail.do")
+	public String boardDetail() {
+		
+		return "board/boarddetail";
+	}
 
 }
