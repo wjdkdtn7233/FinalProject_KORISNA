@@ -11,16 +11,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class OpenApi2 {
-			public String openApi(int flag, int pn) throws UnsupportedEncodingException, IOException {
+			public String openApi(int flag, int i) throws UnsupportedEncodingException, IOException {
 				BufferedReader br = null;
 				// try{            
 	            // 서비스임플에서 받아온  매개변수로 요청 url을 변경    if()
 				String urlstr = "";
 				if(flag==0) {
-					urlstr = "http://apis.data.go.kr/B551182/hospInfoService/getHospBasisList?_type=json&ServiceKey=bY0vDc9Lsd8Y210gsUbzkaPEulp2DSKvc%2BgKbNRW5Ccp%2FGOU6IHLJ1l4CtIyQ6a1jPkta58ibPxHCpPjQ2ZkAg%3D%3D&sidoCd=110000&zipCd=2030&clCd=21";
+					urlstr = "http://apis.data.go.kr/B551182/hospInfoService/getHospBasisList?pageNo=1&numOfRows=100&_type=json&ServiceKey=bY0vDc9Lsd8Y210gsUbzkaPEulp2DSKvc%2BgKbNRW5Ccp%2FGOU6IHLJ1l4CtIyQ6a1jPkta58ibPxHCpPjQ2ZkAg%3D%3D&sidoCd=110000&zipCd=2030&clCd=21";
 				}
 				if(flag==1) {
-					urlstr ="http://apis.data.go.kr/B551182/hospInfoService/getHospBasisList?pageNo="+pn+"&numOfRows=1&_type=json&ServiceKey=bY0vDc9Lsd8Y210gsUbzkaPEulp2DSKvc%2BgKbNRW5Ccp%2FGOU6IHLJ1l4CtIyQ6a1jPkta58ibPxHCpPjQ2ZkAg%3D%3D&sidoCd=110000&zipCd=2030&clCd=21";
+					urlstr ="http://apis.data.go.kr/B551182/hospInfoService/getHospBasisList?pageNo="+i+"&numOfRows=1&_type=json&ServiceKey=bY0vDc9Lsd8Y210gsUbzkaPEulp2DSKvc%2BgKbNRW5Ccp%2FGOU6IHLJ1l4CtIyQ6a1jPkta58ibPxHCpPjQ2ZkAg%3D%3D&sidoCd=110000&zipCd=2030&clCd=21";
 				}
 				
 	            URL url = new URL(urlstr);

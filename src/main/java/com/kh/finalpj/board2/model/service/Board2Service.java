@@ -7,6 +7,7 @@ import com.kh.finalpj.board2.model.vo.Board2;
 
 public interface Board2Service {
 
-	List<Map<String, Object>> openApi();
+	public void openApi();
 
+	public List<Board2> boardList();
 }

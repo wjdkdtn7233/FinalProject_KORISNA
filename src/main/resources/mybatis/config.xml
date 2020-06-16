@@ -3,14 +3,17 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<!-- <typeAliases>
-		<typeAlias type="com.kh.finalpj.member.model.vo.Member" alias="Member"/>
+	 <typeAliases>
+		<typeAlias type="com.kh.finalpj.board2.model.vo.Board2" alias="Board2"/>
 		
-	</typeAliases> -->
+	</typeAliases>
 		
 	<mappers>
 		<mapper resource="/mybatis/mapper/memberMapper.xml"/>
+		<mapper resource="/mybatis/mapper/mapMapper.xml"/>
+		<mapper resource="/mybatis/mapper/board2Mapper.xml"/>
 	</mappers>
 
+	
 
 </configuration>

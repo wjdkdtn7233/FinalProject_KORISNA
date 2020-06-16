@@ -16,7 +16,6 @@
 	<!-- Header -->
 	<%@ include file="../include/header.jsp"%>
 
-
 	<main>
 		<!-- Breadcrumb Area Start -->
 		<section class="breadcrumb-wrapper purple-bg">
@@ -106,8 +105,7 @@
 								<input type="hidden" name="basicPicture" id="basicInput" />
 								<div class="specialist-doctor-info">
 
-									<h4 class="doctor-name">[ ${sessionScope.loginUser.F_NAME}
-										] 님</h4>
+									<h4 class="doctor-name">[ ${sessionScope.loginUser.F_NAME} ] 님</h4>
 									<h6 class="doctor-desg">환영합니다</h6>
 								</div>
 							</div>
@@ -431,10 +429,7 @@
 				});
 
 		//기본이미지 변경 버튼 눌렀을떄
-		$('#basicPicture')
-				.on(
-						'click',
-						function() {
+		$('#basicPicture').on('click',function() {
 							//기본이미지 버튼을 누르면 프로필 타입에 basicphoto 라는 값을 넣어서 url로 보내준다.
 							$('#profileType').val("basicphoto");
 							//첨부파일에 있는 파일 리스트 초기화 - 이거 안하면 기본이미지 버튼 눌렀다가 원래박혔던 사진 넣을라해도 안넣어짐 
@@ -442,13 +437,12 @@
 							//이미지가 보여지는 곳에 원래 사진 삭제
 							$('#pictureHere').html("");
 							//기본이미지 넣기
-							$('#pictureHere')
-									.html(
-											'<img class="h-100" src="<%=request.getContextPath()%>/resources/upload/basicphoto.png"/>');
+							$('#pictureHere').html('<img class="h-100" src="<%=request.getContextPath()%>/resources/upload/basicphoto.png"/>');
 							//유저가 기본이미지로 정했다는 값 서블릿으로 넘겨주기
 							$('#basicInput').val("default-image");
 
 						});
+		
 	</script>
 
 	<script>

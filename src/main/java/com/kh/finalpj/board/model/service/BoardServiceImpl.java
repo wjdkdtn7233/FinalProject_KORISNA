@@ -54,22 +54,22 @@ public class BoardServiceImpl implements BoardService {
 				for (int i = 0; i < ja.size(); i++) {
 					Map<String, Object> res = new HashMap<String, Object>();
 
-					System.out.println(i + "번째" + data);
+					//System.out.println(i + "번째" + data);
 					
-					System.out.println("ja.get(i)" + ja.get(i).getAsJsonObject().get("countryEnName"));
+					//System.out.println("ja.get(i)" + ja.get(i).getAsJsonObject().get("countryEnName"));
 
 					String content = ja.get(i).getAsJsonObject().get("content").getAsString();
-					System.out.println(content);
+					//System.out.println(content);
 					String countryEnName = ja.get(i).getAsJsonObject().get("countryEnName").getAsString();
-					System.out.println(countryEnName);
+					//System.out.println(countryEnName);
 					String countryName = ja.get(i).getAsJsonObject().get("countryName").getAsString();
-					System.out.println(countryName);
+					//System.out.println(countryName);
 					String id = ja.get(i).getAsJsonObject().get("id").getAsString();
-					System.out.println(id);
+					//System.out.println(id);
 					String title = ja.get(i).getAsJsonObject().get("title").getAsString();
-					System.out.println(title);
+					//System.out.println(title);
 					String wrtDt = ja.get(i).getAsJsonObject().get("wrtDt").getAsString();
-					System.out.println(wrtDt);
+					//System.out.println(wrtDt);
 					// vo로 변경
 					res.put("content", content);
 					res.put("countryEnName", countryEnName);

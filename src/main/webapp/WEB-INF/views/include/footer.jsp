@@ -94,7 +94,7 @@
 				<div class="copyright-text">
 					<h6>
 						Korisna | Developed by: <a target="_blank"
-							href="http://themedraft.com" class="copyright-anchor">Themedraft</a>
+							href="https://github.com/smina2017/finalproject.git" class="copyright-anchor">GITHUB</a>
 					</h6>
 				</div>
 			</div>

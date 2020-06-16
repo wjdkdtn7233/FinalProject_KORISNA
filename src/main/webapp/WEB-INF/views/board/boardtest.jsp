@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html class="no-js" lang="en">
 <!-- HAED -->
 <%@ include file="../include/head.jsp"%>
 
 <body>
-    <!--[if lte IE 9]>
+	<!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
@@ -23,22 +23,22 @@
 			<div class="breadcrumb-virus-shape breadcrumb-shape-1">
 				<img
 					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+					alt="mini-white-shape">
 			</div>
 			<div class="breadcrumb-virus-shape breadcrumb-shape-2">
 				<img
 					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+					alt="mini-white-shape">
 			</div>
 			<div class="breadcrumb-virus-shape breadcrumb-shape-3">
 				<img
 					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+					alt="mini-white-shape">
 			</div>
 			<div class="breadcrumb-virus-shape breadcrumb-shape-4">
 				<img
 					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+					alt="mini-white-shape">
 			</div>
 			<div class="container">
 				<div class="row">
@@ -46,7 +46,7 @@
 						<div class="breadcrumb-content">
 							<h2 class="breadcrumb-main-title">뉴스&이슈</h2>
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
 								<li>-국가·지역별 최신안전소식</li>
 							</ul>
 						</div>
@@ -57,7 +57,7 @@
 							<div class="breadcrumb-image">
 								<img
 									src="<%=request.getContextPath()%>/resources/assets/img/woman-towel.png"
-									alt="">
+									alt="woman-towel">
 							</div>
 						</div>
 					</div>
@@ -72,113 +72,38 @@
 				<div class="row">
 					<div class="col-xl-12 col-lg-12">
 						<div class="section-title text-center semi-blue-section-title">
-							<h5 class="section-single-subtitle">최근 기사</h5>
+							<h5 class="section-single-subtitle">LIVE UPDATES</h5>
 							<h2 class="section-heading-title">
 								Update News Of Coronavirus <span class="section-blue-text">(Covid-19)</span>
 							</h2>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="blog-carousel owl-carousel">
-						<div class="single-blog-wrap">
-							<div class="blog-content">
-								<h5 class="blog-date-wrap">
-									<span class="date">날짜받아주는 란 </span> <a href="blog-details.html"
-										class="blog-tag">상세보기</a>
-								</h5>
-								<h4 class="blog-title">기사 란</h4>
+				
+					<div class="row">
+						<div class="blog-carousel owl-carousel">
+						<c:forEach items="${data }" var="board" begin="1" end="6">
+							<div class="single-blog-wrap">
+								<div class="blog-content">
+									<h5 class="blog-date-wrap">
+										<span class="date">${board.wrtDt } </span> <a
+											href="<%=request.getContextPath()%>/board/boarddetail.do?id=${board.id}"
+											class="blog-tag">기사상세보기</a>
+									</h5>
+									<h4 class="blog-title">${board.title }</h4>
 
-								<a href="blog-details.html" class="blog-read-more">Read More</a>
-								<div class="blog-shape-bottom">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-										alt="">
+									<a href="<%=request.getContextPath()%>/board/boardlist"
+										class="blog-read-more">Read More</a>
+									<div class="blog-shape-bottom">
+										<img
+											src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
+											alt="grey-virus-shape">
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="single-blog-wrap">
-							<div class="blog-content">
-								<h5 class="blog-date-wrap">
-									<span class="date">날짜받아주는 란 </span> <a href="blog-details.html"
-										class="blog-tag">상세보기</a>
-								</h5>
-								<h4 class="blog-title">기사 란</h4>
-
-								<a href="blog-details.html" class="blog-read-more">Read More</a>
-								<div class="blog-shape-bottom">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="single-blog-wrap">
-							<div class="blog-content">
-								<h5 class="blog-date-wrap">
-									<span class="date">날짜받아주는 란 </span> <a href="blog-details.html"
-										class="blog-tag">상세보기</a>
-								</h5>
-								<h4 class="blog-title">기사 란.</h4>
-
-								<a href="blog-details.html" class="blog-read-more">Read More</a>
-								<div class="blog-shape-bottom">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="single-blog-wrap">
-							<div class="blog-content">
-								<h5 class="blog-date-wrap">
-									<span class="date">날짜받아주는 란 </span> <a href="blog-details.html"
-										class="blog-tag">상세보기</a>
-								</h5>
-								<h4 class="blog-title">기사 란.</h4>
-
-								<a href="blog-details.html" class="blog-read-more">Read More</a>
-								<div class="blog-shape-bottom">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="single-blog-wrap">
-							<div class="blog-content">
-								<h5 class="blog-date-wrap">
-									<span class="date">날짜받아주는 란 </span> <a href="blog-details.html"
-										class="blog-tag">상세보기</a>
-								</h5>
-								<h4 class="blog-title">기사 란.</h4>
-
-								<a href="blog-details.html" class="blog-read-more">Read More</a>
-								<div class="blog-shape-bottom">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="single-blog-wrap">
-							<div class="blog-content">
-								<h5 class="blog-date-wrap">
-									<span class="date">날짜받아주는 란 </span> <a href="blog-details.html"
-										class="blog-tag">상세보기</a>
-								</h5>
-								<h4 class="blog-title">기사 란.</h4>
-
-								<a href="blog-details.html" class="blog-read-more">Read More</a>
-								<div class="blog-shape-bottom">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-										alt="">
-								</div>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
-				</div>
+					</div>
 			</div>
 		</div>
 		<!-- Blog Area End -->
@@ -188,17 +113,17 @@
 			<div class="symptoms-virus-shape symptoms-virus-shape-1">
 				<img
 					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+					alt="mini-white-shape">
 			</div>
 			<div class="symptoms-virus-shape symptoms-virus-shape-2">
 				<img
 					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+					alt="mini-white-shape">
 			</div>
 			<div class="symptoms-virus-shape symptoms-virus-shape-3">
 				<img
 					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+					alt="mini-white-shape">
 			</div>
 			<div class="container">
 				<div class="row justify-content-center">
@@ -284,32 +209,34 @@
 			<div class="cta-virus-shape cta-virus-shape-1">
 				<img
 					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+					alt="mini-white-shape">
 			</div>
 			<div class="cta-virus-shape cta-virus-shape-2">
 				<img
 					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+					alt="mini-white-shape">
 			</div>
 			<div class="container">
 				<div class="row d-flex align-items-center">
 					<div class="col-xl-9 col-lg-9 col-md-12">
 						<div class="cta-content">
 							<h5 class="cta-mini-title">Coronavirus (Covid-19)</h5>
-							<h2 class="cta-main-text">위와 같은 증상이 있으시면, 가까운 병원에서 진료를 받으세요</h2>
+							<h2 class="cta-main-text">
+								위와 같은 증상이 있으시면, 가까운 병원에서 진료를 <br>받으세요
+							</h2>
 						</div>
 					</div>
 					<div class="col-xl-3 col-lg-3 col-md-12">
 						<div class="cta-main-button">
-							<a href="prevention.html" class="cta-button btn">병원찾기 <i
-								class="icofont-arrow-right"></i></a>
+							<a href="<%=request.getContextPath()%>/board2/board2.do"
+								class="cta-button btn">병원찾기 <i class="icofont-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- CTA Area End -->
-		
+
 		<!-- Contact Information Area Start -->
 		<div class="contact-information-wrapper section-padding purple-bg">
 			<div class="container">
@@ -323,10 +250,10 @@
 							<div class="contact-info-content">
 								<h5 class="contact-info-title">Call Us Now:</h5>
 								<h4 class="contact-info-bottom">
-									<a href="#">+88 - 012 - 345 - 6789</a>
+									<a href="#">1339</a>
 								</h4>
 								<h4 class="contact-info-bottom">
-									<a href="#">+88 - 012 - 564 - 1234</a>
+									<a href="#">120</a>
 								</h4>
 							</div>
 						</div>
@@ -355,8 +282,12 @@
 							</div>
 							<div class="contact-info-content">
 								<h5 class="contact-info-title">Address:</h5>
-								<p class="contact-address">79 York Drive</p>
-								<p class="contact-address">Evanston, IL 60201</p>
+								<p class="contact-address">
+									(28159) 충북 청주시 흥덕구 <br>오송읍 오송생명2로 187
+								</p>
+								<p class="contact-address">
+									오송보건의료행정타운내 <br>질병관리본부
+								</p>
 							</div>
 						</div>
 					</div>

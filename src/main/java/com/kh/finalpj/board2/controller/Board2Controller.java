@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.finalpj.board2.model.service.Board2Service;
+import com.kh.finalpj.board2.model.vo.Board2;
 
 @Controller
 @RequestMapping("/board2")
@@ -20,11 +21,14 @@ public class Board2Controller {
    @RequestMapping("/board2.do")
    public ModelAndView openApi() {
       ModelAndView mav = new ModelAndView();
-
-      List<Map<String, Object>> res = bs.openApi();
       
-      mav.addObject("data",res);
+      List<Board2> boardList = bs.boardList();
+      System.out.println("컨트롤러");
+      //bs.openApi();
+      
+      mav.addObject("data", boardList);
       mav.setViewName("board2/board2test");
+    		
    
       return mav;
 
@@ -39,6 +43,7 @@ public class Board2Controller {
       
       return mav;
    }
+   
    
 
 }

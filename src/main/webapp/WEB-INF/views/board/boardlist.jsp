@@ -44,11 +44,10 @@
 				<div class="row">
 					<div class="col-xl-6 col-lg-6 col-md-6 my-auto">
 						<div class="breadcrumb-content">
-							<h2 class="breadcrumb-main-title">NEWS Details</h2>
+							<h2 class="breadcrumb-main-title">NEWS List</h2>
 							<ul>
-								<li><a
-									href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
-								<li>- NEWS Details</li>
+								<li><a href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
+								<li>- NEWS List</li>
 							</ul>
 						</div>
 					</div>
@@ -68,23 +67,33 @@
 		<!-- Breadcrumb Area End -->
 
 		<!-- Blog Area Start -->
-
-
 		<div class="blog-page-wrapper section-padding">
 			<div class="container">
 				<div class="row">
-
 					<div class="left-side-blog">
 						<div class="single-blog-page-item">
-							<div class="blog-sample-meta">
-								<ul>
-
-									<li><i class="far fa-calendar-check"></i>${board. }</a></li>
-
-								</ul>
-								<div class="blog-sample-bottom-content">
-									<h3>${board.title }</h3>
-									<p>${board.content }</p>
+							<c:forEach items="${data }">
+								<div class="blog-sample-meta">
+									<ul>
+										<li><i class="far fa-calendar-check"></i>${board.wrtDt }</li>
+									</ul>
+									<div class="blog-sample-bottom-content">
+										<h3>${board.title }</h3>
+										<p>${board.content }</p>
+									</div>
+								</div>
+							</c:forEach>
+							<div class="col-xl-12">
+								<div class="blog-pagination shop-pagination">
+									<nav aria-label="Page navigation example">
+										<ul class="pagination">
+											<li class="page-item"><span class="page-link current">1</span></li>
+											<li class="page-item"><a class="page-link"
+												href="blog.html">2</a></li>
+											<li class="page-item"><a class="page-link"
+												href="blog.html"><i class="fas fa-angle-double-right"></i></a></li>
+										</ul>
+									</nav>
 								</div>
 							</div>
 						</div>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Map">
+	
+	<insert id="insertFavorate">
+	
+		insert into
+		tb_MAP
+		values(
+		#{userId},#{name},#{addr},#{lat},#{lng},#{code}
+		)
+	
+	</insert>
+	
+	
+	<select id="selectFavorate" resultMap="favorate">
+	
+		select * from tb_MAP where m_user_id = #{userId}
+	
+	</select>
+	
+	<resultMap type="map" id="favorate">
+		<result column="m_user_id" property="userId" />
+		<result column="m_pm_name" property="name" />
+		<result column="m_pm_addr" property="addr" />
+		<result column="m_lat" property="lat" />
+		<result column="m_lon" property="lon" />
+		<result column="m_pm_code" property="code"/>
+	</resultMap>
+	
+	<delete id="deleteFavor">
+	
+		delete from tb_MAP where m_user_id = #{userId} and m_pm_code = #{fCode}
+	
+	</delete>
+</mapper>
+
+
