@@ -2,9 +2,6 @@ package com.kh.finalpj.member.model.service;
 
 import java.util.Map;
 
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.kh.finalpj.member.model.vo.Member;
 
 public interface MemberService {
 	

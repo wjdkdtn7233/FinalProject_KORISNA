@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kh.finalpj.member.model.dao.MemberDao;
-import com.kh.finalpj.member.model.vo.Member;
 
 @Service
 public class MemberServiceImpl implements MemberService {

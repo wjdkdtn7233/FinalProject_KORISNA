@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="Board2">
+
+<insert id="board2" parameterType="Board2">
+		insert into TB_BOARD2 values(
+		B2_NO.nextval,
+		#{B2_yadmNm},#{B2_sidocdNm},#{B2_sggucdNm},#{B2_addr},#{B2_telno},#{B2_XPos},#{B2_YPos})
+</insert>
+
+</mapper>
+
+
+
+
+<!-- private String B2_yadmNm;
+	private String B2_sidocdNm;
+	private String B2_sggucdNm;
+	private String B2_addr;
+	private String B2_telno;
+	private String B2_XPos;
+	private String B2_YPos; -->
+	

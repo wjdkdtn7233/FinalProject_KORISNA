@@ -29,7 +29,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.finalpj.member.model.service.MemberService;
-import com.kh.finalpj.member.model.vo.Member;
 
 @Controller
 public class MemberController {
@@ -50,7 +49,7 @@ public class MemberController {
 	@RequestMapping("/member/infoconsent.do")
 	public ModelAndView infoConsent(ModelAndView mav,@RequestParam Map<String, Object> commandMap) {
 		
-		
+		System.out.println(commandMap.get("f_phone"));
 		mav.addObject("member",commandMap);
 		mav.setViewName("member/personalInformationConsent");
 		
