@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.finalpj.board.model.service.BoardService;
@@ -23,7 +24,7 @@ public class BoardController {
 
 		return mav;
 	}
-	
+
 	@RequestMapping("/board.do")
 	public ModelAndView openApi() {
 		ModelAndView mav = new ModelAndView();
@@ -35,11 +36,37 @@ public class BoardController {
 
 		return mav;
 	}
+	
+	@RequestMapping("/boardlist.do")
+	public ModelAndView boardList() {
+		ModelAndView mav = new ModelAndView();
 
-	@RequestMapping("/board/boarddetail.do")
-	public String boardDetail() {
-		
-		return "board/boarddetail";
+		List<Map<String, Object>> res = bs.openApi();
+
+		mav.addObject("data", res);
+		mav.setViewName("board/boardlist");
+
+		return mav;
 	}
+
+	@RequestMapping("/boarddetail.do")
+	public ModelAndView boardDetail(String id) {
+		ModelAndView mav = new ModelAndView();
+
+		List<Map<String, Object>> res = bs.openApi();
+
+		if (res.get() != null) {
+			mav.addObject("data", res);
+			mav.setViewName("board/boarddetail");
+		} else {
+			mav.addObject("alertMsg", "존재하지 않는 게시물입니다.");
+			mav.addObject("back", "back");
+			mav.setViewName("common/result");
+		}
+
+		return mav;
+	}
+
+
 
 }
