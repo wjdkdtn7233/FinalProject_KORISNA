@@ -120,11 +120,12 @@
                     
                     <div class="single-right-small-blog blog-search-wrap">
                         <div class="blog-short-search-wrap">
-                            <input type="search" name="search" placeholder="검색어를 입력하세요" z-index : 100>
+                            <input type="search" name="search" placeholder="검색어를 입력하세요" >
                             <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
-                    </span>
+                    
+                 </span>
 
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 col-md-6">
@@ -248,7 +249,7 @@
                     </nav>
                 </div>
             
-            </div>
+           
             <!-- Prevention Area End -->
 
             <!-- FAQ Area Start -->
