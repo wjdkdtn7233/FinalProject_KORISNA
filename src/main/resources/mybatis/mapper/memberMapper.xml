@@ -25,7 +25,7 @@
 	</select>
 	
 	<insert id="insertMember" parameterType="Map">
-		insert into tb_member values(#{f_email},#{f_password},#{f_name},#{f_birth},#{f_phone},#{f_postcode},#{f_roadaddress},#{f_jibernaddress},#{f_detailaddress},#{f_otheraddress},'basicphoto','N')
+		insert into tb_member values(#{f_email},#{f_password},#{f_name},#{f_birth},#{f_phone},#{f_postcode},#{f_roadaddress},#{f_jibernaddress},#{f_detailaddress},#{f_otheraddress},'basicphoto.png','N')
 	</insert>
 	
 	<select id="selectLoginMember" parameterType="Map" resultType="HashMap">

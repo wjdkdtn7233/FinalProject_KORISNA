@@ -94,15 +94,7 @@
 						<div class="col-xl-6 col-lg-6 col-md-6">
 							<div class="single-specialist-doctor-wrap page-mar-30">
 								<div class="specialist-doctor-image" id="pictureHere">
-									<c:if
-										test="${sessionScope.loginUser.F_USERPICTURE == 'basicphoto'}">
-										<i class="fas fa-user-circle pt-5" style="font-size: 9rem;"></i>
-									</c:if>
-									<c:if
-										test="${sessionScope.loginUser.F_USERPICTURE != 'basicphoto'}">
-										<img class="h-100"
-											src="<%=request.getContextPath()%>/resources/upload/${sessionScope.loginUser.F_USERPICTURE}" />
-									</c:if>
+									<img class="h-100" src="<%=request.getContextPath()%>/resources/upload/${sessionScope.loginUser.F_USERPICTURE}" />
 								</div>
 								<label for="userPicture" class="btn btn-warning btn-file">프로필사진
 									변경 <input type="file" name="file" id="userPicture"
@@ -452,7 +444,7 @@
 							//기본이미지 넣기
 							$('#pictureHere')
 									.html(
-											'<i class="fas fa-user-circle pt-5" style="font-size:9rem;"  ></i>');
+											'<img class="h-100" src="<%=request.getContextPath()%>/resources/upload/basicphoto.png"/>');
 							//유저가 기본이미지로 정했다는 값 서블릿으로 넘겨주기
 							$('#basicInput').val("default-image");
 

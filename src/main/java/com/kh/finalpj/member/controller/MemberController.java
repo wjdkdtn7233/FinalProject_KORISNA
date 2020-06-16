@@ -338,7 +338,7 @@ public class MemberController {
 			
 		}//기본이미지로 선택했다면
 		else if(profileType.equals("basicphoto")) {
-			commandMap.put("f_userpicture", "basicphoto");
+			commandMap.put("f_userpicture", "basicphoto.png");
 			result = memberService.updateUserInfo(commandMap);
 		//프로필사진은 건들지않고 그대로 한다면	
 		}else if(!profileType.equals("userphoto")){
