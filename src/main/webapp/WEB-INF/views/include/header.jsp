@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-xl-2 col-lg-2 col-md-4">
                     <div class="header-logo">
-                        <a href="index.html">
+                        <a href="<%= request.getContextPath() %>/index/index.do">
                             <img src="<%= request.getContextPath() %>/resources/assets/img/logo.png" alt="">
                         </a>
                     </div>
@@ -16,10 +16,10 @@
                     <div class="main-menu">
                         <nav id="mobile-menu">
                             <ul>
-                                <li class="active"><a href="index.html">Home</a></li>
+                                <li class="active"><a href="<%= request.getContextPath() %>/index/index.do">Home</a></li>
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="<%= request.getContextPath() %>/board/board.do">NEWS</a> </li>
-                                <li><a href="prevention.html">Prevention</a>
+                                <li><a href="<%= request.getContextPath() %>/board2/board2.do">병원정보</a>
                                 </li>
                                 <li><a href="team.html">Pages</a>
                                     <ul>

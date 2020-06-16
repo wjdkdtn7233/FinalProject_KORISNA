@@ -46,7 +46,7 @@
 						<div class="breadcrumb-content">
 							<h2 class="breadcrumb-main-title">뉴스&이슈</h2>
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="<%= request.getContextPath() %>/index/index.do">Home</a></li>
 								<li>-국가·지역별 최신안전소식</li>
 							</ul>
 						</div>
@@ -284,12 +284,12 @@
 			<div class="cta-virus-shape cta-virus-shape-1">
 				<img
 					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+					alt="mini-white-shape">
 			</div>
 			<div class="cta-virus-shape cta-virus-shape-2">
 				<img
 					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+					alt="mini-white-shape">
 			</div>
 			<div class="container">
 				<div class="row d-flex align-items-center">
@@ -301,7 +301,7 @@
 					</div>
 					<div class="col-xl-3 col-lg-3 col-md-12">
 						<div class="cta-main-button">
-							<a href="prevention.html" class="cta-button btn">병원찾기 <i
+							<a href="<%= request.getContextPath() %>/board2/board2.do" class="cta-button btn">병원찾기 <i
 								class="icofont-arrow-right"></i></a>
 						</div>
 					</div>

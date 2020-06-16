@@ -2,6 +2,9 @@ package com.kh.finalpj.board2.model.service;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +19,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.kh.finalpj.board2.common.OpenApi2;
+import com.kh.finalpj.board2.model.dao.Board2Dao;
 import com.kh.finalpj.board2.model.vo.Board2;
 
 @Service
@@ -24,22 +28,27 @@ public class Board2ServiceImple implements Board2Service{
 	@Autowired
 	private OpenApi2 oa;
 	
+	@Autowired
+	private Board2Dao bd2Dao;
+	
 	@Override 
-	public List<Map<String, Object>> openApi(){
-		
+	public void openApi(){
+			
+				
 		 List<Map<String, Object>> listResult = new ArrayList<Map<String, Object>>();
-
+		 
 		//ArrayList<JSONObject> arrayJson = new ArrayList<JSONObject>();
 		String sb;
 		try {
 			sb = oa.openApi(0,1);
 			JsonParser jp = new JsonParser();
 			JsonElement je = jp.parse(sb);
+			System.out.println(je);
 			JsonElement pp = je.getAsJsonObject().get("response");
 			JsonElement ss = pp.getAsJsonObject().get("body");
 			JsonElement ee = ss.getAsJsonObject().get("items");
 			JsonElement qq = ee.getAsJsonObject().get("item");
-			
+		
 			//String addr = qq.getAsJsonObject().get("addr").getAsString();
 //			item부터 JsonArray형태니까 for 조건을 totalCnt이 i보다 클 때 까지 for문 돌려서			
 //			item Array 인덱스로 꺼낼 수 있고, 
@@ -54,71 +63,54 @@ public class Board2ServiceImple implements Board2Service{
             // String id = gg.getAsJsonObject().get("id").getAsString();
             // String title = gg.getAsJsonObject().get("title").getAsString();
             // String wrtDt = gg.getAsJsonObject().get("wrtDt").getAsString();
-						
-			
+					
 			JsonArray ja = qq.getAsJsonArray();
+					
+			int totalCnt = ss.getAsJsonObject().get("totalCount").getAsInt();
 			
 			
 			
-			//int totalCnt = ss.getAsJsonObject().get("totalCnt").getAsInt();
-			for(int i=0; i< ja.size(); i++) {
+			for(int i=0; i < totalCnt+1; i++) {
+				
+				Board2 bd2 = new Board2();
 			
-				//Map<String,Object> res = new HashMap<String, Object>();
 				sb = oa.openApi(1,i);
 							
-				System.out.println(i+"번째"+sb);
+				
+				//System.out.println(i+"번째"+sb);
 				
 				String yadmNm = ja.get(i).getAsJsonObject().get("yadmNm").getAsString();
-				System.out.println(yadmNm);
-				String clCdNm = ja.get(i).getAsJsonObject().get("clCdNm").getAsString();
-				System.out.println(clCdNm);
+				//System.out.println(yadmNm);
 				String sidoCdNm = ja.get(i).getAsJsonObject().get("sidoCdNm").getAsString();
-				System.out.println(sidoCdNm);
+				//System.out.println(sidoCdNm);
 				String sgguCdNm = ja.get(i).getAsJsonObject().get("sgguCdNm").getAsString();
-				System.out.println(sgguCdNm);
+				//System.out.println(sgguCdNm);
 				String addr = ja.get(i).getAsJsonObject().get("addr").getAsString();
-				System.out.println(addr);
+				//System.out.println(addr);
 				String telno = ja.get(i).getAsJsonObject().get("telno").getAsString();
-				System.out.println(telno);
+				//System.out.println(telno);
 				String XPos = ja.get(i).getAsJsonObject().get("XPos").getAsString();
-				System.out.println(XPos);
+				//System.out.println(XPos);
 				String YPos = ja.get(i).getAsJsonObject().get("YPos").getAsString();
-				System.out.println(YPos);
+				//System.out.println(YPos);
 				
-//				res.put("yadmNm", yadmNm);
-//				res.put("clCdNm", clCdNm);
-//				res.put("sidoCdNm",sidoCdNm );
-//				res.put("sgguCdNm", sgguCdNm);
-//				//res.put("emdongNm", emdongNm);
-//				res.put("addr", addr);
-//				res.put("telno", telno);
-//				res.put("XPos", XPos);
-//				res.put("YPos", YPos);
-
+				bd2.setB2_yadmNm(yadmNm);
+				bd2.setB2_sidocdNm(sidoCdNm);
+				bd2.setB2_sggucdNm(sgguCdNm);
+				bd2.setB2_addr(addr);
+				bd2.setB2_telno(telno);
+				bd2.setB2_XPos(XPos);
+				bd2.setB2_YPos(YPos);
 				
-				
-				
-				
-				
-				
-				
-				//listResult.add();
-				
-				//System.out.println("ja " + ja.get(i));
-					
+				bd2Dao.openApi(bd2);
 			}
 				
-			//System.out.println("addr" + addr);
-			
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-		return listResult;
-		
+	
 		
 	}
 	
