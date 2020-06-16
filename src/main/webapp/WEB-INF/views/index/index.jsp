@@ -103,6 +103,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="shop.html">Shop</a></li>
+                                <li><a href="<%=request.getContextPath() %>/map/map.do">마스크맵</a></li>
                                 <c:if test="${sessionScope.loginUser != null }">
                                 <li><a href="<%= request.getContextPath() %>/member/infomodify.do">마이페이지</a>
                                     <ul>
