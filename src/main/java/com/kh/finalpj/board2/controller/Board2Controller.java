@@ -21,9 +21,9 @@ public class Board2Controller {
    public ModelAndView openApi() {
       ModelAndView mav = new ModelAndView();
 
-      List<Map<String, Object>> res = bs.openApi();
+      bs.openApi();
       
-      mav.addObject("data",res);
+      mav.addObject("data");
       mav.setViewName("board2/board2test");
    
       return mav;
