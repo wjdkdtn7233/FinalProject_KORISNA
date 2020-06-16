@@ -67,8 +67,6 @@
 		<!-- Breadcrumb Area End -->
 
 		<!-- Blog Area Start -->
-
-
 		<div class="blog-page-wrapper section-padding">
 			<div class="container">
 				<div class="row">

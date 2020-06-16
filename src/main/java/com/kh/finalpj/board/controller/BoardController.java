@@ -53,16 +53,16 @@ public class BoardController {
 	public ModelAndView boardDetail(String id) {
 		ModelAndView mav = new ModelAndView();
 
-		List<Map<String, Object>> res = bs.openApi();
-
-		if (res.get() != null) {
-			mav.addObject("data", res);
-			mav.setViewName("board/boarddetail");
-		} else {
-			mav.addObject("alertMsg", "존재하지 않는 게시물입니다.");
-			mav.addObject("back", "back");
-			mav.setViewName("common/result");
-		}
+//		List<Map<String, Object>> res = bs.openApi();
+//
+//		if (res.get() != null) {
+//			mav.addObject("data", res);
+//			mav.setViewName("board/boarddetail");
+//		} else {
+//			mav.addObject("alertMsg", "존재하지 않는 게시물입니다.");
+//			mav.addObject("back", "back");
+//			mav.setViewName("common/result");
+//		}
 
 		return mav;
 	}
