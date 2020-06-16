@@ -122,6 +122,14 @@ public class Board2ServiceImple implements Board2Service{
 
 	      return jsonElement;
 	   }
+
+
+	@Override
+	public List<Board2> boardList() {
+		
+		System.out.println("서비스");
+		return bd2Dao.boardList();
+	}
 	
 	
 }

@@ -9,4 +9,5 @@ public interface Board2Service {
 
 	public void openApi();
 
+	public List<Board2> boardList();
 }

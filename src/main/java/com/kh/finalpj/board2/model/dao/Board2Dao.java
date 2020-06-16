@@ -21,6 +21,13 @@ public class Board2Dao {
 		sqlSession.insert("Board2.board2", bd2);
 				
 	}
+
+
+	public List<Board2> boardList() {
+		
+		System.out.println("다오");
+		return sqlSession.selectList("Board2.selectboard");
+	}
 	
 		
 	

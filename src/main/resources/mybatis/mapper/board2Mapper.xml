@@ -12,6 +12,12 @@
 		#{B2_yadmNm},#{B2_sidocdNm},#{B2_sggucdNm},#{B2_addr},#{B2_telno},#{B2_XPos},#{B2_YPos})
 </insert>
 
+<select id="selectboard" resultType="Board2">
+
+	select * from TB_BOARD2
+
+</select>
+
 </mapper>
 
 
