@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html class="no-js" lang="en">
 <!-- HAED -->
@@ -13,30 +13,21 @@
 	<!-- Preloader -->
 	<%@ include file="../include/preloader.jsp"%>
 
-	<!-- Header -->
-	<%@ include file="../include/header.jsp"%>
+
 	<main>
 		<!-- Breadcrumb Area Start -->
 		<section class="breadcrumb-wrapper purple-bg">
 			<div class="breadcrumb-virus-shape breadcrumb-shape-1">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+				<img src="<%= request.getContextPath() %>/resources/assets/img/mini-white-shape.png" alt="">
 			</div>
 			<div class="breadcrumb-virus-shape breadcrumb-shape-2">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+				<img src="<%= request.getContextPath() %>/resources/assets/img/mini-white-shape.png" alt="">
 			</div>
 			<div class="breadcrumb-virus-shape breadcrumb-shape-3">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+				<img src="<%= request.getContextPath() %>/resources/assets/img/mini-white-shape.png" alt="">
 			</div>
 			<div class="breadcrumb-virus-shape breadcrumb-shape-4">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
+				<img src="<%= request.getContextPath() %>/resources/assets/img/mini-white-shape.png" alt="">
 			</div>
 			<div class="container">
 				<div class="row justify-content-center text-center h-50">
@@ -57,19 +48,13 @@
 		<!-- Contact Form Area Start -->
 		<div class="contact-form-wrapper section-padding">
 			<div class="contact-virus-shape contact-virus-shape-1">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-					alt="">
+				<img src="<%= request.getContextPath() %>/resources/assets/img/grey-virus-shape.png" alt="">
 			</div>
 			<div class="contact-virus-shape specialist-virus-shape-2">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-					alt="">
+				<img src="<%= request.getContextPath() %>/resources/assets/img/grey-virus-shape.png" alt="">
 			</div>
 			<div class="contact-virus-shape contact-virus-shape-3">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-					alt="">
+				<img src="<%= request.getContextPath() %>/resources/assets/img/grey-virus-shape.png" alt="">
 			</div>
 			<div class="container">
 				<div class="row justify-content-center">
@@ -86,12 +71,10 @@
 				</div>
 				<div class="contact-form-inner">
 					<div class="row justify-content-center">
-						<form
-							action="<%=request.getContextPath()%>/member/loginCheck.do"
-							method="post" id="frm">
-							<input type="hidden" id="f_email" name="f_email"> <input
-								type="hidden" id="f_password" name="f_password">
-						</form>
+					<form action="<%= request.getContextPath() %>/member/loginCheck.do" method="post" id="frm">
+						<input type="hidden" id="f_email" name="f_email">
+						<input type="hidden" id="f_password" name="f_password">
+					</form>
 						<div class="col-xl-10 col-lg-10 col-md-10 pb-3">
 							<input type="text" id="email" placeholder="Email*">
 						</div>
@@ -110,8 +93,7 @@
 						</div>
 
 						<div class="col-xl-9 col-lg-9 col-md-9 pt-5 text-center">
-							<a href="<%=request.getContextPath()%>/member/memberjoin.do"><h5
-									class="section-single-subtitle">회원가입이 필요하시다면?</h5></a>
+							<a href="<%= request.getContextPath() %>/member/memberjoin.do"><h5 class="section-single-subtitle">회원가입이 필요하시다면?</h5></a>
 						</div>
 						<div class="col-xl-9 col-lg-9 col-md-9 pt-5 text-center">
 							<div class="single-right-small-blog blog-contact-us">
@@ -119,12 +101,8 @@
 									or password..?</h3>
 								<div class="blog-post-tags d-flex justify-content-center">
 									<ul>
-										<li><a
-											href="<%=request.getContextPath()%>/member/findemail.do"
-											class="px-3">이메일 찾기</a></li>
-										<li><a
-											href="<%=request.getContextPath()%>/member/findpassword.do"
-											class="px-3">비밀번호 찾기</a></li>
+										<li><a href="<%= request.getContextPath() %>/member/findemail.do" class="px-3">이메일 찾기</a></li>
+										<li><a href="<%= request.getContextPath() %>/member/findpassword.do" class="px-3">비밀번호 찾기</a></li>
 									</ul>
 								</div>
 							</div>
@@ -198,17 +176,34 @@
 
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
+
+	
+	<script>
+	
+		function loginCheck(){
+			
+			$('#f_email').val($('#email').val());
+			$('#f_password').val($('#password').val());
+			$('#frm').submit();
+			
+		}
+		
+		
+		
+		
+	</script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script>
-		// SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
-		Kakao.init('0c9edf466f7bbe30526c019836615624');
+        // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('0c9edf466f7bbe30526c019836615624');
 
-		// SDK 초기화 여부를 판단합니다.
-		console.log(Kakao.isInitialized());
+        // SDK 초기화 여부를 판단합니다.
+        console.log(Kakao.isInitialized());
+        
+        function kakaoLogin(){
+        	
 
-		function kakaoLogin() {
-
-			Kakao.Auth.login({
+        	Kakao.Auth.login({
 				success : function(v) {
 					/* alert("데이터 획득 성공"); */
 					Kakao.API.request({
@@ -222,7 +217,7 @@
 							//kakao_account.profile.profile_image_url : 프로필 이미지
 							//kakao_account.email : 사용자 이메일
 							//connected_at : 로그인 시간
-
+							
 							console.log(res.id);
 
 						},
@@ -237,7 +232,11 @@
 				}
 			});
 
-		}
-	</script>
+              
+
+        }
+        
+        
+    </script>
 </body>
 </html>

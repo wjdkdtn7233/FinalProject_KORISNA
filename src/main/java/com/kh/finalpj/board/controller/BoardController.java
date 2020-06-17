@@ -6,6 +6,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.finalpj.board.model.service.BoardService;
@@ -23,7 +25,7 @@ public class BoardController {
 
 		return mav;
 	}
-	
+
 	@RequestMapping("/board.do")
 	public ModelAndView openApi() {
 		ModelAndView mav = new ModelAndView();
@@ -35,11 +37,46 @@ public class BoardController {
 
 		return mav;
 	}
+	
+	@RequestMapping("/boardlist.do")
+	public ModelAndView boardList(@RequestParam Map<String, Object> commandMap) {
+		ModelAndView mav = new ModelAndView();
 
-	@RequestMapping("/board/boarddetail.do")
-	public String boardDetail() {
+		int currentPage = 1;
+		int cntPerPage = 10;
 		
-		return "board/boarddetail";
+		if (commandMap.get("cPage") != null) {
+			currentPage = Integer.parseInt((String) commandMap.get("cPage"));
+		}
+
+		if (commandMap.get("cntPerPage") != null) {
+			cntPerPage = Integer.parseInt((String) commandMap.get("cPage"));
+		}
+		Map<String, Object> res = bs.boardList(currentPage, cntPerPage);
+		mav.addObject("data", res);
+		mav.setViewName("board/boardList");
+		
+		return mav;
 	}
+
+	@RequestMapping("/boarddetail.do")
+	public ModelAndView boardDetail(String id) {
+		ModelAndView mav = new ModelAndView();
+
+//		List<Map<String, Object>> res = bs.openApi();
+//
+//		if (res.get() != null) {
+//			mav.addObject("data", res);
+//			mav.setViewName("board/boarddetail");
+//		} else {
+//			mav.addObject("alertMsg", "존재하지 않는 게시물입니다.");
+//			mav.addObject("back", "back");
+//			mav.setViewName("common/result");
+//		}
+
+		return mav;
+	}
+
+
 
 }

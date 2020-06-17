@@ -29,11 +29,14 @@
                                     </ul>
                                 </li> -->
                                 <li><a href="shop.html">Shop</a></li>
+                                </li>
+                                <li><a href="<%= request.getContextPath() %>/product/productlist.do">쇼핑</a></li>
                                 <c:if test="${sessionScope.loginUser != null }">
                                 <li><a href="<%= request.getContextPath() %>/member/infomodify.do">마이페이지</a>
                                     <ul>
                                         <li><a href="<%= request.getContextPath() %>/member/infomodify.do">내 정보 및 수정</a></li>
                                         <li><a href="<%= request.getContextPath() %>/member/leavemember.do">회원 탈퇴</a></li>
+                                        <li><a href="<%= request.getContextPath() %>/cart/cartlist.do">장바구니</a></li>
                                         <li><a href="error-page.html">주문 목록</a></li>
                                     </ul>
                                 </li>

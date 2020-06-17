@@ -13,8 +13,6 @@
 	<!-- Preloader -->
 	<%@ include file="../include/preloader.jsp"%>
 
-	<!-- Header -->
-	<%@ include file="../include/header.jsp"%>
 	<main>
 		<!-- Breadcrumb Area Start -->
 		<section class="breadcrumb-wrapper purple-bg">
@@ -133,6 +131,16 @@
 							</div>
 							<div class="col-xl-9 col-lg-9 col-md-9">
 								<input type="text" id="f_name" name="f_name" placeholder="Name*">
+							</div>
+							<div class="col-xl-3 col-lg-3 col-md-3"></div>
+							<div
+								class="col-xl-12 col-lg-12 col-md-12 align-items-center pt-3 pb-3">
+								<div class="col">
+									<h5 class="section-single-subtitle">닉네임</h5>
+								</div>
+							</div>
+							<div class="col-xl-9 col-lg-9 col-md-9">
+								<input type="text" id="f_nick" name="f_nick" placeholder="NickName*">
 							</div>
 							<div class="col-xl-3 col-lg-3 col-md-3"></div>
 							<div
@@ -471,6 +479,7 @@
 			var phone = $('#f_phone');
 			var postCode = $('#sample4_postcode');
 			var detailAddress = $('#sample4_detailAddress');
+			var nick = $('#f_nick');
 			//생년월일 정규 표현식
 			var regExpBirth = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))$/;
 			//휴대폰번호 숫자만 가능한 표현식
@@ -487,6 +496,10 @@
 			}
 			if (!name.val()) {
 				alert('성함을 입력해주세요.');
+				return false;
+			}
+			if(!nick.val()){
+				alert('닉네임을 입력해주세요.');
 				return false;
 			}
 			if (!birth.val()) {

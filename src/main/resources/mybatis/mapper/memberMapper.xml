@@ -25,11 +25,11 @@
 	</select>
 	
 	<insert id="insertMember" parameterType="Map">
-		insert into tb_member values(#{f_email},#{f_password},#{f_name},#{f_birth},#{f_phone},#{f_postcode},#{f_roadaddress},#{f_jibernaddress},#{f_detailaddress},#{f_otheraddress},'basicphoto','N')
+		insert into tb_member values(#{f_email},#{f_password},#{f_name},#{f_birth},#{f_phone},#{f_postcode},#{f_roadaddress},#{f_jibernaddress},#{f_detailaddress},#{f_otheraddress},'basicphoto.png','N',#{f_nick})
 	</insert>
 	
 	<select id="selectLoginMember" parameterType="Map" resultType="HashMap">
-		select f_email,f_password,f_name,f_birth,f_phone,f_postcode,f_roadaddress,f_jibernaddress,f_detailaddress,f_otheraddress,f_userpicture,f_leaveyn from tb_member where f_email = #{f_email} and f_password = #{f_password} and f_leaveyn = 'N'
+		select f_email,f_password,f_name,f_birth,f_phone,f_postcode,f_roadaddress,f_jibernaddress,f_detailaddress,f_otheraddress,f_userpicture,f_leaveyn,f_nick from tb_member where f_email = #{f_email} and f_password = #{f_password} and f_leaveyn = 'N'
 	</select>
 	
 	
@@ -55,7 +55,7 @@
 	</select>
 	
 	<update id="updateUserInfo" parameterType="Map">
-		update tb_member set f_password = #{f_password}, f_phone = #{f_phone}, f_postcode = #{f_postcode}, f_roadaddress = #{f_roadaddress}, f_jibernaddress = #{f_jibernaddress}, f_detailaddress = #{f_detailaddress}, f_otheraddress = #{f_otheraddress} , f_userpicture = #{f_userpicture} where f_email = #{f_email}
+		update tb_member set f_password = #{f_password}, f_nick = #{f_nick}, f_phone = #{f_phone}, f_postcode = #{f_postcode}, f_roadaddress = #{f_roadaddress}, f_jibernaddress = #{f_jibernaddress}, f_detailaddress = #{f_detailaddress}, f_otheraddress = #{f_otheraddress} , f_userpicture = #{f_userpicture} where f_email = #{f_email}
 	</update>
 </mapper>
 

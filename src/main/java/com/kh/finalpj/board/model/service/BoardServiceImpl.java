@@ -17,6 +17,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.kh.finalpj.board.common.OpenApi;
 
+import common.util.Paging;
+
 @Service
 public class BoardServiceImpl implements BoardService {
 
@@ -54,22 +56,22 @@ public class BoardServiceImpl implements BoardService {
 				for (int i = 0; i < ja.size(); i++) {
 					Map<String, Object> res = new HashMap<String, Object>();
 
-					System.out.println(i + "번째" + data);
+					//System.out.println(i + "번째" + data);
 					
-					System.out.println("ja.get(i)" + ja.get(i).getAsJsonObject().get("countryEnName"));
+					//System.out.println("ja.get(i)" + ja.get(i).getAsJsonObject().get("countryEnName"));
 
 					String content = ja.get(i).getAsJsonObject().get("content").getAsString();
-					System.out.println(content);
+					//System.out.println(content);
 					String countryEnName = ja.get(i).getAsJsonObject().get("countryEnName").getAsString();
-					System.out.println(countryEnName);
+					//System.out.println(countryEnName);
 					String countryName = ja.get(i).getAsJsonObject().get("countryName").getAsString();
-					System.out.println(countryName);
+					//System.out.println(countryName);
 					String id = ja.get(i).getAsJsonObject().get("id").getAsString();
-					System.out.println(id);
+					//System.out.println(id);
 					String title = ja.get(i).getAsJsonObject().get("title").getAsString();
-					System.out.println(title);
+					//System.out.println(title);
 					String wrtDt = ja.get(i).getAsJsonObject().get("wrtDt").getAsString();
-					System.out.println(wrtDt);
+					//System.out.println(wrtDt);
 					// vo로 변경
 					res.put("content", content);
 					res.put("countryEnName", countryEnName);
@@ -99,6 +101,31 @@ public class BoardServiceImpl implements BoardService {
 		JsonElement jsonElement = jsonParser.parse(str);
 
 		return jsonElement;
+	}
+
+	@Override
+	public Map<String, Object> boardList(int currentPage, int cntPerPage) {
+		
+		Map<String, Object> res = new HashMap<String, Object>();
+		String data = "";
+		
+		try {
+			data = oa.openApi(1, 0);
+			JsonElement maxDatas = parseToJson(data);
+			JsonElement response = maxDatas.getAsJsonObject().get("response");
+			JsonElement body = response.getAsJsonObject().get("body");
+			int maxValue = body.getAsJsonObject().get("totalCount").getAsInt();
+			
+			Paging page = new Paging(maxValue, currentPage, cntPerPage);
+			
+			res.put("paging", page);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return res;
 	}
 
 }

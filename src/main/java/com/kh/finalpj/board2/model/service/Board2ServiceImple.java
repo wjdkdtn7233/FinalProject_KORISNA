@@ -70,7 +70,7 @@ public class Board2ServiceImple implements Board2Service{
 			
 			
 			
-			for(int i=0; i < totalCnt+1; i++) {
+			for(int i=0; i < totalCnt; i++) {
 				
 				Board2 bd2 = new Board2();
 			
@@ -104,10 +104,11 @@ public class Board2ServiceImple implements Board2Service{
 				
 				bd2Dao.openApi(bd2);
 			}
-				
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
+		}catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
 	
@@ -122,6 +123,14 @@ public class Board2ServiceImple implements Board2Service{
 
 	      return jsonElement;
 	   }
+
+
+	@Override
+	public List<Board2> boardList2() {
+		
+		System.out.println("서비스");
+		return bd2Dao.boardList2();
+	}
 	
 	
 }

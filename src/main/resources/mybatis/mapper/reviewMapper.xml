@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Review">
+	
+<!--
+R_NO
+F_EMAIL
+P_NO
+R_CONTENT
+R_REGDATE
+R_STARSCORE
+R_LIKE
+R_HATE
+R_USERPICTURE
+  -->
+
+	<select id="selectReviewList" resultType="HashMap">
+		select R_NO,F_EMAIL,P_NO,R_CONTENT,R_REGDATE,R_STARSCORE,R_LIKE,R_HATE,F_USERPICTURE,F_NICK from tb_review inner join tb_member using(f_email) where p_no = #{p_no} order by R_REGDATE
+	</select>
+
+	<insert id="insertReview" parameterType="Map">
+		insert into tb_review values(r_no_seq.nextval,#{f_email},${p_no},#{r_content},sysdate,${r_starscore},0,0)
+	</insert>
+	
+	<select id="selectReviewCnt" resultType="_int">
+		select count(*) from tb_review where p_no = #{p_no}
+	</select>
+	
+	<select id="selectAvgStarScore" resultType="_double" parameterType="Map">
+		select trunc(avg(r_starscore),1) from tb_review where p_no = #{p_no}
+	</select>
+	
+	<update id="updateProductStarScore" parameterType="Map">
+		update tb_product set p_starscore = #{p_starscore} where p_no = #{p_no}
+	</update>
+	
+	<select id="selectLikeAndHateCnt" resultType="HashMap" parameterType="Map">
+		select R_LIKE,R_HATE from tb_review where r_no = #{r_no}
+	</select>
+	
+	<update id="updateLikeOrHateCnt" parameterType="Map">
+		update tb_review set 
+		<choose>
+			<when test="e_type == 'like'">
+				r_like = #{r_like}
+			</when>
+			<when test="e_type == 'hate'">
+				r_hate = #{r_hate}
+			</when>
+		</choose>
+		where r_no = #{r_no}
+	</update>
+	
+</mapper>
+
+

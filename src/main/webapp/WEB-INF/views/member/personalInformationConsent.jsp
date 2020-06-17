@@ -116,18 +116,16 @@
 						<form action="<%=request.getContextPath()%>/member/sendemail.do"
 							method="post" id="frm">
 							<input type="hidden" name="f_email" value="${member.f_email}" />
-							<input type="hidden" name="f_password"
-								value="${member.f_password}" /> <input type="hidden"
-								name="f_name" value="${member.f_name}" /> <input type="hidden"
-								name="f_birth" value="${member.f_birth}" /> <input type="hidden"
-								name="f_phone" value="${member.f_phone}" /> <input type="hidden"
-								name="f_postcode" value="${member.f_postcode}" /> <input
-								type="hidden" name="f_roadaddress"
-								value="${member.f_roadaddress}" /> <input type="hidden"
-								name="f_jibernaddress" value="${member.f_jibernaddress}" /> <input
-								type="hidden" name="f_detailaddress"
-								value="${member.f_detailaddress}" /> <input type="hidden"
-								name="f_otheraddress" value="${member.f_otheraddress}" />
+							<input type="hidden" name="f_password" value="${member.f_password}" /> 
+							<input type="hidden" name="f_name" value="${member.f_name}" /> 
+							<input type="hidden" name="f_nick" value="${member.f_nick}"/>
+							<input type="hidden" name="f_birth" value="${member.f_birth}" /> 
+							<input type="hidden" name="f_phone" value="${member.f_phone}" /> 
+							<input type="hidden" name="f_postcode" value="${member.f_postcode}" /> 
+							<input type="hidden" name="f_roadaddress" value="${member.f_roadaddress}" /> 
+							<input type="hidden" name="f_jibernaddress" value="${member.f_jibernaddress}" /> 
+							<input type="hidden" name="f_detailaddress" value="${member.f_detailaddress}" /> 
+							<input type="hidden" name="f_otheraddress" value="${member.f_otheraddress}" />
 							<div class="row">
 								<div class="col-xl-12 col-lg-12 col-md-10 text-left">
 									<div class="single-protective-measure-item-2 page-mar-30">
@@ -259,9 +257,7 @@
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
 	<script>
-		document.getElementById('allPass').addEventListener(
-				'click',
-				function() {
+		document.getElementById('allPass').addEventListener('click',function() {
 					if (!($('#jb-checkbox1').is(':checked'))
 							|| !($('#jb-checkbox2').is(':checked'))) {
 						$('#jb-checkbox1').prop('checked', true);

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Product">
+	
+<!-- 
+P_NO
+P_NAME
+P_CONTENT
+P_PRICE
+P_IMAGE
+P_JOINDATE
+P_CNT
+P_ADDINFO 
+P_STARSCORE
+-->
+
+	<select id="selectProductList" resultType="HashMap">
+		select p_no,p_name,p_content,p_price,p_image,p_joindate,p_cnt,p_addinfo,p_starscore from tb_product
+	</select>
+	
+	<select id="selectProductSortList" resultType="HashMap">
+		select * from tb_product order by #{orderby} desc
+	</select>
+	
+	<select id="selectProductDetail" resultType="HashMap">
+		select p_no,p_name,p_content,p_price,p_image,p_joindate,p_cnt,p_addinfo,p_starscore from tb_product where p_no = #{p_no}
+	</select>
+</mapper>
+
+

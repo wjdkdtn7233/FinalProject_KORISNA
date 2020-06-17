@@ -108,18 +108,16 @@
 							action="<%=request.getContextPath()%>/member/joincomplete.do"
 							method="post" id="frm">
 							<input type="hidden" name="f_email" value="${member.f_email}" />
-							<input type="hidden" name="f_password"
-								value="${member.f_password}" /> <input type="hidden"
-								name="f_name" value="${member.f_name}" /> <input type="hidden"
-								name="f_birth" value="${member.f_birth}" /> <input type="hidden"
-								name="f_phone" value="${member.f_phone}" /> <input type="hidden"
-								name="f_postcode" value="${member.f_postcode}" /> <input
-								type="hidden" name="f_roadaddress"
-								value="${member.f_roadaddress}" /> <input type="hidden"
-								name="f_jibernaddress" value="${member.f_jibernaddress}" /> <input
-								type="hidden" name="f_detailaddress"
-								value="${member.f_detailaddress}" /> <input type="hidden"
-								name="f_otheraddress" value="${member.f_otheraddress}" />
+							<input type="hidden" name="f_password" value="${member.f_password}" /> 
+							<input type="hidden" name="f_name" value="${member.f_name}" />
+							<input type="hidden" name="f_nick" value="${member.f_nick}"/> 
+							<input type="hidden" name="f_birth" value="${member.f_birth}" /> 
+							<input type="hidden" name="f_phone" value="${member.f_phone}" /> 
+							<input type="hidden" name="f_postcode" value="${member.f_postcode}" /> 
+							<input type="hidden" name="f_roadaddress" value="${member.f_roadaddress}" /> 
+							<input type="hidden" name="f_jibernaddress" value="${member.f_jibernaddress}" /> 
+							<input type="hidden" name="f_detailaddress" value="${member.f_detailaddress}" /> 
+							<input type="hidden" name="f_otheraddress" value="${member.f_otheraddress}" />
 						</form>
 						<div class="col-xl-12 col-lg-12 col-md-12 text-center">
 							<div class="blog-contact-us-wrap">
@@ -227,25 +225,21 @@
 			
 			$.ajax({
 				
-				url:"<%=request.getContextPath()%>
-		/member/emailauthentication.do",
-										type : "post",
-										data : {
-											f_email : '${member.f_email}'
-										},
+				url:"<%=request.getContextPath()%>/member/emailauthentication.do",
+				type : "post",
+				data : {f_email : '${member.f_email}'},
 
-										success : function(data) {
-											console.log(data);
-											emailNumber = data;
+				success : function(data) {
+					console.log(data);
+					emailNumber = data;
 
-										},
-										error : function(data) {
+				},error : function(data) {
 
-										}
+				}
 
-									});
+					});
 
-						});
+				});
 
 		function joinComplete() {
 			console.log($('#number').val());

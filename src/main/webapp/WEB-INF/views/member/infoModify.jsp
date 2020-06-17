@@ -16,7 +16,6 @@
 	<!-- Header -->
 	<%@ include file="../include/header.jsp"%>
 
-
 	<main>
 		<!-- Breadcrumb Area Start -->
 		<section class="breadcrumb-wrapper purple-bg">
@@ -94,28 +93,17 @@
 						<div class="col-xl-6 col-lg-6 col-md-6">
 							<div class="single-specialist-doctor-wrap page-mar-30">
 								<div class="specialist-doctor-image" id="pictureHere">
-									<c:if
-										test="${sessionScope.loginUser.F_USERPICTURE == 'basicphoto'}">
-										<i class="fas fa-user-circle pt-5" style="font-size: 9rem;"></i>
-									</c:if>
-									<c:if
-										test="${sessionScope.loginUser.F_USERPICTURE != 'basicphoto'}">
-										<img class="h-100"
-											src="<%=request.getContextPath()%>/resources/upload/${sessionScope.loginUser.F_USERPICTURE}" />
-									</c:if>
+									<img class="h-100" src="<%=request.getContextPath()%>/resources/upload/${sessionScope.loginUser.F_USERPICTURE}" />
 								</div>
 								<label for="userPicture" class="btn btn-warning btn-file">프로필사진
-									변경 <input type="file" name="file" id="userPicture"
-									accept="image/jpg,image/jpeg,image/png,image/gif,image/bmp"
-									style="display: none;" />
+									변경 <input type="file" name="file" id="userPicture" accept="image/jpg,image/jpeg,image/png,image/gif,image/bmp" style="display: none;" />
 								</label>
 								<button class="btn btn-warning" type="button" id="basicPicture">기본이미지로
 									변경</button>
 								<input type="hidden" name="basicPicture" id="basicInput" />
 								<div class="specialist-doctor-info">
 
-									<h4 class="doctor-name">[ ${sessionScope.loginUser.F_NAME}
-										] 님</h4>
+									<h4 class="doctor-name">[ ${sessionScope.loginUser.F_NAME} ] 님</h4>
 									<h6 class="doctor-desg">환영합니다</h6>
 								</div>
 							</div>
@@ -148,6 +136,12 @@
 												<div class="single-case-item">
 													<h3 class="cases-title">이름</h3>
 													<h2 class="cases-number">${sessionScope.loginUser.F_NAME}</h2>
+												</div>
+												<div class="single-case-item">
+													<p style="color: red;">*닉네임 변경을 원할 시 입력해주세요.</p>
+													<h3 class="cases-title">닉네임</h3>
+													<input type="text"  id="f_nick" name="f_nick" class="w-50"
+														placeholder="NickName* " value="${sessionScope.loginUser.F_NICK}">
 												</div>
 												<div class="single-case-item">
 													<h3 class="cases-title">생년월일</h3>
@@ -439,10 +433,7 @@
 				});
 
 		//기본이미지 변경 버튼 눌렀을떄
-		$('#basicPicture')
-				.on(
-						'click',
-						function() {
+		$('#basicPicture').on('click',function() {
 							//기본이미지 버튼을 누르면 프로필 타입에 basicphoto 라는 값을 넣어서 url로 보내준다.
 							$('#profileType').val("basicphoto");
 							//첨부파일에 있는 파일 리스트 초기화 - 이거 안하면 기본이미지 버튼 눌렀다가 원래박혔던 사진 넣을라해도 안넣어짐 
@@ -450,13 +441,12 @@
 							//이미지가 보여지는 곳에 원래 사진 삭제
 							$('#pictureHere').html("");
 							//기본이미지 넣기
-							$('#pictureHere')
-									.html(
-											'<i class="fas fa-user-circle pt-5" style="font-size:9rem;"  ></i>');
+							$('#pictureHere').html('<img class="h-100" src="<%=request.getContextPath()%>/resources/upload/basicphoto.png"/>');
 							//유저가 기본이미지로 정했다는 값 서블릿으로 넘겨주기
 							$('#basicInput').val("default-image");
 
 						});
+		
 	</script>
 
 	<script>
@@ -480,7 +470,7 @@
 			var phone = $('#f_phone');
 			var postCode = $('#sample4_postcode');
 			var detailAddress = $('#sample4_detailAddress');
-
+			var nickName = $('#f_nick');
 			//휴대폰번호 숫자만 가능한 표현식
 			var regExpPhone = /^[0-9]+$/;
 			//비밀번호 8자리 이상 16자리 미만
@@ -500,6 +490,10 @@
 			}
 			if (!password.val() != !password2.val()) {
 				alert('비밀번호가 일치하지않습니다.');
+				return false;
+			}
+			if(!nickName.val()){
+				alert('닉네임을 입력해주세요.');
 				return false;
 			}
 			if (!phone.val()) {
