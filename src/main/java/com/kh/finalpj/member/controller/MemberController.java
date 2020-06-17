@@ -350,7 +350,9 @@ public class MemberController {
 			//이미지 파일 쌓이는거 방지
 			//기본이미지 또는 프로필사진을 변경했을때  원래 프로필사진을 upload폴더에서 삭제한다.
 			if(profileType.equals("userphoto") || profileType.equals("basicphoto")) {
-				currentProfile.delete();
+				if(!currentPicture.equals("basicphoto.png")) {
+					currentProfile.delete();
+				}
 			}
 			//로그인 세션 갱신
 			session.setAttribute("loginUser", memberService.selectLoginMember(commandMap));

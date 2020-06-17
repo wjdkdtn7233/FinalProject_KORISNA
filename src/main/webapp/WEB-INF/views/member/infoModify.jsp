@@ -96,9 +96,7 @@
 									<img class="h-100" src="<%=request.getContextPath()%>/resources/upload/${sessionScope.loginUser.F_USERPICTURE}" />
 								</div>
 								<label for="userPicture" class="btn btn-warning btn-file">프로필사진
-									변경 <input type="file" name="file" id="userPicture"
-									accept="image/jpg,image/jpeg,image/png,image/gif,image/bmp"
-									style="display: none;" />
+									변경 <input type="file" name="file" id="userPicture" accept="image/jpg,image/jpeg,image/png,image/gif,image/bmp" style="display: none;" />
 								</label>
 								<button class="btn btn-warning" type="button" id="basicPicture">기본이미지로
 									변경</button>
@@ -138,6 +136,12 @@
 												<div class="single-case-item">
 													<h3 class="cases-title">이름</h3>
 													<h2 class="cases-number">${sessionScope.loginUser.F_NAME}</h2>
+												</div>
+												<div class="single-case-item">
+													<p style="color: red;">*닉네임 변경을 원할 시 입력해주세요.</p>
+													<h3 class="cases-title">닉네임</h3>
+													<input type="text"  id="f_nick" name="f_nick" class="w-50"
+														placeholder="NickName* " value="${sessionScope.loginUser.F_NICK}">
 												</div>
 												<div class="single-case-item">
 													<h3 class="cases-title">생년월일</h3>
@@ -466,7 +470,7 @@
 			var phone = $('#f_phone');
 			var postCode = $('#sample4_postcode');
 			var detailAddress = $('#sample4_detailAddress');
-
+			var nickName = $('#f_nick');
 			//휴대폰번호 숫자만 가능한 표현식
 			var regExpPhone = /^[0-9]+$/;
 			//비밀번호 8자리 이상 16자리 미만
@@ -486,6 +490,10 @@
 			}
 			if (!password.val() != !password2.val()) {
 				alert('비밀번호가 일치하지않습니다.');
+				return false;
+			}
+			if(!nickName.val()){
+				alert('닉네임을 입력해주세요.');
 				return false;
 			}
 			if (!phone.val()) {

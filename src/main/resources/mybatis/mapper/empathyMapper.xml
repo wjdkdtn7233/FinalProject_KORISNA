@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Empathy">
+	
+<!--
+E_NO
+F_EMAIL
+R_NO
+  -->
+	<insert id="insertLikeOrHate" parameterType="Map">
+		insert into empathy values(e_no_seq.nextval,#{f_email},${r_no},#{e_type})
+	</insert>
+	
+	<select id="selectEmpathyYN" resultType="_int" parameterType="Map">
+		select count(*) from empathy where r_no = ${r_no} and f_email = #{f_email}
+	</select>
+	
+</mapper>
+
+
