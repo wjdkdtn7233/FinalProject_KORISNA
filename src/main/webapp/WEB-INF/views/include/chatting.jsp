@@ -327,16 +327,38 @@
       
       
     </div>
+    <script src="http://localhost:82/socket.io/socket.io.js"></script>
 <script>
 $(function() {
-  var INDEX = 0; 
+	
+	
+	var socket = io("localhost:82");
+	
+	if("${ !empty sessionScope.loginUser}" && "${loginUser.F_NICK}" !='') {
+		socket.emit("login_member", {id:"${loginUser.F_NICK}"})
+	}
+	
+	 var INDEX = 0; 
   $("#chat-submit").click(function(e) {
     e.preventDefault();
-    var msg = $("#chat-input").val(); 
-    if(msg.trim() == ''){
+    var msg11 = $("#chat-input").val(); 
+    if($('#chat-input').val() == ''){
       return false;
     }
-    generate_message(msg, 'self');
+    var today = new Date();   
+	var hours = today.getHours(); // 시
+	var minutes = today.getMinutes();  // 분
+	  var ampm = hours >= 12 ? 'pm' : 'am';
+	  hours = hours % 12;
+	  hours = hours ? hours : 12; // the hour '0' should be '12'
+	  minutes = minutes < 10 ? '0'+minutes : minutes;
+	  var strTime = ampm + ' '+hours + ' : ' + minutes;
+	// 내가 적은 메시지 전송
+	 generate_message("${loginUser.F_NICK}",msg11,strTime,"self");
+	//소켓 서버에 전송 -> 몽고디비로 메시지 내용 디비 저장
+    socket.emit("send_msg", {id:"${loginUser.F_NICK}",msg:msg11,Time:strTime});
+    
+    
     var buttons = [
         {
           name: 'Existing User',
@@ -347,33 +369,51 @@ $(function() {
           value: 'new'
         }
       ];
-    setTimeout(function() {      
-      generate_message(msg, 'user');  
-    }, 1000)   //이게 상대방이 보내는 메시지
-    
-  })
+  });
+	//이전 채팅내용 가져오기
+	socket.on('msgAll'+"${loginUser.F_NICK}",function(data){
+		
+		for(var i=0;i<data.length;i++){
+			//data[i].userId,data[i].Time,data[i].message
+				if(data[i].userId == "${loginUser.F_NICK}"){
+				generate_message(data[i].userId,data[i].message,data[i].Time,"self");
+				}else{
+					generate_message(data[i].userId,data[i].message,data[i].Time,"user");	
+				}
+			
+	    }
+		
+	});
+  
+	//소켓 서버로 부터 send_msg를 통해 이벤트를 받을 경우 
+	socket.on('send_msg', function(data) {
+		if(data.id != "${loginUser.F_NICK}"){
+          generate_message(data.id,data.msg,data.Time,"user");
+		}
+	});
   
  
-  function generate_message(msg, type) {
+  function generate_message(nick,msg,time,type) {
     INDEX++;
     var str="";
-    str += "<div id='cm-msg-"+INDEX+"' class=\"chat-msg "+type+"\">";
-    str += "          <span class=\"msg-avatar\">";
+    str += "<div id='cm-msg-"+INDEX+"' class='chat-msg "+type+"'>";
+    str += "          <span class='msg-avatar'>";
     if(type == 'self'){
-      str +=              "<div class='userNick' style='text-align:right;'>아이디</div>"
+      str +=              "<div class='userNick' style='text-align:right;'>"+ nick +"</div>"
+      str += "            <img src='https://lh3.googleusercontent.com/proxy/_AQunmq5cihpzZhDkkGWmP1B7o1nIOHaddiAflVOk8HySYTnlJsVhMIVza4VSFySIbv-yR0ZI8Afr5Fp9BAGeUu90woERLrfqDF0YWVpnfF5tO65_A'/> ";
     }
     if(type == 'user'){
-      str +=              "<div class='userNick' style='text-align:left;'>아이디</div>" 
+      str +=              "<div class='userNick' style='text-align:left;'>"+nick+"</div>"
+      str += "            <img src='https://t1.daumcdn.net/cfile/tistory/997187385CB2011220'/> ";
     } 
-    str += "            <img src='https://image-notepet.akamaized.net/resize/620x-/seimage/20190816%2Ff07bd9f247293aa0317f2c8faba7e83b.png'>";
-    str += "          <\/span>";
-    str += "          <div class=\"cm-msg-text\">";
+    str += "          </span>";
+    str += "          <div class='cm-msg-text'>";
     str += msg;
-    str += "          <\/div>";
-    str += "          <div class=\"times\" style=\"font-size:0.03rem\">";
-    str += '12:05:22';
-    str += "          <\/div>";
-    str += "        <\/div>";
+    str += "          </div>";
+    str += "          <div class='times' style='font-size:0.03rem'>";
+    str += time;
+    str += "          </div>";
+    str += "        </div>";
     $(".chat-logs").append(str);
     $("#cm-msg-"+INDEX).hide().fadeIn(300);
     if(type == 'self'){
