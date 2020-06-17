@@ -72,7 +72,7 @@
 				<div class="row">
 					<div class="left-side-blog">
 						<div class="single-blog-page-item">
-							<c:forEach items="${data }">
+							<c:forEach items="${data }" var="board">
 								<div class="blog-sample-meta">
 									<ul>
 										<li><i class="far fa-calendar-check"></i>${board.wrtDt }</li>
