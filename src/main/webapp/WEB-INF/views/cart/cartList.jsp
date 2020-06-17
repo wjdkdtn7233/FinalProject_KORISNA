@@ -140,10 +140,17 @@
                         <div class="col-xl-9 col-lg-9 col-md-9 pt-5 text-center">
 							<div class="single-right-small-blog blog-contact-us">
 								<h3 class="blog-single-title  sunflower">총 결제해야할 금액</h3>
-								<c:if test="${totalPrice == null}">
-                                	<c:set var="totalPrice" value="${0}"/>
+								
+                                <h5 class="section-single-subtitle  sunflower"><span class="pr-3">총 상품 가격
+                                <c:if test="${totalPrice == null}">
+                                	<c:set var="number" value="${0}"/>
+                                	<span id="totalPrice2" style="color:black">${number}</span>원
                                 </c:if>
-                                <h5 class="section-single-subtitle  sunflower"><span class="pr-3">총 상품 가격 <span id="totalPrice2" style="color:black">${totalPrice}</span>원</span><i class="far fa-plus-square" style="color:black"></i><span class="pl-3">총 배송비 <span id="postPrice" style="color:black">0</span>원</span></h5>
+                                <c:if test="${totalPrice != null}">
+                                	<c:set var="number" value="${0}"/>
+                                	<span id="totalPrice2" style="color:black">${totalPrice}</span>원
+                                </c:if>
+                                </span><i class="far fa-plus-square" style="color:black"></i><span class="pl-3">총 배송비 <span id="postPrice" style="color:black">0</span>원</span></h5>
                                 <h3 class="blog-single-title  sunflower"></h3>
                                 <c:if test="${totalPrice != null}">
                                 	<c:set var="num" value="${totalPrice + 2500}"/>
@@ -220,8 +227,6 @@
 	<%@ include file="../include/defaultJS.jsp"%>
 	
 	<c:if test="${sessionScope.loginUser != null }">
-	<!-- chatting JS -->
-	<%@ include file="../include/chatting.jsp"%>
 	</c:if>
         <script>
             $(function(){
@@ -429,5 +434,10 @@
             });
 
         </script>
+        <!-- chatting JS -->
+	<c:if test="${sessionScope.loginUser != null }">
+	<!-- chatting JS -->
+	<%@ include file="../include/chatting.jsp"%>
+	</c:if>
     </body>
 </html>

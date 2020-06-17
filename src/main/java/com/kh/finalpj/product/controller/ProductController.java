@@ -91,7 +91,7 @@ public class ProductController {
 			commandMap.put("orderby", "p_starscore desc");
 			List<Map<String, Object>> popularList1 = productService.selectProductSortList(commandMap);
 			List<Map<String, Object>> popularList2 = new ArrayList<Map<String,Object>>();
-			for (int i = 0; i < 3; i++) {
+			for (int i = 0; i < 5; i++) {
 				popularList2.add(popularList1.get(i)); 
 			}
 			mav.addObject("popular", popularList2);

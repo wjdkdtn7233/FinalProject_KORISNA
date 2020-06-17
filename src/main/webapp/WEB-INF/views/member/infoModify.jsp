@@ -292,10 +292,6 @@
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
 	
-	<c:if test="${sessionScope.loginUser != null }">
-	<!-- chatting JS -->
-	<%@ include file="../include/chatting.jsp"%>
-	</c:if>
 	<script
 		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
@@ -518,5 +514,10 @@
 			$('#frm').submit();
 		}
 	</script>
+	
+	<c:if test="${sessionScope.loginUser != null }">
+	<!-- chatting JS -->
+	<%@ include file="../include/chatting.jsp"%>
+	</c:if>
 </body>
 </html>

@@ -238,7 +238,7 @@
                                     </div>
                                 </div>
                                 <div class="single-right-small-blog blog-contact-us">
-                                    <h3 class="blog-single-title sunflower">상품 평점 순위 top 3</h3>
+                                    <h3 class="blog-single-title sunflower">상품 평점 순위 top 5</h3>
                                     <div class="single-footer-wrapper" >
                                         <div class="footer-bottom-comtent">
                                         	<c:forEach var="popular" items="${popular}">
@@ -308,10 +308,6 @@
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
 	
-	<c:if test="${sessionScope.loginUser != null }">
-	<!-- chatting JS -->
-	<%@ include file="../include/chatting.jsp"%>
-	</c:if>
       	
       	<script>
       	
@@ -553,5 +549,10 @@
       		}, 2000);
       		
       	</script>
+      	
+      	<c:if test="${sessionScope.loginUser != null }">
+	<!-- chatting JS -->
+	<%@ include file="../include/chatting.jsp"%>
+	</c:if>
     </body>
 </html>
