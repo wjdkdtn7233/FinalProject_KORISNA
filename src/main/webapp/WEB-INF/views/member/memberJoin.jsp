@@ -13,8 +13,6 @@
 	<!-- Preloader -->
 	<%@ include file="../include/preloader.jsp"%>
 
-	<!-- Header -->
-	<%@ include file="../include/header.jsp"%>
 	<main>
 		<!-- Breadcrumb Area Start -->
 		<section class="breadcrumb-wrapper purple-bg">

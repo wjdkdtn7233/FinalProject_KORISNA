@@ -17,36 +17,36 @@ C_TOTALPRICE
   -->
 
 	<select id="selectCartList" resultType="HashMap">
-		select C_NO,F_EMAIL,P_NO,C_PRICE,C_CNT,C_IMAGE,C_NAME,C_ORDERYN,C_TOTALPRICE from cart where F_EMAIL = #{f_email} and C_ORDERYN = 'n'
+		select C_NO,F_EMAIL,P_NO,C_PRICE,C_CNT,C_IMAGE,C_NAME,C_ORDERYN,C_TOTALPRICE from tb_cart where F_EMAIL = #{f_email} and C_ORDERYN = 'n'
 	</select>
 	
 	
 	<insert id="insertCart" parameterType="Map">
-		insert into cart values(c_no_seq.nextval,#{f_email},${p_no},${c_price},${c_cnt},#{c_image},#{c_name},'n',${c_totalprice})
+		insert into tb_cart values(c_no_seq.nextval,#{f_email},${p_no},${c_price},${c_cnt},#{c_image},#{c_name},'n',${c_totalprice})
 	</insert>
 	
 	<update id="updateCart" parameterType="Map">
-		update cart set c_cnt = ${c_cnt}, c_totalprice = ${c_totalprice} where c_no = ${c_no}
+		update tb_cart set c_cnt = ${c_cnt}, c_totalprice = ${c_totalprice} where c_no = ${c_no}
 	</update>
 	
 	<select id="selectCart" parameterType="Map" resultType="HashMap">
-		select C_NO,F_EMAIL,P_NO,C_PRICE,C_CNT,C_IMAGE,C_NAME,C_ORDERYN,C_TOTALPRICE from cart where C_NO = ${c_no}
+		select C_NO,F_EMAIL,P_NO,C_PRICE,C_CNT,C_IMAGE,C_NAME,C_ORDERYN,C_TOTALPRICE from tb_cart where C_NO = ${c_no}
 	</select>
 	
 	<select id="selectSumPrice" resultType="_int">
-		select sum(c_totalprice) from cart where f_email = #{f_email}
+		select sum(c_totalprice) from tb_cart where f_email = #{f_email}
 	</select>
 	
 	<delete id="deleteCart" parameterType="Map">
-		delete from cart where c_no = ${c_no}
+		delete from tb_cart where c_no = ${c_no}
 	</delete>
 	
 	<delete id="deleteCartAll" parameterType="Map">
-		delete from cart where f_email = #{f_email}
+		delete from tb_cart where f_email = #{f_email}
 	</delete>
 	
 	<select id="selectCartYN" parameterType="Map"  resultType="HashMap">
-		select C_NO,C_CNT,C_TOTALPRICE from cart where C_NAME = #{c_name} and f_email = #{f_email}
+		select C_NO,C_CNT,C_TOTALPRICE from tb_cart where C_NAME = #{c_name} and f_email = #{f_email}
 	</select>
 	
 </mapper>

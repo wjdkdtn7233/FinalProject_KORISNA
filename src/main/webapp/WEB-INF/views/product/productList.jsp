@@ -61,18 +61,17 @@
                                     
                                     <div class="col-xl-6 col-lg-6 col-md-5">
                                         <div class="product-showing-results">
-                                            <p>Showing 1–9 of 15 results</p>
+                                            <p>정렬 해서 보기</p>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-4">
                                         <div class="selct-products">
                                             <select name="orderby" class="orderby" aria-label="Shop order">
-                                                <option value="menu_order" selected="selected">Default sorting</option>
-                                                <option value="popularity">Sort by popularity</option>
-                                                <option value="rating">Sort by average rating</option>
-                                                <option value="date">Sort by latest</option>
-                                                <option value="price">Sort by price: low to high</option>
-                                                <option value="price-desc">Sort by price: high to low</option>
+                                                <option value="menu_order">이름 순서</option>
+                                                <option value="popularity" selected="selected">등록 순서</option>
+                                                <option value="rating">인기 순서</option>
+                                                <option value="price">리뷰 많은 순서</option>
+                                                <option value="price-desc">가격 순서</option>
                                             </select>
                                         </div>
                                     </div>

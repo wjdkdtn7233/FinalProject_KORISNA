@@ -10,11 +10,11 @@ F_EMAIL
 R_NO
   -->
 	<insert id="insertLikeOrHate" parameterType="Map">
-		insert into empathy values(e_no_seq.nextval,#{f_email},${r_no},#{e_type})
+		insert into tb_empathy values(e_no_seq.nextval,#{f_email},${r_no},#{e_type})
 	</insert>
 	
 	<select id="selectEmpathyYN" resultType="_int" parameterType="Map">
-		select count(*) from empathy where r_no = ${r_no} and f_email = #{f_email}
+		select count(*) from tb_empathy where r_no = ${r_no} and f_email = #{f_email}
 	</select>
 	
 </mapper>

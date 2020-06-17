@@ -17,15 +17,15 @@ P_STARSCORE
 -->
 
 	<select id="selectProductList" resultType="HashMap">
-		select p_no,p_name,p_content,p_price,p_image,p_joindate,p_cnt,p_addinfo,p_starscore from product
+		select p_no,p_name,p_content,p_price,p_image,p_joindate,p_cnt,p_addinfo,p_starscore from tb_product
 	</select>
 	
 	<select id="selectProductSortList" resultType="HashMap">
-		select * from product order by #{orderby} desc
+		select * from tb_product order by #{orderby} desc
 	</select>
 	
 	<select id="selectProductDetail" resultType="HashMap">
-		select p_no,p_name,p_content,p_price,p_image,p_joindate,p_cnt,p_addinfo,p_starscore from product where p_no = #{p_no}
+		select p_no,p_name,p_content,p_price,p_image,p_joindate,p_cnt,p_addinfo,p_starscore from tb_product where p_no = #{p_no}
 	</select>
 </mapper>
 
