@@ -82,6 +82,7 @@
 						
 						<div id="menu_wrap" class="bg_white">
 					        <div class="option">
+					
 					               <span><b>주소 검색</b></span><br>
 					               <input type="text" id="keyword" class="keyword" size="15" placeholder="키워드를 입력하세요."> 
 					               <button id="pSearchBnt" onclick="searchPlaces()">검색하기</button> 
@@ -192,8 +193,8 @@
 	
 	<script>
 		var contextPath = '<%=request.getContextPath()%>/';
-		sessionStorage.setItem("userId", "${loginUser.f_email}");
-		sessionStorage.setItem("userAddr", "${loginUser.f_jibernaddress}");
+		sessionStorage.setItem("userId", "${loginUser.F_EMAIL}");
+		sessionStorage.setItem("userAddr", "${loginUser.F_ROADADDRESS}");
 	</script>
 
 	<!-- kakao map apiCDN -->
