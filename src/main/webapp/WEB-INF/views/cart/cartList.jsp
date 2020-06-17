@@ -32,8 +32,9 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 my-auto">
                             <div class="breadcrumb-content">
-                                <h2 class="breadcrumb-main-title">장바구니</h2>
+                                <h2 class="breadcrumb-main-title">Cart</h2>
                                 <ul>
+                                	<li><a href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
                                     <li>- Shopping basket</li>
                                 </ul>
                             </div>

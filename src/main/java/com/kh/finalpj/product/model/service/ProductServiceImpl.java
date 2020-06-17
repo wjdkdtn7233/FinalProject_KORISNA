@@ -20,8 +20,8 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<Map<String, Object>> selectProductSortList() {
-		return productDao.selectProductSortList();
+	public List<Map<String, Object>> selectProductSortList(String orderby) {
+		return productDao.selectProductSortList(orderby);
 	}
 
 	@Override

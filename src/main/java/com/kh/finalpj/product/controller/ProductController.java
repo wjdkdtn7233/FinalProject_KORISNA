@@ -31,14 +31,20 @@ public class ProductController {
 	}
 	
 	//상품목록 최신순,가격순,인기순
-	@RequestMapping("/product/productlistsort.do")
-	public void productListSort(String orderby,HttpServletResponse response) throws IOException {
-		
+	@RequestMapping("/product/productsortlist.do")
+	public void productSortList(String orderby,HttpServletResponse response) throws IOException {
+		System.out.println(orderby);
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		
 		JSONObject job = new JSONObject();
-		job.put("sortList", productService.selectProductSortList());
+		
+		if(productService.selectProductSortList(orderby) != null) {
+			job.put("sortList", productService.selectProductSortList(orderby));
+		}else {
+			job.put("sortList","fail");
+		}
+		
 		
 		out.print(job);
 	}
