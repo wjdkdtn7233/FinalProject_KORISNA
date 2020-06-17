@@ -22,6 +22,8 @@ import com.kh.finalpj.board2.common.OpenApi2;
 import com.kh.finalpj.board2.model.dao.Board2Dao;
 import com.kh.finalpj.board2.model.vo.Board2;
 
+import common.util.Paging;
+
 @Service
 public class Board2ServiceImple implements Board2Service{
 
@@ -131,6 +133,22 @@ public class Board2ServiceImple implements Board2Service{
 		System.out.println("서비스");
 		return bd2Dao.boardList2();
 	}
+	
+	
+	@Override
+	public Map<String, Object> selectNoticeList(String orderby, int currentPage, int cntPerPage) {
+
+		Map<String, Object> res = new HashMap<String, Object>();
+		Paging page = new Paging(bd2Dao.contentCnt(), currentPage, cntPerPage);
+
+		List<Board2> nlist = bd2Dao.selectNoticList(page, orderby);
+		res.put("paging", page);
+		res.put("nlist", nlist);
+
+		return res;
+	}
+	
+	
 	
 	
 }
