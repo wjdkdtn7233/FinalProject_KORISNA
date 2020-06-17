@@ -188,9 +188,9 @@
 				</div>
 			</div>
 
-			 <div class="container pt-4">
+			<div class="container pt-4">
 				<div class="row">
-						<c:forEach items="${data}" var="board2" begin="1" end="9">
+					<c:forEach items="${data}" var="board2" begin="1" end="9">
 						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="single-protective-measure-item-2 page-mar-30">
 								<h4 class="protective-title">${board2.b2_yadmNm }</h4>
@@ -205,66 +205,129 @@
 								</div>
 
 							</div>
-							</div>
-						</c:forEach>
+						</div>
+					</c:forEach>
 				</div>
-			 </div>
+			</div>
 			<!-- <div class="blog-pagination ">
 				<nav aria-label="Page navigation example">
 					<ul class="pagination">
 						<li class="page-item"><span class="page-link current">1</span></li>
+						
+						
 						<li class="page-item"><a class="page-link" href="blog.html">2</a></li>
 						<li class="page-item"><a class="page-link" href="blog.html"><i
 								class="fas fa-angle-double-right"></i></a></li>
 					</ul>
 				</nav>
 			</div>
- -->
+ --> 
+ 			
+ 			<div class="blog-pagination ">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+					<li class="page-item">
+					<a class="page-link" href="<%= request.getContextPath() %>/notice/noticelist.do"><i class="fas fa-angle-double-left"></i></a>
+					</li>
+						<c:choose>
+							<c:when test="${noticeData.paging.blockStart > 1 }">
+								<li class="page-item"><a class="page-link"
+									href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockStart-1}">
+									<i class="fas fa-angle-left"></i></a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item"><a class="page-link"
+									href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockStart}"
+									><i class="fas fa-angle-left"></i></a></li>
+							</c:otherwise>
+						</c:choose>
+						<c:forEach begin="${noticeData.paging.blockStart}"
+							end="${noticeData.paging.blockEnd}" var="page">
+							<li class="page-item"><a
+								href="<%= request.getContextPath() %>/board2/board2.do?cPage=${page}"
+								class="page-link">${page}</a></li>
+						</c:forEach>
+
+						
+						<c:choose>
+							<c:when
+								test="${noticeData.paging.blockEnd+1 > noticeData.paging.lastPage }">
+								<li class="page-item"><a class="page-link"
+									href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockEnd}"
+									class="nav next"><i class="fas fa-angle-right"></i></a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a class="page-link"
+									href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockEnd+1}"
+									class="nav next"><i class="fas fa-angle-right"></i></a></li>
+							</c:otherwise>
+						</c:choose>
+						
+					
+						<li class="page-item"><a class="page-link"
+							href="<%= request.getContextPath() %>/notice/noticelist.do?cPage=${noticeData.paging.lastPage}"
+							class="nav last"><i class="fas fa-angle-double-right"></i></a></li>
 
 
 
-			 <div class="paging">
-				<!-- section pagination -->
-				<a href="<%=request.getContextPath()%>/board2/board2.do"
-					class="nav first"><i class="fas fa-angle-double-left"></i></a>
-				<c:choose>
-					<c:when test="${noticeData.paging.blockStart > 1 }">
-						<a
-							href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockStart-1}"
-							class="nav prev"><i class="fas fa-angle-left"></i></a>
-					</c:when>
-					<c:otherwise>
-						<a
-							href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockStart}"
-							class="nav prev"><i class="fas fa-angle-left"></i></a>
-					</c:otherwise>
-				</c:choose>
-				<c:forEach begin="${noticeData.paging.blockStart}"
-					end="${noticeData.paging.blockEnd}" var="page">
-					<a
-						href="<%= request.getContextPath() %>/board2/board2.do?cPage=${page}"
-						class="num active"><span>${page}</span></a>
-				</c:forEach>
 
-				<c:choose>
-					<c:when
-						test="${noticeData.paging.blockEnd+1 > noticeData.paging.lastPage }">
-						<a
-							href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockEnd}"
-							class="nav next"><i class="fas fa-angle-right"></i></a>
-					</c:when>
-					<c:otherwise>
-						<a
-							href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockEnd+1}"
-							class="nav next"><i class="fas fa-angle-right"></i></a>
-					</c:otherwise>
-				</c:choose>
 
-				<a
-					href="<%= request.getContextPath() %>/notice/noticelist.do?cPage=${noticeData.paging.lastPage}"
-					class="nav last"><i class="fas fa-angle-double-right"></i></a>
+					</ul>
+				</nav>
 			</div>
-			<!-- // section pagination --> 
+
+
+
+			<%-- <div class="blog-pagination">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+
+						<li class="page-item"><a class="page-link current"
+								href="<%=request.getContextPath()%>/board2/board2.do"></a></li>
+						<c:choose>
+							<c:when test="${noticeData.paging.blockStart > 1 }">
+								<li class="page-item"><a class="page-link"
+									href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockStart-1}"
+									class="nav prev"><i class="fas fa-angle-double-right"></i></a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item"><a
+									href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockStart}"
+									class="nav prev"><i class="fas fa-angle-left"></i></a></li>
+							</c:otherwise>
+						</c:choose>
+						<c:forEach begin="${noticeData.paging.blockStart}"
+							end="${noticeData.paging.blockEnd}" var="page">
+							<li class="page-item"><a
+								href="<%= request.getContextPath() %>/board2/board2.do?cPage=${page}"
+								class="num active"><span>${page}</span></a></li>
+						</c:forEach>
+
+
+
+
+						<c:choose>
+							<c:when
+								test="${noticeData.paging.blockEnd+1 > noticeData.paging.lastPage }">
+								<li class="page-item"><a
+									href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockEnd}"
+									class="nav next"><i class="fas fa-angle-left"></i></a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a
+									href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockEnd+1}"
+									class="nav next"><i class="fas fa-angle-right"></i></a></li>
+							</c:otherwise>
+						</c:choose>
+						<li class="page-item"><a
+							href="<%= request.getContextPath() %>/notice/noticelist.do?cPage=${noticeData.paging.lastPage}"
+							class="nav last"><i class="fas fa-angle-double-right"></i></a></li>
+					</ul>
+				</nav>
+			</div>
+			<!-- // section pagination --> --%>
 
 
 

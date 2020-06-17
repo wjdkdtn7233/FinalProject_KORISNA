@@ -30,8 +30,8 @@ public class Board2Controller {
       mav.setViewName("board2/board2test");
     		
       int currentPage = 1;
-	int cntPerPage = 10;
-		String orderby = "noticeno";
+	  int cntPerPage = 10;
+		String orderby = "B2_NO";
 
 		if (commandMap.get("cPage") != null) {
 			currentPage = Integer.parseInt((String) commandMap.get("cPage"));
@@ -43,7 +43,7 @@ public class Board2Controller {
 
 		Map<String, Object> res = bs.selectNoticeList(orderby, currentPage, cntPerPage);
 		mav.addObject("noticeData", res);
-		mav.setViewName("board/board2test");
+		mav.setViewName("board2/board2test");
 
       
       

@@ -34,11 +34,6 @@
 		) where rnum between #{page.start} and #{page.end}
 	</select>
 	
-
-
-
-
-
 </mapper>
 
 
