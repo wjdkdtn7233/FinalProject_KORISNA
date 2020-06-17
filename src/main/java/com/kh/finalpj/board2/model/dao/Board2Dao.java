@@ -23,7 +23,7 @@ public class Board2Dao {
 	}
 
 
-	public List<Board2> boardList() {
+	public List<Board2> boardList2() {
 		
 		System.out.println("다오");
 		return sqlSession.selectList("Board2.selectboard");

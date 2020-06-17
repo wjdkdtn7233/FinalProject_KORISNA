@@ -5,7 +5,9 @@ import java.util.Map;
 
 public interface BoardService {
 
-	List<Map<String, Object>> openApi();
+	public List<Map<String, Object>> openApi();
+
+	public Map<String, Object> boardList(int currentPage, int cntPerPage);
 
 	
 	
