@@ -12,7 +12,8 @@
 
 	<!-- Preloader -->
 	<%@ include file="../include/preloader.jsp"%>
-
+	<!-- Header -->
+	<%@ include file="../include/header.jsp"%>
 
     <main>
         <!-- Breadcrumb Area Start -->
@@ -200,6 +201,11 @@
 
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
+	
+	<c:if test="${sessionScope.loginUser != null }">
+	<!-- chatting JS -->
+	<%@ include file="../include/chatting.jsp"%>
+	</c:if>
   	<script>
   		function leaveMember(){
   			

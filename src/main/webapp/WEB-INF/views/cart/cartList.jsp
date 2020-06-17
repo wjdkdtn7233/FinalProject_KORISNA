@@ -214,6 +214,11 @@
 
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
+	
+	<c:if test="${sessionScope.loginUser != null }">
+	<!-- chatting JS -->
+	<%@ include file="../include/chatting.jsp"%>
+	</c:if>
         <script>
             $(function(){
                 $('#allSelect').on('click',function(){
