@@ -193,8 +193,8 @@
 	
 	<script>
 		var contextPath = '<%=request.getContextPath()%>/';
-		sessionStorage.setItem("userId", "${loginUser.f_email}");
-		sessionStorage.setItem("userAddr", "${loginUser.f_jibernaddress}");
+		sessionStorage.setItem("userId", "${loginUser.F_EMAIL}");
+		sessionStorage.setItem("userAddr", "${loginUser.F_ROADADDRESS}");
 	</script>
 
 	<!-- kakao map apiCDN -->
