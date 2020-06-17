@@ -31,20 +31,17 @@
                                 </li> -->
                                 </li>
                                 <li><a href="<%= request.getContextPath() %>/product/productlist.do">쇼핑</a></li>
-=======
                                 </li> 
                                 <li><a href="shop.html">Shop</a></li>
                                 </li>-->
                                 <li><a href="<%= request.getContextPath() %>/product/productlist.do">Shop</a></li>
->>>>>>> fc55243642c8646fc3a182dfd92e15de4580b4fc
                                 <c:if test="${sessionScope.loginUser != null }">
                                 <li><a href="<%= request.getContextPath() %>/member/infomodify.do">MyPage</a>
                                     <ul>
                                         <li><a href="<%= request.getContextPath() %>/member/infomodify.do">Profile</a></li>
                                         <li><a href="<%= request.getContextPath() %>/cart/cartlist.do">Cart</a></li>
                                         <li><a href="error-page.html">Orders</a></li>
-                                        <li><a href="<%= request.getContextPath() %>/member/leavemember.do">
-Membership Withdrawal</a></li>
+                                        <li><a href="<%= request.getContextPath() %>/member/leavemember.do">Membership Withdrawal</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="<%= request.getContextPath() %>/member/logout.do">Logout</a></li>
