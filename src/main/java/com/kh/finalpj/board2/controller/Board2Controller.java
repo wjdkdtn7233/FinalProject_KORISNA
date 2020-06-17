@@ -22,11 +22,11 @@ public class Board2Controller {
    public ModelAndView openApi() {
       ModelAndView mav = new ModelAndView();
       
-      List<Board2> boardList = bs.boardList();
+      List<Board2> boardList2 = bs.boardList2();
       System.out.println("컨트롤러");
       //bs.openApi();
       
-      mav.addObject("data", boardList);
+      mav.addObject("data", boardList2);
       mav.setViewName("board2/board2test");
     		
    

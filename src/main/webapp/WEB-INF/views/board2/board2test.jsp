@@ -188,26 +188,27 @@
 				</div>
 			</div>
 
-			<div class="container pt-5">
+			 <div class="container pt-4">
 				<div class="row">
 					<div class="col-xl-4 col-lg-4 col-md-6">
-						<div class="single-protective-measure-item-2 page-mar-30">
-							<c:forEach items="${data}" var="board2" begin="1"  end="6">
-								<h4 class="protective-title">${data.B2_yadmNm}</h4>
-								<p class="common-short-text">${data.B2_sidocdNm}</p>
-								<p class="common-short-text">${data.B2_sggucdNm}</p>
-								<p class="common-short-text">${data.B2_addr}</p>
-								<p class="common-short-text">${data.B2_telno}</p>
+						<c:forEach items="${data}" var="board2" begin="1" end="6">
+							<div class="single-protective-measure-item-2 page-mar-30">
+								<h4 class="protective-title">${board2.b2_yadmNm }</h4>
+								<p class="common-short-text">${board2.b2_sidocdNm }</p>
+								<p class="common-short-text">${board2.b2_sggucdNm }</p>
+								<p class="common-short-text">${board2.b2_addr }</p>
+								<p class="common-short-text">${board2.b2_telno }</p>
 								<div class="protective-measure-icon-wrap">
 									<div class="cart-bottom">
 										<a href="#" class="common-btn btn common">위치 확인</a>
 									</div>
 								</div>
-							</c:forEach>
-						</div>
+
+							</div>
+						</c:forEach>
 					</div>
 				</div>
-			</div>
+			 </div>
 			<div class="blog-pagination ">
 				<nav aria-label="Page navigation example">
 					<ul class="pagination">
