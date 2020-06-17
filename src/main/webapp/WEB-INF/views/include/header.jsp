@@ -28,7 +28,6 @@
                                         <li><a href="error-page.html">404 Page</a></li>
                                     </ul>
                                 </li> -->
-                                <li><a href="shop.html">Shop</a></li>
                                 </li>
                                 <li><a href="<%= request.getContextPath() %>/product/productlist.do">쇼핑</a></li>
                                 <c:if test="${sessionScope.loginUser != null }">
