@@ -39,22 +39,19 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/boardlist.do")
-	public ModelAndView boardList(@RequestParam Map<String, Object> commandMap) {
+	public ModelAndView boardList() {
 		ModelAndView mav = new ModelAndView();
 
-		int currentPage = 1;
-		int cntPerPage = 10;
+		List<Map<String, Object>> res = bs.openApi();
 		
-		if (commandMap.get("cPage") != null) {
-			currentPage = Integer.parseInt((String) commandMap.get("cPage"));
-		}
+		
+		
+		
+		
 
-		if (commandMap.get("cntPerPage") != null) {
-			cntPerPage = Integer.parseInt((String) commandMap.get("cPage"));
-		}
-		Map<String, Object> res = bs.boardList(currentPage, cntPerPage);
 		mav.addObject("data", res);
-		mav.setViewName("board/boardList");
+		mav.setViewName("board/boardlist");
+	
 		
 		return mav;
 	}

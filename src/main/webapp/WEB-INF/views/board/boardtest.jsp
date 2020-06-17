@@ -92,7 +92,7 @@
 									</h5>
 									<h4 class="blog-title">${board.title }</h4>
 
-									<a href="<%=request.getContextPath()%>/board/boardlist"
+									<a href="<%=request.getContextPath()%>/board/boardlist.do"
 										class="blog-read-more">Read More</a>
 									<div class="blog-shape-bottom">
 										<img
