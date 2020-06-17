@@ -17,6 +17,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.kh.finalpj.board.common.OpenApi;
 
+import common.util.Paging;
+
 @Service
 public class BoardServiceImpl implements BoardService {
 
@@ -99,6 +101,31 @@ public class BoardServiceImpl implements BoardService {
 		JsonElement jsonElement = jsonParser.parse(str);
 
 		return jsonElement;
+	}
+
+	@Override
+	public Map<String, Object> boardList(int currentPage, int cntPerPage) {
+		
+		Map<String, Object> res = new HashMap<String, Object>();
+		String data = "";
+		
+		try {
+			data = oa.openApi(1, 0);
+			JsonElement maxDatas = parseToJson(data);
+			JsonElement response = maxDatas.getAsJsonObject().get("response");
+			JsonElement body = response.getAsJsonObject().get("body");
+			int maxValue = body.getAsJsonObject().get("totalCount").getAsInt();
+			
+			Paging page = new Paging(maxValue, currentPage, cntPerPage);
+			
+			res.put("paging", page);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return res;
 	}
 
 }

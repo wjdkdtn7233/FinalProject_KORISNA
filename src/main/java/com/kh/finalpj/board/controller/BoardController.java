@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.finalpj.board.model.service.BoardService;
@@ -38,14 +39,23 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/boardlist.do")
-	public ModelAndView boardList() {
+	public ModelAndView boardList(@RequestParam Map<String, Object> commandMap) {
 		ModelAndView mav = new ModelAndView();
 
-		List<Map<String, Object>> res = bs.openApi();
+		int currentPage = 1;
+		int cntPerPage = 10;
+		
+		if (commandMap.get("cPage") != null) {
+			currentPage = Integer.parseInt((String) commandMap.get("cPage"));
+		}
 
+		if (commandMap.get("cntPerPage") != null) {
+			cntPerPage = Integer.parseInt((String) commandMap.get("cPage"));
+		}
+		Map<String, Object> res = bs.boardList(currentPage, cntPerPage);
 		mav.addObject("data", res);
-		mav.setViewName("board/boardlist");
-
+		mav.setViewName("board/boardList");
+		
 		return mav;
 	}
 
