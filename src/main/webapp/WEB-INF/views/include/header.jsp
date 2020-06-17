@@ -21,19 +21,6 @@
                                 <li><a href="<%= request.getContextPath() %>/board/board.do">NEWS</a> </li>
                                 <li><a href="<%= request.getContextPath() %>/board2/board2.do">Hospital Information</a>
                                 </li>
-                               <!--  <li><a href="team.html">Pages</a>
-                                    <ul>
-                                        <li><a href="team.html">Team</a></li>
-                                        <li><a href="faq.html">Faq's</a></li>
-                                        <li><a href="error-page.html">404 Page</a></li>
-                                    </ul>
-<<<<<<< HEAD
-                                </li> -->
-                                </li>
-                                <li><a href="<%= request.getContextPath() %>/product/productlist.do">쇼핑</a></li>
-                                </li> 
-                                <li><a href="shop.html">Shop</a></li>
-                                </li>-->
                                 <li><a href="<%= request.getContextPath() %>/product/productlist.do">Shop</a></li>
                                 <c:if test="${sessionScope.loginUser != null }">
                                 <li><a href="<%= request.getContextPath() %>/member/infomodify.do">MyPage</a>
