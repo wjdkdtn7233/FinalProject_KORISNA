@@ -64,7 +64,7 @@
 
             <!-- Blog Area Start -->
             <div class="blog-page-wrapper section-padding">
-                <div class="container">
+                <div class="container sunflower">
                     <div class="row">
                         <div class="col-xl-8 col-lg-8 col-md-12">
                             <div class="left-side-blog">
@@ -76,19 +76,19 @@
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="blog-details-content-meta">
-                                                        <h3 class="font-weight-bold" style="color:#9536FF">${productDetail.P_NAME}</h3>
-                                                        <h4 class="pt-3"><li><i class="fas fa-star"></i>  ${productDetail.P_STARSCORE}</h4>
+                                                        <h3 class="font-weight-bold sunflower" style="color:#9536FF">${productDetail.P_NAME}</h3>
+                                                        <h4 class="pt-3 sunflower"><li><i class="fas fa-star"></i>  ${productDetail.P_STARSCORE}</h4>
                                                         <hr>
-                                                        <h3 class="pt-1"><span>  ${productDetail.P_PRICE} 원</span></h3>
+                                                        <h3 class="pt-1 sunflower"><span>  ${productDetail.P_PRICE} 원</span></h3>
                                                         <hr>
-                                                        <h5 class="pt-1">배송방법 : 택배</h5>
-                                                        <h5 class="pt-1">배송비 : 2500원</h5>
+                                                        <h5 class="pt-1 sunflower">배송방법 : 택배</h5>
+                                                        <h5 class="pt-1 sunflower">배송비 : 2500원</h5>
                                                         <hr>
-                                                        <h5 class="pt-1" >구매 갯수( 최대 선택가능수량 :10개 )</h5>
-                                                        <h6 class="pt-1" style="color:red;" >*대량구매시 추가정보에 기재된 번호로 연락요망</h6>
+                                                        <h5 class="pt-1 sunflower" >구매 갯수( 최대 선택가능수량 :10개 )</h5>
+                                                        <h6 class="pt-1 sunflower" style="color:red;" >*대량구매시 추가정보에 기재된 번호로 연락요망</h6>
                                                         <input type="number" name="c_cnt" id="c_cnt" value="1"/>
                                                         <div class="cta-main-button pt-5 text-center">
-                                                            <button class="cta-button btn" onclick="goCart()">장바구니 담기</button>
+                                                            <button class="cta-button btn sunflower" onclick="goCart()">장바구니 담기</button>
                                                         </div>    
                                                         
                                                     </div>
@@ -97,16 +97,16 @@
                                         
                                     </div>
                                     <div class="blog-sample-meta">
-                                        <ul>
+                                        <ul class="sunflower">
                                             <li><i class="far fa-calendar-check"></i>${productDetail.P_JOINDATE}</li>
                                             <li><i class="far fa-comments"></i> review <span id="reviewCnt1">${reviewCnt}</span> </li>
                                             <li><i class="fas fa-star"></i>  ${productDetail.P_STARSCORE}</li>
                                         </ul>
                                         <div class="blog-sample-bottom-content">
                                             <h3>상품 설명</h3>
-                                                <p class="text-left">
+                                                <pre class="text-left sunflower" style="color:#626262;">
                                                     ${productDetail.P_CONTENT}
-                                                </p>
+                                                </pre>
                                             
                                         </div>
                                     </div>
@@ -117,7 +117,7 @@
                                 <div class="blockquote-text">
                                     <i class="fas fa-quote-left"></i>
                                     <h6>추가 정보</h6>
-                                    <p>${productDetail.P_ADDINFO}</p>
+                                    <pre class="sunflower" style="color:#626262">${productDetail.P_ADDINFO}</pre>
                                    
                                 </div>
 
@@ -218,59 +218,38 @@
                             <div class="right-side-blog">
                                 
                                 
-                                <div class="single-right-small-blog blog-recent-post">
-                                    <h3 class="blog-single-title">다른 상품 보기</h3>
+                               <div class="single-right-small-blog blog-recent-post">
+                                    <h3 class="blog-single-title sunflower">다른 상품 보기</h3>
                                     <div class="single-footer-wrapper" >
-                                        <div class="footer-bottom-comtent">
+                                        <div class="footer-bottom-comtent" id="otherProduct">
+                                            <c:forEach var="rProductList" items="${rProductList}" varStatus="status">
+                                            <c:if test="${status.index < 3}">
                                             <div class="single-footer-blog">
-                                                <img src="<%=request.getContextPath()%>/resources/product/image/손소독제.png" alt="">
-                                                <a href="blog-details.html" class="blog-info">
-                                                    <h5>3M 손소독제 600ML</h5>
-                                                    <span class="date-footer"><i class="fas fa-won-sign"></i> 10500</span>
+                                                <img src="<%=request.getContextPath()%>/resources/product/image/${rProductList.P_IMAGE}" alt="">
+                                                <a href="<%=request.getContextPath()%>/product/productdetail.do?p_no=${rProductList.P_NO}" class="blog-info sunflower">
+                                                    <h5>${rProductList.P_NAME}</h5>
+                                                    <span class="date-footer"><i class="fas fa-won-sign"></i> ${rProductList.P_PRICE}</span>
                                                 </a>
                                             </div>
-                                            <div class="single-footer-blog">
-                                                <img src="<%=request.getContextPath()%>/resources/product/image/이노센스.png" alt="">
-                                                <a href="blog-details.html" class="blog-info">
-                                                    <h5>이노센트 항균 마스크</h5>
-                                                    <span class="date-footer"><i class="fas fa-won-sign"></i> 19600</span>
-                                                </a>
-                                            </div>
-                                            <div class="single-footer-blog">
-                                                <img src="<%=request.getContextPath()%>/resources/product/image/코로나장갑.png" alt="">
-                                                <a href="blog-details.html" class="blog-info">
-                                                    <h5>코로나 방역 일회용 고무 장갑</h5>
-                                                    <span class="date-footer"><i class="fas fa-won-sign"></i> 8300</span>
-                                                </a>
-                                            </div>
+                                            </c:if>
+                                            </c:forEach>
+                                            
                                         </div>
                                     </div>
                                 </div>
                                 <div class="single-right-small-blog blog-contact-us">
-                                    <h3 class="blog-single-title">상품 평점 순위 top 5</h3>
+                                    <h3 class="blog-single-title sunflower">상품 평점 순위 top 3</h3>
                                     <div class="single-footer-wrapper" >
                                         <div class="footer-bottom-comtent">
+                                        	<c:forEach var="popular" items="${popular}">
                                             <div class="single-footer-blog">
-                                                <img src="<%=request.getContextPath()%>/resources/product/image/손소독제.png" alt="">
-                                                <a href="blog-details.html" class="blog-info">
-                                                    <h5>3M 손소독제 600ML</h5>
-                                                    <span class="date-footer"> <i class="fas fa-star"></i> 4.9</span>
+                                                <img src="<%=request.getContextPath()%>/resources/product/image/${popular.P_IMAGE}" alt="">
+                                                <a href="<%=request.getContextPath()%>/product/productdetail.do?p_no=${popular.P_NO}" class="blog-info">
+                                                    <h5>${popular.P_NAME}</h5>
+                                                    <span class="date-footer"> <i class="fas fa-star"></i>${popular.P_STARSCORE}</span>
                                                 </a>
                                             </div>
-                                            <div class="single-footer-blog">
-                                                <img src="<%=request.getContextPath()%>/resources/product/image/이노센스.png" alt="">
-                                                <a href="blog-details.html" class="blog-info">
-                                                    <h5>이노센트 항균 마스크</h5>
-                                                    <span class="date-footer"> <i class="fas fa-star"></i> 4.7</span>
-                                                </a>
-                                            </div>
-                                            <div class="single-footer-blog">
-                                                <img src="<%=request.getContextPath()%>/resources/product/image/코로나장갑.png" alt="">
-                                                <a href="blog-details.html" class="blog-info">
-                                                    <h5>코로나 방역 일회용 고무 장갑</h5>
-                                                    <span class="date-footer"> <i class="fas fa-star"></i> 3.9</span>
-                                                </a>
-                                            </div>
+                                            </c:forEach>
                                         </div>
                                     </div>
                                 </div>
@@ -541,6 +520,37 @@
       			});
       			
       		});
+      		
+      		
+      		
+      		
+      		setInterval(function() {
+      			$.ajax({
+    				
+    				url:"<%=request.getContextPath()%>/product/randomproductlist.do",
+    				type : "post",
+    				dataType: "json",
+    				data : {},
+    				success : function(data) {
+    					$("#otherProduct").html("");
+    					if(data != "fail"){
+    						for(var i = 0; i < 3; i++){
+    							$("#otherProduct").append("<div class='single-footer-blog'>"+
+                                "<img src='<%=request.getContextPath()%>/resources/product/image/" + data.randomProductList[i].P_IMAGE + "' alt=''>" +
+                                "<a href='<%=request.getContextPath()%>/product/productdetail.do?p_no=" + data.randomProductList[i].P_NO + "' class='blog-info'><h5>" +data.randomProductList[i].P_NAME+ "</h5>" +
+                                   "<span class='date-footer'><i class='fas fa-won-sign'></i>" + data.randomProductList[i].P_PRICE + "</span></a></div>");
+    						}
+    							
+    					}else{
+    						alert('상품 리스트 불러오는데 실패하였습니다.');
+    					}
+    													
+    				},error : function(data) {										
+    						alert('에러입니다.');				
+    										
+    					}							
+    				});
+      		}, 2000);
       		
       	</script>
     </body>

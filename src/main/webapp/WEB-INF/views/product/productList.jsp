@@ -52,7 +52,7 @@
             <!-- Breadcrumb Area End -->
 
             <!-- Product Area Start -->
-            <div class="product-area-wrapper section-padding">
+            <div class="product-area-wrapper section-padding ">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
@@ -60,14 +60,14 @@
                                 <div class="row d-flex align-items-center">
                                     
                                     <div class="col-xl-6 col-lg-6 col-md-5">
-                                        <div class="product-showing-results">
-                                            <p>정렬 해서 보기</p>
+                                        <div class="product-showing-results sunflower">
+                                            <p>정렬 도구</p>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-4">
                                         <div class="selct-products">
-                                            <select id="sortList" name="orderby" class="orderby" aria-label="Shop order">
-                                                <option value="p_no" selected="selected">상품등록 순서</option>
+                                            <select id="sortList" name="orderby" class="orderby sunflower" aria-label="Shop order">
+                                                <option value="p_no desc" selected="selected">상품등록 순서</option>
                                                 <option value="p_name">이름 순서</option>
                                                 <option value="p_starscore desc">인기 순서</option>
                                                 <option value="p_price desc">높은 가격 순서</option>
@@ -92,14 +92,14 @@
                                                 </div>
                                             </div>
                                             <div class="product-info-wrap">
-                                                <h4><a href="<%=request.getContextPath()%>/product/productdetail.do?p_no=${productList.P_NO}" >${productList.P_NAME}</a></h4>
+                                                <h4><a href="<%=request.getContextPath()%>/product/productdetail.do?p_no=${productList.P_NO}" class="sunflower">${productList.P_NAME}</a></h4>
                                                 <div class="review-star">
-                                                    <i class="fas fa-star"></i><span class="pl-3">${productList.P_STARSCORE} 점</span>
+                                                    <i class="fas fa-star"></i><span class="pl-3 sunflower">${productList.P_STARSCORE} 점</span>
                                                 </div>
-                                                <div class="product-price-text">
+                                                <div class="product-price-text sunflower">
                                                     <span><i class="fas fa-won-sign"></i>${productList.P_PRICE} 원</span>
                                                 </div>
-                                                <div class="cart-bottom">
+                                                <div class="cart-bottom sunflower">
                                                     <a href="<%=request.getContextPath()%>/product/productdetail.do?p_no=${productList.P_NO}" class="common-btn btn common-hover-3">상세보기</a>
                                                 </div>
                                             </div>
@@ -183,19 +183,14 @@
 						$('#productSort').html("");
 						
 						for(var i=0; i<data.sortList.length; i++){
-							var str = '';
-						console.log(data.sortList[i].p_no);
-						console.log(data.sortList[i].P_NO);
-							str += "<div class='col-xl-4 col-lg-4 col-md-6'>";
-							str += "<div class='single-products-item page-margin-desktop'>";
-							str += "<div class='product-bg-wrap' style='background-image: url(" + <%=request.getContextPath()%> +"/resources/product/image/" + data.sortList[i].P_IMAGE + ")'>";
-							str += "<div class='product-bg-hover'><span>Sale!</span><ul>";
-							str += "<li><a class='popup-image' href='" + <%=request.getContextPath()%> + "/resources/product/image/"+ data.sortList[i].P_IMAGE + "'><i class='fa fa-search'></i></a></li><li><a href='" + <%=request.getContextPath()%> + "/product/productdetail.do?p_no=" + data.sortList[i].P_NO + "' ><i class='fas fa-shopping-cart'></i></a></li></ul></div></div>";
-							str += "<div class='product-info-wrap'><h4><a href='" +<%=request.getContextPath()%>+"/product/productdetail.do?p_no=" + data.sortList[i].P_NO + "'>"+data.sortList[i].P_NAME+"</a></h4>";
-							str += "<div class='review-star'><i class='fas fa-star'></i><span class='pl-3'>"+data.sortList[i].P_STARSCORE+" 점</span></div><div class='product-price-text'><span><i class='fas fa-won-sign'></i>"+ data.sortList[i].P_PRICE +" 원</span></div>";	
-							str += "<div class='cart-bottom'><a href='"+<%=request.getContextPath()%>+"/product/productdetail.do?p_no="+data.sortList[i].P_NO+"' class='common-btn btn common-hover-3'>상세보기</a></div></div></div></div>";		
-									
-							$('#productSort').append(str);
+							 $('#productSort').append("<div class='col-xl-4 col-lg-4 col-md-6'>"+
+										"<div class='single-products-item page-margin-desktop'>"+
+										"<div class='product-bg-wrap' style='background-image: url(<%=request.getContextPath()%>/resources/product/image/"+data.sortList[i].P_IMAGE+");'>"+
+										"<div class='product-bg-hover'><span>Sale!</span><ul>"+
+										"<li><a class='popup-image' href='<%=request.getContextPath()%>/resources/product/image/"+ data.sortList[i].P_IMAGE + "'><i class='fa fa-search'></i></a></li><li><a href='<%=request.getContextPath()%>/product/productdetail.do?p_no=" + data.sortList[i].P_NO + "' ><i class='fas fa-shopping-cart'></i></a></li></ul></div></div>"+
+										"<div class='product-info-wrap'><h4><a href='<%=request.getContextPath()%>/product/productdetail.do?p_no=" + data.sortList[i].P_NO + "' class='sunflower'>"+data.sortList[i].P_NAME+"</a></h4>"+
+										"<div class='review-star sunflower'><i class='fas fa-star'></i><span class='pl-3'>"+data.sortList[i].P_STARSCORE+" 점</span></div><div class='product-price-text sunflower'><span><i class='fas fa-won-sign'></i>"+ data.sortList[i].P_PRICE +" 원</span></div>"+	
+										"<div class='cart-bottom'><a href='<%=request.getContextPath()%>/product/productdetail.do?p_no="+data.sortList[i].P_NO+"' class='common-btn btn common-hover-3 sunflower'>상세보기</a></div></div></div></div>");
 						}
 						
 					}							

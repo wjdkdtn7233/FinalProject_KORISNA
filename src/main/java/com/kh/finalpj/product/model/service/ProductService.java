@@ -7,7 +7,7 @@ public interface ProductService {
 
 	public List<Map<String, Object>> selectProductList();
 	
-	public List<Map<String, Object>> selectProductSortList(String orderby);
+	public List<Map<String, Object>> selectProductSortList(Map<String, Object> commandMap);
 	
 	public Map<String, Object> selectProductDetail(String p_no);
 	
