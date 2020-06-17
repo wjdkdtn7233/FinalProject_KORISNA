@@ -118,7 +118,7 @@ public class BoardServiceImpl implements BoardService {
 			List<Map<String, Object>> nlist = new ArrayList<Map<String, Object>>();
 			
 			nlist = openApi();
-			nlist.subList(0, 9);
+			nlist.subList(page.getStart(), page.getEnd());
 			
 			res.put("paging", page);
 			res.put("nlist", nlist);

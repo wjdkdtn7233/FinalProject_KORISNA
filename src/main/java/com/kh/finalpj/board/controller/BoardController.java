@@ -36,30 +36,32 @@ public class BoardController {
 
 		return mav;
 	}
-	
+
 	@RequestMapping("/boardlist.do")
-	public ModelAndView boardList(@RequestParam Map<String, Object> commandMap) {
+	public ModelAndView boardList(@RequestParam Map<String, Object> commandMap, List<Map<String, Object>> res) {
 		ModelAndView mav = new ModelAndView();
 
-		List<Map<String, Object>> res = bs.openApi();
+		if (res == null) {
+			res = bs.openApi();
+		} 
 		
-		int currentPage = 1;
-		int cntPerPage = 10;
+			int currentPage = 1;
+			int cntPerPage = 10;
 
-		if (commandMap.get("cPage") != null) {
-			currentPage = Integer.parseInt((String) commandMap.get("cPage"));
-		}
+			if (commandMap.get("cPage") != null) {
+				currentPage = Integer.parseInt((String) commandMap.get("cPage"));
+			}
 
-		if (commandMap.get("cntPerPage") != null) {
-			cntPerPage = Integer.parseInt((String) commandMap.get("cPage"));
-		}
-		
-		Map<String, Object> noticeData = bs.selectBoardList(currentPage, cntPerPage);
-		
-		mav.addObject("noticeData", noticeData);
-		mav.addObject("data", res);
-		mav.setViewName("board/boardlist");
-		
+			if (commandMap.get("cntPerPage") != null) {
+				cntPerPage = Integer.parseInt((String) commandMap.get("cPage"));
+			}
+
+			Map<String, Object> noticeData = bs.selectBoardList(currentPage, cntPerPage);
+
+			mav.addObject("noticeData", noticeData);
+			mav.addObject("data", res);
+			mav.setViewName("board/boardlist");
+
 		return mav;
 	}
 
@@ -80,7 +82,5 @@ public class BoardController {
 
 		return mav;
 	}
-
-
 
 }
