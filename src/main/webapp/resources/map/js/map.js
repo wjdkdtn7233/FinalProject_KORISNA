@@ -3,11 +3,10 @@ var sessionFlag = false;
 var switchFlag = true;
 var pharmacy = null;
 var fCount = 0; // 사용자 데이터 받을 것 
-var userId = //sessionStorage.getItem("userId");
-	"qsc335";
+var userId = sessionStorage.getItem("userId");
 var favorate = null;
-var userAddr = //sessionStorage.setItem("userAddr", '경기 오산시 오산동 80-4');
-				"경기 오산시 오산동 80-4";
+var userAddr = sessionStorage.getItem("userAddr");
+			
 $(function(){
 	coordFlag();// lat, lon 초기 설정 
 	
@@ -29,24 +28,22 @@ function validateFavorate(){
 
 function coordFlag(){
 
-	if(userAddr != null){
+	console.log("userid : "+userId);
+	console.log("userAddr : "+userAddr);
+	if(userAddr != ''){
 		sessionFlag = true;
 	}
-		// 로그인 지도 로딩
-		// 분기 sessionFlag, toggleFlag
-		// 사용자 위치 기반 지도는
-		// 1. sessionFlag true일 경우 활성화 
-		// 2. sessionFlag true인 상태에서  switchFlag true일 때 
+	
 	if(sessionFlag && switchFlag){
 		// 카카오 api 활성화 
 		validateFavorate();//즐겨찾기 조회 
-		var addr = {'addr':userAddr}; // 추후 sessionstorage.userInfo에서 address값 가져오기 
+	
 	
 		$.ajax({
 		
 			url : "/springmvc/map/getcoords.do",
 			type : "post",  
-			data : addr,
+			data : {'addr':userAddr},
 			dataType:"json",
 //			async:false,
 			success : function(data) {
@@ -112,6 +109,12 @@ function createMap(lat,lon,pharmacy){
 }
 
 function switchTest(){
+	
+	if(userAddr == ''){
+		alert("주소지 기반 지도 서비스는 로그인 이후 가능합니다.");
+		return;
+	}
+	
 	switchFlag = !switchFlag;
 	coordFlag();
 }
@@ -132,7 +135,7 @@ function createMarker(map){
 	    kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker,lathing,overlay));
 	    
 	}
-	if(favorate.length > 0){
+	if(userId != '' && favorate.length > 0){
 		set_fOverlay(map);
 	}
 }
@@ -261,8 +264,11 @@ function set_overlay(data,lathing){
 	favorate.className = "favorateBnt";
 	favorate.innerHTML = "즐겨찾기 등록";
 	favorate.onclick =  function(){
-			if(fCount > 4){
+			if(userId != '' && fCount > 4){
 				alert("최대 5개까지 가능합니다");
+				return;
+			}else if(userId == ''){
+				alert("즐겨찾기 기능은 로그인 이후 가능합니다");
 				return;
 			}else{
 				insertFavorate(data);
@@ -368,8 +374,8 @@ function insertFavorate(data){
 	}
 
 	var datas = {
-//			"userId" : sessionStorage.getItem("user_id"), 이후 아이디 추가할 것 
-			"userId" : "qsc335",
+ 
+			"userId" : userId,
 			"name" : data.name,
 			"addr" : data.addr,
 			"lat" : data.lat,

@@ -4,9 +4,12 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <%@ include file="../include/head.jsp"%>
+<!-- map CSS -->
+<link rel="stylesheet" href="<%= request.getContextPath()%>/resources/map/css/Map.css"/>  
+
 <body>
 	<!--  cdn -->
-	<script
+<script
   src="https://code.jquery.com/jquery-3.5.1.js"
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
   crossorigin="anonymous"></script>
@@ -38,7 +41,7 @@
 						<div class="breadcrumb-content">
 							<h2 class="breadcrumb-main-title"></h2>
 							<ul>
-								<li>- 마스크맵 -${loginUser }</li>
+								<li>- 마스크맵 - </li>
 							</ul>
 						</div>
 					</div>
@@ -189,6 +192,8 @@
 	
 	<script>
 		var contextPath = '<%=request.getContextPath()%>/';
+		sessionStorage.setItem("userId", "${loginUser.f_email}");
+		sessionStorage.setItem("userAddr", "${loginUser.f_jibernaddress}");
 	</script>
 
 	<!-- kakao map apiCDN -->

@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,8 +27,8 @@ public class MapController {
 	private MapService ms;
 	
 	@RequestMapping("map.do")
-	public ModelAndView doMap(ModelAndView mav) {
-		
+	public ModelAndView doMap(ModelAndView mav,HttpSession session) {
+	
 		mav.setViewName("map/Map");
 		
 		return mav;

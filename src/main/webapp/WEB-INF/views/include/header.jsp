@@ -17,17 +17,17 @@
                         <nav id="mobile-menu">
                             <ul>
                                 <li class="active"><a href="<%= request.getContextPath() %>/index/index.do">Home</a></li>
-                                <li><a href="about.html">About</a></li>
+                                <li><a href="<%=request.getContextPath()%>/map/map.do">마스크맵</a></li>
                                 <li><a href="<%= request.getContextPath() %>/board/board.do">NEWS</a> </li>
                                 <li><a href="<%= request.getContextPath() %>/board2/board2.do">병원정보</a>
                                 </li>
-                                <li><a href="team.html">Pages</a>
+                               <!--  <li><a href="team.html">Pages</a>
                                     <ul>
                                         <li><a href="team.html">Team</a></li>
                                         <li><a href="faq.html">Faq's</a></li>
                                         <li><a href="error-page.html">404 Page</a></li>
                                     </ul>
-                                </li>
+                                </li> -->
                                 <li><a href="shop.html">Shop</a></li>
                                 <c:if test="${sessionScope.loginUser != null }">
                                 <li><a href="<%= request.getContextPath() %>/member/infomodify.do">마이페이지</a>
