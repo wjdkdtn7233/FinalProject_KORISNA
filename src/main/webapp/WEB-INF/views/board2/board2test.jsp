@@ -227,7 +227,7 @@
 				<nav aria-label="Page navigation example">
 					<ul class="pagination">
 					<li class="page-item">
-					<a class="page-link" href="<%= request.getContextPath() %>/notice/noticelist.do"><i class="fas fa-angle-double-left"></i></a>
+					<a class="page-link" href="<%= request.getContextPath() %>/board2/board2.do"><i class="fas fa-angle-double-left"></i></a>
 					</li>
 						<c:choose>
 							<c:when test="${noticeData.paging.blockStart > 1 }">
@@ -266,7 +266,7 @@
 						
 					
 						<li class="page-item"><a class="page-link"
-							href="<%= request.getContextPath() %>/notice/noticelist.do?cPage=${noticeData.paging.lastPage}"
+							href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.lastPage}"
 							class="nav last"><i class="fas fa-angle-double-right"></i></a></li>
 
 
