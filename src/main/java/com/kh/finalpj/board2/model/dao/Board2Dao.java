@@ -28,13 +28,14 @@ public class Board2Dao {
 
 	public List<Board2> boardList2() {
 		
-		System.out.println("다오");
+		
 		return sqlSession.selectList("Board2.selectboard");
 	}
 	
 	
 	public List<Board2> selectNoticList(Paging page, String orderby) {
-
+		
+		System.out.println("다오");
 		Map<String, Object> data = new HashMap<String, Object>();
 
 		data.put("page", page);

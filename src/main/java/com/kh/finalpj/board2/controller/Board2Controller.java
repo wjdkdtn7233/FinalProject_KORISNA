@@ -23,14 +23,13 @@ public class Board2Controller {
    public ModelAndView openApi(@RequestParam Map<String, Object> commandMap) {
       ModelAndView mav = new ModelAndView();
       
-      List<Board2> boardList2 = bs.boardList2();
-      //bs.openApi();
-      
-      mav.addObject("data", boardList2);
-      mav.setViewName("board2/board2test");
+//      List<Board2> boardList2 = bs.boardList2();
+//      //bs.openApi();
+//      
+//      mav.addObject("data", boardList2);
     		
       int currentPage = 1;
-	  int cntPerPage = 10;
+	  int cntPerPage = 5;
 		String orderby = "B2_NO";
 
 		if (commandMap.get("cPage") != null) {
@@ -42,10 +41,11 @@ public class Board2Controller {
 		}
 
 		Map<String, Object> res = bs.selectNoticeList(orderby, currentPage, cntPerPage);
+		System.out.println("컨트롤러맵" + res);
 		mav.addObject("noticeData", res);
 		mav.setViewName("board2/board2test");
 
-      
+		
       
       
       
