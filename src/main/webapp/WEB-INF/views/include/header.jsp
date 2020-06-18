@@ -17,33 +17,24 @@
                         <nav id="mobile-menu">
                             <ul>
                                 <li class="active"><a href="<%= request.getContextPath() %>/index/index.do">Home</a></li>
-                                <li><a href="<%=request.getContextPath()%>/map/map.do">마스크맵</a></li>
+                                <li><a href="<%=request.getContextPath()%>/map/map.do">MaskMap</a></li>
                                 <li><a href="<%= request.getContextPath() %>/board/board.do">NEWS</a> </li>
-                                <li><a href="<%= request.getContextPath() %>/board2/board2.do">병원정보</a>
+                                <li><a href="<%= request.getContextPath() %>/board2/board2.do">Hospital Information</a>
                                 </li>
-                               <!--  <li><a href="team.html">Pages</a>
-                                    <ul>
-                                        <li><a href="team.html">Team</a></li>
-                                        <li><a href="faq.html">Faq's</a></li>
-                                        <li><a href="error-page.html">404 Page</a></li>
-                                    </ul>
-                                </li> -->
-                                <li><a href="shop.html">Shop</a></li>
-                                </li>
-                                <li><a href="<%= request.getContextPath() %>/product/productlist.do">쇼핑</a></li>
+                                <li><a href="<%= request.getContextPath() %>/product/productlist.do">Shop</a></li>
                                 <c:if test="${sessionScope.loginUser != null }">
-                                <li><a href="<%= request.getContextPath() %>/member/infomodify.do">마이페이지</a>
+                                <li><a href="<%= request.getContextPath() %>/member/infomodify.do">MyPage</a>
                                     <ul>
-                                        <li><a href="<%= request.getContextPath() %>/member/infomodify.do">내 정보 및 수정</a></li>
-                                        <li><a href="<%= request.getContextPath() %>/member/leavemember.do">회원 탈퇴</a></li>
-                                        <li><a href="<%= request.getContextPath() %>/cart/cartlist.do">장바구니</a></li>
-                                        <li><a href="error-page.html">주문 목록</a></li>
+                                        <li><a href="<%= request.getContextPath() %>/member/infomodify.do">Profile</a></li>
+                                        <li><a href="<%= request.getContextPath() %>/cart/cartlist.do">Cart</a></li>
+                                        <li><a href="error-page.html">Orders</a></li>
+                                        <li><a href="<%= request.getContextPath() %>/member/leavemember.do">Membership Withdrawal</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="<%= request.getContextPath() %>/member/logout.do">로그아웃</a></li>
+                                <li><a href="<%= request.getContextPath() %>/member/logout.do">Logout</a></li>
                                  </c:if>
                                  <c:if test="${sessionScope.loginUser == null }">
-                                 <li><a href="<%= request.getContextPath() %>/member/login.do">로그인</a></li>
+                                 <li><a href="<%= request.getContextPath() %>/member/login.do">Login</a></li>
                                  </c:if>
                             </ul>
                         </nav>

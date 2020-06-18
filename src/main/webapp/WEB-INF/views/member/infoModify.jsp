@@ -43,8 +43,9 @@
 				<div class="row">
 					<div class="col-xl-6 col-lg-6 col-md-6 my-auto">
 						<div class="breadcrumb-content">
-							<h2 class="breadcrumb-main-title">내 정보 및 수정</h2>
+							<h2 class="breadcrumb-main-title">Profile</h2>
 							<ul>
+								<li><a href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
 								<li>- My Info and Modify</li>
 							</ul>
 						</div>
@@ -290,6 +291,7 @@
 
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
+	
 	<script
 		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
@@ -512,5 +514,10 @@
 			$('#frm').submit();
 		}
 	</script>
+	
+	<c:if test="${sessionScope.loginUser != null }">
+	<!-- chatting JS -->
+	<%@ include file="../include/chatting.jsp"%>
+	</c:if>
 </body>
 </html>

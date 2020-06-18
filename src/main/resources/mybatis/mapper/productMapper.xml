@@ -21,7 +21,7 @@ P_STARSCORE
 	</select>
 	
 	<select id="selectProductSortList" resultType="HashMap">
-		select * from tb_product order by #{orderby} desc
+		select p_no,p_name,p_content,p_price,p_image,p_joindate,p_cnt,p_addinfo,p_starscore from tb_product order by ${orderby}
 	</select>
 	
 	<select id="selectProductDetail" resultType="HashMap">

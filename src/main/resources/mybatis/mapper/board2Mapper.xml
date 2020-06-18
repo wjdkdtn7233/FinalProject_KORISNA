@@ -18,6 +18,22 @@
 
 </select>
 
+<select id="contentCnt" resultType="int">
+		select count(*) from
+		TB_BOARD2
+	</select>
+
+	<select id="selectNoticeList" resultType="Board2">
+		select * from(
+		select
+		rownum rnum, n1.* from(
+		select * from
+		TB_BOARD2
+		order by ${orderby} desc
+		)n1
+		) where rnum between #{page.start} and #{page.end}
+	</select>
+	
 </mapper>
 
 

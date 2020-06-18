@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.sound.midi.Soundbank;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -73,7 +71,6 @@ public class BoardServiceImpl implements BoardService {
 					// System.out.println(title);
 					String wrtDt = ja.get(i).getAsJsonObject().get("wrtDt").getAsString();
 					// System.out.println(wrtDt);
-					// vo로 변경
 					res.put("content", content);
 					res.put("countryEnName", countryEnName);
 					res.put("countryName", countryName);
@@ -104,5 +101,44 @@ public class BoardServiceImpl implements BoardService {
 		return jsonElement;
 	}
 
-	
+	@Override
+	public Map<String, Object> selectBoardList(int currentPage, int cntPerPage) {
+
+		Map<String, Object> res = new HashMap<String, Object>();
+		String data = "";
+		try {
+			data = oa.openApi(1, 0);
+			JsonElement maxDatas = parseToJson(data);
+			JsonElement response = maxDatas.getAsJsonObject().get("response");
+			JsonElement body = response.getAsJsonObject().get("body");
+			int maxValue = body.getAsJsonObject().get("totalCount").getAsInt();
+
+			Paging page = new Paging(maxValue, currentPage, cntPerPage);
+			List<Map<String, Object>> nlist = new ArrayList<Map<String, Object>>();
+			List<Map<String, Object>> nlist2 = new ArrayList<Map<String, Object>>();
+			nlist = openApi();
+
+			if (maxValue < page.getEnd()) {
+				page.setEnd(maxValue);
+		}
+			
+			nlist.subList(page.getStart() - 1, page.getEnd() - 1);
+
+			for (int i = page.getStart() - 1; i <= page.getEnd()-1; i++) {
+				nlist2.add(nlist.get(i));
+			}
+			res.put("paging", page);
+			res.put("nlist", nlist2);
+
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return res;
+	}
+
 }

@@ -32,8 +32,9 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 my-auto">
                             <div class="breadcrumb-content">
-                                <h2 class="breadcrumb-main-title">장바구니</h2>
+                                <h2 class="breadcrumb-main-title">Cart</h2>
                                 <ul>
+                                	<li><a href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
                                     <li>- Shopping basket</li>
                                 </ul>
                             </div>
@@ -66,12 +67,12 @@
                 <div class="contact-virus-shape contact-virus-shape-3">
                     <img src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png" alt="">
                 </div>
-                <div class="container">
+                <div class="container sunflower">
                     <div class="row justify-content-center">
                         <div class="col-xl-12 col-lg-12">
                             <div class="section-title text-center semi-blue-section-title">
-                                <h5 class="section-single-subtitle">장바구니에 담은 상품을 확인해주세요.</h5>
-                                <h5 class="section-single-subtitle text-warning">확인 후 구매를 원할시 구매버튼을 눌러주세요.</h5>
+                                <h5 class="section-single-subtitle  sunflower">장바구니에 담은 상품을 확인해주세요.</h5>
+                                <h5 class="section-single-subtitle text-warning  sunflower">확인 후 구매를 원할시 구매버튼을 눌러주세요.</h5>
                             </div>
                         </div>
                     </div>
@@ -138,16 +139,26 @@
                     <div class="row pt-5  justify-content-center">
                         <div class="col-xl-9 col-lg-9 col-md-9 pt-5 text-center">
 							<div class="single-right-small-blog blog-contact-us">
-								<h3 class="blog-single-title">총 결제해야할 금액</h3>
-                                <h5 class="section-single-subtitle"><span class="pr-3">총 상품 가격 <span id="totalPrice2" style="color:black">${totalPrice}</span>원</span><i class="far fa-plus-square" style="color:black"></i><span class="pl-3">총 배송비 <span id="postPrice" style="color:black">0</span>원</span></h5>
-                                <h3 class="blog-single-title"></h3>
+								<h3 class="blog-single-title  sunflower">총 결제해야할 금액</h3>
+								
+                                <h5 class="section-single-subtitle  sunflower"><span class="pr-3">총 상품 가격
+                                <c:if test="${totalPrice == null}">
+                                	<c:set var="number" value="${0}"/>
+                                	<span id="totalPrice2" style="color:black">${number}</span>원
+                                </c:if>
+                                <c:if test="${totalPrice != null}">
+                                	<c:set var="number" value="${0}"/>
+                                	<span id="totalPrice2" style="color:black">${totalPrice}</span>원
+                                </c:if>
+                                </span><i class="far fa-plus-square" style="color:black"></i><span class="pl-3">총 배송비 <span id="postPrice" style="color:black">0</span>원</span></h5>
+                                <h3 class="blog-single-title  sunflower"></h3>
                                 <c:if test="${totalPrice != null}">
                                 	<c:set var="num" value="${totalPrice + 2500}"/>
                                 </c:if>
                                 <c:if test="${totalPrice == null}">
                                 	<c:set var="num" value="${0}"/>
                                 </c:if>
-                                <h5 class="section-single-subtitle">총<span class="pl-3" id="totalPay" style="color:black">${num}</span>원</h5>
+                                <h5 class="section-single-subtitle">총<span class="pl-3  sunflower" id="totalPay" style="color:black">${num}</span>원</h5>
 							</div>
 						</div>
                         <div class="col-xl-12 text-center pt-5">
@@ -214,6 +225,9 @@
 
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
+	
+	<c:if test="${sessionScope.loginUser != null }">
+	</c:if>
         <script>
             $(function(){
                 $('#allSelect').on('click',function(){
@@ -420,5 +434,10 @@
             });
 
         </script>
+        <!-- chatting JS -->
+	<c:if test="${sessionScope.loginUser != null }">
+	<!-- chatting JS -->
+	<%@ include file="../include/chatting.jsp"%>
+	</c:if>
     </body>
 </html>

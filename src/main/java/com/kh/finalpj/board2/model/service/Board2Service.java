@@ -10,4 +10,7 @@ public interface Board2Service {
 	public void openApi();
 
 	public List<Board2> boardList2();
+	
+	
+	public Map<String, Object> selectNoticeList(String orderby, int currentPage, int cntPerPage);
 }

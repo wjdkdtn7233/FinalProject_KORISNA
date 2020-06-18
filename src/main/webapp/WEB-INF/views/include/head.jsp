@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="manifest" href="site.webmanifest">
-
+	
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/assets/css/bootstrap.min.css">
 
@@ -36,4 +36,13 @@
 
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="<%= request.getContextPath() %>/resources/assets/css/responsive.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&family=Sunflower:wght@500&display=swap" rel="stylesheet">
+	<style type="text/css">
+	.sunflower{
+		font-family: 'Roboto', sans-serif;
+		font-family: 'Sunflower', sans-serif;
+		font-size: 20px;
+	}
+</style>
 </head>

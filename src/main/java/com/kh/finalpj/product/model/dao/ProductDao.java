@@ -18,8 +18,8 @@ public class ProductDao {
 		return sqlSession.selectList("Product.selectProductList");
 	}
 	
-	public List<Map<String, Object>> selectProductSortList() {
-		return sqlSession.selectList("Product.selectProductSortList");
+	public List<Map<String, Object>> selectProductSortList(Map<String, Object> commandMap) {
+		return sqlSession.selectList("Product.selectProductSortList",commandMap);
 	}
 	
 	public Map<String, Object> selectProductDetail(String p_no) {

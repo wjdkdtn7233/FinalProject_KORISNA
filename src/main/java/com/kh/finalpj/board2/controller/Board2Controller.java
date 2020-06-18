@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.finalpj.board2.model.service.Board2Service;
@@ -19,16 +20,36 @@ public class Board2Controller {
    private Board2Service bs;
 
    @RequestMapping("/board2.do")
-   public ModelAndView openApi() {
+   public ModelAndView openApi(@RequestParam Map<String, Object> commandMap) {
       ModelAndView mav = new ModelAndView();
       
-      List<Board2> boardList2 = bs.boardList2();
-      System.out.println("컨트롤러");
-      //bs.openApi();
-      
-      mav.addObject("data", boardList2);
-      mav.setViewName("board2/board2test");
+//      List<Board2> boardList2 = bs.boardList2();
+//      //bs.openApi();
+//      
+//      mav.addObject("data", boardList2);
     		
+      int currentPage = 1;
+	  int cntPerPage = 5;
+		String orderby = "B2_NO";
+
+		if (commandMap.get("cPage") != null) {
+			currentPage = Integer.parseInt((String) commandMap.get("cPage"));
+		}
+
+		if (commandMap.get("cntPerPage") != null) {
+			cntPerPage = Integer.parseInt((String) commandMap.get("cPage"));
+		}
+
+		Map<String, Object> res = bs.selectNoticeList(orderby, currentPage, cntPerPage);
+		System.out.println("컨트롤러맵" + res);
+		mav.addObject("noticeData", res);
+		mav.setViewName("board2/board2test");
+
+		
+      
+      
+      
+      
    
       return mav;
 
@@ -43,6 +64,11 @@ public class Board2Controller {
       
       return mav;
    }
+   
+   
+
+   
+   
    
    
 

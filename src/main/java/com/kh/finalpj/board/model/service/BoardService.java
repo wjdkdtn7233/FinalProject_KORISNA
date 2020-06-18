@@ -7,4 +7,5 @@ public interface BoardService {
 
 	public List<Map<String, Object>> openApi();
 
+	public Map<String, Object> selectBoardList(int currentPage, int cntPerPage);
 }

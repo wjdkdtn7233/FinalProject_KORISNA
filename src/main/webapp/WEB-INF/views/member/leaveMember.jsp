@@ -12,7 +12,8 @@
 
 	<!-- Preloader -->
 	<%@ include file="../include/preloader.jsp"%>
-
+	<!-- Header -->
+	<%@ include file="../include/header.jsp"%>
 
     <main>
         <!-- Breadcrumb Area Start -->
@@ -33,8 +34,9 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-6 my-auto">
                         <div class="breadcrumb-content">
-                            <h2 class="breadcrumb-main-title">회원 탈퇴</h2>
+                            <h2 class="breadcrumb-main-title">Membership Withdrawal</h2>
                             <ul>
+                            	<li><a href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
                                 <li>- Membership Withdrawal</li>
                             </ul>
                         </div>
@@ -200,6 +202,8 @@
 
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
+	
+	
   	<script>
   		function leaveMember(){
   			
@@ -226,6 +230,11 @@
   	
   	
   	</script>
+  	
+  	<c:if test="${sessionScope.loginUser != null }">
+	<!-- chatting JS -->
+	<%@ include file="../include/chatting.jsp"%>
+	</c:if>
 </body>
 
 </html>

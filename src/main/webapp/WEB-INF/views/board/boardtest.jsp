@@ -82,7 +82,7 @@
 				
 					<div class="row">
 						<div class="blog-carousel owl-carousel">
-						<c:forEach items="${data }" var="board" begin="1" end="6">
+						<c:forEach items="${data }" var="board" begin="0" end="5">
 							<div class="single-blog-wrap">
 								<div class="blog-content">
 									<h5 class="blog-date-wrap">
