@@ -112,19 +112,24 @@ public class BoardServiceImpl implements BoardService {
 			JsonElement response = maxDatas.getAsJsonObject().get("response");
 			JsonElement body = response.getAsJsonObject().get("body");
 			int maxValue = body.getAsJsonObject().get("totalCount").getAsInt();
-			
+
 			Paging page = new Paging(maxValue, currentPage, cntPerPage);
-			List<Map<String, Object>> nlist = new ArrayList<Map<String,Object>>();
-			List<Map<String, Object>> nlist2 = new ArrayList<Map<String,Object>>();
+			List<Map<String, Object>> nlist = new ArrayList<Map<String, Object>>();
+			List<Map<String, Object>> nlist2 = new ArrayList<Map<String, Object>>();
 			nlist = openApi();
-			nlist.subList(page.getStart()-1, page.getEnd()-1);
-			for(int i = page.getStart()-1; i <= page.getEnd()-1; i ++ ) {
+
+			if (maxValue < page.getEnd()) {
+				page.setEnd(maxValue);
+		}
+			
+			nlist.subList(page.getStart() - 1, page.getEnd() - 1);
+
+			for (int i = page.getStart() - 1; i <= page.getEnd()-1; i++) {
 				nlist2.add(nlist.get(i));
 			}
-			System.out.println(nlist2.size());
 			res.put("paging", page);
 			res.put("nlist", nlist2);
-			
+
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
