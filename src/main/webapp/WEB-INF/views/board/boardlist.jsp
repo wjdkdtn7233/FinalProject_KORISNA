@@ -72,7 +72,7 @@
 				<div class="row">
 					<div class="left-side-blog">
 						<div class="single-blog-page-item">
-							<c:forEach items="${noticeData.nlist }" var="board">
+							<c:forEach items="${noticeData.nlist}" var="board" varStatus="status">
 								<div class="blog-sample-meta">
 									<ul>
 										<li><i class="far fa-calendar-check"></i>${board.wrtDt }</li>
@@ -91,14 +91,11 @@
 												class="fas fa-angle-double-left"></i></a></li>
 										<c:choose>
 											<c:when test="${noticeData.paging.blockStart > 1 }">
-											<form>
 												<li class="page-item"><a class="page-link"
 													href="<%= request.getContextPath() %>/board/boardlist.do?cPage=${noticeData.paging.blockStart-1}">
 														<i class="fas fa-angle-left"></i>
-												<input type="hidden"></input>
 												
 												</a></li>
-											</form>
 											</c:when>
 											<c:otherwise>
 												<li class="page-item"><a class="page-link"
@@ -135,7 +132,7 @@
 						</div>
 					</div>
 
-					<div class="blog-cta-action">
+				<!-- 	<div class="blog-cta-action">
 						<div class="cta-widget-wrapper">
 							<div class="cta-widget-content td-cover-bg"
 								style="background-image: url(./assets/img/cta-button-bg.jpg)">
@@ -146,7 +143,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 
 			</div>
