@@ -44,7 +44,7 @@
 				<div class="row">
 					<div class="col-xl-6 col-lg-6 col-md-6 my-auto">
 						<div class="breadcrumb-content">
-							<h2 class="breadcrumb-main-title">뉴스&이슈</h2>
+							<h2 class="breadcrumb-main-title">NEWS & Issue</h2>
 							<ul>
 								<li><a href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
 								<li>-국가·지역별 최신안전소식</li>
@@ -88,12 +88,12 @@
 									<h5 class="blog-date-wrap">
 										<span class="date">${board.wrtDt } </span> <a
 											href="<%=request.getContextPath()%>/board/boarddetail.do?id=${board.id}"
-											class="blog-tag">기사상세보기</a>
+											class="blog-tag">Read More</a>
 									</h5>
 									<h4 class="blog-title">${board.title }</h4>
 
 									<a href="<%=request.getContextPath()%>/board/boardlist.do"
-										class="blog-read-more">Read More</a>
+										class="blog-read-more">NEWS Home</a>
 									<div class="blog-shape-bottom">
 										<img
 											src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"

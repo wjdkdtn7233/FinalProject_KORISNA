@@ -44,10 +44,10 @@
 				<div class="row">
 					<div class="col-xl-6 col-lg-6 col-md-6 my-auto">
 						<div class="breadcrumb-content">
-							<h2 class="breadcrumb-main-title">NEWS Details</h2>
+							<h2 class="breadcrumb-main-title">NEWS Detail</h2>
 							<ul>
-								<li><a href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
-								<li>- NEWS Details</li>
+								<li><a href="<%=request.getContextPath()%>/board/board.do">Previous</a></li>
+								<li>- NEWS Detail</li>
 							</ul>
 						</div>
 					</div>
