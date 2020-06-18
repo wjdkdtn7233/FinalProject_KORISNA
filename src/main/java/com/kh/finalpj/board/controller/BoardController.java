@@ -43,15 +43,9 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 
 		List<Map<String, Object>> res = bs.openApi();
-		
-		
-		
-		
-		
 
 		mav.addObject("data", res);
 		mav.setViewName("board/boardlist");
-	
 		
 		return mav;
 	}
