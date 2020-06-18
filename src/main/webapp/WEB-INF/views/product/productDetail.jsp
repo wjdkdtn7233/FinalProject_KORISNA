@@ -406,8 +406,10 @@
     	                }								
     				} else if(data == "fail") {																	
     					alert('장바구니에 담는데 실패하였습니다.');		
+    				}else if(data == 0){
+    					alert('장바구니에 최대 수량이 담겼습니다. 장바구니를 확인해주세요.');		
     				}else{
-    					alert(data+'개 까지만 추가 가능합니다.');		
+    					alert(data+'개 까지만 추가 가능합니다.');
     				}							
     														
     				},error : function(data) {										

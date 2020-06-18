@@ -2,8 +2,11 @@ package com.kh.finalpj.cart.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -139,32 +142,53 @@ public class CartController {
 	}
 	
 	@RequestMapping("/cart/deletecart.do")
-	public void deleteCart(HttpServletResponse response,HttpSession session,@RequestParam Map<String,Object> commandMap) throws IOException {
+	public ModelAndView deleteCart(HttpServletRequest request,HttpSession session,@RequestParam Map<String,Object> commandMap,ModelAndView mav) throws IOException {
 		
-		PrintWriter out = response.getWriter();
+		System.out.println("이거 딜리트셀렉트 : " + commandMap );
+		List<String> pnoList = new ArrayList<String>();
+		String[] str = String.valueOf(commandMap.get("c_no")).split(",");
+		int result = 0;
+		
+		for(int i = 1; i < str.length; i++) {
+			commandMap.put("c_no",str[i]);
+			result += cartService.deleteCart(commandMap);
+		}
+		
+		
+		
 		int price = cartService.selectSumPrice((String)commandMap.get("f_email"));
-		int result = cartService.deleteCart(commandMap);
 		
 		if(result > 0 ) {
-			out.print(price);
+			mav.addObject("alertMsg","삭제를 완료하였습니다.");
+			mav.addObject("url",request.getContextPath() + "/cart/cartlist.do");
+			mav.setViewName("common/result");
 		}else {
-			out.print("fail");
+			mav.addObject("alertMsg","삭제를 실패하였습니다.");
+			mav.addObject("back","back");
+			mav.setViewName("common/result");
 		}
+		
+		return mav;
 		
 	}
 	
 	@RequestMapping("/cart/deletecartall.do")
-	public void deleteCartAll(HttpServletResponse response,@RequestParam Map<String,Object> commandMap) throws IOException {
+	public ModelAndView deleteCartAll(HttpServletRequest request,ModelAndView mav,@RequestParam Map<String,Object> commandMap) throws IOException {
 		
-		PrintWriter out = response.getWriter();
 		int result = cartService.deleteCartAll(commandMap);
 		
 		if(result > 0 ) {
-			out.print("success");
+			mav.addObject("alertMsg","삭제를 완료하였습니다.");
+			mav.addObject("url",request.getContextPath() + "/cart/cartlist.do");
+			mav.setViewName("common/result");
 		}else {
-			out.print("fail");
+			mav.addObject("alertMsg","삭제를 실패하였습니다.");
+			mav.addObject("back","back");
+			mav.setViewName("common/result");
 		}
 		
+		
+		return mav;
 	}
 	
 }

@@ -38,7 +38,8 @@ C_TOTALPRICE
 	</select>
 	
 	<delete id="deleteCart" parameterType="Map">
-		delete from tb_cart where c_no = ${c_no}
+		delete from tb_cart where c_no = #{c_no}
+
 	</delete>
 	
 	<delete id="deleteCartAll" parameterType="Map">

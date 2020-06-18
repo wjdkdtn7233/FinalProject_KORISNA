@@ -256,56 +256,24 @@
                         return;
                     }
                 if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-                     var noChecked = 0; //이 변수를 통해 체크박스가 안되어 있는 tr 갯수를 확인
+                     
+                     var cno = '';
+                     
                     $('tr').each(function(index,item){
                       
                         if(index > 1){
                             if($(item).children().first().children().eq(0).is(':checked')){
                                 
-                            	var cno = $(item).children().first().children().eq(1).val();
-                            	
-								$.ajax({
-                    				
-                    				url:"<%=request.getContextPath()%>/cart/deletecart.do",
-                    				type : "post",
-                    				data : {c_no : cno, f_email : '${sessionScope.loginUser.F_EMAIL}'},
-                    				success : function(data) {
-                    				if (data != 'fail') {	
-                    					var total = data + 2500;
-                    					$(item).remove();
-                    					$('#totalPrice2').text(data);
-                    					$('#totalPrice1').text(data);
-                    					$('#totalPay').text(total);
-                    					 noChecked = noChecked - 1; //체크박스가 체크되어있다면
-                    					 if($('tr').length == 2){  //모두 삭제시 완료시 채워줄 문구
-                    						 $('#totalPrice2').text("0");
-                         					$('#totalPrice1').text("0");
-                         					$('#totalPay').text("0");
-                         					$('#postPrice').text("0");
-                                             $('tbody').html("<tr role='row' class='text-center'><td  colspan='6' >장바구니에 담긴 상품이 없습니다.</td></tr>");
-                                        }
-                    				} else {																	
-                    					alert('삭제 실패!');				
-                    				}								
-                    														
-                    				},error : function(data) {										
-                    						alert('에러입니다.');				
-                    										
-                    					}							
-                    				});
-                            }else{
-                                noChecked = noChecked + 1; //체크박스가 체크안되어있다면
+                            		cno += ','+ $(item).children().first().children().eq(1).val();
                             }
                         }
-                        if(($('tr').length -2) == noChecked){ //총 tbody안에 tr의 갯수랑 체크박스가 안되어있는 tr갯수랑 같다면 전부다 체크안된것임
-                            alert('선택된 항목이 없습니다.');
-                        }
                     });
-                    if($('tr').length == 2){  //모두 삭제시 완료시 채워줄 문구
-                          $('tbody').html("<tr role='row' class='text-center'><td  colspan='6' >장바구니에 담긴 상품이 없습니다.</td></tr>");
-                     }
+                    
+                    location.href="<%=request.getContextPath()%>/cart/deletecart.do?f_email="  + '${sessionScope.loginUser.F_EMAIL}' + "&c_no=" + cno;
+                    
                     
                 }else{   //취소
+                	
                 return false;
                 }
             });
@@ -318,49 +286,35 @@
                         return;
                     }
                 if (confirm("정말 삭제하시겠습니까??") == true){  //확인
-                	
-                	$.ajax({
         				
-        				url:"<%=request.getContextPath()%>/cart/deletecartall.do",
-        				type : "post",
-        				data : {f_email : '${sessionScope.loginUser.F_EMAIL}'},
-        				success : function(data) {
-        				if (data == 'success') {	
-        					$('tr').each(function(index,item){
-                                if(index > 1){
-                                        $(item).remove();
-                                }
-                            });
+        			location.href="<%=request.getContextPath()%>/cart/deletecartall.do?f_email=" + '${sessionScope.loginUser.F_EMAIL}';
+        			
+        		  /*   $('tr').each(function(index,item){
+                             if(index > 1){
+                                 $(item).remove();
+                              }
         					
         					 if($('tr').length == 2){  //모두 삭제시 완료시 채워줄 문구
-        						 $('#totalPrice2').text("0");
+        						$('#totalPrice2').text("0");
              					$('#totalPrice1').text("0");
              					$('#totalPay').text("0");
              					$('#postPrice').text("0");
-                                 $('tbody').html("<tr role='row' class='text-center'><td  colspan='6' >장바구니에 담긴 상품이 없습니다.</td></tr>");
+                                $('tbody').html("<tr role='row' class='text-center'><td  colspan='6' >장바구니에 담긴 상품이 없습니다.</td></tr>");
                                  
                             }
-        				} else {																	
-        					alert('삭제 실패!');				
-        				}								
-        														
-        				},error : function(data) {										
-        						alert('에러입니다.');				
-        										
-        					}							
-        				});
                 	
-                    
+                    }
                     //모두 삭제시 완료시 채워줄 문구
-                    $('tbody').html("<tr role='row' class='text-center'><td  colspan='6' >장바구니에 담긴 상품이 없습니다.</td></tr>");
+                    $('tbody').html("<tr role='row' class='text-center'><td  colspan='6' >장바구니에 담긴 상품이 없습니다.</td></tr>"); */
                 }else{   //취소
                 return false;
                 }
             });
-          
-                
+        		  
+        		  
             $(document).ready(function(){
                 
+            	
            
                 $('.yang').each(function(index,item){
                 	
@@ -399,7 +353,8 @@
                     					f_email : '${sessionScope.loginUser.F_EMAIL}'},
                     				success : function(data) {
                     				if (data.cart != 'fail') {							
-                    					
+                    					currentList = data.cl;
+                    					sum = data.sp;
                     					$(item).parent().parent().children().eq(5).text(data.cart.C_TOTALPRICE+" 원");
                     					$('#totalPrice2').text(data.price);
                     					$('#totalPrice1').text(data.price);
@@ -432,6 +387,25 @@
                 
 
             });
+            
+            
+            function order(){
+            	
+            	
+            	
+            	if('${cartList}' != '' ){
+            		location.href="<%=request.getContextPath()%>/order/orderwriting.do?f_email=" +'${sessionScope.loginUser.F_EMAIL}';
+            	}else{
+            		alert('구매할 상품이 담기지 않았습니다.');
+            	}
+            	
+            	
+            	
+            	
+            	
+            }
+            
+            
 
         </script>
         <!-- chatting JS -->
