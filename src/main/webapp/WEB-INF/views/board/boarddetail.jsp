@@ -46,8 +46,7 @@
 						<div class="breadcrumb-content">
 							<h2 class="breadcrumb-main-title">NEWS Details</h2>
 							<ul>
-								<li><a
-									href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
+								<li><a href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
 								<li>- NEWS Details</li>
 							</ul>
 						</div>
@@ -68,42 +67,23 @@
 		<!-- Breadcrumb Area End -->
 
 		<!-- Blog Area Start -->
-
-
 		<div class="blog-page-wrapper section-padding">
 			<div class="container">
 				<div class="row">
-
 					<div class="left-side-blog">
 						<div class="single-blog-page-item">
 							<div class="blog-sample-meta">
 								<ul>
-
-									<li><i class="far fa-calendar-check"></i>${board. }</a></li>
-
+									<li><i class="far fa-calendar-check"></i>${data.map.wrtDt}</li>
 								</ul>
 								<div class="blog-sample-bottom-content">
-									<h3>${board.title }</h3>
-									<p>${board.content }</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="blog-cta-action">
-						<div class="cta-widget-wrapper">
-							<div class="cta-widget-content td-cover-bg"
-								style="background-image: url(./assets/img/cta-button-bg.jpg)">
-								<h6 class="cta-subtitle">코로나바이러스 (COVID-19)</h6>
-								<h3 class="cta-title">질병관리본부 콜센터</h3>
-								<div class="cta-main-button">
-									<a href="tel:1339" class="cta-button btn">1339</a>
+									<h3>${data.map.title}</h3>
+									<p>${data.map.content}</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<!-- Contact Form Area End -->

@@ -131,19 +131,6 @@
 							</div>
 						</div>
 					</div>
-
-				<!-- 	<div class="blog-cta-action">
-						<div class="cta-widget-wrapper">
-							<div class="cta-widget-content td-cover-bg"
-								style="background-image: url(./assets/img/cta-button-bg.jpg)">
-								<h6 class="cta-subtitle">코로나바이러스 (COVID-19)</h6>
-								<h3 class="cta-title">질병관리본부 콜센터</h3>
-								<div class="cta-main-button">
-									<a href="tel:1339" class="cta-button btn">1339</a>
-								</div>
-							</div>
-						</div>
-					</div> -->
 				</div>
 
 			</div>
