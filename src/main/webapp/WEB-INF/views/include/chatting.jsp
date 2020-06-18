@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!doctype html>
-<html class="no-js" lang="en">
+
 
 <head>
     <meta charset="utf-8">
@@ -327,12 +326,12 @@
       
       
     </div>
-    <script src="http://localhost:82/socket.io/socket.io.js"></script>
+    <script src="http://127.0.0.1:82/socket.io/socket.io.js"></script>
 <script>
 $(function() {
 	
 	
-	var socket = io("localhost:82");
+	var socket = io("127.0.0.1:82");
 	
 	if("${ !empty sessionScope.loginUser}" && "${loginUser.F_NICK}" !='') {
 		socket.emit("login_member", {id:"${loginUser.F_NICK}"})
@@ -471,6 +470,3 @@ $(function() {
   
 })
 </script>
-</body>
-
-</html>
