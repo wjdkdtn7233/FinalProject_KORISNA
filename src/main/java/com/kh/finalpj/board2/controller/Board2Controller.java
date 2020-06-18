@@ -29,7 +29,7 @@ public class Board2Controller {
 //      mav.addObject("data", boardList2);
     		
       int currentPage = 1;
-	  int cntPerPage = 5;
+	  int cntPerPage = 10;
 		String orderby = "B2_NO";
 
 		if (commandMap.get("cPage") != null) {

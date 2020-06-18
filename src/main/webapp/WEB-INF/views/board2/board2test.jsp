@@ -140,57 +140,51 @@
 					</div>
 				</div>
 			</div>
-
-
-
-
+			</div>
 
 			<div class="container pt-5">
+			
+				<form action="<%=request.getContextPath()%>/board2/board2.do">
 				<div class="single-right-small-blog blog-search-wrap">
 
-					<div class="col-xl-3 col-lg-3 col-md-3">
-						<div class="selct-products">
-							<select name="localwhole" class="orderby" aria-label="Shop order">
-
-								<option value="local" selected="selected">지역을 선택하세요</option>
-								<option value="강남구">강남구</option>
-								<option value="강동구">강동구</option>
-								<option value="강북구">강북구</option>
-								<option value="강서구">강서구</option>
-								<option value="관악구">관악구</option>
-								<option value="광진구">광진구</option>
-								<option value="구로구">구로구</option>
-								<option value="금천구">금천구</option>
-								<option value="노원구">노원구</option>
-								<option value="도봉구">도봉구</option>
-								<option value="동대문구">동대문구</option>
-								<option value="동작구">동작구</option>
-								<option value="마포구">마포구</option>
-								<option value="서대문구">서대문구</option>
-								<option value="서초구">서초구</option>
-								<option value="성동구">성동구</option>
-								<option value="성북구">성북구</option>
-								<option value="송파구">송파구</option>
-								<option value="양천구">양천구</option>
-								<option value="영등포구">영등포구</option>
-								<option value="용산구">용산구</option>
-								<option value="은평구">은평구</option>
-								<option value="종로구">종로구</option>
-								<option value="중구">중구</option>
-								<option value="중랑구">중랑구</option>
-
-							</select>
+					<div class="single-right-small-blog blog-search-wrap">
+						<div class="blog-short-search-wrap">
+							<input type="search" name="search" placeholder="Search...">
+						
+							<button type="button" class="btn btn-success"  onclick="searchinfo()">
+							<i class="fas fa-search" ></i>
+								
+							</button>
 						</div>
 					</div>
 
-
-
 				</div>
+				</form>
 			</div>
 
-			<div class="container pt-4">
+		
+		
+		<!-- 검색 
+		<div id="menu_wrap" class="bg_white">
+			<div class="option">
+
+				<input type="text" id="keyword"
+					class="keyword" size="15" placeholder="키워드를 입력하세요.">
+				<button id="pSearchBnt" onclick="searchPlaces()">검색하기</button>
+			</div>
+			<ul id="placesList" class="placesList"></ul>
+			<div id="pagination" class="pagination"></div>
+		</div> -->
+
+
+
+
+
+
+
+		<div class="container pt-4">
 				<div class="row">
-					<c:forEach items="${data}" var="board2" begin="1" end="9">
+					<c:forEach items="${noticeData.nlist}" var="board2" begin="1" end="9">
 						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="single-protective-measure-item-2 page-mar-30">
 								<h4 class="protective-title">${board2.b2_yadmNm }</h4>
@@ -209,19 +203,7 @@
 					</c:forEach>
 				</div>
 			</div>
-			<!-- <div class="blog-pagination ">
-				<nav aria-label="Page navigation example">
-					<ul class="pagination">
-						<li class="page-item"><span class="page-link current">1</span></li>
-						
-						
-						<li class="page-item"><a class="page-link" href="blog.html">2</a></li>
-						<li class="page-item"><a class="page-link" href="blog.html"><i
-								class="fas fa-angle-double-right"></i></a></li>
-					</ul>
-				</nav>
-			</div>
- --> 
+			
  			
  			<div class="blog-pagination ">
 				<nav aria-label="Page navigation example">
@@ -356,5 +338,13 @@
 
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
+	
+	<!-- board2 JS -->						
+	<script src="${pageContext.request.contextPath}/resources/map/js/board2.js"></script> 
+	
+	
+	
+	
+	
 </body>
 </html>
