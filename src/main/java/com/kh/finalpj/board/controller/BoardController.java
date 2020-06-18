@@ -74,10 +74,8 @@ public class BoardController {
 
 		for (Map<String, Object> map : res) {
 
-			if (((String) map.get("id")).equals(id)) {
+			if (String.valueOf(map.get("id")).contains(id)) {
 				result.put("map", map);
-				System.out.println((String) map.get("id"));
-				break;
 			}
 
 		}
