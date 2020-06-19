@@ -66,16 +66,19 @@
 				<div class="single-footer-wrapper mar-top">
 					<h3 class="footer-title">Contact Info</h3>
 
-					<p>It is a long established fact that a reader will bee
-						distracted by there readable content.</p>
+					<p>
+						NEED HELP?<br> If you have any questions or need help with
+						your account, you may contact us to assist you
+					</p>
 					<ul class="footer-info">
 						<li class="footer-list-address"><i
 							class="fas fa-map-marker-alt"></i>
 							<div class="footer-addr-dsc">
-								<p>99 S.t Seoul Park Pekanbaru Avenue 28292. South Korea</p>
+								<p>6, Teheran-ro 14-gil, Gangnam-gu, Seoul, Republic of
+									Korea</p>
 							</div></li>
 						<li class="footer-list-mobile"><i class="fas fa-mobile-alt"></i>
-							<a href="tel:+820123456789">+820123456789</a></li>
+							<a href="tel:+820123456789">+8201087782348</a></li>
 						<li class="footer-mail"><i class="fas fa-paper-plane"></i>
 							<p class="footer-mail-addr">
 								<a href="mailto:korisna-admin@gmail.com">korisna-admin@gmail.com</a>
@@ -94,7 +97,8 @@
 				<div class="copyright-text">
 					<h6>
 						Korisna | Developed by: <a target="_blank"
-							href="https://github.com/smina2017/finalproject.git" class="copyright-anchor">GITHUB</a>
+							href="https://github.com/smina2017/finalproject.git"
+							class="copyright-anchor">GITHUB</a>
 					</h6>
 				</div>
 			</div>
