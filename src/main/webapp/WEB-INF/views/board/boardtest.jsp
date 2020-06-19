@@ -47,7 +47,7 @@
 							<h2 class="breadcrumb-main-title">NEWS & Issue</h2>
 							<ul>
 								<li><a href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
-								<li>-국가·지역별 최신안전소식</li>
+								<li>-Coronavirus pandemic: Updates from around the world</li>
 							</ul>
 						</div>
 					</div>
