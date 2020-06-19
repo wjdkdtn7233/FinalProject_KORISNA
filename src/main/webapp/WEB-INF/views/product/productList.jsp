@@ -199,9 +199,5 @@
 		});
 	</script>
 	
-	<c:if test="${sessionScope.loginUser != null }">
-	<!-- chatting JS -->
-	<%@ include file="../include/chatting.jsp"%>
-	</c:if>
     </body>
 </html>
