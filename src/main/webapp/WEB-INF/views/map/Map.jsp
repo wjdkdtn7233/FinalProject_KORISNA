@@ -151,7 +151,7 @@
 	</script>
 
 	<!-- kakao map apiCDN -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac955fe2801d2050db1a02ed1fe41b64&libraries=services"/>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac955fe2801d2050db1a02ed1fe41b64&libraries=services"></script>
 
 	<!-- map JS -->						
 	<script src="${pageContext.request.contextPath}/resources/map/js/map.js"></script>    
