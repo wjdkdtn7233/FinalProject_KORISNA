@@ -130,7 +130,6 @@ public class Board2ServiceImple implements Board2Service{
 	@Override
 	public List<Board2> boardList2() {
 		
-		System.out.println("서비스");
 		return bd2Dao.boardList2();
 	}
 	
@@ -143,6 +142,10 @@ public class Board2ServiceImple implements Board2Service{
 		
 		
 		List<Board2> nlist = bd2Dao.selectNoticList(page, orderby);
+		for(Board2 l : nlist) {
+			System.out.println("service 셀렉트노티스");
+			System.out.println(l);
+		}
 		res.put("paging", page);
 		res.put("nlist", nlist);
 
@@ -151,12 +154,34 @@ public class Board2ServiceImple implements Board2Service{
 
 
 	@Override
-	public List<Board2> searchinfo(String b2_yadmnm) {
-		System.out.println("서비스임플");
-		return bd2Dao.searchinfo(b2_yadmnm);
+	public Map<String, Object> searchinfo(Map<String, Object> commandMap, String orderby, int currentPage, int cntPerPage) {
+
+		Map<String, Object> res = new HashMap<String, Object>();
+		int i = bd2Dao.searchPaging(commandMap);
+		System.out.println("service : " + i);
+		
+		Paging page = new Paging(i, currentPage, cntPerPage);
+		
+		
+		List<Board2> nlist = bd2Dao.searchinfo(commandMap,page, orderby);
+		
+//		for(Board2 l : nlist) {
+//			System.out.println("service 서치인포");
+//			System.out.println(l);
+//		}
+		
+		res.put("paging", page);
+		res.put("nlist", nlist);
+
+		return res;
 	}
+
+
+
+
 	
 	
 	
+
 	
 }

@@ -40,7 +40,10 @@
 		where b2_yadmnm like '%'||#{b2_yadmnm}||'%'
 	</select>
 	
-	
+	<select id="searchPaging" resultType="int">
+		select count(*) from TB_BOARD2
+		where b2_yadmnm like '%'||#{b2_yadmnm}||'%'
+	</select>
 </mapper>
 
 
