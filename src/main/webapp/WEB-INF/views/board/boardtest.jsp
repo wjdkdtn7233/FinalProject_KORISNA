@@ -46,8 +46,7 @@
 						<div class="breadcrumb-content">
 							<h2 class="breadcrumb-main-title">NEWS & Issue</h2>
 							<ul>
-								<li><a href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
-								<li>- Coronavirus pandemic: Updates from around the world</li>
+								<li>Coronavirus pandemic : Updates from around the world</li>
 							</ul>
 						</div>
 					</div>

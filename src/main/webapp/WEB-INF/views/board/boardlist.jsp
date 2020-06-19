@@ -46,7 +46,7 @@
 						<div class="breadcrumb-content">
 							<h2 class="breadcrumb-main-title">NEWS LIVE UPDATES</h2>
 							<ul>
-								<li><a href="<%=request.getContextPath()%>/index/index.do">Home</a></li>
+								<li><a href="<%=request.getContextPath()%>/board/board.do">Previous</a></li>
 								<li>- NEWS List</li>
 							</ul>
 						</div>
