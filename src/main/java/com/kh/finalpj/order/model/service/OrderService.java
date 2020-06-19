@@ -10,4 +10,18 @@ public interface OrderService {
 	
 	public int selectSumPrice(Map<String, Object> commandMap);
 	
+	public int insertOrderList(Map<String, Object> commandMap);
+	
+	public int insertPayList(Map<String, Object> commandMap);
+	
+	public int updateOrderYN(Map<String, Object> commandMap);
+	
+	public int updateProductCnt(Map<String, Object> commandMap);
+	
+	public List<Map<String, Object>> selectOrderList(Map<String, Object> commandMap);
+	
+	public List<Map<String, Object>> selectOrderDetailList(Map<String, Object> commandMap);
+	
+	public int selectTotalPrice(Map<String, Object> commandMap);
+	
 }

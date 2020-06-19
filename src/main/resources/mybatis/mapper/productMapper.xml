@@ -27,6 +27,11 @@ P_STARSCORE
 	<select id="selectProductDetail" resultType="HashMap">
 		select p_no,p_name,p_content,p_price,p_image,p_joindate,p_cnt,p_addinfo,p_starscore from tb_product where p_no = #{p_no}
 	</select>
+	
+	
+	 <update id="updateProductCnt" parameterType="Map">
+    	update tb_product set p_cnt = (p_cnt - ${o_count}) where p_no = #{p_no}
+    </update>
 </mapper>
 
 

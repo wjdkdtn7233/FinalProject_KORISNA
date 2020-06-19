@@ -203,11 +203,11 @@
 												<c:forEach var="cartList" items="${cartList}">
 												
 												<tr role="row"  class="text-center">
-                                                    <td style=" width:130px;"><img style="width:120px; height:120px;" src="<%=request.getContextPath()%>/resources/product/image/${cartList.C_IMAGE}"/></td>
+                                                    <td style=" width:130px;"><input class="pnum" type="hidden" value="${cartList.P_NO}"/><input class="cnum" type="hidden" value="${cartList.C_NO}"/><img style="width:120px; height:120px;" src="<%=request.getContextPath()%>/resources/product/image/${cartList.C_IMAGE}"/></td>
                                                     <td class="productName">${cartList.C_NAME}</td>
-                                                    <td>${cartList.C_PRICE} 원</td>
-                                                    <td>${cartList.C_CNT} 개</td>
-                                                    <td>${cartList.C_TOTALPRICE} 원</td>
+                                                    <td><span>${cartList.C_PRICE}</span> 원</td>
+                                                    <td><span class="pCnt">${cartList.C_CNT}</span> 개</td>
+                                                    <td><span class="ptPrice">${cartList.C_TOTALPRICE}</span> 원</td>
                                                 </tr>
 												</c:forEach>	
 												
@@ -280,9 +280,9 @@
                                                                 <tr>
                                                                     <th>입금은행</th>
                                                                     <td><select id="bank" name="bank"
-                                                                            style="font-size: 12px;">
-                                                                            <option value="-1">::: 선택해 주세요. :::</option>
-                                                                            <option value="1">국민은행:093402-04-081571
+                                                                            style="font-size: 18px;">
+                                                                            <option value="-1">::::: 선택해 주세요. :::::</option>
+                                                                            <option value="1">국민은행:575702-01-220662
                                                                             </option>
                                                                             <option value="2">신한은행:140-012-58997
                                                                             </option>
@@ -297,42 +297,42 @@
 
                                                         <div id="pay-card" style="padding-left: 29px; display: none;">
                                                             <p id="shipfee" class="help  sunflower"
-                                                                style="font-size: 12px; font-weight: 600; color: #000;">최소
+                                                                style="font-size: 18px; font-weight: 600; color: #000;">최소
                                                                 결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.</p>
                                 
                                                             <p id="pg" class="help sunflower"
-                                                                style="font-size: 12px; font-weight: 600; color: #000;">소액
+                                                                style="font-size: 18px; font-weight: 600; color: #000;">소액
                                                                 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
                                                         </div>
                                 
                                                         <div id="pay-kakaopay" style="padding-left: 29px; display: none;">
                                                             <p class="help sunflower"
-                                                                style="font-size: 12px; font-weight: 600; color: #000;">
+                                                                style="font-size: 18px; font-weight: 600; color: #000;">
                                                                 휴대폰에 설치된 카카오톡 앱에서 비밀번호 입력만으로 빠르고 안전하게 결제가 가능한 서비스 입니다.</p>
                                 
                                                             <p class="help sunflower"
-                                                                style="font-size: 12px; font-weight: 600; color: #000;">
+                                                                style="font-size: 18px; font-weight: 600; color: #000;">
                                                                 안드로이드의 경우 구글 플레이, 아이폰의 경우 앱 스토어에서 카카오톡 앱을 설치 한 후,<br> 최초 1회
                                                                 카드 및 계좌 정보를 등록하셔야 사용 가능합니다.
                                                             </p>
                                 
                                                             <p class="help sunflower"
-                                                                style="font-size: 12px; font-weight: 600; color: #000;">인터넷
+                                                                style="font-size: 18px; font-weight: 600; color: #000;">인터넷
                                                                 익스플로러의 경우 8 이상에서만 결제 가능합니다.</p>
                                 
                                                             <p class="help sunflower"
-                                                                style="font-size: 12px; font-weight: 600; color: #000;">
+                                                                style="font-size: 18px; font-weight: 600; color: #000;">
                                                                 BC카드 중 신한, 하나, 국민카드는 결제가 불가능합니다.</p>
                                 
                                                         </div>
                                 
                                                         <div id="pay-payco" style="padding-left: 29px; display: none;">
                                                             <p class="help sunflower"
-                                                                style="font-size: 12px; font-weight: 600; color: #000;">소액
+                                                                style="font-size: 18px; font-weight: 600; color: #000;">소액
                                                                 결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
                                 
                                                             <p class="help sunflower"
-                                                                style="font-size: 12px; font-weight: 600; color: #000;"></p>
+                                                                style="font-size: 18px; font-weight: 600; color: #000;"></p>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -358,7 +358,12 @@
                             </h5>
                         </div>
                     </div>
-                    <div class="col-xl-12 text-center pt-5">
+                    <div class="col-xl-6 text-right pt-5">
+                        <div class="cta-main-button" id="idMsg2">
+                            <a class="cta-button btn">주문취소</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 text-left pt-5">
                         <div class="cta-main-button" id="idMsg3">
                             <a class="cta-button btn">구매하기</a>
                         </div>
@@ -500,7 +505,7 @@
     
     
     
-    
+    	
     
     
     
@@ -561,10 +566,34 @@
 			}
 		}
 
-    </script>
+ 
 
-<script>
+	$('#idMsg2').click(function(){
+		
+		location.href="<%=request.getContextPath()%>/cart/cartlist.do";
+		
+	});
+	
+	
+	
+	
     $('#idMsg3').click(function() {
+    	
+    	
+    	if ($('input:radio[id=pay1]').is(':checked')) {
+    		if(!$('#userName').val()){
+    			alert('입금자명을 입력해주세요.');
+    			return false;
+    		}
+    		if($('#bank').val() == '-1'){
+    			alert('입금하실 은행을 선택해주세요.');
+    			return false;
+    		}
+    		
+    		
+    	}
+    	
+    	
     	
     	//이름 한글만 가능
 		var regExpName = /^[가-힣]+$/
@@ -574,13 +603,18 @@
 		var address1 = $('#o_address');
 		var address2 = $('#o_address1');
 		var phone = $('#o_phone');
-		var msg = $('#o_msg');
+		var msgs = $('#o_msg');
     	var buyerEmail = '${sessionScope.loginUser.F_EMAIL}';
     	var buyerName = '${sessionScope.loginUser.F_NAME}';
     	var buyerPhone = '${sessionScope.loginUser.F_PHONE}';
     	var buyerAddress = '${sessionScope.loginUser.F_ROADADDRESS}'+','+'${sessionScope.loginUser.F_DETAILADDRESS}';
     	var buyerPostCode = '${sessionScope.loginUser.F_POSTCODE}';
+    	var status123 = '입금확인중';
     	var productName = '';
+    	var cno = '';
+    	var pno = '';
+    	var pcnt = '';
+    	var ptprice = '';
    		var total = '${sumPrice}';
     	var cnt = 0;
     	$('.productName').each(function(index,item){
@@ -589,6 +623,31 @@
     			productName += $(item).text();
     		}
     	});
+    	
+    	$('.pnum').each(function(index,item){
+    		
+    		pno += ',' + $(item).val();
+   		
+   		});
+    	
+		$('.pCnt').each(function(index,item){
+    		
+			pcnt += ',' + $(item).text();
+   		
+   		});
+   		
+		$('.ptPrice').each(function(index,item){
+	
+			ptprice += ',' + $(item).text();
+	
+		});
+		$('.cnum').each(function(index,item){
+			
+			cno += ',' + $(item).val();
+	
+		});
+   	
+    	
     	
     	if(cnt != 0){
     		productName += " 외 " + (cnt-1) + " 개 상품"
@@ -617,26 +676,30 @@
     		alert('전화번호는 숫자만 입력해주세요.');
     		return false;
     	}
-    	if(!msg.val()){
+    	if(!msgs.val()){
     		alert('요청 사항을 입력해주세요.');
     		return false;
     	}
     	
     	
-    	
+    	var payCategory = '';
 
                             if ($('#pay2').prop('checked') == true) {
-                                alert('카드결제');
+                                payCategory ='카드결제';
                                 IMP.init('imp71871253');
                             } else if ($('#pay4').prop('checked') == true) {
-                                alert('휴대폰');
+                                payCategory ='휴대폰결제';
                                 IMP.init('imp36292670');
                             } else if ($('#pay3').prop('checked') == true) {
-                                alert('카카오');
+                                payCategory ='카카오결제';
                                 IMP.init('imp97532169');
+                            }else{
+                            	payCategory ='무통장입금';
                             }
-
-                            IMP.request_pay(
+                            
+                            
+                            if (!$('#pay1').is(':checked')) {
+                            	 IMP.request_pay(
                                             {
                                                 pg : 'inicis',
                                                 pay_method : 'card',
@@ -653,61 +716,21 @@
                                             },
                                             function(rsp) {
                                                 if (rsp.success) {
-                                                    alert('success');
+                                                    
+                                                    var queryString = '';
+                                                    
+                                                    queryString += '?f_email=' + buyerEmail + '&o_receiver=' + name.val();
+                                                    queryString += '&o_phone=' + phone.val() + '&o_address=' + address1.val() + ',' + address2.val();
+                                                    queryString += '&o_msg=' + msgs.val() + '&o_status=' + status123 + '&py_category=' + payCategory;
+                                                    queryString += '&p_no=' + pno + '&o_count=' + pcnt + '&o_price=' + ptprice + '&c_no=' + cno;
                                                     
                                                     
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
+                                                    location.href = "<%=request.getContextPath()%>/order/ordercomplete.do" + queryString;
                                                     
                                                     
                                                     
                                                     
                                                     //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
-                                                    jQuery.ajax(
-                                                                    {
-                                                                        url : "/payments/complete", //cross-domain error가 발생하지 않도록 동일한 도메인으로 전송
-                                                                        type : 'POST',
-                                                                        dataType : 'json',
-                                                                        data : {
-                                                                            imp_uid : rsp.imp_uid
-                                                                        //기타 필요한 데이터가 있으면 추가 전달
-                                                                        }
-                                                                    })
-                                                            .done(
-                                                                    function(
-                                                                            data) {
-                                                                        //[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
-                                                                        if (everythings_fine) {
-                                                                            var msg = '결제가 완료되었습니다.';
-                                                                            msg += '\n고유ID : '
-                                                                                    + rsp.imp_uid;
-                                                                            msg += '\n상점 거래ID : '
-                                                                                    + rsp.merchant_uid;
-                                                                            msg += '\결제 금액 : '
-                                                                                    + rsp.paid_amount;
-                                                                            msg += '카드 승인번호 : '
-                                                                                    + rsp.apply_num;
-
-                                                                            alert(msg);
-
-                                                                            location.href = "cartInsert.do?prdtArr="
-                                                                                   
-
-                                                                        } else {
-
-                                                                            location.href = "cartInsert.do?prdtArr="
-                                                                                    
-                                                                            //[3] 아직 제대로 결제가 되지 않았습니다.
-                                                                            //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
-                                                                        }
-                                                                    });
                                                 } else {
                                                     var msg = '결제에 실패하였습니다.';
                                                     msg += '에러내용 : '
@@ -717,6 +740,20 @@
 
                                                 }
                                             });
+                            }else{
+                            	var queryString = '';
+                                
+                                queryString += '?f_email=' + buyerEmail + '&o_receiver=' + name.val();
+                                queryString += '&o_phone=' + phone.val() + '&o_address=' + address1.val() + ',' + address2.val();
+                                queryString += '&o_msg=' + msgs.val() + '&o_status=' + status123  + '&py_category=' + payCategory;
+                                queryString += '&p_no=' + pno + '&o_count=' + pcnt + '&o_price=' + ptprice + '&c_no=' + cno;
+                                
+                                
+                                location.href = "<%=request.getContextPath()%>/order/ordercomplete.do" + queryString;
+                            	
+                            }
+
+                           
                         
                     });
 </script>

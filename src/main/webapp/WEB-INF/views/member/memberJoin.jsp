@@ -169,7 +169,7 @@
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-6  pt-3">
 								<input type="text" name="f_postcode" id="sample4_postcode"
-									placeholder="우편번호*">
+									placeholder="우편번호*" readonly>
 							</div>
 							<div class="col-xl-3 col-lg-3 col-md-3  btn-group-vertical">
 
@@ -184,11 +184,11 @@
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-6">
 								<input type="text" name="f_roadaddress" id="sample4_roadAddress"
-									placeholder="도로명주소*">
+									placeholder="도로명주소*" readonly>
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-6">
 								<input type="text" name="f_jibernaddress"
-									id="sample4_jibunAddress" placeholder="지번주소*">
+									id="sample4_jibunAddress" placeholder="지번주소*" readonly>
 							</div>
 							<div class="col-xl-7 col-lg-7 col-md-7">
 								<span id="guide" style="color: #999; display: none"></span>
@@ -199,7 +199,7 @@
 							</div>
 							<div class="col-xl-3 col-lg-3 col-md-3 pb-3">
 								<input type="text" name="f_otheraddress"
-									id="sample4_extraAddress" placeholder="참고항목*">
+									id="sample4_extraAddress" placeholder="참고항목*" readonly>
 							</div>
 
 							<div class="col-xl-12 text-center">

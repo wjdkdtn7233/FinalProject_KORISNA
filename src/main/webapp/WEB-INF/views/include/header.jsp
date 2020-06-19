@@ -27,7 +27,7 @@
                                     <ul>
                                         <li><a href="<%= request.getContextPath() %>/member/infomodify.do">Profile</a></li>
                                         <li><a href="<%= request.getContextPath() %>/cart/cartlist.do">Cart</a></li>
-                                        <li><a href="error-page.html">Orders</a></li>
+                                        <li><a href="<%= request.getContextPath() %>/order/orderlist.do">Orders</a></li>
                                         <li><a href="<%= request.getContextPath() %>/member/leavemember.do">Membership Withdrawal</a></li>
                                     </ul>
                                 </li>

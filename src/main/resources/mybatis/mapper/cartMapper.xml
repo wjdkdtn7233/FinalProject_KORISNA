@@ -50,6 +50,10 @@ C_TOTALPRICE
 		select C_NO,C_CNT,C_TOTALPRICE from tb_cart where C_NAME = #{c_name} and f_email = #{f_email}
 	</select>
 	
+	<update id="updateOrderYN">
+		update tb_cart set c_orderyn = 'y' where c_no= #{c_no} and f_email = #{f_email}
+	</update>
+	
 </mapper>
 
 
