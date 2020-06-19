@@ -155,6 +155,7 @@
 														placeholder="Phone*   '-' 없이 입력해주세요.'"
 														value="${sessionScope.loginUser.F_PHONE}">
 												</div>
+												
 
 												<div class="single-case-item">
 													<p style="color: red;">*주소 변경을 원할 시 입력해주세요.</p>

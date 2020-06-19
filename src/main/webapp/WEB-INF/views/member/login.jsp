@@ -83,7 +83,7 @@
 						</div>
 						<div class="col-xl-6 text-right pr-5">
 							<div class="cta-main-button">
-								<a class="cta-button btn" onclick="return loginCheck()">Login</a>
+								<a class="cta-button btn" id="gogo" >Login</a>
 							</div>
 						</div>
 						<div class="col-xl-6 text-left">
@@ -180,13 +180,26 @@
 	
 	<script>
 	
-		function loginCheck(){
+
+
+	
+		$('#gogo').click(function(){
 			
 			$('#f_email').val($('#email').val());
 			$('#f_password').val($('#password').val());
 			$('#frm').submit();
 			
-		}
+		});
+		
+		$('#gogo').keydown(function(){
+			if(window.event.keyCode == 13){
+				$('#f_email').val($('#email').val());
+				$('#f_password').val($('#password').val());
+				$('#frm').submit();
+			}
+			
+			
+		});
 		
 		
 		

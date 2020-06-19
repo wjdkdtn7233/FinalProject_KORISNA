@@ -1,9 +1,13 @@
 package com.kh.finalpj.order.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,14 +91,17 @@ public class OrderController {
 		String f_email = String.valueOf(loginUser.get("F_EMAIL")); 
 		commandMap.put("f_email", f_email);
 		
+		
+		
 		List<Map<String, Object>> map = orderService.selectOrderList(commandMap);
 		for (Map<String, Object> m : map) {
 			m.put("O_DATE",String.valueOf(m.get("TO_CHAR(O_DATE,'YYYY-MM-DD')")));
+			m.remove("TO_CHAR(O_DATE,'YYYY-MM-DD')");
 		}
 		
 		
-		System.out.println(map);
 		//jsp에서 payList 가 널이라면
+		mav.addObject("productList",orderService.selectProductList());
 		mav.addObject("orderList",map);
 		mav.setViewName("order/orderList");
 		
@@ -120,6 +127,64 @@ public class OrderController {
 		mav.setViewName("order/orderDetail");
 		return mav;
 	}
+	
+	
+	@RequestMapping("/order/orderconfirmation.do")
+	public void orderConfirmation(@RequestParam Map<String,Object> commandMap,HttpServletResponse response) throws IOException {
+		
+		PrintWriter out = response.getWriter();
+		
+		int result = 0;
+		
+		result = orderService.updateOrderStatus(commandMap);
+		
+		if(result > 0) {
+			out.print("success");
+		}else {
+			out.print("fail");
+		}
+		
+	}
+	
+	
+	@RequestMapping("/order/ordercancle.do")
+	public void orderCancle(@RequestParam Map<String,Object> commandMap,HttpServletResponse response) throws IOException {
+		
+		PrintWriter out = response.getWriter();
+		
+		int result = 0;
+		
+		result = orderService.updateOrderCancle(commandMap);
+		
+		if(result > 0) {
+			out.print("success");
+		}else {
+			out.print("fail");
+		}
+		
+	}
+	
+	@RequestMapping("/order/reviewreg.do")
+	public void	reviewReg(@RequestParam Map<String,Object> commandMap,HttpServletResponse response) throws IOException {
+		
+		PrintWriter out = response.getWriter();
+		
+		int result = 0;
+		
+		String content = String.valueOf(commandMap.get("r_content")).trim();
+		
+		commandMap.put("r_content",content);
+		result = orderService.insertReview(commandMap);
+		
+		
+		if(result > 0) {
+			out.print("success");
+		}else {
+			out.print("fail");
+		}
+	}
+	
+	
 	
 	
 }

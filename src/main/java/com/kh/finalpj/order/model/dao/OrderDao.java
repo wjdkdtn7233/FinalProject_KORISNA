@@ -48,8 +48,23 @@ public class OrderDao {
 		return sqlSession.selectList("Order.selectOrderDetailList",commandMap);
 	}
 	
+	public int updateOrderStatus(Map<String, Object> commandMap) {
+		return sqlSession.update("Order.updateOrderStatus",commandMap);
+	}
+	
 	public int selectTotalPrice(Map<String, Object> commandMap) {
 		return sqlSession.selectOne("Order.selectTotalPrice",commandMap);
 	}
-
+	
+	public int updateOrderCancle(Map<String, Object> commandMap) {
+		return sqlSession.update("Order.updateOrderCancle",commandMap);
+	}
+	
+	public List<Map<String, Object>> selectProductList() {
+		return sqlSession.selectList("Product.selectProductList");
+	}
+	
+	public int insertReview(Map<String, Object> commandMap) {
+		return sqlSession.insert("Review.insertReview",commandMap);
+	}
 }

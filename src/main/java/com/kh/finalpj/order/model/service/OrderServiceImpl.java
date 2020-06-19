@@ -53,11 +53,36 @@ public class OrderServiceImpl implements OrderService{
 	public List<Map<String, Object>> selectOrderDetailList(Map<String, Object> commandMap) {
 		return orderDao.selectOrderDetailList(commandMap);
 	}
-
+	
+	@Override
+	public int updateOrderStatus(Map<String, Object> commandMap) {
+		return orderDao.updateOrderStatus(commandMap);
+	}
+	
 	@Override
 	public int selectTotalPrice(Map<String, Object> commandMap) {
 		return orderDao.selectTotalPrice(commandMap);
 	}
+
+	@Override
+	public int updateOrderCancle(Map<String, Object> commandMap) {
+		return orderDao.updateOrderCancle(commandMap);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectProductList() {
+		return orderDao.selectProductList();
+	}
+
+	@Override
+	public int insertReview(Map<String, Object> commandMap) {
+		return orderDao.insertReview(commandMap);
+	}
+	
+	
+
+
+	
 	
 	
 }

@@ -89,7 +89,12 @@
 									<tr role="row" class="text-center">
                                     	<td>${orderDetailList.O_DATE}</td>
                                     	<td style=" width:130px;"><img style="width:120px;height:120px;" src="<%=request.getContextPath()%>/resources/product/image/${orderDetailList.P_IMAGE}"></td>
-                                    	<td><div>${orderDetailList.P_NAME}</div><div style="color:red;">${orderDetailList.O_STATUS}</div></td>
+                                    	<td><div>${orderDetailList.P_NAME}</div><div class="orderStatus" style="color:red;">${orderDetailList.O_STATUS}</div><div>
+                                    	<c:if test="${orderDetailList.O_STATUS == '배송완료'}">
+                                    	<button class="confirmation">구매확정하기</button>
+                                    	</c:if>
+                                    	</div>
+                                    	</td>
                                     	<td><div><span>${orderDetailList.P_PRICE}</span> 원</div><div style="font-size:16px; background-color:#BDFF12;">결제 방법 : ${orderDetailList.PY_CATEGORY}</div></td>
                                     	<td><span>${orderDetailList.O_COUNT}</span> 개</td>
                                     	<td><span>${orderDetailList.O_PRICE}</span> 원</td>
@@ -189,7 +194,7 @@
                     </div>
                     <div class="col-xl-6 text-left pt-5 sunflower">
                         <div class="cta-main-button" >
-                            <a class="cta-button btn">주문 취소</a>
+                            <a class="cta-button btn" id="orderCencle" data-toggle="modal" data-target="#orderCancle-modal" >주문 취소</a>
                         </div>
                     </div>
 
@@ -200,7 +205,102 @@
             </div>
         </div>
         <!-- Contact Form Area End -->
+		
+		<div class="modal fade sunflower" id="orderCancle-modal" tabindex="-1" role="dialog" aria-labelledby="orderCancle-modal" aria-hidden="true">
+    		<div class="modal-dialog " role="document">
+        		<div class="modal-content">
+        			<div class="modal-header">
+						<h4 class="modal-title section-single-subtitle sunflower" style="font-size:30px;">주문 취소</h4>
+          				<button type="button" class="close" data-dismiss="modal">×</button>
 
+       			 	</div>
+
+            		<div class="modal-body">
+            		<p style="font-size:20px;">
+            			주문 취소를 위해
+            			취소 사유를 작성해 주세요.<br>
+            			
+            		</p>
+            		<p style="color:red;font-size:20px;">취소 시 원상복구는 불가능합니다.</p>
+            					<textarea id="cancleText">
+            					</textarea>
+            					
+            			<c:if test="${userInfo.PY_CATEGORY == '무통장입금'}">
+           		 		<div class="row pl-2" >
+           		 		<div class="col-xl-10 col-lg-10 col-md-10 ">
+           		 			<p style="font-size:20px;">
+            					환불 받으실 계좌를 입력해주세요.
+            		 		</p>
+           		 		</div>
+           		 			<div class="col-xl-10 col-lg-10 col-md-10 ">
+           		 				<select id="bankName">
+           		 					<option value="1">========은행명을 선택하세요========</option>
+                        			<option value="경남은행">경남은행</option>
+                        			<option value="광주은행">광주은행</option>
+                        			<option value="국민은행">국민은행</option>
+                        			<option value="기업은행">기업은행</option>
+                        			<option value="농협중앙회">농협중앙회</option>
+                        			<option value="농협회원조합">농협회원조합</option>
+                       			 	<option value="대구은행">대구은행</option>
+                       			 	<option value="도이치은행">도이치은행</option>
+                        			<option value="부산은행">부산은행</option>
+                        			<option value="산업은행">산업은행</option>
+                        			<option value="상호저축은행">상호저축은행</option>
+                        			<option value="새마을금고">새마을금고</option>
+                        			<option value="수협중앙회">수협중앙회</option>
+                        			<option value="신한금융투자">신한금융투자</option>
+                        			<option value="신한은행">신한은행</option>
+                        			<option value="신협중앙회">신협중앙회</option>
+                        			<option value="외환은행">외환은행</option>
+                        			<option value="우리은행">우리은행</option>
+                        			<option value="우체국">우체국</option>
+                        			<option value="전북은행">전북은행</option>
+                        			<option value="제주은행">제주은행</option>
+                        			<option value="카카오뱅크">카카오뱅크</option>
+                        			<option value="케이뱅크">케이뱅크</option>
+                        			<option value="하나은행">하나은행</option>
+                        			<option value="한국씨티은행">한국씨티은행</option>
+                        			<option value="HSBC은행">HSBC은행</option>
+                        			<option value="SC제일은행">SC제일은행</option>
+           		 				</select>
+           		 			</div>
+           		 			<div class="col-xl-10 col-lg-10 col-md-10 ">
+           		 				<input type="text" id="account" />
+           		 			</div>
+           		 			
+           		 			<div class="col-xl-10 col-lg-10 col-md-10 ">
+           		 				<p style="color:red;">환불은 24시간 이내로 완료됩니다.</p>
+           		 			</div>
+           		 		</div>
+           		 		</c:if>	
+            					
+           		 	</div>
+           		 	
+           		 	
+           		 	<div class="modal-footer">
+						<div class="row">
+							<div class="col-xl-6 col-lg-6 col-md-6 pr-3">
+								<div class="cta-main-button" >
+                            		<a class="cta-button btn" id="cancleOK" data-dismiss="modal" >확인</a>
+                        		</div>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-6">
+								<div class="cta-main-button" >
+                            		<a class="cta-button btn" id="cancleNO"  data-dismiss="modal" >취소</a>
+                        		</div>
+							</div>
+						</div>
+         				
+
+        			</div>
+
+
+        		</div>
+    		</div>
+		</div>
+		
+		
+		
         <!-- Contact Information Area Start -->
         <div class="contact-information-wrapper section-padding purple-bg">
             <div class="container">
@@ -262,7 +362,129 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <script>
         
-
+	$('#orderCencle').click(function(){
+		
+		var os = '';
+		console.log(os);
+		$('.orderStatus').each(function(index,item){
+			if(index == 0){
+				os = $(item).text();
+			}
+			
+		});
+		
+		if(os == '주문취소'){
+			alert('해당 상품은 이미 취소되었습니다.');
+			return false;
+		}
+		
+		if( os == '배송완료' || os == '배송중' || os == '구매확정' ){
+			alert('해당 상품은 취소가 불가능합니다. 반품처리를 해주세요.');
+			return false;
+		}
+		
+		$('#cancleText').val("");
+		
+		$('#cancleNO').click(function(){
+			$('#cancleText').val("");
+		});
+		
+		$('#cancleOK').click(function(){
+			
+			var bank = '없음';
+			var bankAccount = '없음';
+			
+			
+			if(!$('#cancleText').val()){
+				
+				alert('취소 사유를 작성해주세요.');
+				return false;
+			}
+			
+			if('${userInfo.PY_CATEGORY}' == '무통장입금'){
+				if(!$('#bankName').val()){
+					
+					alert('은행명을 선택해주세요.');
+					return false;
+				}
+				
+				if(!$('#account').val()){
+					
+					alert('계좌번호를 작성해주세요.');
+					return false;
+				}
+				
+				bank = $('#bankName').val();
+				bankAccount = $('#account').val();
+				
+			}
+			
+			
+				$.ajax({
+				
+				url:"<%=request.getContextPath()%>/order/ordercancle.do",
+				type : "post",
+				data : {O_DETAILNO : '${userInfo.O_DETAILNO}', F_EMAIL : '${userInfo.F_EMAIL}', O_CANCLEREASON : $('#cancleText').val()
+							,O_BANKNAME :bank, O_BANKACCOUNT : bankAccount },
+				success : function(data) {
+					
+					if(data == 'fail'){
+						alert('주문 취소 실패');
+					}else{
+						$('.orderStatus').each(function(index,item){
+							$(item).html('주문취소');
+							alert('주문 취소 완료');
+						});
+						
+					}
+					
+					
+				},error : function(data) {										
+					alert('에러입니다.');				
+					
+				}
+				
+				
+				});
+			
+			
+			
+			
+		});
+		
+		
+	});
+	
+	$('.confirmation').each(function(index,item){
+		
+		$(item).click(function(){
+			
+			$.ajax({
+			
+				url:"<%=request.getContextPath()%>/order/orderconfirmation.do",
+				type : "post",
+				data : {O_DETAILNO : '${userInfo.O_DETAILNO}', F_EMAIL : '${userInfo.F_EMAIL}'},
+				success : function(data) {
+					
+					if(data == 'fail'){
+						alert('구매 확정 실패');
+					}
+					
+					$(item).parent().parent().children().eq(1).html("구매확정");
+					
+				},error : function(data) {										
+					alert('에러입니다.');				
+					
+				}
+				
+				
+			});
+			
+			
+			
+		});
+		
+	});
 
 
     </script>

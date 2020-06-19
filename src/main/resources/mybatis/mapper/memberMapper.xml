@@ -4,20 +4,6 @@
 
 <mapper namespace="Member">
 	
-	<!-- <resultMap id="loginMemberResultMap" type="java.util.HashMap">
-		<id property="f_email" column="f_email"/>
-		<result property="f_password" column="f_password"/>
-		<result property="f_name" column="f_name"/>
-		<result property="f_birth" column="f_birth"/>
-		<result property="f_phone" column="f_phone"/>
-		<result property="f_postcode" column="f_postcode"/>
-		<result property="f_roadaddress" column="f_roadaddress"/>
-		<result property="f_jibernaddress" column="f_jibernaddress"/>
-		<result property="f_detailaddress" column="f_detailaddress"/>
-		<result property="f_otheraddress" column="f_otheraddress"/>
-		<result property="f_userpicture" column="f_userpicture"/>
-	</resultMap>
-	 -->
 
 
 	<select id="idCheck" resultType="_int">
