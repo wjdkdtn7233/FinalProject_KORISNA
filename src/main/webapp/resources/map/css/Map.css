@@ -163,9 +163,9 @@ input:checked + .slider:before {
 
 .switchSpan{
 	font-weight:bold;
-	position:relative;
+	position:absolute;
 	font-size:15px;
-	width:30px;
+	width:33%;
 	background-color:white;
 	z-index:999;
 	left:66%;
@@ -173,9 +173,9 @@ input:checked + .slider:before {
 }
 .switchSpan2{
 	font-weight:bold;
-	position:relative;
+	position:absolute;
 	font-size:15px;
-	width:30px;
+	width:40%;
 	background-color:white;
 	z-index:999;
 	left:60%;
@@ -188,11 +188,6 @@ input:checked + .slider:before {
 }
 .row.justify-content-center{
 	height:120px !important;
-}
-.breadcrumb-content li{
-	
-	font-size:30px;
-	
 }
 
 .bg_white{

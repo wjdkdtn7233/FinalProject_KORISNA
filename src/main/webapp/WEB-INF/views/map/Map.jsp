@@ -24,25 +24,43 @@
 		<!-- Breadcrumb Area Start -->
 		<section class="breadcrumb-wrapper purple-bg">
 			<div class="breadcrumb-virus-shape breadcrumb-shape-1">
-				<img src="<%= request.getContextPath() %>/resources/assets/img/mini-white-shape.png" alt="">
+				<img
+					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
+					alt="">
 			</div>
 			<div class="breadcrumb-virus-shape breadcrumb-shape-2">
-				<img src="<%= request.getContextPath() %>/resources/assets/img/mini-white-shape.png" alt="">
+				<img
+					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
+					alt="">
 			</div>
 			<div class="breadcrumb-virus-shape breadcrumb-shape-3">
-				<img src="<%= request.getContextPath() %>/resources/assets/img/mini-white-shape.png" alt="">
+				<img
+					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
+					alt="">
 			</div>
 			<div class="breadcrumb-virus-shape breadcrumb-shape-4">
-				<img src="<%= request.getContextPath() %>/resources/assets/img/mini-white-shape.png" alt="">
+				<img
+					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
+					alt="">
 			</div>
-			<div class="container" id="container">
-				<div class="row justify-content-center text-center h-50">
-					<div class="col-xl-6 col-lg-6 col-md-6">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 col-md-6 my-auto">
 						<div class="breadcrumb-content">
-							<h2 class="breadcrumb-main-title"></h2>
+							<h2 class="breadcrumb-main-title">마스크맵</h2>
 							<ul>
-								<li>- 마스크맵 - </li>
+								<li><a href="<%=request.getContextPath()%>/product/productlist.do">마스크 온라인 구매를 원하시면 클릭하세요.</a></li>
 							</ul>
+						</div>
+					</div>
+					<div
+						class="col-xl-6 col-lg-6 col-md-6 text-right breadcrumb-unvisible">
+						<div class="breadcrumb-image-wrapper">
+							<div class="breadcrumb-image">
+								<img
+									src="<%=request.getContextPath()%>/resources/assets/img/woman-towel.png"
+									alt="">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -54,17 +72,6 @@
 		<!-- Contact Form Area Start -->
 		<div class="contact-form-wrapper section-padding">
 			<div class="container">
-				<!-- <div class="row justify-content-center">
-					<div class="col-xl-12 col-lg-12">
-						<div class="section-title text-center semi-blue-section-title">
-
-							<h2 class="section-heading-title">
-								마스크맵 <span class="section-blue-text"></span>
-							</h2>
-							<h5 class="section-single-subtitle">select your address.</h5>
-						</div>
-					</div>
-				</div> -->
 				<div class="contact-form-inner">
 					<div class="row justify-content-center">
 						
@@ -91,65 +98,12 @@
 						
 				   		
 						<!-- map end -->	
-						
-						
-						<!-- <div class="col-xl-10 col-lg-10 col-md-10 pb-3">
 
-						</div>
-						<div class="col-xl-10 col-lg-10 col-md-10 pb-3">
-
-						</div>
-						<div class="col-xl-6 text-right pr-5">
-							<div class="cta-main-button">
-
-							</div>
-						</div>
-						<div class="col-xl-6 text-left">
-							<div class="cta-main-button">
-
-							</div>
-						</div> -->
-
-						<!-- <div class="col-xl-9 col-lg-9 col-md-9 pt-5 text-center">
-						
-						</div> -->
-					<!-- 	<div class="col-xl-9 col-lg-9 col-md-9 pt-5 text-center">
-							<div class="single-right-small-blog blog-contact-us">
-								<h3 class="blog-single-title">Have you forgotten your email
-									or password..?</h3>
-								<div class="blog-post-tags d-flex justify-content-center">
-							
-								</div>
-							</div>
-						</div> -->
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- Contact Form Area End -->
-
-		<!-- Contact Information Area Start -->
-		<div class="contact-information-wrapper section-padding purple-bg">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-4 col-lg-4 col-md-4">
-						<div
-							class="single-contact-information-wrap border-right page-mar-mobile">
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4">
-						<div
-							class="single-contact-information-wrap border-right page-mar-mobile">
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4">
-						<div class="single-contact-information-wrap">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Contact Information Area End -->
 	</main>
 
 	<!-- footer -->
