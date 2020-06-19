@@ -26,28 +26,28 @@ C_TOTALPRICE
 	</insert>
 	
 	<update id="updateCart" parameterType="Map">
-		update tb_cart set c_cnt = ${c_cnt}, c_totalprice = ${c_totalprice} where c_no = ${c_no}
+		update tb_cart set c_cnt = ${c_cnt}, c_totalprice = ${c_totalprice} where c_no = ${c_no} and C_ORDERYN = 'n'
 	</update>
 	
 	<select id="selectCart" parameterType="Map" resultType="HashMap">
-		select C_NO,F_EMAIL,P_NO,C_PRICE,C_CNT,C_IMAGE,C_NAME,C_ORDERYN,C_TOTALPRICE from tb_cart where C_NO = ${c_no}
+		select C_NO,F_EMAIL,P_NO,C_PRICE,C_CNT,C_IMAGE,C_NAME,C_ORDERYN,C_TOTALPRICE from tb_cart where C_NO = ${c_no} C_ORDERYN = 'n'
 	</select>
 	
 	<select id="selectSumPrice" resultType="_int">
-		select sum(c_totalprice) from tb_cart where f_email = #{f_email}
+		select sum(c_totalprice) from tb_cart where f_email = #{f_email} and C_ORDERYN = 'n'
 	</select>
 	
 	<delete id="deleteCart" parameterType="Map">
-		delete from tb_cart where c_no = #{c_no}
+		delete from tb_cart where c_no = #{c_no} and C_ORDERYN = 'n'
 
 	</delete>
 	
 	<delete id="deleteCartAll" parameterType="Map">
-		delete from tb_cart where f_email = #{f_email}
+		delete from tb_cart where f_email = #{f_email} and C_ORDERYN = 'n'
 	</delete>
 	
 	<select id="selectCartYN" parameterType="Map"  resultType="HashMap">
-		select C_NO,C_CNT,C_TOTALPRICE from tb_cart where C_NAME = #{c_name} and f_email = #{f_email}
+		select C_NO,C_CNT,C_TOTALPRICE from tb_cart where C_NAME = #{c_name} and f_email = #{f_email} and C_ORDERYN = 'n'
 	</select>
 	
 	<update id="updateOrderYN">

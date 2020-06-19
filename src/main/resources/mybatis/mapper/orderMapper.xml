@@ -41,12 +41,7 @@ PY_YN
     </insert>
     
     <insert  id="insertPayList" parameterType="Map">
-    	<if test="py_category == '무통장입금'">
-    		insert into tb_pay values(o_no_seq.currval,#{f_email},#{o_price},#{py_category},sysdate,'n')
-    	</if>
-    	<if test="py_category != '무통장입금'">
     		insert into tb_pay values(o_no_seq.currval,#{f_email},#{o_price},#{py_category},sysdate,'y')
-    	</if>
     </insert>
     
    

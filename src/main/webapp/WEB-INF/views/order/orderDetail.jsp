@@ -76,11 +76,11 @@
                 <br>
                 <div class="row  justify-content-center">
                     <div class="col-xl-12 col-lg-12 col-md-12">
-                        <table class="table" width="100%" cellspacing="0" role="grid"
+                        <table class="table sunflower" width="100%" cellspacing="0" role="grid"
                             style="width: 100%;">
                             <thead>
                                 <tr role="row" class="text-white">
-                                    <th rowspan="6" colspan="6" style="background-color:#9536FF;width: 34px;">2020-06-18 주문 목록</th>
+                                    <th rowspan="6" colspan="6" style="background-color:#9536FF;width: 34px;">${userInfo.O_DATE} &nbsp; &nbsp;주문 목록</th>
                                 </tr>
                             </thead>
 
@@ -89,8 +89,8 @@
 									<tr role="row" class="text-center">
                                     	<td>${orderDetailList.O_DATE}</td>
                                     	<td style=" width:130px;"><img style="width:120px;height:120px;" src="<%=request.getContextPath()%>/resources/product/image/${orderDetailList.P_IMAGE}"></td>
-                                    	<td><div>${orderDetailList.P_NAME}</div><div>${orderDetailList.O_STATUS}</div></td>
-                                    	<td><div><span>${orderDetailList.P_PRICE}</span> 원</div><div>${orderDetailList.PY_CATEGORY}</div></td>
+                                    	<td><div>${orderDetailList.P_NAME}</div><div style="color:red;">${orderDetailList.O_STATUS}</div></td>
+                                    	<td><div><span>${orderDetailList.P_PRICE}</span> 원</div><div style="font-size:16px; background-color:#BDFF12;">결제 방법 : ${orderDetailList.PY_CATEGORY}</div></td>
                                     	<td><span>${orderDetailList.O_COUNT}</span> 개</td>
                                     	<td><span>${orderDetailList.O_PRICE}</span> 원</td>
                                 	</tr>
@@ -100,7 +100,7 @@
                         </table>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12 pt-5">
-                        <table class="table" width="100%" cellspacing="0" role="grid"
+                        <table class="table sunflower" width="100%" cellspacing="0" role="grid"
                             style="width: 100%;">
                             <thead>
                                 <tr role="row" class="text-black">
@@ -145,7 +145,7 @@
                     
                     </div> 
                     <div class="col-xl-12 col-lg-12 col-md-12 pt-5">
-                        <table class="table" width="100%" cellspacing="0" role="grid"
+                        <table class="table sunflower" width="100%" cellspacing="0" role="grid"
                             style="width: 100%;">
                             <thead>
                                 <tr role="row" class="text-black">
@@ -182,12 +182,12 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-xl-6 text-right pt-5">
+                    <div class="col-xl-6 text-right pt-5 sunflower">
                         <div class="cta-main-button" >
                             <a href="<%= request.getContextPath() %>/order/orderlist.do" class="cta-button btn">주문 목록</a>
                         </div>
                     </div>
-                    <div class="col-xl-6 text-left pt-5">
+                    <div class="col-xl-6 text-left pt-5 sunflower">
                         <div class="cta-main-button" >
                             <a class="cta-button btn">주문 취소</a>
                         </div>

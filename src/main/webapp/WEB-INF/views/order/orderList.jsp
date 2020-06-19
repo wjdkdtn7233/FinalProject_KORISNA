@@ -94,7 +94,7 @@
                                     <td>${orderList.O_DATE}<input type="hidden" value="<%=request.getContextPath()%>/order/orderdetail.do?o_detailno=${orderList.O_DETAILNO}"/></td>
                                     <td style=" width:130px;"><img style="width:120px;height:120px;" src="<%=request.getContextPath()%>/resources/product/image/${orderList.P_IMAGE}"></td>
                                     <td><div>${orderList.P_NAME}</div><div style="color:red">${orderList.O_STATUS}</div></td>
-                                    <td><div><span>${orderList.P_PRICE}</span> 원</div><div style="color:orange">${orderList.PY_CATEGORY}</div></td>
+                                    <td><div><span>${orderList.P_PRICE}</span> 원</div><div style="font-size:16px;background-color:#BDFF12;">결제방법 : ${orderList.PY_CATEGORY}</div></td>
                                     <td><span>${orderList.O_COUNT}</span> 개</td>
                                     <td>
                                         <div><span>${orderList.O_PRICE}</span> 원</div>
