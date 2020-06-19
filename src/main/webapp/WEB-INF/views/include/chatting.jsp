@@ -326,11 +326,11 @@
       
       
     </div>
-    <script src="http://3.34.121.58:8777/socket.io/socket.io.js"></script>
+    <script src="https://www.korisna.site:8777/socket.io/socket.io.js"></script>
 <script>
 $(function() {
 	
-	var socket = io.connect("3.34.121.58:8777");
+	var socket = io.connect("korisna.site:8777");
 	
 	if("${ !empty sessionScope.loginUser}" && "${loginUser.F_NICK}" !='') {
 		socket.emit("login_member", {id:"${loginUser.F_NICK}"})
