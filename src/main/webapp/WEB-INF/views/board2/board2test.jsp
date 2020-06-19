@@ -142,28 +142,28 @@
 			</div>
 			</div>
 
-			<div class="container pt-5">
-			
-				<form action="<%=request.getContextPath()%>/board2/board2.do">
+		<div class="container pt-5">
+
+			<form action="<%=request.getContextPath()%>/board2/board2search.do">
 				<div class="single-right-small-blog blog-search-wrap">
 
 					<div class="single-right-small-blog blog-search-wrap">
 						<div class="blog-short-search-wrap">
 							<input type="search" name="search" placeholder="Search...">
-						
-							<button type="button" class="btn btn-success"  onclick="searchinfo()">
-							<i class="fas fa-search" ></i>
-								
+
+							<button type="button" class="btn btn-success">
+								<i class="fas fa-search"></i>
+
 							</button>
 						</div>
 					</div>
 
 				</div>
-				</form>
-			</div>
+			</form>
+		</div>
 
-		
-		
+
+
 		<!-- 검색 
 		<div id="menu_wrap" class="bg_white">
 			<div class="option">
@@ -184,7 +184,7 @@
 
 		<div class="container pt-4">
 				<div class="row">
-					<c:forEach items="${noticeData.nlist}" var="board2" begin="1" end="9">
+					<c:forEach items="${noticeData.nlist}" var="board2" begin="1" end="7">
 						<div class="col-xl-4 col-lg-4 col-md-6">
 							<div class="single-protective-measure-item-2 page-mar-30">
 								<h4 class="protective-title">${board2.b2_yadmNm }</h4>
@@ -201,11 +201,38 @@
 							</div>
 						</div>
 					</c:forEach>
+								
 				</div>
 			</div>
-			
- 			
- 			<div class="blog-pagination ">
+		
+
+		<div class="container pt-4">
+			<div class="row">
+
+				<c:forEach items="${searchlist }" var="search" begin="1" end="7">
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-protective-measure-item-2 page-mar-30">
+							<h4 class="protective-title">${search.b2_yadmNm }</h4>
+							<p class="common-short-text">${search.b2_sidocdNm }</p>
+							<p class="common-short-text">${search.b2_sggucdNm }</p>
+							<p class="common-short-text">${search.b2_addr }</p>
+							<p class="common-short-text">${search.b2_telno }</p>
+							<div class="protective-measure-icon-wrap">
+								<div class="cart-bottom">
+									<a href="#" class="common-btn btn common">위치 확인</a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</c:forEach>
+
+			</div>
+		</div>
+
+
+		<div class="blog-pagination ">
 				<nav aria-label="Page navigation example">
 					<ul class="pagination">
 					<li class="page-item">
@@ -339,9 +366,9 @@
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
 	
-	<!-- board2 JS -->						
+	<%-- <!-- board2 JS -->						
 	<script src="${pageContext.request.contextPath}/resources/map/js/board2.js"></script> 
-	
+	 --%>
 	
 	
 	

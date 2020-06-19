@@ -13,4 +13,6 @@ public interface Board2Service {
 	
 	
 	public Map<String, Object> selectNoticeList(String orderby, int currentPage, int cntPerPage);
+
+	public List<Board2> searchinfo(String b2_yadmnm);
 }

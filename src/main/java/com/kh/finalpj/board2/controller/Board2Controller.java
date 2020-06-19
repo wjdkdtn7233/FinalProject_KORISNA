@@ -29,7 +29,7 @@ public class Board2Controller {
 //      mav.addObject("data", boardList2);
     		
       int currentPage = 1;
-	  int cntPerPage = 10;
+	  int cntPerPage = 7;
 		String orderby = "B2_NO";
 
 		if (commandMap.get("cPage") != null) {
@@ -41,19 +41,26 @@ public class Board2Controller {
 		}
 
 		Map<String, Object> res = bs.selectNoticeList(orderby, currentPage, cntPerPage);
-		System.out.println("컨트롤러맵" + res);
+
 		mav.addObject("noticeData", res);
 		mav.setViewName("board2/board2test");
-
-		
-      
-      
-      
-      
-   
+ 
       return mav;
 
    }
+   
+   
+   @RequestMapping("/board2search.do")
+	public ModelAndView searchinfo(String b2_yadmnm) {
+		ModelAndView mav = new ModelAndView();
+		List<Board2> res = bs.searchinfo(b2_yadmnm);
+		System.out.println("컨트롤러맵");
+		mav.addObject("searchlist", res);
+		mav.setViewName("board2/board2test");
+		
+		return mav;
+	}
+   
    
    @RequestMapping("/index.do")
    public ModelAndView index(ModelAndView mav) {

@@ -1,5 +1,6 @@
 package com.kh.finalpj.board2.model.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class Board2Dao {
 	
 	public List<Board2> selectNoticList(Paging page, String orderby) {
 		
-		System.out.println("다오");
+		
 		Map<String, Object> data = new HashMap<String, Object>();
 
 		data.put("page", page);
@@ -49,6 +50,15 @@ public class Board2Dao {
 
 		return sqlSession.selectOne("Board2.contentCnt");
 
+	}
+
+
+	public List<Board2> searchinfo(String b2_yadmnm) {
+		
+		List<Board2> res = new ArrayList<Board2>();
+		res = sqlSession.selectList("Board2.searchinfo", b2_yadmnm);
+		System.out.println("다오");
+		return res;
 	}
 	
 	
