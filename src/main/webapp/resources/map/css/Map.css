@@ -1,12 +1,12 @@
 @charset "UTF-8";
 
 .switch {
-  position: relative;
+  position: absolute;
   display: inline-block;
   width: 60px;
   height: 34px;
   z-index:999;
-  left:79%;
+  left:75%;
   
 }
 
@@ -16,6 +16,8 @@
   width: 0;
   height: 0;
 }
+
+
 
 /* The slider */
 .slider {
@@ -116,11 +118,7 @@ input:checked + .slider:before {
 	width:58%;
 	height:100%;
 }
-.bg_white{
-	position:relative;
-	right:90%;
-	width:40%;
-}
+
 #keyword{
 	position:relative;
 	height:30px !important;
@@ -196,11 +194,18 @@ input:checked + .slider:before {
 	font-size:30px;
 	
 }
+
+.bg_white{
+	position:absolute;
+	right:79.3%;
+	width:20%;
+}
+
 .favorate{
-	position:fixed;
+	position:absolute;
 	width:20%;
 	left:79.5%;
-	top:27%;
+	top:1.5%;
 	z-index:999;
 	border-radius:10px;
 	background-color:#7c52cc;

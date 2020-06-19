@@ -35,7 +35,7 @@
 			<div class="breadcrumb-virus-shape breadcrumb-shape-4">
 				<img src="<%= request.getContextPath() %>/resources/assets/img/mini-white-shape.png" alt="">
 			</div>
-			<div class="container">
+			<div class="container" id="container">
 				<div class="row justify-content-center text-center h-50">
 					<div class="col-xl-6 col-lg-6 col-md-6">
 						<div class="breadcrumb-content">
@@ -70,7 +70,15 @@
 						
 						
 						<!-- map start -->
-						
+						<div id="menu_wrap" class="bg_white">
+					        <div class="option">
+					               <span><b>주소 검색</b></span><br>
+					               <input type="text" id="keyword" class="keyword" size="15" placeholder="키워드를 입력하세요."> 
+					               <button id="pSearchBnt" onclick="searchPlaces()">검색하기</button> 
+					        </div>
+					        <ul id="placesList" class="placesList"></ul>
+				 	   		<div id="pagination" class="pagination"></div>
+				   		</div>
 						
 						<label class="switch" id="mapSwitch">
 						  <input type="checkbox" id="mapSelector" onchange="switchTest()">
@@ -80,16 +88,7 @@
 						<div id="map" class="kakaoMap"></div>
 						<div id="favorate" class="favorate"></div>
 						
-						<div id="menu_wrap" class="bg_white">
-					        <div class="option">
-					
-					               <span><b>주소 검색</b></span><br>
-					               <input type="text" id="keyword" class="keyword" size="15" placeholder="키워드를 입력하세요."> 
-					               <button id="pSearchBnt" onclick="searchPlaces()">검색하기</button> 
-					        </div>
-					        <ul id="placesList" class="placesList"></ul>
-				 	   		<div id="pagination" class="pagination"></div>
-				   		</div>
+						
 				   		
 						<!-- map end -->	
 						
