@@ -47,9 +47,9 @@
 				<div class="row">
 					<div class="col-xl-6 col-lg-6 col-md-6 my-auto">
 						<div class="breadcrumb-content">
-							<h2 class="breadcrumb-main-title">마스크맵</h2>
+							<h2 class="breadcrumb-main-title">Mask Map</h2>
 							<ul>
-								<li><a href="<%=request.getContextPath()%>/product/productlist.do">마스크 온라인 구매를 원하시면 클릭하세요.</a></li>
+								<li><a href="<%=request.getContextPath()%>/product/productlist.do">Online-Shop</a></li>
 							</ul>
 						</div>
 					</div>
