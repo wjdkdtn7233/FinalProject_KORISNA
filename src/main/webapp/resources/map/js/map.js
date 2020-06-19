@@ -14,7 +14,7 @@ $(function(){
 
 function validateFavorate(){
 	$.ajax({
-		url:"/springmvc/map/getfavorate.do",
+		url:contextPath+"/map/getfavorate.do",
 		type:"POST",
 		data:{"userId" : userId},
 		async:false,
@@ -41,7 +41,7 @@ function coordFlag(){
 	
 		$.ajax({
 		
-			url : "/springmvc/map/getcoords.do",
+			url : contextPath+"/map/getcoords.do",
 			type : "post",  
 			data : {'addr':userAddr},
 			dataType:"json",
@@ -69,7 +69,7 @@ function getPharmacy(lat,lon,level){
 	var coords = {"lat" : lat, "lon" : lon,"level":level}; 
 	$.ajax({
 		
-		url:"/springmvc/map/getpharmacy.do",
+		url:contextPath+"/map/getpharmacy.do",
 		data:coords,
 		type:"post",
 		dataType:"json",
