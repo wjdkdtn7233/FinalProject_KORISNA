@@ -133,6 +133,7 @@
 													<input type="password" id="f_password2" name="f_password2"
 														class="w-50" placeholder="repeat password*"
 														value="${sessionScope.loginUser.F_PASSWORD}">
+													<h5 class="pt-3" id="pwCheckInfo"></h5>
 												</div>
 												<div class="single-case-item">
 													<h3 class="cases-title">이름</h3>
@@ -453,6 +454,8 @@
 	</script>
 
 	<script>
+	
+		var passwordCheckFlag = true;
 		//유효성 검사 함수
 		function chk(re, e, msg) {
 
@@ -465,6 +468,43 @@
 				return false;
 			}
 		}
+		
+		
+		$('#f_password').keyup(function(){
+			var regExpPw = /(?=.*\d{1,16})(?=.*[~`!@#$%\^&*()-+=]{1,16})(?=.*[a-zA-Z]{1,16}).{8,16}$/;
+			var password = $('#f_password');
+			if (!chk(regExpPw, password, "")) {
+				$('#pwCheckInfo')
+						.html(
+								'비밀번호는 영문,숫자,특수기호를 포함한 <br>8자리 이상 16자리 내로 입력해주세요.')
+						.css('color', 'red');
+				passwordCheckFlag = false;
+				return;
+			}
+			if ($('#f_password').val() == $('#f_password2')
+					.val()) {
+				$('#pwCheckInfo').html('비밀번호 일치').css('color',
+						'green');
+				passwordCheckFlag = true;
+			} else {
+				$('#pwCheckInfo').html('비밀번호 불일치').css('color',
+						'red');
+				passwordCheckFlag = false;
+			}
+		});
+		
+		$('#f_password2').keyup(function(){
+			if ($('#f_password').val() == $('#f_password2')
+					.val()) {
+				$('#pwCheckInfo').html('비밀번호 일치').css('color',
+						'green');
+				passwordCheckFlag = true;
+			} else {
+				$('#pwCheckInfo').html('비밀번호 불일치').css('color',
+						'red');
+				passwordCheckFlag = false;
+			}
+		});
 
 		function modify() {
 
@@ -483,12 +523,12 @@
 				alert('비밀번호를 입력해주세요.');
 				return false;
 			}
-			if (!chk(regExpPw, password, "")) {
-				alert('비밀번호는 숫자,영문,특수문자 포함 8자리 이상 16자리 미만으로 입력해주세요.');
+			if (!passwordCheckFlag) {
+				alert('비밀번호를 확인해주세요.');
 				return false;
 			}
-			if (!chk(regExpPw, password2, "")) {
-				alert('비밀번호는 숫자,영문,특수문자 포함 8자리 이상 16자리 미만으로 입력해주세요.');
+			if (!passwordCheckFlag) {
+				alert('비밀번호를 확인해주세요.');
 				return false;
 			}
 			if (!password.val() != !password2.val()) {

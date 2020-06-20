@@ -378,7 +378,7 @@
 			//이메일 형식인지 검사
 			if (!chk(regExpEmail, $('#f_email'), "")) {
 				$('#idcheckInfo').html(
-				'이메일 형식에 맞게 작성해주세요.').css(
+				'이메일 형식에<br> 맞게 작성해주세요.').css(
 				'color', 'red');
 				idCheckFlag = false;
 				return;
@@ -396,12 +396,12 @@
 										success : function(data) {
 											if (data == "ok") {
 												$('#idcheckInfo').html(
-														'사용 가능한 이메일입니다.').css(
+														'사용 가능한<br> 이메일입니다.').css(
 														'color', 'green');
 												idCheckFlag = true;
 											} else {
 												$('#idcheckInfo').html(
-														'이미 사용중인 이메일입니다.').css(
+														'이미 사용중인<br> 이메일입니다.').css(
 														'color', 'red');
 												idCheckFlag = false;
 											}
