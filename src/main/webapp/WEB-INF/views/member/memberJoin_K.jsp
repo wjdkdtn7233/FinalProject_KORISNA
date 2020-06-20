@@ -351,14 +351,14 @@
 		}
 
 		//비밀번호 유효성 검사 / 일치여부
-		$('#f_password').click(function() {
+		/* $('#f_password').click(function() {
 			$('#pwCheckInfo').html('');
 		});
 		$('#f_password2').click(function() {
 			$('#pwCheckInfo').html('');
-		});
+		}); */
 		$('#f_password')
-				.change(
+				.keyup(
 						function() {
 
 							var password = $('#f_password');
@@ -387,21 +387,10 @@
 						});
 
 		$('#f_password2')
-				.change(
+				.keyup(
 						function() {
 							var password2 = $('#f_password2');
 
-							//비밀번호 8자리 이상 16자리 미만
-							var regExpPw = /(?=.*\d{1,16})(?=.*[~`!@#$%\^&*()-+=]{1,16})(?=.*[a-zA-Z]{1,16}).{8,16}$/;
-
-							if (!chk(regExpPw, password2, "")) {
-								$('#pwCheckInfo')
-										.html(
-												'비밀번호는 영문,숫자,특수기호를 포함한 <br>8자리 이상 16자리 내로 입력해주세요.')
-										.css('color', 'red');
-								passwordCheckFlag = false;
-								return;
-							}
 							if ($('#f_password').val() == $('#f_password2')
 									.val()) {
 								$('#pwCheckInfo').html('비밀번호 일치').css('color',
