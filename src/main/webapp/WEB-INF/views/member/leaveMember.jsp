@@ -216,14 +216,20 @@
   			
   			
   			
-  			if($('#inputPassword').val() == '${sessionScope.loginUser.F_PASSWORD}'){
-  				
-  				location.href="<%= request.getContextPath() %>/member/withdrawal.do";
-  				
-  			}else{
+  			if($('#inputPassword').val() != '${sessionScope.loginUser.F_PASSWORD}'){
   				
   				alert('비밀번호를 다시 확인해주세요.');
+  				return;
   			}
+  			
+  			
+  			if (confirm("정말 회원탈퇴를 하시겠습니까?") == true){ //확인
+				
+				location.href="<%= request.getContextPath() %>/member/withdrawal.do";
+           }else{   //취소
+        	   
+           		return false;
+           }	
   			
   		}
   			
