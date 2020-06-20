@@ -49,4 +49,16 @@ public class ReviewDao {
 	public int updateLikeOrHateCnt(Map<String, Object> commandMap) {
 		return sqlSession.update("Review.updateLikeOrHateCnt",commandMap);
 	}
+	
+	public int deleteReview(Map<String, Object> commandMap) {
+		return sqlSession.delete("Review.deleteReview",commandMap);
+	}
+	
+	public int deleteEmpathy(Map<String, Object> commandMap) {
+		return sqlSession.delete("Empathy.deleteEmpathy",commandMap);
+	}
+	
+	public int selectEmpathyCnt(Map<String, Object> commandMap) {
+		return sqlSession.selectOne("Empathy.selectEmpathyCnt",commandMap);
+	}
 }

@@ -93,4 +93,45 @@ public class ReviewController {
 	}
 	
 	
+	@RequestMapping("/review/deletereview.do")
+	public ModelAndView deleteReview(ModelAndView mav,HttpServletRequest request,@RequestParam Map<String,Object> commandMap) throws IOException {
+		int result = 0;
+		System.out.println(commandMap);
+		
+		String pno = String.valueOf(commandMap.get("p_no"));
+		String loginUser = String.valueOf(commandMap.get("f_email"));
+		String reviewUser = String.valueOf(commandMap.get("r_email"));
+		
+		if(loginUser.equals(reviewUser)) {
+			if(reviewService.selectEmpathyCnt(commandMap) > 0) {
+			result = reviewService.deleteEmpathy(commandMap);
+			}
+			result += reviewService.deleteReview(commandMap);
+			commandMap.put("p_starscore", reviewService.selectReviewStarScoreAvg(commandMap));
+			result += reviewService.updateProductStarScore(commandMap);
+		}else {
+			mav.addObject("alertMsg","리뷰 작성한 본인만 삭제가능합니다.");
+			mav.addObject("back","back");
+			mav.setViewName("common/result");
+			return mav;
+			
+		}
+		
+		
+		if(result > 1) {
+			
+			mav.addObject("alertMsg", "리뷰가 성공적으로 삭제되었습니다.");
+			mav.addObject("url",request.getContextPath()+"/product/productdetail.do?p_no="+pno);
+			mav.setViewName("common/result");
+		}else {
+			mav.addObject("alertMsg","리뷰삭제실패!");
+			mav.addObject("back","back");
+			mav.setViewName("common/result");
+			
+		}
+		
+		return mav;
+	}
+	
+	
 }

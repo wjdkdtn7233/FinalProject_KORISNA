@@ -53,6 +53,11 @@ R_USERPICTURE
 		where r_no = #{r_no}
 	</update>
 	
+	
+	<delete id="deleteReview" parameterType="Map">
+		delete from tb_review where r_no = #{r_no} and f_email = #{f_email}
+	</delete>
+	
 </mapper>
 
 

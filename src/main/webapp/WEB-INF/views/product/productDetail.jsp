@@ -172,8 +172,9 @@
                                             <p>${reviewList.R_CONTENT}</p>
                                             <div class="reply">
                                             	<input type="hidden" class="likeAndHate" value="${reviewList.R_NO}"/>
-                                                <a  class="pr-5"><i class="far fa-thumbs-up "></i><span>${reviewList.R_LIKE}</span></a>
-                                                <a  ><i class="far fa-thumbs-down"></i><span>${reviewList.R_HATE}</span></a>
+                                                <a  class="pr-3"><i class="far fa-thumbs-up "></i><span>${reviewList.R_LIKE}</span></a>
+                                                <a  class="pr-3"><i class="far fa-thumbs-down"></i><span>${reviewList.R_HATE}</span></a>
+                                                <a href="<%=request.getContextPath()%>/review/deletereview.do?r_no=${reviewList.R_NO}&r_email=${reviewList.F_EMAIL}&f_email=${sessionScope.loginUser.F_EMAIL}&p_no=${reviewList.P_NO}" class="deleteReview"><i class="fas fa-times-circle"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -549,6 +550,18 @@
     					}							
     				});
       		}, 2000);
+      		
+      		
+      		/* $('.deleteReview').each(function(index,item){
+      			
+      			$(item).click(function(){
+      				if((item).parent().children().eq(4).val() != '${sessionScope.loginUser.F_EMAIL}'){
+      					alert('본인이 작성한 리뷰만 삭제 가능합니다.');
+      					return false;
+      				}
+      			});
+      			
+      		}); */
       		
       	</script>
       	

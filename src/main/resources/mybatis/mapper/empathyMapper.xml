@@ -17,6 +17,13 @@ R_NO
 		select count(*) from tb_empathy where r_no = ${r_no} and f_email = #{f_email}
 	</select>
 	
+	<select id="selectEmpathyCnt" resultType="_int" parameterType="Map">
+		select count(r_no) from tb_empathy where r_no = ${r_no}
+	</select>
+	
+	<delete id="deleteEmpathy" parameterType="Map">
+		delete from tb_empath where r_no = #{r_no}
+	</delete>
 </mapper>
 
 

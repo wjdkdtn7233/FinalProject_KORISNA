@@ -24,4 +24,10 @@ public interface ReviewService {
 	public Map<String, Object> selectLikeAndHateCnt(Map<String, Object> commandMap);
 	//해당 리뷰 like와 hate 갯수 파악 후  사용자가 누른 것에 따라 +1 업데이트 해주기
 	public int updateLikeOrHateCnt(Map<String, Object> commandMap);
+	
+	public int deleteReview(Map<String, Object> commandMap);
+	
+	public int deleteEmpathy(Map<String, Object> commandMap);
+	
+	public int selectEmpathyCnt(Map<String, Object> commandMap);
 }

@@ -58,5 +58,18 @@ public class ReviewServiceImpl implements ReviewService {
 	public int updateLikeOrHateCnt(Map<String, Object> commandMap) {
 		return reviewDao.updateLikeOrHateCnt(commandMap);
 	}
+
+	@Override
+	public int deleteReview(Map<String, Object> commandMap) {
+		return reviewDao.deleteReview(commandMap);
+	}
+	@Override
+	public int deleteEmpathy(Map<String, Object> commandMap) {
+		return reviewDao.deleteEmpathy(commandMap);
+	}
+	@Override
+	public int selectEmpathyCnt(Map<String, Object> commandMap) {
+		return reviewDao.selectEmpathyCnt(commandMap);
+	}
 	
 }
