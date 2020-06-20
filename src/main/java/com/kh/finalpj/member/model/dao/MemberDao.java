@@ -52,4 +52,8 @@ public class MemberDao {
 		return sqlSession.update("Member.updateUserInfo",commandMap);
 	}
 	
+	public Map<String, Object> selectKaKaoLoginMember(Map<String, Object> commanMap) {
+		return sqlSession.selectOne("Member.selectKaKaoLoginMember",commanMap);
+	}
+	
 }

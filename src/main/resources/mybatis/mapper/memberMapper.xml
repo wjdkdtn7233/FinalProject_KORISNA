@@ -11,11 +11,21 @@
 	</select>
 	
 	<insert id="insertMember" parameterType="Map">
-		insert into tb_member values(#{f_email},#{f_password},#{f_name},#{f_birth},#{f_phone},#{f_postcode},#{f_roadaddress},#{f_jibernaddress},#{f_detailaddress},#{f_otheraddress},'basicphoto.png','N',#{f_nick})
+		<if test="f_kakaotoken == 'no'">
+			insert into tb_member values(#{f_email},#{f_password},#{f_name},#{f_birth},#{f_phone},#{f_postcode},#{f_roadaddress},#{f_jibernaddress},#{f_detailaddress},#{f_otheraddress},'basicphoto.png','N',#{f_nick},null)
+		</if>
+		<if test="f_kakaotoken != 'no'">
+			insert into tb_member values(#{f_email},#{f_password},#{f_name},#{f_birth},#{f_phone},#{f_postcode},#{f_roadaddress},#{f_jibernaddress},#{f_detailaddress},#{f_otheraddress},'basicphoto.png','N',#{f_nick},#{f_kakaotoken})
+		</if>
+		
 	</insert>
 	
 	<select id="selectLoginMember" parameterType="Map" resultType="HashMap">
 		select f_email,f_password,f_name,f_birth,f_phone,f_postcode,f_roadaddress,f_jibernaddress,f_detailaddress,f_otheraddress,f_userpicture,f_leaveyn,f_nick from tb_member where f_email = #{f_email} and f_password = #{f_password} and f_leaveyn = 'N'
+	</select>
+	
+	<select id="selectKaKaoLoginMember" parameterType="Map" resultType="HashMap">
+		select f_email,f_password,f_name,f_birth,f_phone,f_postcode,f_roadaddress,f_jibernaddress,f_detailaddress,f_otheraddress,f_userpicture,f_leaveyn,f_nick from tb_member where f_email = #{f_email} and f_kakaotoken = #{f_kakaotoken} and f_leaveyn = 'N'
 	</select>
 	
 	

@@ -88,7 +88,7 @@
 						</div>
 						<div class="col-xl-6 text-left">
 							<div class="cta-main-button">
-								<a class="cta-button btn" onclick="kakaoLogin()">kakao Login</a>
+								<a class="cta-button btn" style="background-color:yellow;"  onclick="kakaoLogin()">kakao Login</a>
 							</div>
 						</div>
 
@@ -230,8 +230,35 @@
 							//kakao_account.profile.profile_image_url : 프로필 이미지
 							//kakao_account.email : 사용자 이메일
 							//connected_at : 로그인 시간
-							
+							console.log(res.properties.id);
+							console.log(res.properties.nickname);
+							console.log(res.kakao_account.email);
 							console.log(res.id);
+							var kakaoToken = res.id;
+							var kakaoNick = res.properties.nickname;
+							var kakaoEmail = res.kakao_account.email;
+							
+							$.ajax({
+								
+								url:"<%=request.getContextPath()%>/member/idcheck.do",
+								type : "post",
+								data : {f_email : res.kakao_account.email},
+								success : function(data) {
+									if (data == "ok") {
+										alert("회원가입을 위해 이동합니다.")
+										location.href="<%=request.getContextPath()%>/member/kakaoreg.do?f_email=" + kakaoEmail + "&f_kakaotoken=" + kakaoToken + "&f_nick=" + kakaoNick;
+										
+									} else {
+										
+										location.href="<%=request.getContextPath()%>/member/kakaologin.do?f_email=" + kakaoEmail + "&f_kakaotoken=" + kakaoToken;
+									}
+
+								},error : function(data) {
+									alert('아이디 체크 오류');
+
+								}
+						    });
+							
 
 						},
 						fail : function(error) {

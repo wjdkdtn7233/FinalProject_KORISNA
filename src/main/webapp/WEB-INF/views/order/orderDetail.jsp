@@ -89,11 +89,17 @@
 									<tr role="row" class="text-center">
                                     	<td>${orderDetailList.O_DATE}</td>
                                     	<td style=" width:130px;"><img style="width:120px;height:120px;" src="<%=request.getContextPath()%>/resources/product/image/${orderDetailList.P_IMAGE}"></td>
-                                    	<td><div>${orderDetailList.P_NAME}</div><div class="orderStatus" style="color:red;">${orderDetailList.O_STATUS}</div><div>
-                                    	<c:if test="${orderDetailList.O_STATUS == '배송완료'}">
-                                    	<button class="confirmation">구매확정하기</button>
-                                    	</c:if>
-                                    	</div>
+                                    	<td class="statusSpace">
+                                    		<div>${orderDetailList.P_NAME}</div>
+                                    		<div class="orderStatus" style="color:red;">${orderDetailList.O_STATUS}</div>
+                                    		<c:if test="${orderDetailList.O_STATUS == '주문취소'}">
+                                    		<div><button class="btn cancleInfo" style="background-color:red; font-size:20px;"  data-toggle="modal" data-target="#orderCancleInfo-modal">취소 정보</button></div>
+                                    		</c:if>
+                                    		<c:if test="${orderDetailList.O_STATUS == '배송완료'}">
+                                    		<div>
+                                    			<button class="confirmation btn"  style="background-color:#9536FF; font-size:20px;">구매확정하기</button>
+                                    		</div>
+                                    		</c:if>
                                     	</td>
                                     	<td><div><span>${orderDetailList.P_PRICE}</span> 원</div><div style="font-size:16px; background-color:#BDFF12;">결제 방법 : ${orderDetailList.PY_CATEGORY}</div></td>
                                     	<td><span>${orderDetailList.O_COUNT}</span> 개</td>
@@ -299,6 +305,86 @@
     		</div>
 		</div>
 		
+		<div class="modal fade sunflower" id="orderCancleInfo-modal" tabindex="-1" role="dialog" aria-labelledby="orderCancleInfo-modal" aria-hidden="true">
+    		<div class="modal-dialog " role="document">
+        		<div class="modal-content">
+        			<div class="modal-header">
+						<h4 class="modal-title section-single-subtitle sunflower" style="font-size:30px;">취소 정보</h4>
+          				<button type="button" class="close" data-dismiss="modal">×</button>
+
+       			 	</div>
+
+            		<div class="modal-body">
+            		<div class="row">
+            			<div class="col-xl-12 col-lg-12 col-md-12 pt-5">
+                        <table class="table sunflower" width="100%" cellspacing="0" role="grid"
+                            style="width: 100%;">
+                            <thead>
+                                <tr role="row" class="text-black">
+                                    <th rowspan="2" colspan="2" style="width: 34px;">주문 취소 정보를 확인해주세요.</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            	<tr role="row">
+                                    <td
+                                        style="background-color:#EAEAEA ;border-right-color: black; width:170px;">
+                                       취소 날짜</td>
+                                    <td><span id="dateHere"></span></td>
+                                </tr>
+                                <tr role="row">
+                                    <td
+                                        style="background-color:#EAEAEA ;border-right-color: black; width:170px;">
+                                       취소 사유</td>
+                                    <td><span id="contentHere"></span></td>
+                                </tr>
+                                <tr role="row">
+                                    <td
+                                        style="background-color:#EAEAEA ;border-right-color: black; width:170px;">
+                                        취소 금액</td>
+                                    <td>${sum} 원</td>
+                                </tr>
+                                <c:if test="${userInfo.PY_CATEGORY == '무통장입금'}">
+                                <tr role="row">
+                                    <td
+                                        style="background-color:#EAEAEA ;border-right-color: black; width:170px;">
+                                        환불 계좌 은행명</td>
+                                    <td><span id="bankHere"></span></td>
+                                </tr>
+                                <tr role="row">
+                                    <td
+                                        style="background-color:#EAEAEA ;border-right-color: black; width:170px;">
+                                        환불 계좌 번호</td>
+                                    <td id="accountHere"></td>
+                                </tr>
+                                </c:if>
+                            </tbody>
+                        </table>
+                    
+                    </div> 
+            		
+            		</div>			
+            					
+           		 	</div>
+           		 	
+           		 	
+           		 	<div class="modal-footer">
+						<div class="row">
+							<div class="col-xl-6 col-lg-6 col-md-6 pr-3">
+								<div class="cta-main-button" >
+                            		<a class="cta-button btn"  data-dismiss="modal" >확인</a>
+                        		</div>
+							</div>
+						</div>
+         				
+
+        			</div>
+
+
+        		</div>
+    		</div>
+		</div>
+		
 		
 		
         <!-- Contact Information Area Start -->
@@ -431,11 +517,14 @@
 					if(data == 'fail'){
 						alert('주문 취소 실패');
 					}else{
+						alert('주문 취소 완료');
 						$('.orderStatus').each(function(index,item){
 							$(item).html('주문취소');
-							alert('주문 취소 완료');
 						});
 						
+						$('.statusSpace').each(function(index,item){
+							$(item).append("<div><button class='btn cancleInfo' style='background-color:red; font-size:20px;' data-toggle='modal' data-target='#orderCancleInfo-modal'>취소 정보</button></div>");
+						});
 					}
 					
 					
@@ -463,14 +552,21 @@
 			
 				url:"<%=request.getContextPath()%>/order/orderconfirmation.do",
 				type : "post",
-				data : {O_DETAILNO : '${userInfo.O_DETAILNO}', F_EMAIL : '${userInfo.F_EMAIL}'},
+				data : {O_DETAILNO : '${userInfo.O_DETAILNO}', F_EMAIL : '${userInfo.F_EMAIL}', O_STATUS : '구매확정'},
 				success : function(data) {
 					
 					if(data == 'fail'){
 						alert('구매 확정 실패');
+					}else{
+						
+						$(item).parent().parent().children().eq(1).html("구매확정");
+						
+						$('.confirmation').each(function(index,item){
+							$(item).remove();
+						});
 					}
 					
-					$(item).parent().parent().children().eq(1).html("구매확정");
+					
 					
 				},error : function(data) {										
 					alert('에러입니다.');				
@@ -483,6 +579,44 @@
 			
 			
 		});
+		
+	});
+	
+	
+	
+	$('.cancleInfo').each(function(index,item){
+		
+		$(item).click(function(){
+			
+			$.ajax({
+				
+				url:"<%=request.getContextPath()%>/order/ordercancleinfo.do",
+				type : "post",
+				dataType: "json",
+				data : {O_DETAILNO : '${userInfo.O_DETAILNO}', F_EMAIL : '${userInfo.F_EMAIL}', O_STATUS : '주문취소'},
+				success : function(data) {
+					
+					if(data.cancleInfo == 'fail'){
+						alert('주문 정보 불러오기 실패');
+					}else{
+						$('#dateHere').html(data.cancleInfo.O_CANCLEDATE)
+						$('#contentHere').html(data.cancleInfo.O_CANCLEREASON);
+						$('#bankHere').html(data.cancleInfo.O_BANKNAME);
+						$('#accountHere').html(data.cancleInfo.O_BANKACCOUNT);
+					}
+					
+					
+					
+				},error : function(data) {										
+					alert('에러입니다.');				
+					
+				}
+				
+				
+			});
+			
+		});
+		
 		
 	});
 

@@ -98,7 +98,7 @@
                             	<tr role='row' class='text-center'><td  colspan='6' >주문하신 상품이 없습니다.</td></tr>
                             </c:if>
                             <c:if test="${orderList != '[]'}">
-                            <c:forEach var="orderList" items="${orderList}">
+                            <c:forEach var="orderList" items="${orderList}" varStatus="st">
                             	<tr role="row" class="text-center goOrderDetail" >
                                     <td>${orderList.O_DATE}<input type="hidden" value="<%=request.getContextPath()%>/order/orderdetail.do?o_detailno=${orderList.O_DETAILNO}"/></td>
                                     <td style=" width:130px;"><img style="width:120px;height:120px;" src="<%=request.getContextPath()%>/resources/product/image/${orderList.P_IMAGE}"></td>

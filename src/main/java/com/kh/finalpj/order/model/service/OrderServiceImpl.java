@@ -78,6 +78,11 @@ public class OrderServiceImpl implements OrderService{
 	public int insertReview(Map<String, Object> commandMap) {
 		return orderDao.insertReview(commandMap);
 	}
+
+	@Override
+	public Map<String, Object> selectCancleInfo(Map<String, Object> commandMap) {
+		return orderDao.selectCancleInfo(commandMap);
+	}
 	
 	
 

@@ -118,6 +118,7 @@
 							<input type="hidden" name="f_jibernaddress" value="${member.f_jibernaddress}" /> 
 							<input type="hidden" name="f_detailaddress" value="${member.f_detailaddress}" /> 
 							<input type="hidden" name="f_otheraddress" value="${member.f_otheraddress}" />
+							<input type="hidden" name="f_kakaotoken" value="${member.f_kakaotoken}" />
 						</form>
 						<div class="col-xl-12 col-lg-12 col-md-12 text-center">
 							<div class="blog-contact-us-wrap">

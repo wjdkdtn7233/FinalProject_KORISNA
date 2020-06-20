@@ -18,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.finalpj.order.model.service.OrderService;
 
+import net.sf.json.JSONObject;
+
 @Controller
 public class OrderController {
 
@@ -154,6 +156,10 @@ public class OrderController {
 		
 		int result = 0;
 		
+		String content = String.valueOf(commandMap.get("O_CANCLEREASON")).trim();
+		
+		commandMap.put("O_CANCLEREASON", content);
+		
 		result = orderService.updateOrderCancle(commandMap);
 		
 		if(result > 0) {
@@ -182,6 +188,33 @@ public class OrderController {
 		}else {
 			out.print("fail");
 		}
+	}
+	
+	
+	@RequestMapping("/order/ordercancleinfo.do")
+	public void	orderCancleInfo(@RequestParam Map<String,Object> commandMap,HttpServletResponse response) throws IOException {
+		
+		
+		PrintWriter out = response.getWriter();
+		
+		Map<String, Object> resultMap = orderService.selectCancleInfo(commandMap);
+		
+		String cancleDate = String.valueOf(resultMap.get("TO_CHAR(O_CANCLEDATE,'YYYY-MM-DD')"));
+		
+		resultMap.put("O_CANCLEDATE", cancleDate);
+		resultMap.remove("TO_CHAR(O_CANCLEDATE,'YYYY-MM-DD')");
+		
+		JSONObject job = new JSONObject();
+		
+
+		if(resultMap.size() > 0) {
+			job.put("cancleInfo",resultMap);
+		}else {
+			job.put("cancleInfo", "fail");
+		}
+		
+		out.print(job);
+		
 	}
 	
 	

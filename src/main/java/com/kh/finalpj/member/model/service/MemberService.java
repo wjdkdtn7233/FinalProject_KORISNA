@@ -22,4 +22,6 @@ public interface MemberService {
 	public String selectFindUserPassword(Map<String,Object> commandMap);
 	
 	public int updateUserInfo(Map<String,Object> commandMap);
+	
+	public Map<String, Object> selectKaKaoLoginMember(Map<String, Object> commanMap);
 }

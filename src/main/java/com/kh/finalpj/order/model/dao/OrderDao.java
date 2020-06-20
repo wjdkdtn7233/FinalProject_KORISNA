@@ -67,4 +67,8 @@ public class OrderDao {
 	public int insertReview(Map<String, Object> commandMap) {
 		return sqlSession.insert("Review.insertReview",commandMap);
 	}
+	
+	public Map<String, Object> selectCancleInfo(Map<String, Object> commandMap) {
+		return sqlSession.selectOne("Order.selectCancleInfo",commandMap);
+	}
 }

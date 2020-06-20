@@ -58,6 +58,11 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.updateUserInfo(commandMap);
 	}
 
+	@Override
+	public Map<String, Object> selectKaKaoLoginMember(Map<String, Object> commanMap) {
+		return memberDao.selectKaKaoLoginMember(commanMap);
+	}
+
 	
 	
 }

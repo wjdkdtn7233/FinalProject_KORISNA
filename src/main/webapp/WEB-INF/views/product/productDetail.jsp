@@ -6,11 +6,11 @@
 <!-- HAED -->
 <%@ include file="../include/head.jsp"%>
 <style>
-     #star_grade a{
+     #star_grade i{
         text-decoration: none;
         color: gray;
     }
-    #star_grade a.on{
+    #star_grade i.on{
         color: #9536FF;
     }
 </style>
@@ -188,11 +188,11 @@
                                                 <div class="row">
                                                   	<div class="col-xl-12">
                                                   		<p id="star_grade">
-       														 <a href="#">★</a>
-        													 <a href="#">★</a>
-        													 <a href="#">★</a>
-       														 <a href="#">★</a>
-       														 <a href="#">★</a>
+       														<i class="fas fa-star"></i>
+        													<i class="fas fa-star"></i>
+        													<i class="fas fa-star"></i>
+       														<i class="fas fa-star"></i>
+       														<i class="fas fa-star"></i>
 														</p>
                                                   	</div>
                                                     <div class="col-xl-12">
@@ -321,9 +321,9 @@
       	
       	var starscore = 0;
       	
-        $('#star_grade a').click(function(){
-            $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
-            $(this).addClass("on").prevAll("a").addClass("on");/* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+        $('#star_grade i').click(function(){
+            $(this).parent().children("i").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
+            $(this).addClass("on").prevAll("i").addClass("on");/* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
             
            	
             return false;

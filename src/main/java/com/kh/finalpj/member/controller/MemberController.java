@@ -95,6 +95,8 @@ public class MemberController {
 	
 		Map<String, Object> member =  null;
 		
+		
+		
 		member = memberService.selectLoginMember(commanMap);
 		
 		if(member != null) {
@@ -112,6 +114,36 @@ public class MemberController {
 		
 		return mav;
 	}
+	
+	@RequestMapping("/member/kakaoreg.do")
+	public ModelAndView kakaoReg(ModelAndView mav,@RequestParam Map<String,Object> commanMap) {
+		
+		mav.addObject("KaKaoInfo",commanMap);
+		mav.setViewName("member/memberJoin_K");
+	
+		return mav;
+	}
+	
+	@RequestMapping("/member/kakaologin.do")
+	public ModelAndView kakaoLogin(ModelAndView mav,HttpSession session,HttpServletRequest request,@RequestParam Map<String,Object> commanMap) {
+		
+		Map<String, Object> kakaoLoginMember = memberService.selectKaKaoLoginMember(commanMap);
+		
+		if(kakaoLoginMember != null) {
+			session.setAttribute("loginUser", kakaoLoginMember);
+			mav.addObject("alertMsg",kakaoLoginMember.get("F_NAME")+"님 환영합니다.");
+			mav.addObject("url", request.getContextPath()+"/index/index.do");
+			mav.setViewName("common/result");
+		}else{
+			mav.addObject("alertMsg","이메일,비밀번호를 확인하세요!");
+			mav.addObject("back","back");
+			mav.setViewName("common/result");
+		}
+		
+	
+		return mav;
+	}
+	
 	
 	
 	@RequestMapping("/member/idcheck.do")
@@ -393,6 +425,8 @@ public class MemberController {
 		}
 		return mav;
 	}
+	
+	
 	
 	
 	

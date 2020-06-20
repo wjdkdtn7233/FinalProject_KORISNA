@@ -32,4 +32,6 @@ public interface OrderService {
 	
 	public int insertReview(Map<String, Object> commandMap);
 	
+	public Map<String, Object> selectCancleInfo(Map<String, Object> commandMap);
+	
 }

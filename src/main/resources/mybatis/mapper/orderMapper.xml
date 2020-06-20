@@ -36,10 +36,10 @@ PY_BANKACCOUNT
     
     <insert id="insertOrderList" parameterType="Map">
     	<if test="number == 'ok'">
-    		insert into tb_order values(o_no_seq.nextval,#{f_email},#{p_no},sysdate,#{o_receiver},#{o_phone},#{o_address},#{o_msg},#{o_status},#{o_count},#{o_price},o_dno_seq.nextval,'X','X','X')
+    		insert into tb_order values(o_no_seq.nextval,#{f_email},#{p_no},sysdate,#{o_receiver},#{o_phone},#{o_address},#{o_msg},#{o_status},#{o_count},#{o_price},o_dno_seq.nextval,null,null,null,null)
     	</if>
     	<if test="number == 'no'">
-    		insert into tb_order values(o_no_seq.nextval,#{f_email},#{p_no},sysdate,#{o_receiver},#{o_phone},#{o_address},#{o_msg},#{o_status},#{o_count},#{o_price},o_dno_seq.currval,'X','X','X')
+    		insert into tb_order values(o_no_seq.nextval,#{f_email},#{p_no},sysdate,#{o_receiver},#{o_phone},#{o_address},#{o_msg},#{o_status},#{o_count},#{o_price},o_dno_seq.currval,null,null,null,null)
     	</if>
     </insert>
     
@@ -61,17 +61,21 @@ PY_BANKACCOUNT
 	</select>
 	
 	<update id="updateOrderStatus" parameterType="Map">
-		update tb_order set O_STATUS = '구매확정' where O_DETAILNO = #{O_DETAILNO} and F_EMAIL = #{F_EMAIL}
+		update tb_order set O_STATUS = #{O_STATUS} where O_DETAILNO = #{O_DETAILNO} and F_EMAIL = #{F_EMAIL}
 	</update>
 	
 	<update id="updateOrderCancle" parameterType="Map">
 	<if test="O_BANKNAME == '없음'">
-		update tb_order set O_STATUS = '주문취소', O_CANCLEREASON = #{O_CANCLEREASON} where O_DETAILNO = #{O_DETAILNO} and F_EMAIL = #{F_EMAIL}
+		update tb_order set O_STATUS = '주문취소', O_CANCLEREASON = #{O_CANCLEREASON}, O_CANCLEDATE = sysdate where O_DETAILNO = #{O_DETAILNO} and F_EMAIL = #{F_EMAIL}
 	</if>
 	<if test="O_BANKNAME != '없음'">
-		update tb_order set O_STATUS = '주문취소', O_CANCLEREASON = #{O_CANCLEREASON}, O_BANKNAME = #{O_BANKNAME}, O_BANKACCOUNT = #{O_BANKACCOUNT} where O_DETAILNO = #{O_DETAILNO} and F_EMAIL = #{F_EMAIL}
+		update tb_order set O_STATUS = '주문취소', O_CANCLEREASON = #{O_CANCLEREASON}, O_BANKNAME = #{O_BANKNAME}, O_BANKACCOUNT = #{O_BANKACCOUNT}, O_CANCLEDATE = sysdate where O_DETAILNO = #{O_DETAILNO} and F_EMAIL = #{F_EMAIL}
 	</if>
 	</update>
+	
+	<select id="selectCancleInfo" resultType="HashMap" parameterType="Map">
+		select O_CANCLEREASON,O_BANKACCOUNT,O_BANKNAME,TO_CHAR(O_CANCLEDATE,'YYYY-MM-DD') from tb_order where F_EMAIL = #{F_EMAIL} and O_DETAILNO = #{O_DETAILNO} and O_STATUS = #{O_STATUS}
+	</select>
 	
 </mapper>
 

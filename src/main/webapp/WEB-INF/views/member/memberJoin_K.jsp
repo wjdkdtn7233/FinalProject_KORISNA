@@ -101,18 +101,12 @@
 							<div
 								class="col-xl-12 col-lg-12 col-md-12 align-items-center pb-3">
 								<div class="col">
-									<h5 class="section-single-subtitle">이메일 및 비밀번호</h5>
+									<h5 class="section-single-subtitle">비밀번호</h5>
 								</div>
 							</div>
 
-							<div class="col-xl-9 col-lg-9 col-md-9">
-								<input type="email" id="f_email" name="f_email"
-									placeholder="Email*  해당 이메일로 인증을 위해 정확히 입력해주세요.">
-								<input type="hidden" id="f_kakaotoken" name="f_kakaotoken" value="no"/>
-							</div>
-							<div class="col-xl-3 col-lg-3 col-md-3">
-								<span id="idcheckInfo"></span>
-							</div>
+							<input type="hidden" id="f_email" name="f_email" value="${KaKaoInfo.f_email}"/>
+							<input type="hidden" id="f_kakaotoken" name="f_kakaotoken" value="${KaKaoInfo.f_kakaotoken}"/>
 							<div class="col-xl-9 col-lg-9 col-md-9">
 								<input type="password" id="f_password" name="f_password"
 									placeholder="password*">
@@ -134,16 +128,7 @@
 								<input type="text" id="f_name" name="f_name" placeholder="Name*">
 							</div>
 							<div class="col-xl-3 col-lg-3 col-md-3"></div>
-							<div
-								class="col-xl-12 col-lg-12 col-md-12 align-items-center pt-3 pb-3">
-								<div class="col">
-									<h5 class="section-single-subtitle">닉네임</h5>
-								</div>
-							</div>
-							<div class="col-xl-9 col-lg-9 col-md-9">
-								<input type="text" id="f_nick" name="f_nick" placeholder="NickName*">
-							</div>
-							<div class="col-xl-3 col-lg-3 col-md-3"></div>
+							<input type="hidden" id="f_nick" name="f_nick"  value="${KaKaoInfo.f_nick}"/>
 							<div
 								class="col-xl-12 col-lg-12 col-md-12 align-items-center pb-3">
 								<div class="col">
@@ -350,47 +335,7 @@
 
 	<script>
 	
-		var idCheckFlag = false;
 		var passwordCheckFlag = false;
-		//아이디 중복 체크
-		$('#f_email').click(function(){
-			$('#idcheckInfo').html("");
-		});
-	
-		$('#f_email').change(function(){
-			
-			
-			$.ajax({
-				
-				url:"<%=request.getContextPath()%>/member/idcheck.do",
-										type : "post",
-										data : {
-											f_email : $('#f_email').val()
-										},
-
-										success : function(data) {
-											if (data == "ok") {
-												$('#idcheckInfo').html(
-														'사용 가능한 이메일입니다.').css(
-														'color', 'green');
-												idCheckFlag = true;
-											} else {
-												$('#idcheckInfo').html(
-														'이미 사용중인 이메일입니다.').css(
-														'color', 'red');
-												idCheckFlag = false;
-											}
-
-										},
-										error : function(data) {
-											$('#idcheckInfo').html('에러 입니다.')
-													.css('color', 'red');
-											idCheckFlag = false;
-
-										}
-									});
-
-						});
 
 		//유효성 검사 함수
 		function chk(re, e, msg) {
@@ -499,7 +444,7 @@
 				alert('성함을 입력해주세요.');
 				return false;
 			}
-			if(!nick.val()){
+			 if(!nick.val()){
 				alert('닉네임을 입력해주세요.');
 				return false;
 			}
@@ -530,12 +475,6 @@
 				return false;
 			}
 
-			//아이디 중복확인검사를 끝냈는지
-			if (!idCheckFlag) {
-
-				alert('이메일 중복 확인!');
-				return false;
-			}
 
 			//모든것이 확인되면 넘어간다.
 			$('#frm').submit()
