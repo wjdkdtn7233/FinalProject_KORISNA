@@ -53,6 +53,10 @@
 	<update id="updateUserInfo" parameterType="Map">
 		update tb_member set f_password = #{f_password}, f_nick = #{f_nick}, f_phone = #{f_phone}, f_postcode = #{f_postcode}, f_roadaddress = #{f_roadaddress}, f_jibernaddress = #{f_jibernaddress}, f_detailaddress = #{f_detailaddress}, f_otheraddress = #{f_otheraddress} , f_userpicture = #{f_userpicture} where f_email = #{f_email}
 	</update>
+	
+	<insert id="insertQnA" parameterType="Map">
+		insert into tb_qna values(q_no_seq.nextval,#{f_email},#{q_subject},#{q_content},'n')
+	</insert>
 </mapper>
 
 

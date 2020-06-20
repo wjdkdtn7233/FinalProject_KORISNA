@@ -24,4 +24,6 @@ public interface MemberService {
 	public int updateUserInfo(Map<String,Object> commandMap);
 	
 	public Map<String, Object> selectKaKaoLoginMember(Map<String, Object> commanMap);
+	
+	public int insertQnA(Map<String, Object> commanMap);
 }

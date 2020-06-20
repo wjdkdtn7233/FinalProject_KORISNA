@@ -63,6 +63,11 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.selectKaKaoLoginMember(commanMap);
 	}
 
+	@Override
+	public int insertQnA(Map<String, Object> commanMap) {
+		return memberDao.insertQnA(commanMap);
+	}
+
 	
 	
 }

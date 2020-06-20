@@ -46,7 +46,7 @@
                             <a data-toggle="modal" data-target="#search-modal"  href="#" class="header-search-anchor common-hover-1"><i class="icofont-search-2"></i></a>
                         </div>
                         <div class="cta-btn">
-                            <a href="contact.html" class="call-button common-hover-1">Contact Us</a>
+                            <a href="<%= request.getContextPath() %>/member/contact.do" class="call-button common-hover-1">Contact Us</a>
                         </div>
                     </div>
                 </div>

@@ -56,4 +56,9 @@ public class MemberDao {
 		return sqlSession.selectOne("Member.selectKaKaoLoginMember",commanMap);
 	}
 	
+	public int insertQnA(Map<String, Object> commanMap) {
+		return sqlSession.insert("Member.insertQnA",commanMap);
+	}
+
+	
 }

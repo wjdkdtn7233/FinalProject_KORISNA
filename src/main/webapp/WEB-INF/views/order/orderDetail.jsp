@@ -188,7 +188,7 @@
                                     <td
                                         style="background-color:#EAEAEA ;border-right-color: black; width:150px;">
                                         배송 시 요청 사항</td>
-                                    <td><textarea rows="5px" readonly>${userInfo.O_MSG}</textarea></td>
+                                    <td><textarea  rows="5" readonly>${userInfo.O_MSG}</textarea></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -426,8 +426,72 @@ public class MemberController {
 		return mav;
 	}
 	
+	@RequestMapping("/member/contact.do")
+	public String contact() {
+		return "member/contact";
+	}
 	
-	
+	@RequestMapping("/member/contactMember.do")
+	public void contactMember(HttpServletResponse response,HttpSession session,
+			@RequestParam Map<String,Object> commandMap) throws IOException {
+		    
+		
+		String userEmail = String.valueOf(commandMap.get("f_email"));
+		String userName = String.valueOf(commandMap.get("f_name"));
+		int result = 0;
+			System.out.println(userEmail);
+		    PrintWriter out = response.getWriter();
+		    
+
+	                String host = "smtp.gmail.com";
+	                String user = "wjdkdtn222@gmail.com"; //자신의 계정
+	                String password = "usus7672!";//자신의 패스워드
+
+	                //SMTP 서버 정보를 설정한다.
+	                Properties props = new Properties();
+	                props.put("mail.smtp.host", host);
+	                props.put("mail.smtp.port", 465);
+	                props.put("mail.smtp.auth", "true");
+	                props.put("mail.smtp.ssl.enable", "true");
+	               
+	                Session session1 = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+	                    protected PasswordAuthentication getPasswordAuthentication() {
+	                        return new PasswordAuthentication(user,password);
+	                    }
+	                });
+
+	                //email 전송
+	                try {
+	                    MimeMessage msg = new MimeMessage(session1);
+	                    msg.setFrom(new InternetAddress(userEmail, "KORISNA - [ " + userName + " 회원님 ] 이 보내신  Q&A 메세지"));
+	                    msg.addRecipient(Message.RecipientType.TO, new InternetAddress(user));
+	                   
+	                    
+	                    msg.setSubject("KORISNA - 제목  [ " + String.valueOf(commandMap.get("q_subject")) + " ] ");
+	                    msg.setText("< 회원님이 문의한 내용 > \n\n" + String.valueOf(commandMap.get("q_content")) + "\n\n\n\n회신할 회원 이메일 : "+userEmail);
+	                   
+
+	                    Transport.send(msg);
+	                    System.out.println("이메일 전송");
+
+	                }catch (Exception e) {
+	                	out.print("fail");
+	                    e.printStackTrace();
+	                }
+	                
+	               result = memberService.insertQnA(commandMap);
+	                
+	               
+	               if(result > 0) {
+	            	   
+	            	   out.print("success");
+	               }else {
+	            	   
+	            	   out.print("fail");
+	               }
+	                
+	                
+	    }
 	
 	
 	
