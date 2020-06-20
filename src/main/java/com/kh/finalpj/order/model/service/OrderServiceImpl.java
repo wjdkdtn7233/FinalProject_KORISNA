@@ -83,6 +83,16 @@ public class OrderServiceImpl implements OrderService{
 	public Map<String, Object> selectCancleInfo(Map<String, Object> commandMap) {
 		return orderDao.selectCancleInfo(commandMap);
 	}
+
+	@Override
+	public double selectAvgStarScore(Map<String, Object> commandMap) {
+		return orderDao.selectAvgStarScore(commandMap);
+	}
+
+	@Override
+	public int updateProductStarScore(Map<String, Object> commandMap) {
+		return orderDao.updateProductStarScore(commandMap);
+	}
 	
 	
 

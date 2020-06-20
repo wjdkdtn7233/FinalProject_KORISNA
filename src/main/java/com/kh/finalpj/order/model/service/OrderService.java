@@ -34,4 +34,9 @@ public interface OrderService {
 	
 	public Map<String, Object> selectCancleInfo(Map<String, Object> commandMap);
 	
+	public double selectAvgStarScore(Map<String, Object> commandMap);
+	
+	public int updateProductStarScore(Map<String, Object> commandMap);
+	
+	
 }

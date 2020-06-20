@@ -71,4 +71,12 @@ public class OrderDao {
 	public Map<String, Object> selectCancleInfo(Map<String, Object> commandMap) {
 		return sqlSession.selectOne("Order.selectCancleInfo",commandMap);
 	}
+	
+	public double selectAvgStarScore(Map<String, Object> commandMap) {
+		return sqlSession.selectOne("Review.selectAvgStarScore",commandMap);
+	}
+
+	public int updateProductStarScore(Map<String, Object> commandMap) {
+		return sqlSession.update("Review.updateProductStarScore",commandMap);
+	}
 }

@@ -182,8 +182,11 @@ public class OrderController {
 		commandMap.put("r_content",content);
 		result = orderService.insertReview(commandMap);
 		
+		commandMap.put("p_starscore",orderService.selectAvgStarScore(commandMap));
 		
-		if(result > 0) {
+		result += orderService.updateProductStarScore(commandMap);
+		
+		if(result > 1) {
 			out.print("success");
 		}else {
 			out.print("fail");
