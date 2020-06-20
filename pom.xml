@@ -294,7 +294,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<url> http://3.34.121.58/manager/text</url>
+					<url> https://www.korisna.site/manager/text</url>
 					<path>/</path>
 					<username>admin</username>
 					<password>test11</password>
