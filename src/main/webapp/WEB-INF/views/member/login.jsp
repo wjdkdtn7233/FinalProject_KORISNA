@@ -76,10 +76,10 @@
 						<input type="hidden" id="f_password" name="f_password">
 					</form>
 						<div class="col-xl-10 col-lg-10 col-md-10 pb-3">
-							<input type="text" id="email" placeholder="Email*">
+							<input type="text" id="email" placeholder="Email*" onKeyDown="pressEnter()">
 						</div>
 						<div class="col-xl-10 col-lg-10 col-md-10 pb-3">
-							<input type="password" id="password" placeholder="password*">
+							<input type="password" id="password" placeholder="password*" onKeyDown="pressEnter()">
 						</div>
 						<div class="col-xl-6 text-right pr-5">
 							<div class="cta-main-button">
@@ -179,7 +179,15 @@
 
 	
 	<script>
-	
+		
+
+    function pressEnter(){
+        if(event.keyCode == 13){
+        	$('#f_email').val($('#email').val());
+			$('#f_password').val($('#password').val());
+			$('#frm').submit();
+        }
+    }
 
 
 	
@@ -191,22 +199,17 @@
 			
 		});
 		
-		$('#gogo').keydown(function(){
-			if(window.event.keyCode == 13){
-				$('#f_email').val($('#email').val());
-				$('#f_password').val($('#password').val());
-				$('#frm').submit();
-			}
-			
-			
-		});
-		
 		
 		
 		
 	</script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script>
+	
+	
+	
+	
+	
         // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
         Kakao.init('0c9edf466f7bbe30526c019836615624');
 
