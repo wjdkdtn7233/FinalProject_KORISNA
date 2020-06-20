@@ -150,13 +150,11 @@ public class CartController {
 		int result = 0;
 		
 		for(int i = 1; i < str.length; i++) {
+			System.out.println(str[i]);
 			commandMap.put("c_no",str[i]);
 			result += cartService.deleteCart(commandMap);
 		}
 		
-		
-		
-		int price = cartService.selectSumPrice((String)commandMap.get("f_email"));
 		
 		if(result > 0 ) {
 			mav.addObject("alertMsg","삭제를 완료하였습니다.");

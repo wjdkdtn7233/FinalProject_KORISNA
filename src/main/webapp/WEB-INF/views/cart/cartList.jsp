@@ -264,7 +264,7 @@
                         if(index > 1){
                             if($(item).children().first().children().eq(0).is(':checked')){
                                 
-                            		cno += ','+ $(item).children().first().children().eq(1).val();
+                            		cno += ','+ $(item).children().eq(0).children().eq(1).val();
                             }
                         }
                     });
