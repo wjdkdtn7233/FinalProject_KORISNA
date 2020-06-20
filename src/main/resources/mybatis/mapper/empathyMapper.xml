@@ -22,7 +22,7 @@ R_NO
 	</select>
 	
 	<delete id="deleteEmpathy" parameterType="Map">
-		delete from tb_empath where r_no = #{r_no}
+		delete from tb_empathy where r_no = #{r_no}
 	</delete>
 </mapper>
 

@@ -110,7 +110,7 @@ public class ReviewController {
 			commandMap.put("p_starscore", reviewService.selectReviewStarScoreAvg(commandMap));
 			result += reviewService.updateProductStarScore(commandMap);
 		}else {
-			mav.addObject("alertMsg","리뷰 작성한 본인만 삭제가능합니다.");
+			mav.addObject("alertMsg","본인리뷰만 삭제가능합니다.");
 			mav.addObject("back","back");
 			mav.setViewName("common/result");
 			return mav;
