@@ -69,7 +69,7 @@ PY_BANKACCOUNT
 		update tb_order set O_STATUS = '주문취소', O_CANCLEREASON = #{O_CANCLEREASON}, O_CANCLEDATE = sysdate where O_DETAILNO = #{O_DETAILNO} and F_EMAIL = #{F_EMAIL}
 	</if>
 	<if test="O_BANKNAME != '없음'">
-		update tb_order set O_STATUS = '주문취소', O_CANCLEREASON = #{O_CANCLEREASON}, O_BANKNAME = #{O_BANKNAME}, O_BANKACCOUNT = #{O_BANKACCOUNT}, O_CANCLEDATE = sysdate where O_DETAILNO = #{O_DETAILNO} and F_EMAIL = #{F_EMAIL}
+		update tb_order set O_STATUS = #{O_STATUS}, O_CANCLEREASON = #{O_CANCLEREASON}, O_BANKNAME = #{O_BANKNAME}, O_BANKACCOUNT = #{O_BANKACCOUNT}, O_CANCLEDATE = sysdate where O_DETAILNO = #{O_DETAILNO} and F_EMAIL = #{F_EMAIL}
 	</if>
 	</update>
 	

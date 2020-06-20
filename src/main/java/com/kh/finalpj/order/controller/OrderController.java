@@ -194,11 +194,13 @@ public class OrderController {
 	@RequestMapping("/order/ordercancleinfo.do")
 	public void	orderCancleInfo(@RequestParam Map<String,Object> commandMap,HttpServletResponse response) throws IOException {
 		
+		System.out.println(commandMap);
 		
 		PrintWriter out = response.getWriter();
 		
 		Map<String, Object> resultMap = orderService.selectCancleInfo(commandMap);
 		
+		System.out.println(resultMap);
 		String cancleDate = String.valueOf(resultMap.get("TO_CHAR(O_CANCLEDATE,'YYYY-MM-DD')"));
 		
 		resultMap.put("O_CANCLEDATE", cancleDate);

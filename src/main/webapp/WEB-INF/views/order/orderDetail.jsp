@@ -92,7 +92,7 @@
                                     	<td class="statusSpace">
                                     		<div>${orderDetailList.P_NAME}</div>
                                     		<div class="orderStatus" style="color:red;">${orderDetailList.O_STATUS}</div>
-                                    		<c:if test="${orderDetailList.O_STATUS == '주문취소'}">
+                                    		<c:if test="${orderDetailList.O_STATUS == '주문취소' || orderDetailList.O_STATUS == '반품처리'}">
                                     		<div><button class="btn cancleInfo" style="background-color:red; font-size:20px;"  data-toggle="modal" data-target="#orderCancleInfo-modal">취소 정보</button></div>
                                     		</c:if>
                                     		<c:if test="${orderDetailList.O_STATUS == '배송완료'}">
@@ -200,7 +200,7 @@
                     </div>
                     <div class="col-xl-6 text-left pt-5 sunflower">
                         <div class="cta-main-button" >
-                            <a class="cta-button btn" id="orderCencle" data-toggle="modal" data-target="#orderCancle-modal" >주문 취소</a>
+                            <a class="cta-button btn" id="orderCencle" data-toggle="modal" data-target="#orderCancle-modal" >주문 취소 및 반품</a>
                         </div>
                     </div>
 
@@ -216,23 +216,36 @@
     		<div class="modal-dialog " role="document">
         		<div class="modal-content">
         			<div class="modal-header">
-						<h4 class="modal-title section-single-subtitle sunflower" style="font-size:30px;">주문 취소</h4>
+        			<c:if test="${userInfo.O_STATUS == '입금확인중' || userInfo.O_STATUS == '배송준비중'}">
+						<h4 class="modal-title section-single-subtitle sunflower" style="font-size:30px;">결제 취소</h4>
+						</c:if>
+						<c:if test="${userInfo.O_STATUS != '입금확인중' && userInfo.O_STATUS != '배송준비중'}">
+						<h4 class="modal-title section-single-subtitle sunflower" style="font-size:30px;">반품 및 결제 취소</h4>
+						</c:if>
           				<button type="button" class="close" data-dismiss="modal">×</button>
 
        			 	</div>
-
             		<div class="modal-body">
+            		<c:if test="${userInfo.O_STATUS == '입금확인중' || userInfo.O_STATUS == '배송준비중'}">
             		<p style="font-size:20px;">
-            			주문 취소를 위해
+            			결제 취소를 위해
             			취소 사유를 작성해 주세요.<br>
-            			
             		</p>
+            		</c:if>
+            		<c:if test="${userInfo.O_STATUS != '입금확인중' && userInfo.O_STATUS != '배송준비중'}">
+            		<p style="font-size:20px;">
+            			반품을 위해
+            			반품 사유를 작성해 주세요.<br>
+            		</p>
+            		</c:if>
+            		
             		<p style="color:red;font-size:20px;">취소 시 원상복구는 불가능합니다.</p>
             					<textarea id="cancleText">
             					</textarea>
             					
-            			<c:if test="${userInfo.PY_CATEGORY == '무통장입금'}">
+            			
            		 		<div class="row pl-2" >
+           		 		<c:if test="${userInfo.PY_CATEGORY == '무통장입금'}">
            		 		<div class="col-xl-10 col-lg-10 col-md-10 ">
            		 			<p style="font-size:20px;">
             					환불 받으실 계좌를 입력해주세요.
@@ -270,15 +283,25 @@
                         			<option value="SC제일은행">SC제일은행</option>
            		 				</select>
            		 			</div>
+           		 			
+           		 			
            		 			<div class="col-xl-10 col-lg-10 col-md-10 ">
            		 				<input type="text" id="account" />
            		 			</div>
-           		 			
+           		 			</c:if>	
+           		 			<c:if test="${userInfo.O_STATUS == '입금확인중' || userInfo.O_STATUS == '배송준비중'}">
            		 			<div class="col-xl-10 col-lg-10 col-md-10 ">
            		 				<p style="color:red;">환불은 24시간 이내로 완료됩니다.</p>
+           		 				
            		 			</div>
+           		 			</c:if>
+           		 			<c:if test="${userInfo.O_STATUS != '입금확인중' && userInfo.O_STATUS != '배송준비중'}">
+           		 			<div class="col-xl-10 col-lg-10 col-md-10 ">
+           		 				<p style="color:red;">환불은 반품된 상품 확인 후 24시간 이내에 완료됩니다.</p>
+           		 			</div>
+           		 			</c:if>
            		 		</div>
-           		 		</c:if>	
+           		 		
             					
            		 	</div>
            		 	
@@ -447,8 +470,10 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
     <script>
-        
+    var status= '';    
 	$('#orderCencle').click(function(){
+		
+		
 		
 		var os = '';
 		console.log(os);
@@ -459,13 +484,14 @@
 			
 		});
 		
+		
 		if(os == '주문취소'){
 			alert('해당 상품은 이미 취소되었습니다.');
 			return false;
 		}
 		
-		if( os == '배송완료' || os == '배송중' || os == '구매확정' ){
-			alert('해당 상품은 취소가 불가능합니다. 반품처리를 해주세요.');
+		if(os == '구매확정' ){
+			alert('구매확정 상품은 취소나 반품이 불가합니다.');
 			return false;
 		}
 		
@@ -479,13 +505,23 @@
 			
 			var bank = '없음';
 			var bankAccount = '없음';
-			
-			
-			if(!$('#cancleText').val()){
-				
-				alert('취소 사유를 작성해주세요.');
+			if(os == '배송준비중' || os == '입금확인중'){
+				status = '주문취소';
+				if(!$('#cancleText').val()){
+					
+				alert('주문취소 사유를 작성해주세요.');
 				return false;
+				}
+			}else{
+				status = '반품처리';
+				if(!$('#cancleText').val()){
+					
+					alert('반품 사유를 작성해주세요.');
+					return false;
+					}
 			}
+			
+			
 			
 			if('${userInfo.PY_CATEGORY}' == '무통장입금'){
 				if(!$('#bankName').val()){
@@ -511,18 +547,21 @@
 				url:"<%=request.getContextPath()%>/order/ordercancle.do",
 				type : "post",
 				data : {O_DETAILNO : '${userInfo.O_DETAILNO}', F_EMAIL : '${userInfo.F_EMAIL}', O_CANCLEREASON : $('#cancleText').val()
-							,O_BANKNAME :bank, O_BANKACCOUNT : bankAccount },
+							,O_BANKNAME :bank, O_BANKACCOUNT : bankAccount , O_STATUS : status},
 				success : function(data) {
 					
 					if(data == 'fail'){
-						alert('주문 취소 실패');
+						alert(status+' 실패');
 					}else{
-						alert('주문 취소 완료');
+						alert(status + ' 완료');
 						$('.orderStatus').each(function(index,item){
-							$(item).html('주문취소');
+							$(item).html(status);
 						});
 						
 						$('.statusSpace').each(function(index,item){
+							if(os == '배송완료'){
+								$(item).children().eq(2).remove();
+							}
 							$(item).append("<div><button class='btn cancleInfo' style='background-color:red; font-size:20px;' data-toggle='modal' data-target='#orderCancleInfo-modal'>취소 정보</button></div>");
 						});
 					}
@@ -547,7 +586,7 @@
 	$('.confirmation').each(function(index,item){
 		
 		$(item).click(function(){
-			
+			if (confirm("구매확정 하시겠습니까?\n\n*구매확정시 취소는 불가합니다.") == true){ //확인
 			$.ajax({
 			
 				url:"<%=request.getContextPath()%>/order/orderconfirmation.do",
@@ -575,6 +614,10 @@
 				
 				
 			});
+			}else{   //취소
+        	   
+           		return false;
+           }
 			
 			
 			
@@ -586,6 +629,16 @@
 	
 	$('.cancleInfo').each(function(index,item){
 		
+		var cs = '';
+		
+		$('.orderStatus').each(function(index,item){
+			if(index == 0){
+				cs = $(item).text();
+			}
+			
+		});
+		
+		console.log(cs);
 		$(item).click(function(){
 			
 			$.ajax({
@@ -593,7 +646,7 @@
 				url:"<%=request.getContextPath()%>/order/ordercancleinfo.do",
 				type : "post",
 				dataType: "json",
-				data : {O_DETAILNO : '${userInfo.O_DETAILNO}', F_EMAIL : '${userInfo.F_EMAIL}', O_STATUS : '주문취소'},
+				data : {O_DETAILNO : '${userInfo.O_DETAILNO}', F_EMAIL : '${userInfo.F_EMAIL}', O_STATUS : cs},
 				success : function(data) {
 					
 					if(data.cancleInfo == 'fail'){
