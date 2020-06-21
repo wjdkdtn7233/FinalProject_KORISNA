@@ -72,7 +72,6 @@
 
       <!-- Prevention Area Start -->
       <div class="protective-measures-wrapper">
-         <div class="faq-wrapper purple-bg">
             <div class="faq-virus-shape faq-virus-shape-1">
                <img
                   src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
@@ -93,57 +92,136 @@
                   src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
                   alt="mini-white-shape">
             </div>
-            <div class="container">
-               <div class="row">
-                  <div class="col-xl-5 col-lg-12">
-                     <div class="faq-left-section">
-                        <div class="woman-tea-large">
-                           <img
-                              src="<%=request.getContextPath()%>/resources/assets/img/woman-tea.png"
-                              alt="woman-tea">
+
+            <!-- Protective Measures Area Start -->
+            <div class="protective-measures-wrapper section-padding">
+               <div class="protective-measures-shape protective-measures-shape-1">
+                  <img src="<%=request.getContextPath()%>/resources/assets/img/purple-virus-shape.png" alt="">
+               </div>
+               <div class="protective-measures-shape protective-measures-shape-2">
+                  <img src="<%=request.getContextPath()%>/resources/assets/img/purple-virus-shape.png" alt="">
+               </div>
+               <div class="protective-measures-shape protective-measures-shape-3">
+                  <img src="<%=request.getContextPath()%>/resources/assets/img/purple-virus-shape.png" alt="">
+               </div>
+               <div class="container">
+                  <div class="row justify-content-center">
+                     <div class="col-xl-12 col-lg-12">
+                        <div class="section-title text-center semi-blue-section-title">
+                           <h5 class="section-single-subtitle">Protection</h5>
+                           <h2 class="section-heading-title">
+                              Basic Protective Measures Against <span
+                                 class="section-blue-text"> Coronavirus (Covid-19)</span>
+                           </h2>
                         </div>
                      </div>
                   </div>
-                  <div class="col-xl-7 col-lg-12">
-                     <div class="section-title">
-                        <h5 class="section-single-subtitle">Ask Question</h5>
-                        <h2 class="section-heading-title">Some Question And Answer
-                           Of Coronavirus (Covid-19)</h2>
+                  <div class="row protective-measure-all">
+                     <div
+                        class="col-xl-6 col-lg-6 col-md-6 protection-little-border-1">
+                        <div
+                           class="single-protective-measure-item page-margin-desktop page-margin-all page-mar-small left-angle">
+                           <div class="protection-measure-section">
+                              <div class="protective-measure-icon-wrap">
+                                 <div class="protective-icon">
+                                    <img src="<%=request.getContextPath()%>/resources/assets/img/protection-1.png" alt="">
+                                 </div>
+                              </div>
+                              <div class="protective-text">
+                                 <h4 class="protective-title">Avoid Gathering & Close
+                                    Contact</h4>
+                              </div>
+                           </div>
+                        </div>
                      </div>
-                     <div class="faq-right-section">
-                        <div class="question-wrapper">
-                           <div class="single-question-wrap">
-                              <h4 class="question-title">01. How does COVID-19 spread?</h4>
-                              <p class="ans-of-question">Data has shown that it spreads
-                                 from person to person among those in close contact (within
-                                 about 6 feet, or 2 meters). The virus spreads by respiratory
-                                 droplets released when someone infected with the virus
-                                 coughs, sneezes or talks.</p>
+                     <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div
+                           class="single-protective-measure-item page-margin-desktop page-margin-all page-mar-small protection-all-left right-angle">
+                           <div class="protection-measure-section">
+                              <div class="protective-measure-icon-wrap">
+                                 <div class="protective-icon">
+                                    <img src="<%=request.getContextPath()%>/resources/assets/img/protection-2.png" alt="">
+                                 </div>
+                              </div>
+                              <div class="protective-text">
+                                 <h4 class="protective-title">Stay At Your Home Don't Go
+                                    Outside</h4>
+                              </div>
                            </div>
-                           <div class="single-question-wrap">
-                              <h4 class="question-title">02. What are the symptoms of
-                                 COVID-19?</h4>
-                              <p class="ans-of-question">Data has shown that it spreads
-                                 from person to person among those in close contact (within
-                                 about 6 feet, or 2 meters). The virus spreads by respiratory
-                                 droplets released when someone infected with the virus
-                                 coughs, sneezes or talks.</p>
+                        </div>
+                     </div>
+                     <div
+                        class="col-xl-6 col-lg-6 col-md-6 protection-little-border-2">
+                        <div
+                           class="single-protective-measure-item page-margin-desktop page-margin-all page-mar-small left-angle">
+                           <div class="protection-measure-section">
+                              <div class="protective-measure-icon-wrap">
+                                 <div class="protective-icon">
+                                    <img src="<%=request.getContextPath()%>/resources/assets/img/protection-3.png" alt="">
+                                 </div>
+                              </div>
+                              <div class="protective-text">
+                                 <h4 class="protective-title">Clean Your Hands For 20
+                                    Seconds</h4>
+                              </div>
                            </div>
-                           <div class="single-question-wrap">
-                              <h4 class="question-title">03. Should I wear mask?</h4>
-                              <p class="ans-of-question">Data has shown that it spreads
-                                 from person to person among those in close contact (within
-                                 about 6 feet, or 2 meters). The virus spreads by respiratory
-                                 droplets released when someone infected with the virus
-                                 coughs, sneezes or talks.</p>
+                        </div>
+                     </div>
+                     <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div
+                           class="single-protective-measure-item page-margin-desktop page-margin-all page-mar-small protection-all-left right-angle">
+                           <div class="protection-measure-section">
+                              <div class="protective-measure-icon-wrap">
+                                 <div class="protective-icon">
+                                    <img src="<%=request.getContextPath()%>/resources/assets/img/protection-4.png" alt="">
+                                 </div>
+                              </div>
+                              <div class="protective-text">
+                                 <h4 class="protective-title">Cover While Coughing And
+                                    Sneezes</h4>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div
+                        class="col-xl-6 col-lg-6 col-md-6 protection-little-border-3">
+                        <div
+                           class="single-protective-measure-item left-angle page-mar-mobile">
+                           <div class="protection-measure-section">
+                              <div class="protective-measure-icon-wrap">
+                                 <div class="protective-icon">
+                                    <img src="<%=request.getContextPath()%>/resources/assets/img/protection-5.png" alt="">
+                                 </div>
+                              </div>
+                              <div class="protective-text">
+                                 <h4 class="protective-title">Always Use Face Mask If You
+                                    Infected</h4>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div
+                           class="single-protective-measure-item protection-all-left right-angle">
+                           <div class="protection-measure-section">
+                              <div class="protective-measure-icon-wrap">
+                                 <div class="protective-icon">
+                                    <img src="<%=request.getContextPath()%>/resources/assets/img/protection-6.png" alt="">
+                                 </div>
+                              </div>
+                              <div class="protective-text">
+                                 <h4 class="protective-title">Clean And Disinfect Objects
+                                    Near You</h4>
+                              </div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
+            <!-- Protective Measures Area End -->
+
          </div>
-      </div>
 
       <!-- Prevention Area Start -->
       <div class="protective-measures-wrapper section-padding">
