@@ -186,6 +186,18 @@
 	
 		function sendMessage(){
 			
+			if('${sessionScope.loginUser.F_EMAIL}' == ''){
+				alert('로그인 후 이용가능한 서비스입니다.');
+        		
+        		if (confirm("로그인 창으로 이동하시겠습니까?") == true){ //확인
+					
+					location.href = "<%=request.getContextPath()%>/member/login.do";
+               }else{   //취소
+               return false;
+               }
+        		
+        		return false;
+			}
 			
 			if(!$('#q_subject').val()){
 				alert('제목을 입력해주세요.');

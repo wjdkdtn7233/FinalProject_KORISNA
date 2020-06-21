@@ -11,6 +11,7 @@ import java.util.Properties;
 import java.util.Random;
 
 import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -21,6 +22,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,6 +37,9 @@ import com.kh.finalpj.member.model.service.MemberService;
 @Controller
 public class MemberController {
 
+	@Autowired
+	JavaMailSender mailSender;
+	
 	@Autowired
 	MemberService memberService;
 	
@@ -170,8 +177,8 @@ public class MemberController {
 		    System.out.println(commandMap.get("f_email"));
 
 	                String host = "smtp.gmail.com";
-	                String user = "wjdkdtn222@gmail.com"; //자신의 계정
-	                String password = "usus7672!";//자신의 패스워드
+	                String user = "korisnaCustomerContact@gmail.com"; //자신의 계정
+	                String password = "qwer1234!!";//자신의 패스워드
 
 	                //SMTP 서버 정보를 설정한다.
 	                Properties props = new Properties();
@@ -245,8 +252,8 @@ public class MemberController {
 		    System.out.println(email);
 
 	                String host = "smtp.gmail.com";
-	                String user = "wjdkdtn222@gmail.com"; //자신의 계정
-	                String password = "usus7672!";//자신의 패스워드
+	                String user = "korisnaCustomerContact@gmail.com"; //자신의 계정
+	                String password = "qwer1234!!";//자신의 패스워드
 
 	                //SMTP 서버 정보를 설정한다.
 	                Properties props = new Properties();
@@ -443,41 +450,53 @@ public class MemberController {
 		    PrintWriter out = response.getWriter();
 		    
 
-	                String host = "smtp.gmail.com";
-	                String user = "wjdkdtn222@gmail.com"; //자신의 계정
-	                String password = "usus7672!";//자신의 패스워드
+			/*
+			 * String host = "smtp.gmail.com"; String user = "wjdkdtn222@gmail.com"; //자신의
+			 * 계정 String password = "usus7672!";//자신의 패스워드
+			 * 
+			 * //SMTP 서버 정보를 설정한다. Properties props = new Properties();
+			 * props.put("mail.smtp.host", host); props.put("mail.smtp.port", 465);
+			 * props.put("mail.smtp.auth", "true"); props.put("mail.smtp.ssl.enable",
+			 * "true");
+			 * 
+			 * Session session1 = Session.getDefaultInstance(props, new
+			 * javax.mail.Authenticator() { protected PasswordAuthentication
+			 * getPasswordAuthentication() { return new
+			 * PasswordAuthentication(user,password); } });
+			 * 
+			 * //email 전송 try { MimeMessage msg = new MimeMessage(session1); msg.setFrom(new
+			 * InternetAddress(userEmail, "KORISNA - [ " + userName +
+			 * " 회원님 ] 이 보내신  Q&A 메세지")); msg.addRecipient(Message.RecipientType.TO, new
+			 * InternetAddress("korisnacustomerassistance@gmail.com"));
+			 * 
+			 * 
+			 * msg.setSubject("KORISNA - 제목  [ " +
+			 * String.valueOf(commandMap.get("q_subject")) + " ] ");
+			 * msg.setText("< 회원님이 문의한 내용 > \n\n" +
+			 * String.valueOf(commandMap.get("q_content")) +
+			 * "\n\n\n\n회신할 회원 이메일 : "+userEmail);
+			 * 
+			 * 
+			 * Transport.send(msg); System.out.println("이메일 전송");
+			 * 
+			 * }catch (Exception e) { out.print("fail"); e.printStackTrace(); }
+			 */
+		    
+		    
+		    String from = userEmail;
+			String tomail = "korisnaCustomerContact@gmail.com";
+			String title = "KORISNA - 제목  [ " + String.valueOf(commandMap.get("q_subject")) + " ] ";
+			String htmlBody = "<h3>< 회원님이 문의한 내용 ></h3><br><h1>" + String.valueOf(commandMap.get("q_content")) + "</h1><br><br><h2 style='color:white;width:15%;background-color:#9536FF'>회신할 회원 이메일 </h2><span><h2>" + userEmail + "</h2></span>";
 
-	                //SMTP 서버 정보를 설정한다.
-	                Properties props = new Properties();
-	                props.put("mail.smtp.host", host);
-	                props.put("mail.smtp.port", 465);
-	                props.put("mail.smtp.auth", "true");
-	                props.put("mail.smtp.ssl.enable", "true");
-	               
-	                Session session1 = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
-	                    protected PasswordAuthentication getPasswordAuthentication() {
-	                        return new PasswordAuthentication(user,password);
-	                    }
-	                });
-
-	                //email 전송
-	                try {
-	                    MimeMessage msg = new MimeMessage(session1);
-	                    msg.setFrom(new InternetAddress(userEmail, "KORISNA - [ " + userName + " 회원님 ] 이 보내신  Q&A 메세지"));
-	                    msg.addRecipient(Message.RecipientType.TO, new InternetAddress(user));
-	                   
-	                    
-	                    msg.setSubject("KORISNA - 제목  [ " + String.valueOf(commandMap.get("q_subject")) + " ] ");
-	                    msg.setText("< 회원님이 문의한 내용 > \n\n" + String.valueOf(commandMap.get("q_content")) + "\n\n\n\n회신할 회원 이메일 : "+userEmail);
-	                   
-
-	                    Transport.send(msg);
-	                    System.out.println("이메일 전송");
-
-	                }catch (Exception e) {
-	                	out.print("fail");
-	                    e.printStackTrace();
-	                }
+			mailSender.send(new MimeMessagePreparator() {
+				public void prepare(MimeMessage mimeMessage) throws MessagingException {
+					MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+					message.setFrom(from);
+					message.setTo(tomail);
+					message.setSubject(title);
+					message.setText(htmlBody, true);
+				}
+			});
 	                
 	               result = memberService.insertQnA(commandMap);
 	                
