@@ -197,8 +197,7 @@
 				
 				$.ajax({
 				
-				url: "<%=request.getContextPath()%>
-		/member/contactMember.do",
+				url: "<%=request.getContextPath()%>/member/contactMember.do",
 							type : "post",
 							data : {
 								f_email : '${sessionScope.loginUser.F_EMAIL}',
