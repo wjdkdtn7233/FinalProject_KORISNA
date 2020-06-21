@@ -28,8 +28,7 @@
 					</div>
 					<div class="footer-social-tabs">
 						<ul>
-							<li><a href="#"><i class="icofont-skype"></i></a></li>
-							<li><a href="#"><i class="icofont-youtube"></i></a></li>
+							<li><a href="https://www.youtube.com/watch?v=ztROLNQY69Y&feature=youtu.be&list=PL_-Emxqwow0AXFAJgXcEq5XDqAP3vbdJa"><i class="icofont-youtube"></i></a></li>
 							<li><a href="#"><i class="icofont-facebook"></i> </a></li>
 							<li><a href="#"><i class="icofont-linkedin"></i></a></li>
 						</ul>
@@ -81,7 +80,7 @@
 							<a href="tel:+820123456789">+821012345678</a></li>
 						<li class="footer-mail"><i class="fas fa-paper-plane"></i>
 							<p class="footer-mail-addr">
-								<a href="mailto: korisnacustomerassistance@gmail.com">korisnacustomerassistance@gmail.com</a>
+								<a href="mailto:korisnaCustomerContact@gmail.com">korisnaCustomerContact@gmail.com</a>
 							</p></li>
 					</ul>
 				</div>
