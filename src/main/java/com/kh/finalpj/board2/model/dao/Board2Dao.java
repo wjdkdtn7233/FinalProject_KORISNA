@@ -53,26 +53,26 @@ public class Board2Dao {
 	}
 
 
-	public List<Board2> searchinfo(Map<String, Object> commandMap,Paging page, String orderby) {
+	public List<Board2> searchinfo(String b2_yadmnm, Paging page, String orderby) {
 		
-		
-		commandMap.put("page", page);
-		commandMap.put("orderby", orderby);
-		System.out.println("다오커맨드맵" + commandMap);
-		return sqlSession.selectList("Board2.searchinfo", commandMap);
+		Map<String,Object> res = new HashMap<String, Object>();
+		res.put("page", page);
+		res.put("b2_yadmnm", b2_yadmnm);
+			
+		return sqlSession.selectList("Board2.searchinfo", res);
 
 	}
 	
-	public int searchPaging(Map<String,Object> commandMap) {
-		
-		System.out.println("12rae[ioghaeroigwapoiefhwoeifgui");
-		
-		int i = sqlSession.selectOne("Board2.searchPaging",commandMap);
-		
-		System.out.println("dao : " + i);
-		
+	public int searchPaging(String b2_yadmnm) {
+				
+		int i = sqlSession.selectOne("Board2.searchPaging",b2_yadmnm);
+				
 		return i;
 
 	}
+
+
+
+	
 	
 }
