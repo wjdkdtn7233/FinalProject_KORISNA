@@ -40,7 +40,7 @@ public class BoardServiceImpl implements BoardService {
 			String aa = oa.openApi(maxValue, 1);// 전체 개수만큼의 JSON String을 반환
 
 			for (int j = 1; j < 2; j++) {
-				System.out.println(aa);
+				//System.out.println(aa);
 
 				JsonElement bb = parseToJson(aa);
 				JsonElement cc = bb.getAsJsonObject().get("response");
