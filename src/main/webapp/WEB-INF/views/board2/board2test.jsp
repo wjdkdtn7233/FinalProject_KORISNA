@@ -150,14 +150,14 @@
 		<div class="container pt-5">
 		
 
-			<form action="<%=request.getContextPath()%>/board2/board2search.do" onsubmit="return removeContent()")>
+			<form action="<%=request.getContextPath()%>/board2/board2search.do">
 				<div class="single-right-small-blog blog-search-wrap">
 
 					<div class="single-right-small-blog blog-search-wrap">
 						<div class="blog-short-search-wrap">
 							<input type="search" name="b2_yadmnm" placeholder="Search...">
-							<input type="hidden" id="searchKey" name="b2_yadmnm"/>
-							<button type="submit" class="btn btn-success" onclick="searchbtn()">
+							<!-- <input type="hidden" id="searchKey" name="b2_yadmnm"/> -->
+							<button type="submit" class="btn btn-success" >
 								<i class="fas fa-search"></i>
 
 							</button>
@@ -195,26 +195,28 @@
 		<div class="blog-pagination ">
 				<nav aria-label="Page navigation example">
 					<ul class="pagination">
+					<c:if test="${board2 eq 'board2'}">
 					<li class="page-item">
-					<a class="page-link" href="<%= request.getContextPath() %>/board2/${noticeData.url}"><i class="fas fa-angle-double-left"></i></a>
+					
+					<a class="page-link" href="<%= request.getContextPath() %>/board2/board2.do"><i class="fas fa-angle-double-left"></i></a>
 					</li>
 						<c:choose>
 							<c:when test="${noticeData.paging.blockStart > 1 }">
-								<li class="page-item"><a class="page-link"
-									href="<%= request.getContextPath() %>/board2/${noticeData.url}?cPage=${noticeData.paging.blockStart-1}">
+								<li class="page-item"><a class="page-link" 
+									href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockStart-1}">
 									<i class="fas fa-angle-left"></i></a>
 								</li>
 							</c:when>
 							<c:otherwise>
 								<li class="page-item"><a class="page-link"
-									href="<%= request.getContextPath() %>/board2/${noticeData.url}?cPage=${noticeData.paging.blockStart}"
+									href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockStart}"
 									><i class="fas fa-angle-left"></i></a></li>
 							</c:otherwise>
 						</c:choose>
 						<c:forEach begin="${noticeData.paging.blockStart}"
 							end="${noticeData.paging.blockEnd}" var="page">
 							<li class="page-item"><a
-								href="<%= request.getContextPath() %>/board2/${noticeData.url}?cPage=${page}"
+								href="<%= request.getContextPath() %>/board2/board2.do?cPage=${page}"
 								class="page-link">${page}</a></li>
 						</c:forEach>
 
@@ -223,39 +225,85 @@
 							<c:when
 								test="${noticeData.paging.blockEnd+1 > noticeData.paging.lastPage }">
 								<li class="page-item"><a class="page-link"
-									href="<%= request.getContextPath() %>/board2/${noticeData.url}?cPage=${noticeData.paging.blockEnd}"
+									href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockEnd}"
 									class="nav next"><i class="fas fa-angle-right"></i></a></li>
 							</c:when>
 							<c:otherwise>
 								<li><a class="page-link"
-									href="<%= request.getContextPath() %>/board2/${noticeData.url}?cPage=${noticeData.paging.blockEnd+1}"
+									href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockEnd+1}"
 									class="nav next"><i class="fas fa-angle-right"></i></a></li>
 							</c:otherwise>
 						</c:choose>
 						
 					
 						<li class="page-item"><a class="page-link"
-							href="<%= request.getContextPath() %>/board2/${noticeData.url}?cPage=${noticeData.paging.lastPage}"
+							href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.lastPage}"
 							class="nav last"><i class="fas fa-angle-double-right"></i></a></li>
+					 </c:if>
+					 
+					 
+					 <!-- 검색했을때 페이징 처리  -->
+					 <c:if test="${board2 eq 'board2search'}">
+					<li class="page-item">
+					
+					<a class="page-link" href="<%= request.getContextPath() %>/board2/board2search.do?b2_yadmnm=${b2_yadmnm}"><i class="fas fa-angle-double-left"></i></a>
+					</li>
+						<c:choose>
+							<c:when test="${noticeData.paging.blockStart > 1 }">
+								<li class="page-item"><a class="page-link" 
+									href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.blockStart-1}&b2_yadmnm=${b2_yadmnm}">
+									<i class="fas fa-angle-left"></i></a>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li class="page-item"><a class="page-link"
+									href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.blockStart}&b2_yadmnm=${b2_yadmnm}"
+									><i class="fas fa-angle-left"></i></a></li>
+							</c:otherwise>
+						</c:choose>
+						<c:forEach begin="${noticeData.paging.blockStart}"
+							end="${noticeData.paging.blockEnd}" var="page">
+							<li class="page-item"><a
+								href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${page}&b2_yadmnm=${b2_yadmnm}"
+								class="page-link">${page}</a></li>
+						</c:forEach>
 
+						
+						<c:choose>
+							<c:when
+								test="${noticeData.paging.blockEnd+1 > noticeData.paging.lastPage }">
+								<li class="page-item"><a class="page-link"
+									href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.blockEnd}&b2_yadmnm=${b2_yadmnm}"
+									class="nav next"><i class="fas fa-angle-right"></i></a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a class="page-link"
+									href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.blockEnd+1}&b2_yadmnm=${b2_yadmnm}"
+									class="nav next"><i class="fas fa-angle-right"></i></a></li>
+							</c:otherwise>
+						</c:choose>
+						
+					
+						<li class="page-item"><a class="page-link"
+							href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.lastPage}&b2_yadmnm=${b2_yadmnm}"
+							class="nav last"><i class="fas fa-angle-double-right"></i></a></li>
+					 </c:if>
+					 
+					 
 					</ul>
 				</nav>
 			</div>
-		
+
 	</main>
 
+	<!-- footer --> <%@ include file="../include/footer.jsp"%>
 
-	<!-- footer -->
-	<%@ include file="../include/footer.jsp"%>
+	<!-- Modal --> <%@ include file="../include/modal.jsp"%>
 
-	<!-- Modal -->
-	<%@ include file="../include/modal.jsp"%>
+	<!-- default JS --> <%@ include file="../include/defaultJS.jsp"%>
 
-	<!-- default JS -->
-	<%@ include file="../include/defaultJS.jsp"%>
-	
-	
-<script type="text/javascript">
+
+	<!-- <script type="text/javascript">
 	
 	var serarchKeyword = '${noticeData.b2_yadmnm}';
 	if(serarchKeyword != ''){
@@ -271,8 +319,6 @@
 		$("#searchKey").val(key);	
 	}
 	
-</script>
-	
-	
+</script> -->
 </body>
 </html>

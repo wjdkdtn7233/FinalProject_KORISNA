@@ -1,7 +1,10 @@
 package com.kh.finalpj.board2.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,8 +45,9 @@ public class Board2Controller {
 
 		Map<String, Object> res = bs.selectNoticeList(orderby, currentPage, cntPerPage);
 
-		res.put("url", "board2.do");
+		//res.put("url", "board2.do");
 		mav.addObject("noticeData", res);
+		mav.addObject("board2", "board2");
 		mav.setViewName("board2/board2test");
  
       return mav;
@@ -52,34 +56,40 @@ public class Board2Controller {
    
    
    @RequestMapping("/board2search.do")
-	public ModelAndView searchinfo(@RequestParam Map<String,Object> commandMap) {
+	public ModelAndView searchinfo(HttpServletRequest request, String b2_yadmnm) {
 	   
 	   ModelAndView mav = new ModelAndView();
-	   System.out.println("controller : " + commandMap.get("b2_yadmnm"));
+	  
 	   
 		int currentPage = 1;
 		int cntPerPage = 6;
 		String orderby = "B2_NO";
 
-		if (commandMap.get("cPage") != null) {
-			currentPage = Integer.parseInt((String) commandMap.get("cPage"));
+		if (request.getParameter("cPage") != null) {
+			currentPage = Integer.parseInt(request.getParameter("cPage"));
 		}
 
-		if (commandMap.get("cntPerPage") != null) {
-			cntPerPage = Integer.parseInt((String) commandMap.get("cPage"));
+		if (request.getParameter("cntPerPage") != null) {
+			cntPerPage = Integer.parseInt(request.getParameter("cntPerPage"));
 		}
 
-		Map<String, Object> res = bs.searchinfo(commandMap, orderby, currentPage, cntPerPage);
+		Map<String, Object> res = new HashMap<String, Object>();
 		
-		if(commandMap.get("b2_yadmnm") != null) {
-			System.out.println(">>>>>>>>>>> " + commandMap.get("b2_yadmnm"));
-			res.put("b2_yadmnm",commandMap.get("b2_yadmnm"));
-		}
+		res = bs.searchinfo(b2_yadmnm, orderby, currentPage, cntPerPage);
+		
+		
+		
+//		if(commandMap.get("b2_yadmnm") != null) {
+//			System.out.println(">>>>>>>>>>> " + commandMap.get("b2_yadmnm"));
+//			res.put("b2_yadmnm",commandMap.get("b2_yadmnm"));
+//		}
 		
 		System.out.println("컨트롤러" + res);
 		
-		res.put("url", "board2search.do");
+		//res.put("url", "board2search.do");
 		mav.addObject("noticeData", res);
+		mav.addObject("board2", "board2search");
+		mav.addObject("b2_yadmnm",b2_yadmnm);
 		mav.setViewName("board2/board2test");
 		
 		

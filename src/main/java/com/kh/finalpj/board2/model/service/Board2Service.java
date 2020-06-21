@@ -14,7 +14,10 @@ public interface Board2Service {
 	
 	public Map<String, Object> selectNoticeList(String orderby, int currentPage, int cntPerPage);
 
-	public Map<String, Object> searchinfo(Map<String, Object> commandMap, String orderby, int currentPage, int cntPerPage);
+	public Map<String, Object> searchinfo(String b2_yadmnm, String orderby, int currentPage, int cntPerPage);
+
+	
+
 
 
 }
