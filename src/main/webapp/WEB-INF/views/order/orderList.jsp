@@ -89,7 +89,7 @@
                             style="width: 100%;">
                             <thead>
                                 <tr role="row" class="text-white">
-                                    <th rowspan="6" colspan="6" style="background-color:#9536FF;width: 34px;">주문 목록</th>
+                                    <th rowspan="6" colspan="6" style="background-color:#7C52CC;width: 34px;">주문 목록</th>
                                 </tr>
                             </thead>
 

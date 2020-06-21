@@ -80,7 +80,7 @@
                             style="width: 100%;">
                             <thead>
                                 <tr role="row" class="text-white">
-                                    <th rowspan="6" colspan="6" style="background-color:#9536FF;width: 34px;">${userInfo.O_DATE} &nbsp; &nbsp;주문 목록</th>
+                                    <th rowspan="6" colspan="6" style="background-color:#7C52CC;width: 34px;">${userInfo.O_DATE} &nbsp; &nbsp;주문 목록</th>
                                 </tr>
                             </thead>
 
@@ -97,7 +97,7 @@
                                     		</c:if>
                                     		<c:if test="${orderDetailList.O_STATUS == '배송완료'}">
                                     		<div>
-                                    			<button class="confirmation btn"  style="background-color:#9536FF; font-size:20px;">구매확정하기</button>
+                                    			<button class="confirmation btn"  style="background-color:#7C52CC; font-size:20px;">구매확정하기</button>
                                     		</div>
                                     		</c:if>
                                     	</td>

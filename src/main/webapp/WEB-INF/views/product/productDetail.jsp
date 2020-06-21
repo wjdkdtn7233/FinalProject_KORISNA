@@ -76,7 +76,7 @@
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="blog-details-content-meta">
-                                                        <h3 class="font-weight-bold sunflower" style="color:#9536FF">${productDetail.P_NAME}</h3>
+                                                        <h3 class="font-weight-bold sunflower" style="color:#7C52CC">${productDetail.P_NAME}</h3>
                                                         <h4 class="pt-3 sunflower"><li><i class="fas fa-star"></i>  ${productDetail.P_STARSCORE}</h4>
                                                         <hr>
                                                         <h3 class="pt-1 sunflower"><span>  ${productDetail.P_PRICE} 원</span></h3>
@@ -132,14 +132,14 @@
                                             <h6>${reviewList.F_NICK} 
                                             <span class="pl-3">
                                             <c:if test="${reviewList.R_STARSCORE == 1}">
-                                            	<i class="fas fa-star" style="color:#9536FF"></i>
+                                            	<i class="fas fa-star" style="color:#7C52CC"></i>
                                             	<c:forEach var="i" begin="1" end="4">
                                             		<i class="fas fa-star" style="color:gray"></i>
                                             	</c:forEach>
                                             </c:if>
                                             <c:if test="${reviewList.R_STARSCORE == 2}">
                                             	<c:forEach var="i" begin="1" end="2">
-                                            		<i class="fas fa-star" style="color:#9536FF"></i>
+                                            		<i class="fas fa-star" style="color:#7C52CC"></i>
                                             	</c:forEach>
                                             	<c:forEach var="i" begin="1" end="3">
                                             		<i class="fas fa-star" style="color:gray"></i>
@@ -147,7 +147,7 @@
                                             </c:if>
                                             <c:if test="${reviewList.R_STARSCORE == 3}">
                                             	<c:forEach var="i" begin="1" end="3">
-                                            		<i class="fas fa-star" style="color:#9536FF"></i>
+                                            		<i class="fas fa-star" style="color:#7C52CC"></i>
                                             	</c:forEach>
                                             	<c:forEach var="i" begin="1" end="2">
                                             		<i class="fas fa-star" style="color:gray"></i>
@@ -155,7 +155,7 @@
                                             </c:if>
                                             <c:if test="${reviewList.R_STARSCORE == 4}">
                                             	<c:forEach var="i" begin="1" end="4">
-                                            		<i class="fas fa-star" style="color:#9536FF"></i>
+                                            		<i class="fas fa-star" style="color:#7C52CC"></i>
                                             	</c:forEach>
                                             	<c:forEach var="i" begin="1" end="1">
                                             		<i class="fas fa-star" style="color:gray"></i>
@@ -163,7 +163,7 @@
                                             </c:if>
                                             <c:if test="${reviewList.R_STARSCORE == 5}">
                                             	<c:forEach var="i" begin="1" end="5">
-                                            		<i class="fas fa-star" style="color:#9536FF"></i>
+                                            		<i class="fas fa-star" style="color:#7C52CC"></i>
                                             	</c:forEach>
                                             </c:if>
                                             </span>

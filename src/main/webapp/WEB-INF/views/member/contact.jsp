@@ -89,7 +89,7 @@
                                     style="width: 100%;">
                                     <thead>
                                         <tr role="row" class="text-white">
-                                            <th rowspan="2" colspan="2" style="background-color:#9536FF;width: 34px;">Contact</th>
+                                            <th rowspan="2" colspan="2" style="background-color:#7C52CC;width: 34px;">Contact</th>
                                         </tr>
                                     </thead>
         

@@ -92,7 +92,7 @@
                                             style="width: 100%;">
                                             <thead>
                                                 <tr role="row" class="text-white">
-                                                    <th rowspan="2" colspan="2" style="background-color:#9536FF;width: 34px;">구매자 정보</th>
+                                                    <th rowspan="2" colspan="2" style="background-color:#7C52CC;width: 34px;">구매자 정보</th>
                                                 </tr>
                                             </thead>
 
@@ -126,7 +126,7 @@
                                             style="width: 100%;">
                                             <thead>
                                                 <tr role="row" class="text-white">
-                                                    <th rowspan="2" colspan="2" style="background-color:#9536FF;width: 34px;">수령인 정보</th>
+                                                    <th rowspan="2" colspan="2" style="background-color:#7C52CC;width: 34px;">수령인 정보</th>
                                                 </tr>
                                             </thead>
 
@@ -188,7 +188,7 @@
                                             style="width: 100%;">
                                             <thead>
                                                 <tr role="row" class="text-white">
-                                                    <th rowspan="5" colspan="5" style="background-color:#9536FF;width: 34px;">구매하실 상품 내역</th>
+                                                    <th rowspan="5" colspan="5" style="background-color:#7C52CC;width: 34px;">구매하실 상품 내역</th>
                                                 </tr>
                                             </thead>
 
@@ -221,7 +221,7 @@
                                             style="width: 100%;">
                                             <thead>
                                                 <tr role="row" class="text-white">
-                                                    <th rowspan="2" colspan="2" style="background-color:#9536FF;width: 34px;">결제 정보</th>
+                                                    <th rowspan="2" colspan="2" style="background-color:#7C52CC;width: 34px;">결제 정보</th>
                                                 </tr>
                                             </thead>
 
