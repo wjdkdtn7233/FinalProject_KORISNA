@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,8 +68,6 @@ public class BoardController {
 
 		List<Map<String, Object>> res = bs.openApi();
 		Map<String, Object> result = new HashMap<String, Object>();
-
-		System.out.println(id);
 
 		for (Map<String, Object> map : res) {
 

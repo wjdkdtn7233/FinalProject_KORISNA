@@ -28,7 +28,7 @@ public class BoardServiceImpl implements BoardService {
 
 		List<Map<String, Object>> listResult = new ArrayList<Map<String, Object>>();
 		String data = "";
-		System.out.println("service");
+		//System.out.println("service");
 
 		try {
 
@@ -81,7 +81,7 @@ public class BoardServiceImpl implements BoardService {
 					listResult.add(res);
 				}
 			}
-			System.out.println("service for end");
+			//System.out.println("service for end");
 
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
