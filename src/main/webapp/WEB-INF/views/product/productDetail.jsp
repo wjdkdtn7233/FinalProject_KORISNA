@@ -11,7 +11,7 @@
         color: gray;
     }
     #star_grade i.on{
-        color: #9536FF;
+        color: #7C52CC;
     }
 </style>
 <body>
