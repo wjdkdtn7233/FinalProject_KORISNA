@@ -88,12 +88,12 @@
                                                 style="width: 100%;">
                                                 <thead>
                                                     <tr role="row" class="text-white">
-                                                        <th  rowspan="1" colspan="1" style="width: 34px;background:#9536FF;"><input type="checkbox" id="allSelect"> all</th>
-                                                        <th rowspan="1" colspan="1" style="width: 88px;background:#9536FF;">Product picture</th>
-                                                        <th rowspan="1" colspan="1" style="width: 100px;background:#9536FF;">Product Name</th>
-                                                        <th rowspan="1" colspan="1" style="width: 70px;background:#9536FF;">Price</th>
-                                                        <th rowspan="1" colspan="1" style="width: 110px;background:#9536FF;">Quantity</th>
-                                                        <th rowspan="1" colspan="1" style="width: 73px;background:#9536FF;">SubToTal</th>
+                                                        <th  rowspan="1" colspan="1" style="width: 34px;background:#7C52CC;"><input type="checkbox" id="allSelect"> all</th>
+                                                        <th rowspan="1" colspan="1" style="width: 88px;background:#7C52CC;">Product picture</th>
+                                                        <th rowspan="1" colspan="1" style="width: 100px;background:#7C52CC;">Product Name</th>
+                                                        <th rowspan="1" colspan="1" style="width: 70px;background:#7C52CC;">Price</th>
+                                                        <th rowspan="1" colspan="1" style="width: 110px;background:#7C52CC;">Quantity</th>
+                                                        <th rowspan="1" colspan="1" style="width: 73px;background:#7C52CC;">SubToTal</th>
                                                     </tr>
                                                 </thead>
                                                 <tfoot>
