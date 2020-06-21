@@ -61,17 +61,17 @@
                                     
                                     <div class="col-xl-6 col-lg-6 col-md-5">
                                         <div class="product-showing-results sunflower">
-                                            <p>정렬 도구</p>
+                                            <p>SORT BY:</p>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-4">
                                         <div class="selct-products">
                                             <select id="sortList" name="orderby" class="orderby sunflower" aria-label="Shop order">
-                                                <option value="p_no desc" selected="selected">상품등록 순서</option>
-                                                <option value="p_name">이름 순서</option>
-                                                <option value="p_starscore desc">인기 순서</option>
-                                                <option value="p_price desc">높은 가격 순서</option>
-                                                <option value="p_price">낮은 가격 순서</option>
+                                                <option value="p_no desc" selected="selected">New Arrivals</option>
+                                                <option value="p_name">Name</option>
+                                                <option value="p_starscore desc">Best Sellers</option>
+                                                <option value="p_price desc">Price High to Low</option>
+                                                <option value="p_price">Price Low to High</option>
                                             </select>
                                         </div>
                                     </div>
