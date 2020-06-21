@@ -22,15 +22,19 @@
 							alt="">
 					</div>
 					<div class="footer-text">
+					
+					<h4 class="breadcrumb-main-title">코로나 19 정보 센터</h4>
+					
 						<p>It is a long established fact that a reader will bee
 							distracted by there readable content of the page when looking at
 							its layout. It is a long established fact that a reader.</p>
 					</div>
 					<div class="footer-social-tabs">
 						<ul>
-							<li><a href="https://www.youtube.com/watch?v=ztROLNQY69Y&feature=youtu.be&list=PL_-Emxqwow0AXFAJgXcEq5XDqAP3vbdJa"><i class="icofont-youtube"></i></a></li>
-							<li><a href="#"><i class="icofont-facebook"></i> </a></li>
-							<li><a href="#"><i class="icofont-linkedin"></i></a></li>
+							<li><a href="https://www.youtube.com/channel/UCa7-3Zvxg-5Rfxgu3RQY_gw"><i class="icofont-youtube"></i></a></li>
+							<li><a href="https://www.facebook.com/koreacdcpr"><i class="icofont-facebook"></i> </a></li>
+							<li><a href="https://post.naver.com/my.nhn?memberNo=20182790"><i class="icofont-blogger"></i> </a></li>
+							<li><a href="https://twitter.com/KoreaCDC"><i class="icofont-blogger"></i> </a></li>
 						</ul>
 					</div>
 				</div>
