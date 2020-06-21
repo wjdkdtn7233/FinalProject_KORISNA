@@ -641,8 +641,7 @@
 			
 			$.ajax({
 				
-				url:"<%=request.getContextPath()%>
-		/order/ordercancleinfo.do",
+				url:"<%=request.getContextPath()%>/order/ordercancleinfo.do",
 															type : "post",
 															dataType : "json",
 															data : {

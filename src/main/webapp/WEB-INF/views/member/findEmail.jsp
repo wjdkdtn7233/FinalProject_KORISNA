@@ -237,8 +237,7 @@
 					if(data == 1){
 						$.ajax({
 				
-							url:"<%=request.getContextPath()%>
-		/member/findinfoauthentication.do",
+							url:"<%=request.getContextPath()%>/member/findinfoauthentication.do",
 											type : "post",
 											data : {
 												f_email : email.val(),

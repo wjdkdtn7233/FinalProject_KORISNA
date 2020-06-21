@@ -400,8 +400,7 @@
 							//이미지가 보여지는 곳에 원래 사진 삭제
 							$('#pictureHere').html("");
 							//기본이미지 넣기
-							$('#pictureHere').html('<img class="h-100" src="<%=request.getContextPath()%>
-		/resources/upload/basicphoto.png"/>');
+							$('#pictureHere').html('<img class="h-100" src="<%=request.getContextPath()%>/resources/upload/basicphoto.png"/>');
 							//유저가 기본이미지로 정했다는 값 서블릿으로 넘겨주기
 							$('#basicInput').val("default-image");
 

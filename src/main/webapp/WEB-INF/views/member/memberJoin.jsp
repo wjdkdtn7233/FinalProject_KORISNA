@@ -338,8 +338,7 @@
 			
 			$.ajax({
 				
-				url:"<%=request.getContextPath()%>
-		/member/idcheck.do",
+				url:"<%=request.getContextPath()%>/member/idcheck.do",
 										type : "post",
 										data : {
 											f_email : $('#f_email').val()

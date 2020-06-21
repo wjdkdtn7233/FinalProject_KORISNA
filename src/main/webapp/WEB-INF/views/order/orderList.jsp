@@ -339,8 +339,7 @@
 					}else{
 						if (confirm("리뷰 등록 완료! 해당 리뷰로 이동하시려면 확인버튼을 눌러주세요.") == true){ //확인
 							
-							location.href = "<%=request.getContextPath()%>
-		/product/productdetail.do?p_no="
+							location.href = "<%=request.getContextPath()%>/product/productdetail.do?p_no="
 															+ $('#pno').val();
 												} else { //취소
 													return false;

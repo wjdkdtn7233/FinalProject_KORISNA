@@ -745,8 +745,7 @@
                                 queryString += '&p_no=' + pno + '&o_count=' + pcnt + '&o_price=' + ptprice + '&c_no=' + cno;
                                 
                                 
-                                location.href = "<%=request.getContextPath()%>
-		/order/ordercomplete.do"
+                                location.href = "<%=request.getContextPath()%>/order/ordercomplete.do"
 										+ queryString;
 
 							}

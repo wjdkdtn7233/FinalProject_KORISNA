@@ -302,8 +302,7 @@
 					success : function(data) {
 						number = data;			
 						alert('고객님의 이메일로 비밀번호를 전송하였습니다.');
-						location.href="<%=request.getContextPath()%>
-		/member/login.do"
+						location.href="<%=request.getContextPath()%>/member/login.do"
 							},
 							error : function(data) {
 								alert('인증메일 전송에 실패하였습니다.');
