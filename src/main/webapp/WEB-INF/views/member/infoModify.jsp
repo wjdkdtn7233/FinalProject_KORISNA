@@ -94,17 +94,21 @@
 						<div class="col-xl-6 col-lg-6 col-md-6">
 							<div class="single-specialist-doctor-wrap page-mar-30">
 								<div class="specialist-doctor-image" id="pictureHere">
-									<img class="h-100" src="<%=request.getContextPath()%>/resources/upload/${sessionScope.loginUser.F_USERPICTURE}" />
+									<img class="h-100"
+										src="<%=request.getContextPath()%>/resources/upload/${sessionScope.loginUser.F_USERPICTURE}" />
 								</div>
 								<label for="userPicture" class="btn btn-warning btn-file">프로필사진
-									변경 <input type="file" name="file" id="userPicture" accept="image/jpg,image/jpeg,image/png,image/gif,image/bmp" style="display: none;" />
+									변경 <input type="file" name="file" id="userPicture"
+									accept="image/jpg,image/jpeg,image/png,image/gif,image/bmp"
+									style="display: none;" />
 								</label>
 								<button class="btn btn-warning" type="button" id="basicPicture">기본이미지로
 									변경</button>
 								<input type="hidden" name="basicPicture" id="basicInput" />
 								<div class="specialist-doctor-info">
 
-									<h4 class="doctor-name">[ ${sessionScope.loginUser.F_NAME} ] 님</h4>
+									<h4 class="doctor-name">[ ${sessionScope.loginUser.F_NAME}
+										] 님</h4>
 									<h6 class="doctor-desg">환영합니다</h6>
 								</div>
 							</div>
@@ -142,8 +146,9 @@
 												<div class="single-case-item">
 													<p style="color: red;">*닉네임 변경을 원할 시 입력해주세요.</p>
 													<h3 class="cases-title">닉네임</h3>
-													<input type="text"  id="f_nick" name="f_nick" class="w-50"
-														placeholder="NickName* " value="${sessionScope.loginUser.F_NICK}">
+													<input type="text" id="f_nick" name="f_nick" class="w-50"
+														placeholder="NickName* "
+														value="${sessionScope.loginUser.F_NICK}">
 												</div>
 												<div class="single-case-item">
 													<h3 class="cases-title">생년월일</h3>
@@ -156,7 +161,7 @@
 														placeholder="Phone*   '-' 없이 입력해주세요.'"
 														value="${sessionScope.loginUser.F_PHONE}">
 												</div>
-												
+
 
 												<div class="single-case-item">
 													<p style="color: red;">*주소 변경을 원할 시 입력해주세요.</p>
@@ -231,58 +236,8 @@
 		<!-- Contact Form Area End -->
 
 		<!-- Contact Information Area Start -->
-		<div class="contact-information-wrapper section-padding purple-bg">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-4 col-lg-4 col-md-4">
-						<div
-							class="single-contact-information-wrap border-right page-mar-mobile">
-							<div class="contact-info-icon-wrapper">
-								<i class="icofont-phone"></i>
-							</div>
-							<div class="contact-info-content">
-								<h5 class="contact-info-title">Call Us Now:</h5>
-								<h4 class="contact-info-bottom">
-									<a href="#">+88 - 012 - 345 - 6789</a>
-								</h4>
-								<h4 class="contact-info-bottom">
-									<a href="#">+88 - 012 - 564 - 1234</a>
-								</h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4">
-						<div
-							class="single-contact-information-wrap border-right page-mar-mobile">
-							<div class="contact-info-icon-wrapper">
-								<i class="icofont-email"></i>
-							</div>
-							<div class="contact-info-content">
-								<h5 class="contact-info-title">Email Us Now:</h5>
-								<h4 class="contact-info-bottom">
-									<a href="mailto:korisnaadmin@mail.com">korisnaadmin@mail.com</a>
-								</h4>
-								<h4 class="contact-info-bottom">
-									<a href="mailto:support@gmail.com">support@gmail.com</a>
-								</h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4">
-						<div class="single-contact-information-wrap">
-							<div class="contact-info-icon-wrapper">
-								<i class="icofont-location-pin"></i>
-							</div>
-							<div class="contact-info-content">
-								<h5 class="contact-info-title">Address:</h5>
-								<p class="contact-address">79 York Drive</p>
-								<p class="contact-address">Evanston, IL 60201</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<!-- Contact Information-->
+		<%@ include file="../include/contactinformation.jsp"%>
 		<!-- Contact Information Area End -->
 	</main>
 	<!-- footer -->
@@ -293,7 +248,7 @@
 
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
-	
+
 	<script
 		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
@@ -445,16 +400,15 @@
 							//이미지가 보여지는 곳에 원래 사진 삭제
 							$('#pictureHere').html("");
 							//기본이미지 넣기
-							$('#pictureHere').html('<img class="h-100" src="<%=request.getContextPath()%>/resources/upload/basicphoto.png"/>');
+							$('#pictureHere').html('<img class="h-100" src="<%=request.getContextPath()%>
+		/resources/upload/basicphoto.png"/>');
 							//유저가 기본이미지로 정했다는 값 서블릿으로 넘겨주기
 							$('#basicInput').val("default-image");
 
 						});
-		
 	</script>
 
 	<script>
-	
 		var passwordCheckFlag = true;
 		//유효성 검사 함수
 		function chk(re, e, msg) {
@@ -468,40 +422,38 @@
 				return false;
 			}
 		}
-		
-		
-		$('#f_password').keyup(function(){
-			var regExpPw = /(?=.*\d{1,16})(?=.*[~`!@#$%\^&*()-+=]{1,16})(?=.*[a-zA-Z]{1,16}).{8,16}$/;
-			var password = $('#f_password');
-			if (!chk(regExpPw, password, "")) {
-				$('#pwCheckInfo')
-						.html(
-								'비밀번호는 영문,숫자,특수기호를 포함한 <br>8자리 이상 16자리 내로 입력해주세요.')
-						.css('color', 'red');
-				passwordCheckFlag = false;
-				return;
-			}
-			if ($('#f_password').val() == $('#f_password2')
-					.val()) {
-				$('#pwCheckInfo').html('비밀번호 일치').css('color',
-						'green');
+
+		$('#f_password')
+				.keyup(
+						function() {
+							var regExpPw = /(?=.*\d{1,16})(?=.*[~`!@#$%\^&*()-+=]{1,16})(?=.*[a-zA-Z]{1,16}).{8,16}$/;
+							var password = $('#f_password');
+							if (!chk(regExpPw, password, "")) {
+								$('#pwCheckInfo')
+										.html(
+												'비밀번호는 영문,숫자,특수기호를 포함한 <br>8자리 이상 16자리 내로 입력해주세요.')
+										.css('color', 'red');
+								passwordCheckFlag = false;
+								return;
+							}
+							if ($('#f_password').val() == $('#f_password2')
+									.val()) {
+								$('#pwCheckInfo').html('비밀번호 일치').css('color',
+										'green');
+								passwordCheckFlag = true;
+							} else {
+								$('#pwCheckInfo').html('비밀번호 불일치').css('color',
+										'red');
+								passwordCheckFlag = false;
+							}
+						});
+
+		$('#f_password2').keyup(function() {
+			if ($('#f_password').val() == $('#f_password2').val()) {
+				$('#pwCheckInfo').html('비밀번호 일치').css('color', 'green');
 				passwordCheckFlag = true;
 			} else {
-				$('#pwCheckInfo').html('비밀번호 불일치').css('color',
-						'red');
-				passwordCheckFlag = false;
-			}
-		});
-		
-		$('#f_password2').keyup(function(){
-			if ($('#f_password').val() == $('#f_password2')
-					.val()) {
-				$('#pwCheckInfo').html('비밀번호 일치').css('color',
-						'green');
-				passwordCheckFlag = true;
-			} else {
-				$('#pwCheckInfo').html('비밀번호 불일치').css('color',
-						'red');
+				$('#pwCheckInfo').html('비밀번호 불일치').css('color', 'red');
 				passwordCheckFlag = false;
 			}
 		});
@@ -535,7 +487,7 @@
 				alert('비밀번호가 일치하지않습니다.');
 				return false;
 			}
-			if(!nickName.val()){
+			if (!nickName.val()) {
 				alert('닉네임을 입력해주세요.');
 				return false;
 			}
@@ -555,6 +507,6 @@
 			$('#frm').submit();
 		}
 	</script>
-	
+
 </body>
 </html>

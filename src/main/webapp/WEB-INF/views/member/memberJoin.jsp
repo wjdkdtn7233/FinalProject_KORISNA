@@ -107,8 +107,8 @@
 
 							<div class="col-xl-9 col-lg-9 col-md-9">
 								<input type="email" id="f_email" name="f_email"
-									placeholder="Email*  해당 이메일로 인증을 위해 정확히 입력해주세요.">
-								<input type="hidden" id="f_kakaotoken" name="f_kakaotoken" value="no"/>
+									placeholder="Email*  해당 이메일로 인증을 위해 정확히 입력해주세요."> <input
+									type="hidden" id="f_kakaotoken" name="f_kakaotoken" value="no" />
 							</div>
 							<div class="col-xl-3 col-lg-3 col-md-3">
 								<span id="idcheckInfo"></span>
@@ -141,7 +141,8 @@
 								</div>
 							</div>
 							<div class="col-xl-9 col-lg-9 col-md-9">
-								<input type="text" id="f_nick" name="f_nick" placeholder="NickName*">
+								<input type="text" id="f_nick" name="f_nick"
+									placeholder="NickName*">
 							</div>
 							<div class="col-xl-3 col-lg-3 col-md-3"></div>
 							<div
@@ -218,58 +219,8 @@
 		<!-- Contact Form Area End -->
 
 		<!-- Contact Information Area Start -->
-		<div class="contact-information-wrapper section-padding purple-bg">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-4 col-lg-4 col-md-4">
-						<div
-							class="single-contact-information-wrap border-right page-mar-mobile">
-							<div class="contact-info-icon-wrapper">
-								<i class="icofont-phone"></i>
-							</div>
-							<div class="contact-info-content">
-								<h5 class="contact-info-title">Call Us Now:</h5>
-								<h4 class="contact-info-bottom">
-									<a href="#">+88 - 012 - 345 - 6789</a>
-								</h4>
-								<h4 class="contact-info-bottom">
-									<a href="#">+88 - 012 - 564 - 1234</a>
-								</h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4">
-						<div
-							class="single-contact-information-wrap border-right page-mar-mobile">
-							<div class="contact-info-icon-wrapper">
-								<i class="icofont-email"></i>
-							</div>
-							<div class="contact-info-content">
-								<h5 class="contact-info-title">Email Us Now:</h5>
-								<h4 class="contact-info-bottom">
-									<a href="mailto:korisnaadmin@mail.com">korisnaadmin@mail.com</a>
-								</h4>
-								<h4 class="contact-info-bottom">
-									<a href="mailto:support@gmail.com">support@gmail.com</a>
-								</h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4">
-						<div class="single-contact-information-wrap">
-							<div class="contact-info-icon-wrapper">
-								<i class="icofont-location-pin"></i>
-							</div>
-							<div class="contact-info-content">
-								<h5 class="contact-info-title">Address:</h5>
-								<p class="contact-address">79 York Drive</p>
-								<p class="contact-address">Evanston, IL 60201</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<!-- Contact Information-->
+		<%@ include file="../include/contactinformation.jsp"%>
 		<!-- Contact Information Area End -->
 	</main>
 	<!-- footer -->
@@ -387,7 +338,8 @@
 			
 			$.ajax({
 				
-				url:"<%=request.getContextPath()%>/member/idcheck.do",
+				url:"<%=request.getContextPath()%>
+		/member/idcheck.do",
 										type : "post",
 										data : {
 											f_email : $('#f_email').val()
@@ -396,13 +348,13 @@
 										success : function(data) {
 											if (data == "ok") {
 												$('#idcheckInfo').html(
-														'사용 가능한<br> 이메일입니다.').css(
-														'color', 'green');
+														'사용 가능한<br> 이메일입니다.')
+														.css('color', 'green');
 												idCheckFlag = true;
 											} else {
 												$('#idcheckInfo').html(
-														'이미 사용중인<br> 이메일입니다.').css(
-														'color', 'red');
+														'이미 사용중인<br> 이메일입니다.')
+														.css('color', 'red');
 												idCheckFlag = false;
 											}
 
@@ -416,8 +368,6 @@
 									});
 
 						});
-
-		
 
 		//비밀번호 유효성 검사 / 일치여부
 		/* $('#f_password').click(function() {
@@ -455,24 +405,18 @@
 							}
 						});
 
-		$('#f_password2')
-				.keyup(
-						function() {
-							var password2 = $('#f_password2');
+		$('#f_password2').keyup(function() {
+			var password2 = $('#f_password2');
 
+			if ($('#f_password').val() == $('#f_password2').val()) {
+				$('#pwCheckInfo').html('비밀번호 일치').css('color', 'green');
+				passwordCheckFlag = true;
+			} else {
+				$('#pwCheckInfo').html('비밀번호 불일치').css('color', 'red');
+				passwordCheckFlag = false;
+			}
 
-							if ($('#f_password').val() == $('#f_password2')
-									.val()) {
-								$('#pwCheckInfo').html('비밀번호 일치').css('color',
-										'green');
-								passwordCheckFlag = true;
-							} else {
-								$('#pwCheckInfo').html('비밀번호 불일치').css('color',
-										'red');
-								passwordCheckFlag = false;
-							}
-
-						});
+		});
 
 		function checkReg() {
 			//?=.* 어느자리에 있든? 
@@ -503,7 +447,7 @@
 				alert('성함을 입력해주세요.');
 				return false;
 			}
-			if(!nick.val()){
+			if (!nick.val()) {
 				alert('닉네임을 입력해주세요.');
 				return false;
 			}

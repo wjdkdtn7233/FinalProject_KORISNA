@@ -145,7 +145,7 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-12">
                             <div class="cta-main-button">
-                                <a href="contact.html" class="cta-button btn">Contact Now <i class="icofont-arrow-right"></i></a>
+                                <a href="<%=request.getContextPath()%>/member/contact.do" class="cta-button btn">Contact Now <i class="icofont-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>

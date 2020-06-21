@@ -26,7 +26,7 @@
 				<div
 					class="single-contact-information-wrap border-right page-mar-mobile">
 					<div class="contact-info-icon-wrapper">
-						<i class="icofont-email"></i>
+						<i class="icofont-kakaotalk"></i>
 					</div>
 					<div class="contact-info-content">
 						<h5 class="contact-info-title">Kakao KCDC Now:</h5>

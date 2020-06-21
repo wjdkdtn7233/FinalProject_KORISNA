@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html class="no-js" lang="en">
 
-  <%@ include file="../include/head.jsp"%>
+<%@ include file="../include/head.jsp"%>
 
 <body>
 
@@ -15,412 +15,406 @@
 	<%@ include file="../include/header.jsp"%>
 
 
-    <main>
-        <!-- Breadcrumb Area Start -->
-        <section class="breadcrumb-wrapper purple-bg">
-            <div class="breadcrumb-virus-shape breadcrumb-shape-1">
-                <img src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png" alt="">
-            </div>
-            <div class="breadcrumb-virus-shape breadcrumb-shape-2">
-                <img src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png" alt="">
-            </div>
-            <div class="breadcrumb-virus-shape breadcrumb-shape-3">
-                <img src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png" alt="">
-            </div>
-            <div class="breadcrumb-virus-shape breadcrumb-shape-4">
-                <img src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png" alt="">
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6 col-md-6 my-auto">
-                        <div class="breadcrumb-content">
-                            <h2 class="breadcrumb-main-title">구매하기</h2>
-                            <ul>
-                                <li>- Shopping basket</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 text-right breadcrumb-unvisible">
-                        <div class="breadcrumb-image-wrapper">
-                            <div class="breadcrumb-image">
-                                <img src="<%=request.getContextPath()%>/resources/assets/img/woman-towel.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+	<main>
+		<!-- Breadcrumb Area Start -->
+		<section class="breadcrumb-wrapper purple-bg">
+			<div class="breadcrumb-virus-shape breadcrumb-shape-1">
+				<img
+					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
+					alt="">
+			</div>
+			<div class="breadcrumb-virus-shape breadcrumb-shape-2">
+				<img
+					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
+					alt="">
+			</div>
+			<div class="breadcrumb-virus-shape breadcrumb-shape-3">
+				<img
+					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
+					alt="">
+			</div>
+			<div class="breadcrumb-virus-shape breadcrumb-shape-4">
+				<img
+					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
+					alt="">
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 col-md-6 my-auto">
+						<div class="breadcrumb-content">
+							<h2 class="breadcrumb-main-title">구매하기</h2>
+							<ul>
+								<li>- Shopping basket</li>
+							</ul>
+						</div>
+					</div>
+					<div
+						class="col-xl-6 col-lg-6 col-md-6 text-right breadcrumb-unvisible">
+						<div class="breadcrumb-image-wrapper">
+							<div class="breadcrumb-image">
+								<img
+									src="<%=request.getContextPath()%>/resources/assets/img/woman-towel.png"
+									alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
 
 
-        </section>
-        <!-- Breadcrumb Area End -->
+		</section>
+		<!-- Breadcrumb Area End -->
 
 
-        <!-- Contact Form Area Start -->
-        <div class="contact-form-wrapper section-padding">
-            <div class="contact-virus-shape contact-virus-shape-1">
-                <img src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png" alt="">
-            </div>
-            <div class="contact-virus-shape specialist-virus-shape-2">
-                <img src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png" alt="">
-            </div>
-            <div class="contact-virus-shape contact-virus-shape-3">
-                <img src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png" alt="">
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-12 col-lg-12">
-                        <div class="section-title text-center semi-blue-section-title">
-                            <h5 class="section-single-subtitle text-warning">구매를 위해 아래 정보를 입력 후 결제를 해주세요.</h5>
+		<!-- Contact Form Area Start -->
+		<div class="contact-form-wrapper section-padding">
+			<div class="contact-virus-shape contact-virus-shape-1">
+				<img
+					src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
+					alt="">
+			</div>
+			<div class="contact-virus-shape specialist-virus-shape-2">
+				<img
+					src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
+					alt="">
+			</div>
+			<div class="contact-virus-shape contact-virus-shape-3">
+				<img
+					src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
+					alt="">
+			</div>
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-xl-12 col-lg-12">
+						<div class="section-title text-center semi-blue-section-title">
+							<h5 class="section-single-subtitle text-warning">구매를 위해 아래
+								정보를 입력 후 결제를 해주세요.</h5>
 
-                        </div>
-                    </div>
-                </div>
-                <h5 class="section-single-subtitle">주문 / 결제</h5>
-                <hr>
-                <br>
-                <br>
-                <div class="row justify-content-center">
-                    <div class="col-xl-12 col-lg-12 col-md-12">
-                        <div class="table-responsive">
-                            <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+						</div>
+					</div>
+				</div>
+				<h5 class="section-single-subtitle">주문 / 결제</h5>
+				<hr>
+				<br> <br>
+				<div class="row justify-content-center">
+					<div class="col-xl-12 col-lg-12 col-md-12">
+						<div class="table-responsive">
+							<div id="dataTable_wrapper"
+								class="dataTables_wrapper dt-bootstrap4">
 
-                                <div class="row">
-                                    <div class="col-xl-12 col-lg-12 col-md-12">
-                                        <table class="table  sunflower" width="100%" cellspacing="0" role="grid"
-                                            style="width: 100%;">
-                                            <thead>
-                                                <tr role="row" class="text-white">
-                                                    <th rowspan="2" colspan="2" style="background-color:#7C52CC;width: 34px;">구매자 정보</th>
-                                                </tr>
-                                            </thead>
+								<div class="row">
+									<div class="col-xl-12 col-lg-12 col-md-12">
+										<table class="table  sunflower" width="100%" cellspacing="0"
+											role="grid" style="width: 100%;">
+											<thead>
+												<tr role="row" class="text-white">
+													<th rowspan="2" colspan="2"
+														style="background-color: #7C52CC; width: 34px;">구매자
+														정보</th>
+												</tr>
+											</thead>
 
-                                            <tbody>
+											<tbody>
 
-                                                <tr role="row">
-                                                    <td
-                                                        style="background-color:#EAEAEA ;border-right-color: black; width:150px;">
-                                                        이름</td>
-                                                    <td>${sessionScope.loginUser.F_NAME}</td>
-                                                </tr>
-                                                <tr role="row">
-                                                    <td
-                                                        style="background-color:#EAEAEA ;border-right-color: black; width:150px;">
-                                                        이메일</td>
-                                                    <td>${sessionScope.loginUser.F_EMAIL}</td>
-                                                </tr>
-                                                <tr role="row">
-                                                    <td
-                                                        style="background-color:#EAEAEA ;border-right-color: black; width:150px;">
-                                                        휴대폰 번호</td>
-                                                    <td><input class="w-25" type="text" name="phone"
-                                                            value="${sessionScope.loginUser.F_PHONE}" readonly/></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+												<tr role="row">
+													<td
+														style="background-color: #EAEAEA; border-right-color: black; width: 150px;">
+														이름</td>
+													<td>${sessionScope.loginUser.F_NAME}</td>
+												</tr>
+												<tr role="row">
+													<td
+														style="background-color: #EAEAEA; border-right-color: black; width: 150px;">
+														이메일</td>
+													<td>${sessionScope.loginUser.F_EMAIL}</td>
+												</tr>
+												<tr role="row">
+													<td
+														style="background-color: #EAEAEA; border-right-color: black; width: 150px;">
+														휴대폰 번호</td>
+													<td><input class="w-25" type="text" name="phone"
+														value="${sessionScope.loginUser.F_PHONE}" readonly /></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
 
-                                    <div class="col-xl-12 col-lg-12 col-md-12 pt-5">
-                                        <table class="table  sunflower" width="100%" cellspacing="0" role="grid"
-                                            style="width: 100%;">
-                                            <thead>
-                                                <tr role="row" class="text-white">
-                                                    <th rowspan="2" colspan="2" style="background-color:#7C52CC;width: 34px;">수령인 정보</th>
-                                                </tr>
-                                            </thead>
+									<div class="col-xl-12 col-lg-12 col-md-12 pt-5">
+										<table class="table  sunflower" width="100%" cellspacing="0"
+											role="grid" style="width: 100%;">
+											<thead>
+												<tr role="row" class="text-white">
+													<th rowspan="2" colspan="2"
+														style="background-color: #7C52CC; width: 34px;">수령인
+														정보</th>
+												</tr>
+											</thead>
 
-                                            <tbody>
+											<tbody>
 
-                                                <tr role="row">
-                                                    <td
-                                                        style="background-color:#EAEAEA ;border-right-color: black; width:150px;">
-                                                        이름</td>
-                                                    <td><input class="w-25" type="text" name="o_receiver" id="o_receiver" value="${sessionScope.loginUser.F_NAME}" /></td>
-                                                </tr>
-                                                <tr role="row">
-                                                    <td
-                                                        style="background-color:#EAEAEA ;border-right-color: black; width:150px;">
-                                                        배송주소</td>
-                                                    <td><input type="text" name="o_address" id="o_address" value="${sessionScope.loginUser.F_ROADADDRESS}"/></td>
-                                                </tr>
-                                                <tr role="row">
-                                                    <td
-                                                        style="background-color:#EAEAEA ;border-right-color: black; width:150px;">
-                                                       상세주소</td>
-                                                    <td><input type="text" name="o_address1" id="o_address1" value="${sessionScope.loginUser.F_DETAILADDRESS}"/></td>
-                                                </tr>
-                                                <tr role="row">
-                                                    <td
-                                                        style="background-color:#EAEAEA ;border-right-color: black; width:150px;">
-                                                        연락처</td>
-                                                    <td><input class="w-25" type="text" name="o_phone" id="o_phone"
-                                                            value="${sessionScope.loginUser.F_PHONE}" /></td>
-                                                </tr>
-                                                <tr role="row">
-                                                    <td
-                                                        style="background-color:#EAEAEA ;border-right-color: black; width:150px;">
-                                                        배송 시 요청 사항</td>
-                                                    <td>
-                                                    <select id="request-msg">
-                                                    	<option  value="0" selected="selected"  class="orderby">=======선택하세요=======</option>
-                                                    	<option>부재시 경비실에 맡겨주세요.</option>
-                                                    	<option>부재시 문자 한 통 남겨주세요.</option>
-                                                    	<option>부재시 전화 한번 주세요.</option>
-                                                    	<option>부재시 문 앞에 놓고 가주세요.</option>
-                                                    	<option>도착전 미리 연락 부탁드립니다.</option>
-                                                    </select>
-                                                    <textarea id="o_msg" name="o_msg" rows="4px"></textarea>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div class="blog-post-tags  sunflower">
-                                            <ul>
-                                                <li><a id="addressModify" class="px-3">배송 주소지 변경</a></li>
-                                                <li><a id="basicAddress" class="px-3">기본 배송지</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+												<tr role="row">
+													<td
+														style="background-color: #EAEAEA; border-right-color: black; width: 150px;">
+														이름</td>
+													<td><input class="w-25" type="text" name="o_receiver"
+														id="o_receiver" value="${sessionScope.loginUser.F_NAME}" /></td>
+												</tr>
+												<tr role="row">
+													<td
+														style="background-color: #EAEAEA; border-right-color: black; width: 150px;">
+														배송주소</td>
+													<td><input type="text" name="o_address" id="o_address"
+														value="${sessionScope.loginUser.F_ROADADDRESS}" /></td>
+												</tr>
+												<tr role="row">
+													<td
+														style="background-color: #EAEAEA; border-right-color: black; width: 150px;">
+														상세주소</td>
+													<td><input type="text" name="o_address1"
+														id="o_address1"
+														value="${sessionScope.loginUser.F_DETAILADDRESS}" /></td>
+												</tr>
+												<tr role="row">
+													<td
+														style="background-color: #EAEAEA; border-right-color: black; width: 150px;">
+														연락처</td>
+													<td><input class="w-25" type="text" name="o_phone"
+														id="o_phone" value="${sessionScope.loginUser.F_PHONE}" /></td>
+												</tr>
+												<tr role="row">
+													<td
+														style="background-color: #EAEAEA; border-right-color: black; width: 150px;">
+														배송 시 요청 사항</td>
+													<td><select id="request-msg">
+															<option value="0" selected="selected" class="orderby">=======선택하세요=======</option>
+															<option>부재시 경비실에 맡겨주세요.</option>
+															<option>부재시 문자 한 통 남겨주세요.</option>
+															<option>부재시 전화 한번 주세요.</option>
+															<option>부재시 문 앞에 놓고 가주세요.</option>
+															<option>도착전 미리 연락 부탁드립니다.</option>
+													</select> <textarea id="o_msg" name="o_msg" rows="4px"></textarea></td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="blog-post-tags  sunflower">
+											<ul>
+												<li><a id="addressModify" class="px-3">배송 주소지 변경</a></li>
+												<li><a id="basicAddress" class="px-3">기본 배송지</a></li>
+											</ul>
+										</div>
+									</div>
 
-                                    <div class="col-xl-12 col-lg-12 col-md-12 pt-5">
-                                        <table class="table table-hover sunflower table-bordered" width="100%" cellspacing="0" role="grid"
-                                            style="width: 100%;">
-                                            <thead>
-                                                <tr role="row" class="text-white">
-                                                    <th rowspan="5" colspan="5" style="background-color:#7C52CC;width: 34px;">구매하실 상품 내역</th>
-                                                </tr>
-                                            </thead>
+									<div class="col-xl-12 col-lg-12 col-md-12 pt-5">
+										<table class="table table-hover sunflower table-bordered"
+											width="100%" cellspacing="0" role="grid" style="width: 100%;">
+											<thead>
+												<tr role="row" class="text-white">
+													<th rowspan="5" colspan="5"
+														style="background-color: #7C52CC; width: 34px;">구매하실
+														상품 내역</th>
+												</tr>
+											</thead>
 
-                                            <tbody>
-                                            	<tr role="row" class="text-center">
-                                                    <td style=" width:130px;">상품 사진</td>
-                                                    <td class="productName">상품명</td>
-                                                    <td>상품 가격</td>
-                                                    <td>갯수</td>
-                                                    <td>상품 총 가격</td>
-                                                </tr>
+											<tbody>
+												<tr role="row" class="text-center">
+													<td style="width: 130px;">상품 사진</td>
+													<td class="productName">상품명</td>
+													<td>상품 가격</td>
+													<td>갯수</td>
+													<td>상품 총 가격</td>
+												</tr>
 												<c:forEach var="cartList" items="${cartList}">
-												
-												<tr role="row"  class="text-center">
-                                                    <td style=" width:130px;"><input class="pnum" type="hidden" value="${cartList.P_NO}"/><input class="cnum" type="hidden" value="${cartList.C_NO}"/><img style="width:120px; height:120px;" src="<%=request.getContextPath()%>/resources/product/image/${cartList.C_IMAGE}"/></td>
-                                                    <td class="productName">${cartList.C_NAME}</td>
-                                                    <td><span>${cartList.C_PRICE}</span> 원</td>
-                                                    <td><span class="pCnt">${cartList.C_CNT}</span> 개</td>
-                                                    <td><span class="ptPrice">${cartList.C_TOTALPRICE}</span> 원</td>
-                                                </tr>
-												</c:forEach>	
-												
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
 
-                                    <div class="col-xl-12 col-lg-12 col-md-12 pt-5">
-                                        <table class="table sunflower" width="100%" cellspacing="0" role="grid"
-                                            style="width: 100%;">
-                                            <thead>
-                                                <tr role="row" class="text-white">
-                                                    <th rowspan="2" colspan="2" style="background-color:#7C52CC;width: 34px;">결제 정보</th>
-                                                </tr>
-                                            </thead>
+													<tr role="row" class="text-center">
+														<td style="width: 130px;"><input class="pnum"
+															type="hidden" value="${cartList.P_NO}" /><input
+															class="cnum" type="hidden" value="${cartList.C_NO}" /><img
+															style="width: 120px; height: 120px;"
+															src="<%=request.getContextPath()%>/resources/product/image/${cartList.C_IMAGE}" /></td>
+														<td class="productName">${cartList.C_NAME}</td>
+														<td><span>${cartList.C_PRICE}</span> 원</td>
+														<td><span class="pCnt">${cartList.C_CNT}</span> 개</td>
+														<td><span class="ptPrice">${cartList.C_TOTALPRICE}</span>
+															원</td>
+													</tr>
+												</c:forEach>
 
-                                            <tbody>
 
-                                                <tr role="row">
-                                                    <td
-                                                        style="background-color:#EAEAEA ;border-right-color: black; width:150px;">총 상품 가격
-                                                        </td>
-                                                       <td>${totalPrice} 원</td> 
-                                                </tr>
-                                                <tr role="row">
-                                                    <td
-                                                        style="background-color:#EAEAEA ;border-right-color: black; width:150px;">
-                                                        배송비</td>
-                                                    <td>2500 원</td>
-                                                </tr>
-                                                <tr role="row">
-                                                    <td
-                                                        style="background-color:#EAEAEA ;border-right-color: black; width:150px;">
-                                                        총 결제 금액</td>			<c:set var ="sumPrice" value="${totalPrice + 2500}"/> 
-                                                    <td>${sumPrice} 원</td>
-                                                </tr>
-                                                <tr role="row">
-                                                    <td
-                                                        style="background-color:#EAEAEA ;border-right-color: black; width:150px;">
-                                                        결제 방법</td>
-                                                    <td>
-                                                        <input type="radio" value="cash" name=pay_category id="pay1"
-                                                            checked="checked" onclick="payshow1();"> <label
-                                                            for="pay1">무통장 입금</label>
-                                                        <input type="radio" value="card" name="pay_category" id="pay2"
-                                                            onclick="payshow2();"> <label for="pay2">카드 결제</label>
-                                                        <input type="radio" value="kakaopay" name="pay_category"
-                                                            id="pay3" onclick="payshow3();"> <label
-                                                            for="pay3">카카오페이(간편결제)<a
-                                                                href="http://www.kakao.com/kakaopay" target="_blank">
-                                                                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif"
-                                                                    alt="info"></a></label> <input type="radio"
-                                                            value="phone" name="pay_category" id="pay4"
-                                                            onclick="payshow4();"> <label for="pay4">휴대폰 결제<a
-                                                                href="http://www.payco.com/payco/guide.nhn"
-                                                                target="_blank">
-                                                                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif"
-                                                                    alt="info">
-                                                            </a></label>
-                                                    <div id="pay-cash">             
-                                                        <table class=" sunflower">
-                                                            <tbody>
-                                                                <tr style="height: 50%;">
-                                                                    <th>입금자명</th>
-                                                                    <td><input type="text" name="userName" id="userName"
-                                                                            size="10px"></td>
-                                                                </tr>
+											</tbody>
+										</table>
+									</div>
 
-                                                                <tr>
-                                                                    <th>입금은행</th>
-                                                                    <td><select id="bank" name="bank"
-                                                                            style="font-size: 18px;">
-                                                                            <option value="-1">::::: 선택해 주세요. :::::</option>
-                                                                            <option value="1">국민은행:575702-01-220662
-                                                                            </option>
-                                                                            <option value="2">신한은행:140-012-58997
-                                                                            </option>
-                                                                            <option value="3">농협:301-0231-3595-51
-                                                                            </option>
-                                                                        </select></td>
-                                                                </tr>
-                                                            </tbody>
+									<div class="col-xl-12 col-lg-12 col-md-12 pt-5">
+										<table class="table sunflower" width="100%" cellspacing="0"
+											role="grid" style="width: 100%;">
+											<thead>
+												<tr role="row" class="text-white">
+													<th rowspan="2" colspan="2"
+														style="background-color: #7C52CC; width: 34px;">결제 정보</th>
+												</tr>
+											</thead>
 
-                                                        </table>
-                                                        </div>
+											<tbody>
 
-                                                        <div id="pay-card" style="padding-left: 29px; display: none;">
-                                                            <p id="shipfee" class="help  sunflower"
-                                                                style="font-size: 18px; font-weight: 600; color: #000;">최소
-                                                                결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.</p>
-                                
-                                                            <p id="pg" class="help sunflower"
-                                                                style="font-size: 18px; font-weight: 600; color: #000;">소액
-                                                                결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
-                                                        </div>
-                                
-                                                        <div id="pay-kakaopay" style="padding-left: 29px; display: none;">
-                                                            <p class="help sunflower"
-                                                                style="font-size: 18px; font-weight: 600; color: #000;">
-                                                                휴대폰에 설치된 카카오톡 앱에서 비밀번호 입력만으로 빠르고 안전하게 결제가 가능한 서비스 입니다.</p>
-                                
-                                                            <p class="help sunflower"
-                                                                style="font-size: 18px; font-weight: 600; color: #000;">
-                                                                안드로이드의 경우 구글 플레이, 아이폰의 경우 앱 스토어에서 카카오톡 앱을 설치 한 후,<br> 최초 1회
-                                                                카드 및 계좌 정보를 등록하셔야 사용 가능합니다.
-                                                            </p>
-                                
-                                                            <p class="help sunflower"
-                                                                style="font-size: 18px; font-weight: 600; color: #000;">인터넷
-                                                                익스플로러의 경우 8 이상에서만 결제 가능합니다.</p>
-                                
-                                                            <p class="help sunflower"
-                                                                style="font-size: 18px; font-weight: 600; color: #000;">
-                                                                BC카드 중 신한, 하나, 국민카드는 결제가 불가능합니다.</p>
-                                
-                                                        </div>
-                                
-                                                        <div id="pay-payco" style="padding-left: 29px; display: none;">
-                                                            <p class="help sunflower"
-                                                                style="font-size: 18px; font-weight: 600; color: #000;">소액
-                                                                결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
-                                
-                                                            <p class="help sunflower"
-                                                                style="font-size: 18px; font-weight: 600; color: #000;"></p>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+												<tr role="row">
+													<td
+														style="background-color: #EAEAEA; border-right-color: black; width: 150px;">총
+														상품 가격</td>
+													<td>${totalPrice}원</td>
+												</tr>
+												<tr role="row">
+													<td
+														style="background-color: #EAEAEA; border-right-color: black; width: 150px;">
+														배송비</td>
+													<td>2500 원</td>
+												</tr>
+												<tr role="row">
+													<td
+														style="background-color: #EAEAEA; border-right-color: black; width: 150px;">
+														총 결제 금액</td>
+													<c:set var="sumPrice" value="${totalPrice + 2500}" />
+													<td>${sumPrice}원</td>
+												</tr>
+												<tr role="row">
+													<td
+														style="background-color: #EAEAEA; border-right-color: black; width: 150px;">
+														결제 방법</td>
+													<td><input type="radio" value="cash" name=pay_category
+														id="pay1" checked="checked" onclick="payshow1();">
+														<label for="pay1">무통장 입금</label> <input type="radio"
+														value="card" name="pay_category" id="pay2"
+														onclick="payshow2();"> <label for="pay2">카드
+															결제</label> <input type="radio" value="kakaopay"
+														name="pay_category" id="pay3" onclick="payshow3();">
+														<label for="pay3">카카오페이(간편결제)<a
+															href="http://www.kakao.com/kakaopay" target="_blank">
+																<img
+																src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif"
+																alt="info">
+														</a></label> <input type="radio" value="phone" name="pay_category"
+														id="pay4" onclick="payshow4();"> <label for="pay4">휴대폰
+															결제<a href="http://www.payco.com/payco/guide.nhn"
+															target="_blank"> <img
+																src="//img.echosting.cafe24.com/skin/base_ko_KR/order/ico_info2.gif"
+																alt="info">
+														</a>
+													</label>
+														<div id="pay-cash">
+															<table class=" sunflower">
+																<tbody>
+																	<tr style="height: 50%;">
+																		<th>입금자명</th>
+																		<td><input type="text" name="userName"
+																			id="userName" size="10px"></td>
+																	</tr>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row pt-5 sunflower justify-content-center">
-                    <div class="col-xl-9 col-lg-9 col-md-9 pt-5 text-center">
-                        <div class="single-right-small-blog blog-contact-us">
-                            <h3 class="blog-single-title  sunflower">총 결제해야할 금액</h3>
-                            <h5 class="section-single-subtitle  sunflower"><span class="pr-3  sunflower">총 상품 가격 <span
-                                        style="color:black">${totalPrice}</span>원</span><i class="far fa-plus-square"
-                                    style="color:black"></i><span class="pl-3  sunflower">총 배송비 <span
-                                        style="color:black">2500</span>원</span></h5>
-                            <h3 class="blog-single-title"></h3>
-                            <h5 class="section-single-subtitle">총<span class="pl-3  sunflower" style="color:black">${sumPrice}</span>원
-                            </h5>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 text-right pt-5">
-                        <div class="cta-main-button" id="idMsg2">
-                            <a class="cta-button btn">주문취소</a>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 text-left pt-5">
-                        <div class="cta-main-button" id="idMsg3">
-                            <a class="cta-button btn">구매하기</a>
-                        </div>
-                    </div>
+																	<tr>
+																		<th>입금은행</th>
+																		<td><select id="bank" name="bank"
+																			style="font-size: 18px;">
+																				<option value="-1">::::: 선택해 주세요. :::::</option>
+																				<option value="1">국민은행:575702-01-220662</option>
+																				<option value="2">신한은행:140-012-58997</option>
+																				<option value="3">농협:301-0231-3595-51</option>
+																		</select></td>
+																	</tr>
+																</tbody>
 
-                </div>
-            </div>
-        </div>
-        <!-- Contact Form Area End -->
+															</table>
+														</div>
 
-        <!-- Contact Information Area Start -->
-        <div class="contact-information-wrapper section-padding purple-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-4">
-                        <div class="single-contact-information-wrap border-right page-mar-mobile">
-                            <div class="contact-info-icon-wrapper">
-                                <i class="icofont-phone"></i>
-                            </div>
-                            <div class="contact-info-content">
-                                <h5 class="contact-info-title">Call Us Now:</h5>
-                                <h4 class="contact-info-bottom"><a href="#">+88 - 012 - 345 - 6789</a></h4>
-                                <h4 class="contact-info-bottom"><a href="#">+88 - 012 - 564 - 1234</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4">
-                        <div class="single-contact-information-wrap border-right page-mar-mobile">
-                            <div class="contact-info-icon-wrapper">
-                                <i class="icofont-email"></i>
-                            </div>
-                            <div class="contact-info-content">
-                                <h5 class="contact-info-title">Email Us Now:</h5>
-                                <h4 class="contact-info-bottom"><a
-                                        href="mailto:korisnaadmin@mail.com">korisnaadmin@mail.com</a></h4>
-                                <h4 class="contact-info-bottom"><a href="mailto:support@gmail.com">support@gmail.com</a>
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-4">
-                        <div class="single-contact-information-wrap">
-                            <div class="contact-info-icon-wrapper">
-                                <i class="icofont-location-pin"></i>
-                            </div>
-                            <div class="contact-info-content">
-                                <h5 class="contact-info-title">Address:</h5>
-                                <p class="contact-address">79 York Drive</p>
-                                <p class="contact-address">Evanston, IL 60201</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Contact Information Area End -->
-    </main>
+														<div id="pay-card"
+															style="padding-left: 29px; display: none;">
+															<p id="shipfee" class="help  sunflower"
+																style="font-size: 18px; font-weight: 600; color: #000;">최소
+																결제 가능 금액은 결제금액에서 배송비를 제외한 금액입니다.</p>
+
+															<p id="pg" class="help sunflower"
+																style="font-size: 18px; font-weight: 600; color: #000;">소액
+																결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
+														</div>
+
+														<div id="pay-kakaopay"
+															style="padding-left: 29px; display: none;">
+															<p class="help sunflower"
+																style="font-size: 18px; font-weight: 600; color: #000;">
+																휴대폰에 설치된 카카오톡 앱에서 비밀번호 입력만으로 빠르고 안전하게 결제가 가능한 서비스 입니다.</p>
+
+															<p class="help sunflower"
+																style="font-size: 18px; font-weight: 600; color: #000;">
+																안드로이드의 경우 구글 플레이, 아이폰의 경우 앱 스토어에서 카카오톡 앱을 설치 한 후,<br>
+																최초 1회 카드 및 계좌 정보를 등록하셔야 사용 가능합니다.
+															</p>
+
+															<p class="help sunflower"
+																style="font-size: 18px; font-weight: 600; color: #000;">인터넷
+																익스플로러의 경우 8 이상에서만 결제 가능합니다.</p>
+
+															<p class="help sunflower"
+																style="font-size: 18px; font-weight: 600; color: #000;">
+																BC카드 중 신한, 하나, 국민카드는 결제가 불가능합니다.</p>
+
+														</div>
+
+														<div id="pay-payco"
+															style="padding-left: 29px; display: none;">
+															<p class="help sunflower"
+																style="font-size: 18px; font-weight: 600; color: #000;">소액
+																결제의 경우 PG사 정책에 따라 결제 금액 제한이 있을 수 있습니다.</p>
+
+															<p class="help sunflower"
+																style="font-size: 18px; font-weight: 600; color: #000;"></p>
+														</div></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row pt-5 sunflower justify-content-center">
+					<div class="col-xl-9 col-lg-9 col-md-9 pt-5 text-center">
+						<div class="single-right-small-blog blog-contact-us">
+							<h3 class="blog-single-title  sunflower">총 결제해야할 금액</h3>
+							<h5 class="section-single-subtitle  sunflower">
+								<span class="pr-3  sunflower">총 상품 가격 <span
+									style="color: black">${totalPrice}</span>원
+								</span><i class="far fa-plus-square" style="color: black"></i><span
+									class="pl-3  sunflower">총 배송비 <span style="color: black">2500</span>원
+								</span>
+							</h5>
+							<h3 class="blog-single-title"></h3>
+							<h5 class="section-single-subtitle">
+								총<span class="pl-3  sunflower" style="color: black">${sumPrice}</span>원
+							</h5>
+						</div>
+					</div>
+					<div class="col-xl-6 text-right pt-5">
+						<div class="cta-main-button" id="idMsg2">
+							<a class="cta-button btn">주문취소</a>
+						</div>
+					</div>
+					<div class="col-xl-6 text-left pt-5">
+						<div class="cta-main-button" id="idMsg3">
+							<a class="cta-button btn">구매하기</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- Contact Form Area End -->
+
+		<!-- Contact Information Area Start -->
+		<!-- Contact Information-->
+		<%@ include file="../include/contactinformation.jsp"%>
+		<!-- Contact Information Area End -->
+	</main>
 	<!-- footer -->
 	<%@ include file="../include/footer.jsp"%>
 
@@ -429,12 +423,14 @@
 
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
-	
+
 	<script
 		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
-    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-    <script>
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+	<script>
         
  		 //유효성 검사 함수
 		function chk(re, e, msg) {
@@ -749,15 +745,15 @@
                                 queryString += '&p_no=' + pno + '&o_count=' + pcnt + '&o_price=' + ptprice + '&c_no=' + cno;
                                 
                                 
-                                location.href = "<%=request.getContextPath()%>/order/ordercomplete.do" + queryString;
-                            	
-                            }
+                                location.href = "<%=request.getContextPath()%>
+		/order/ordercomplete.do"
+										+ queryString;
 
-                           
-                        
-                    });
-</script>
-<!-- 아임포트 결제 API -->
+							}
+
+						});
+	</script>
+	<!-- 아임포트 결제 API -->
 </body>
 
 </html>
