@@ -55,11 +55,6 @@
 				</div>
 				<div class="col-xl-3 col-lg-3 col-md-6 text-right">
 					<div class="header-full-right">
-						<div class="header-search">
-							<a data-toggle="modal" data-target="#search-modal" href="#"
-								class="header-search-anchor common-hover-1"><i
-								class="icofont-search-2"></i></a>
-						</div>
 						<div class="cta-btn">
 							<a href="<%=request.getContextPath()%>/member/contact.do"
 								class="call-button common-hover-1">Contact Us</a>
