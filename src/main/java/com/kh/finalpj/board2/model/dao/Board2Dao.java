@@ -53,12 +53,12 @@ public class Board2Dao {
 	}
 
 
-	public List<Board2> searchinfo(String b2_yadmnm, Paging page, String orderby) {
+	public List<Board2> searchinfo(String b2_yadmnm, Paging page) {
 		
 		Map<String,Object> res = new HashMap<String, Object>();
 		res.put("page", page);
 		res.put("b2_yadmnm", b2_yadmnm);
-			
+		System.out.println("다오" + res);	
 		return sqlSession.selectList("Board2.searchinfo", res);
 
 	}

@@ -11,9 +11,7 @@
    <script src="https://code.jquery.com/jquery-3.5.1.js"
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
       crossorigin="anonymous"></script>
-   <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+ 
 
    <!-- Preloader -->
    <%@ include file="../include/preloader.jsp"%>
@@ -50,7 +48,7 @@
                   <div class="breadcrumb-content">
                      <h2 class="breadcrumb-main-title">병원정보</h2>
                      <ul>
-                        <li><a href="prevention.html#search">병원찾기</a></li>
+                        <li><a href="<%=request.getContextPath()%>/board2/board2.do#ss">병원찾기</a></li>
                         <li>- Prevention</li>
                      </ul>
                   </div>
@@ -94,7 +92,7 @@
             </div>
 
             <!-- Protective Measures Area Start -->
-            <div class="protective-measures-wrapper section-padding">
+            <div class="protective-measures-wrapper" >
                <div class="protective-measures-shape protective-measures-shape-1">
                   <img src="<%=request.getContextPath()%>/resources/assets/img/purple-virus-shape.png" alt="">
                </div>
@@ -227,7 +225,7 @@
       <div class="protective-measures-wrapper section-padding">
          <div class="container pt-5">
             <form action="<%=request.getContextPath()%>/board2/board2search.do">
-               <div class="single-right-small-blog blog-search-wrap">
+               <div class="single-right-small-blog blog-search-wrap" id="ss">
                   <div class="blog-short-search-wrap">
                      <input type="search" name="b2_yadmnm" placeholder="Search...">
                      <!-- <input type="hidden" id="searchKey" name="b2_yadmnm"/> -->
@@ -270,25 +268,25 @@
                <ul class="pagination">
                   <c:if test="${board2 eq 'board2'}">
                      <li class="page-item"><a class="page-link"
-                        href="<%=request.getContextPath()%>/board2/board2.do"><i
+                        href="<%=request.getContextPath()%>/board2/board2.do#ss"><i
                            class="fas fa-angle-double-left"></i></a></li>
                      <c:choose>
                         <c:when test="${noticeData.paging.blockStart > 1 }">
                            <li class="page-item"><a class="page-link"
-                              href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockStart-1}">
+                              href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockStart-1}#ss">
                                  <i class="fas fa-angle-left"></i>
                            </a></li>
                         </c:when>
                         <c:otherwise>
                            <li class="page-item"><a class="page-link"
-                              href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockStart}"><i
+                              href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockStart}#ss"><i
                                  class="fas fa-angle-left"></i></a></li>
                         </c:otherwise>
                      </c:choose>
                      <c:forEach begin="${noticeData.paging.blockStart}"
                         end="${noticeData.paging.blockEnd}" var="page">
                         <li class="page-item"><a
-                           href="<%= request.getContextPath() %>/board2/board2.do?cPage=${page}"
+                           href="<%= request.getContextPath() %>/board2/board2.do?cPage=${page}#ss"
                            class="page-link">${page}</a></li>
                      </c:forEach>
 
@@ -297,19 +295,19 @@
                         <c:when
                            test="${noticeData.paging.blockEnd+1 > noticeData.paging.lastPage }">
                            <li class="page-item"><a class="page-link"
-                              href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockEnd}"
+                              href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockEnd}#ss"
                               class="nav next"><i class="fas fa-angle-right"></i></a></li>
                         </c:when>
                         <c:otherwise>
                            <li><a class="page-link"
-                              href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockEnd+1}"
+                              href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.blockEnd+1}#ss"
                               class="nav next"><i class="fas fa-angle-right"></i></a></li>
                         </c:otherwise>
                      </c:choose>
 
 
                      <li class="page-item"><a class="page-link"
-                        href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.lastPage}"
+                        href="<%= request.getContextPath() %>/board2/board2.do?cPage=${noticeData.paging.lastPage}#ss"
                         class="nav last"><i class="fas fa-angle-double-right"></i></a></li>
                   </c:if>
 
@@ -317,25 +315,25 @@
                   <!-- 검색했을때 페이징 처리  -->
                   <c:if test="${board2 eq 'board2search'}">
                      <li class="page-item"><a class="page-link"
-                        href="<%= request.getContextPath() %>/board2/board2search.do?b2_yadmnm=${b2_yadmnm}"><i
+                        href="<%= request.getContextPath() %>/board2/board2search.do?b2_yadmnm=${b2_yadmnm}#ss"><i
                            class="fas fa-angle-double-left"></i></a></li>
                      <c:choose>
                         <c:when test="${noticeData.paging.blockStart > 1 }">
                            <li class="page-item"><a class="page-link"
-                              href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.blockStart-1}&b2_yadmnm=${b2_yadmnm}">
+                              href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.blockStart-1}&b2_yadmnm=${b2_yadmnm}#ss">
                                  <i class="fas fa-angle-left"></i>
                            </a></li>
                         </c:when>
                         <c:otherwise>
                            <li class="page-item"><a class="page-link"
-                              href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.blockStart}&b2_yadmnm=${b2_yadmnm}"><i
+                              href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.blockStart}&b2_yadmnm=${b2_yadmnm}#ss"><i
                                  class="fas fa-angle-left"></i></a></li>
                         </c:otherwise>
                      </c:choose>
                      <c:forEach begin="${noticeData.paging.blockStart}"
                         end="${noticeData.paging.blockEnd}" var="page">
                         <li class="page-item"><a
-                           href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${page}&b2_yadmnm=${b2_yadmnm}"
+                           href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${page}&b2_yadmnm=${b2_yadmnm}#ss"
                            class="page-link">${page}</a></li>
                      </c:forEach>
 
@@ -343,18 +341,18 @@
                         <c:when
                            test="${noticeData.paging.blockEnd+1 > noticeData.paging.lastPage }">
                            <li class="page-item"><a class="page-link"
-                              href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.blockEnd}&b2_yadmnm=${b2_yadmnm}"
+                              href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.blockEnd}&b2_yadmnm=${b2_yadmnm}#ss"
                               class="nav next"><i class="fas fa-angle-right"></i></a></li>
                         </c:when>
                         <c:otherwise>
                            <li><a class="page-link"
-                              href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.blockEnd+1}&b2_yadmnm=${b2_yadmnm}"
+                              href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.blockEnd+1}&b2_yadmnm=${b2_yadmnm}#ss"
                               class="nav next"><i class="fas fa-angle-right"></i></a></li>
                         </c:otherwise>
                      </c:choose>
 
                      <li class="page-item"><a class="page-link"
-                        href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.lastPage}&b2_yadmnm=${b2_yadmnm}"
+                        href="<%= request.getContextPath() %>/board2/board2search.do?cPage=${noticeData.paging.lastPage}&b2_yadmnm=${b2_yadmnm}#ss"
                         class="nav last"><i class="fas fa-angle-double-right"></i></a></li>
                   </c:if>
 
@@ -381,7 +379,7 @@
    <%@ include file="../include/defaultJS.jsp"%>
 
 
-   <!-- <script type="text/javascript">
+    <!-- <script type="text/javascript">
    
    var serarchKeyword = '${noticeData.b2_yadmnm}';
    if(serarchKeyword != ''){
@@ -397,6 +395,6 @@
       $("#searchKey").val(key);   
    }
    
-</script> -->
+</script>  -->
 </body>
 </html>

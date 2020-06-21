@@ -154,21 +154,21 @@ public class Board2ServiceImple implements Board2Service{
 
 
 	@Override
-	public Map<String, Object> searchinfo(String b2_yadmnm, String orderby, int currentPage, int cntPerPage) {
+	public Map<String, Object> searchinfo(String b2_yadmnm, int currentPage, int cntPerPage) {
 
 		Map<String, Object> res = new HashMap<String, Object>();
-		int i = bd2Dao.searchPaging(b2_yadmnm);
-		System.out.println("service : " + i);
 		
-		Paging page = new Paging(i, currentPage, cntPerPage);
+	
 		
+		Paging page = new Paging(bd2Dao.searchPaging(b2_yadmnm), currentPage, cntPerPage);
+		System.out.println("서비스 임플" + page);
 		
-		List<Board2> nlist = bd2Dao.searchinfo(b2_yadmnm,page, orderby);
-		
-//		for(Board2 l : nlist) {
-//			System.out.println("service 서치인포");
-//			System.out.println(l);
-//		}
+		List<Board2> nlist = bd2Dao.searchinfo(b2_yadmnm, page);
+		System.out.println("서비스 임플" + nlist);
+		/*
+		 * for(Board2 l : nlist) { System.out.println("service 서치인포");
+		 * System.out.println(l); }
+		 */
 		
 		res.put("paging", page);
 		res.put("nlist", nlist);

@@ -63,7 +63,7 @@ public class Board2Controller {
 	   
 		int currentPage = 1;
 		int cntPerPage = 6;
-		String orderby = "B2_NO";
+		
 
 		if (request.getParameter("cPage") != null) {
 			currentPage = Integer.parseInt(request.getParameter("cPage"));
@@ -75,7 +75,7 @@ public class Board2Controller {
 
 		Map<String, Object> res = new HashMap<String, Object>();
 		
-		res = bs.searchinfo(b2_yadmnm, orderby, currentPage, cntPerPage);
+		res = bs.searchinfo(b2_yadmnm, currentPage, cntPerPage);
 		
 		
 		
@@ -84,12 +84,15 @@ public class Board2Controller {
 //			res.put("b2_yadmnm",commandMap.get("b2_yadmnm"));
 //		}
 		
-		System.out.println("컨트롤러" + res);
+		for(String key : res.keySet()) {
+			System.out.println("검색시 컨트롤러 " + res.get(key));
+		}
 		
 		//res.put("url", "board2search.do");
+		mav.addObject("paging", res.get("paging"));
 		mav.addObject("noticeData", res);
 		mav.addObject("board2", "board2search");
-		mav.addObject("b2_yadmnm",b2_yadmnm);
+		mav.addObject("b2_yadmnm", b2_yadmnm);
 		mav.setViewName("board2/board2test");
 		
 		

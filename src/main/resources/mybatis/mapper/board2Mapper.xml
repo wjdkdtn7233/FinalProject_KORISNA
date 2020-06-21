@@ -29,7 +29,7 @@
 		rownum rnum, n1.* from(
 		select * from
 		TB_BOARD2
-		order by ${orderby} desc
+		order by B2_NO desc
 		)n1
 		) where rnum between #{page.start} and #{page.end}
 	</select>
