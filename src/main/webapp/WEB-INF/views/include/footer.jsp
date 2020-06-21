@@ -22,44 +22,39 @@
 							alt="">
 					</div>
 					<div class="footer-text">
-					
-					<h4 class="breadcrumb-main-title">코로나 19 정보 센터</h4>
-					
-						<p>It is a long established fact that a reader will bee
-							distracted by there readable content of the page when looking at
-							its layout. It is a long established fact that a reader.</p>
+						<h4 class="footer-title">코로나19 정보 센터</h4>
+						<p>
+							#지금우리는<br> #힘내라 대한민국<br> #우리는 할 수 있습니다<br> #코로나19
+							물럿거라!
+						</p>
 					</div>
 					<div class="footer-social-tabs">
 						<ul>
-							<li><a href="https://www.youtube.com/channel/UCa7-3Zvxg-5Rfxgu3RQY_gw"><i class="icofont-youtube"></i></a></li>
-							<li><a href="https://www.facebook.com/koreacdcpr"><i class="icofont-facebook"></i> </a></li>
-							<li><a href="https://post.naver.com/my.nhn?memberNo=20182790"><i class="icofont-blogger"></i> </a></li>
-							<li><a href="https://twitter.com/KoreaCDC"><i class="icofont-blogger"></i> </a></li>
+							<li><a
+								href="https://www.youtube.com/channel/UCa7-3Zvxg-5Rfxgu3RQY_gw"><i
+									class="icofont-youtube"></i></a></li>
+							<li><a href="https://www.facebook.com/koreacdcpr"><i
+									class="icofont-facebook"></i> </a></li>
+							<li><a
+								href="https://post.naver.com/my.nhn?memberNo=20182790"><i
+									class="icofont-blogger"></i> </a></li>
+							<li><a href="https://twitter.com/KoreaCDC"><i
+									class="icofont-twittertwitter"></i> </a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="col-xl-4 col-lg-4 col-md-6">
 				<div class="single-footer-wrapper page-mar-mobile common-footer">
-					<h3 class="footer-title">Recent Post</h3>
+					<h3 class="footer-title">About COVID-19</h3>
 					<div class="footer-bottom-comtent">
 
 						<div class="single-footer-blog">
 							<img
 								src="<%=request.getContextPath()%>/resources/assets/img/blog-1-150x150.jpg"
-								alt=""> <a href="blog-details.html" class="blog-info">
-								<h5>Corona virus COVID-19 is affecting 210 countries ...</h5> <span
-								class="date-footer"><i class="far fa-calendar-check"></i>
-									April 20, 2020</span>
-							</a>
-						</div>
-						<div class="single-footer-blog">
-							<img
-								src="<%=request.getContextPath()%>/resources/assets/img/blog-2-150x150.jpg"
-								alt=""> <a href="blog-details.html" class="blog-info">
-								<h5>Corona virus COVID-19 is affecting 210 countries ...</h5> <span
-								class="date-footer"><i class="far fa-calendar-check"></i>
-									April 20, 2020</span>
+								alt=""> <a href="<%=request.getContextPath()%>/board/aboutcovid.do" class="blog-info">
+								<h4>COVID-19 Response</h4> 
+								<span class="date-footer">April 2, 2020</span>
 							</a>
 						</div>
 					</div>
