@@ -22,9 +22,8 @@
 							alt="">
 					</div>
 					<div class="footer-text">
-						<h4 class="footer-title">코로나19 정보 센터</h4>
-						<p>
-							#지금우리는<br> #힘내라 대한민국<br> #우리는 할 수 있습니다<br> #코로나19
+						<h4 class="footer-title">COVID-19 Information Center</h4>
+						<p>#지금우리는<br> #힘내라 대한민국<br> #우리는 할 수 있습니다<br> #코로나19
 							물럿거라!
 						</p>
 					</div>

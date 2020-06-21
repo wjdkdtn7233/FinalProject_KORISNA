@@ -88,7 +88,7 @@ public class BoardController {
 
 		return mav;
 	}
-	
+
 	@RequestMapping("/aboutcovid.do")
 	public ModelAndView aboutCovid(ModelAndView mav) {
 		mav.setViewName("board/aboutcovid");
