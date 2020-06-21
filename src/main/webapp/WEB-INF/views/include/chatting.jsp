@@ -326,11 +326,11 @@
       
       
     </div>
-    <script src="https://www.korisna.site:8777/socket.io/socket.io.js"></script>
+    <script src="https://121.173.70.197:7777/socket.io/socket.io.js"></script>
 <script>
 $(function() {
 	
-	var socket = io.connect("korisna.site:8777");
+	var socket = io.connect("121.173.70.197:7777");
 	
 	if("${ !empty sessionScope.loginUser}" && "${loginUser.F_NICK}" !='') {
 		socket.emit("login_member", {id:"${loginUser.F_NICK}"})

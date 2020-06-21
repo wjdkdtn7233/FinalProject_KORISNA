@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html class="no-js" lang="en">
 <!-- HAED -->
@@ -16,7 +16,113 @@
 	<!-- Header -->
 	<%@ include file="../include/header.jsp"%>
 
-	<main>
+	<main class="NotoSansKR">
+	
+		<div class="current-cases-wrapper section-padding">
+            <div class="current-cases-shape current-cases-shape-1">
+                <img src="<%=request.getContextPath()%>/resources/assets/img/purple-virus-shape.png" alt="">
+            </div>
+            <div class="current-cases-shape current-cases-shape-2">
+                <img src="<%=request.getContextPath()%>/resources/assets/img/purple-virus-shape.png" alt="">
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="section-title text-center semi-blue-section-title">
+                            <h5 class="section-single-subtitle" id="createDt">${data.createDt}</h5>
+                            <h2 class="section-heading-title">확진자 현황</h2>
+                            <span class="bottom-border"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="single-case-item">
+                            <h3 class="cases-title">확진환자</h3>
+                            <h2 class="cases-number" id="decideCnt">${data.decideCnt}</h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="single-case-item">
+                            <h3 class="cases-title">완치</h3>
+                            <h2 class="cases-number"id="clearCnt">${data.clearCnt}</h2>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="single-case-item">
+                            <h3 class="cases-title">치료중</h3>
+                            <h2 class="cases-number" id="careCnt">${data.careCnt}</h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="single-case-item">
+                            <h3 class="cases-title">사망</h3>
+                            <h2 class="cases-number" id="deathCnt">${data.deathCnt}</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="single-case-item">
+                            <div id="map"></div>
+                            <div class="text-center">
+                                <input class="chack-button" type="button" id="Lazaretto" value="검역확인"></input>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="single-case-item" style="padding-bottom: 160px">
+                            <h3 class="nationwideinfo-title" id="gubun">${data2.gubun}</h3>
+                            <hr>
+                            <div class="row">
+                                <div class="nationwideinfo-contant col-lg-5">
+                                    <div>누적 확진환자</div>
+                                </div>
+                                <div class="cases-number col-lg-5 text-right" id="defCnt" style="font-size: 20px;">${data2.defCnt} </div>
+                                <div class="nationwideinfo-contant col-lg-1 text-right">명</div>
+                            </div>
+                            <div class="row nationwideinfo-contant2">
+                                <div class="col-lg-5">
+                                    <div>전일 대비 증감</div>
+                                </div>
+                                <div class="cases-number col-lg-5 text-right" id="incDec" style="font-size: 20px;">${data2.incDec} </div>
+                                <div class="col-lg-1 text-right">+</div>
+                            </div>
+                            <div class="row">
+                                <div class="nationwideinfo-contant col-lg-5">
+                                    <div>격리중</div>
+                                </div>
+                                <div class="cases-number col-lg-5 text-right" id="isolIngCnt" style="font-size: 20px;">${data2.isolIngCnt} </div>
+                                <div class="nationwideinfo-contant col-lg-1 text-right">명</div>
+                            </div>
+                            <div class="row">
+                                <div class="nationwideinfo-contant col-lg-5">
+                                    <div>누적 격리해제</div>
+                                </div>
+                                <div class="cases-number col-lg-5 text-right" id="isolClearCnt" style="font-size: 20px;">${data2.isolClearCnt} </div>
+                                <div class="nationwideinfo-contant col-lg-1 text-right">명</div>
+                            </div>
+                            <div class="row">
+                                <div class="nationwideinfo-contant col-lg-5">
+                                    <div>사망자</div>
+                                </div>
+                                <div class="cases-number col-lg-5 text-right" id="deathCnt2" style="font-size: 20px;">${data2.deathCnt} </div>
+                                <div class="nationwideinfo-contant col-lg-1 text-right">명</div>
+                            </div>
+                            <div class="row">
+                                <div class="nationwideinfo-contant col-lg-5">
+                                    <div>10만명당 발생율</div>
+                                </div>
+                                <div class="cases-number col-lg-5 text-right" id="qurRate" style="font-size: 20px;">${data2.qurRate} </div>
+                                <div class="nationwideinfo-contant col-lg-1 text-right">명</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 		<!-- Home Banner Area Start -->
 		<section class="home-banner-wrapper">
 			<div class="container">
@@ -51,9 +157,9 @@
 								affecting 210 countries & territories around the world and 2
 								international conveyances.</p>
 							<div class="banner-btn-wrappper">
-								<a href="about.html" class="common-btn btn common-hover-3">More
+								<a href="<%=request.getContextPath()%>/board/board.do" class="common-btn btn common-hover-3">More
 									Info <i class="icofont-arrow-right"></i>
-								</a> <a href="http://www.youtube.com/watch?v=ctvlUvN6wSE"
+								</a> <a href="https://www.youtube.com/watch?v=hUy-Eu7Gfm4"
 									class="play-btn popup-video common-hover-1"><i
 									class="icofont-ui-play"></i></a>
 							</div>
@@ -84,686 +190,6 @@
 			</div>
 		</section>
 		<!-- Home Banner Area End -->
-
-		<!-- About Area Start -->
-		<section class="about-area-wrapper section-padding">
-			<div class="container">
-				<div class="about-section-one">
-					<div class="row d-flex align-items-center">
-						<div class="col-xl-6 col-lg-12 col-md-12">
-							<div class="about-demo-image">
-								<div class="about-demo-home">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/girl-image.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-6 col-lg-12 col-md-12">
-							<div class="about-meta-text">
-								<div class="section-title semi-blue-section-title">
-									<h5 class="section-single-subtitle">About Covid-19</h5>
-									<h2 class="section-heading-title">Coronavirus shows the
-										disease within 14 days of entering the body.</h2>
-								</div>
-								<div class="about-content">
-									<p class="common-short-text">Nostrud exercitation ullamco
-										laboris nisi ut aliquip ex commodo consequat. Duis aute irure
-										dolor in reprehenderit in voluptate esse cillum dolore eugiat
-										nulla pariatur.</p>
-
-									<p class="common-short-text">Nostrud exercitation ullamco
-										laboris nisi ut aliquip ex commodo consequat. Duis aute irure
-										dolor in reprehenderit.</p>
-
-									<a href="about.html" class="common-btn btn common-hover-3">About
-										Covid - 19<i class="icofont-arrow-right"></i>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- About Area End -->
-
-		<!-- Spread Virus Area Start -->
-		<div class="spread-virus-wrapper section-padding purple-bg">
-			<div class="spread-shape spread-shape-1">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
-			</div>
-			<div class="spread-shape spread-shape-2">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
-			</div>
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-xl-12 col-lg-12">
-						<div class="section-title text-center">
-							<h5 class="section-single-subtitle">Spreads</h5>
-							<h2 class="section-heading-title">How Can Spreads
-								Coronavirus?</h2>
-							<span class="bottom-border"></span>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xl-4 col-lg-4 col-md-6">
-						<div class="single-spread-wrapper page-mar-small">
-							<div class="spread-icon-wrapper">
-								<div class="spread-icon">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/spread-icon-1.png"
-										alt="">
-								</div>
-							</div>
-							<div class="spread-content">
-								<h3 class="spread-content-title">Human Contact</h3>
-								<p class="spread-meta-content">Tight-bound mesh increases
-									capture efficiency, reducing exhaust maintenance and cleaning
-									costs</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-6">
-						<div class="single-spread-wrapper page-mar-mobile">
-							<div class="spread-icon-wrapper">
-								<div class="spread-icon">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/spread-icon-2.png"
-										alt="">
-								</div>
-							</div>
-							<div class="spread-content">
-								<h3 class="spread-content-title">Air Transmission</h3>
-								<p class="spread-meta-content">Tight-bound mesh increases
-									capture efficiency, reducing exhaust maintenance and cleaning
-									costs</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-6">
-						<div class="single-spread-wrapper">
-							<div class="spread-icon-wrapper">
-								<div class="spread-icon">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/spread-icon-3.png"
-										alt="">
-								</div>
-							</div>
-							<div class="spread-content">
-								<h3 class="spread-content-title">Contaminated Object</h3>
-								<p class="spread-meta-content">Tight-bound mesh increases
-									capture efficiency, reducing exhaust maintenance and cleaning
-									costs</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Spread Virus Area End -->
-
-		<!-- Current Cases Area Start -->
-		<div class="current-cases-wrapper section-padding">
-			<div class="current-cases-shape current-cases-shape-1">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/purple-virus-shape.png"
-					alt="">
-			</div>
-			<div class="current-cases-shape current-cases-shape-2">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/purple-virus-shape.png"
-					alt="">
-			</div>
-			<div class="current-cases-shape current-cases-shape-3">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/purple-virus-shape.png"
-					alt="">
-			</div>
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-xl-12 col-lg-12">
-						<div class="section-title text-center semi-blue-section-title">
-							<h5 class="section-single-subtitle">Case Details</h5>
-							<h2 class="section-heading-title">Current Number Of Cases</h2>
-							<span class="bottom-border"></span>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-xl-3 col-lg-4 col-md-6">
-						<div class="single-case-item">
-							<h3 class="cases-title">Cases</h3>
-							<h2 class="cases-number">2,994,960</h2>
-						</div>
-					</div>
-
-					<div class="col-xl-3 col-lg-4 col-md-6">
-						<div class="single-case-item">
-							<h3 class="cases-title">Deaths</h3>
-							<h2 class="cases-number">206,997</h2>
-						</div>
-					</div>
-
-					<div class="col-xl-3 col-lg-4 col-md-6">
-						<div class="single-case-item">
-							<h3 class="cases-title">Recovered</h3>
-							<h2 class="cases-number">2,994,960</h2>
-						</div>
-					</div>
-
-					<div class="col-xl-3 col-lg-4 col-md-6">
-						<div class="single-case-item">
-							<h3 class="cases-title">Active</h3>
-							<h2 class="cases-number">1,909,008</h2>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="map-img">
-							<img
-								src="<%=request.getContextPath()%>/resources/assets/img/map.png"
-								alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Current Cases Area End -->
-
-		<!-- Symptoms Area Start -->
-		<div class="symptoms-wrapper section-padding purple-bg">
-			<div class="symptoms-virus-shape symptoms-virus-shape-1">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
-			</div>
-			<div class="symptoms-virus-shape symptoms-virus-shape-2">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
-			</div>
-			<div class="symptoms-virus-shape symptoms-virus-shape-3">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
-			</div>
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-xl-12 col-lg-12">
-						<div class="section-title text-center">
-							<h5 class="section-single-subtitle">Symptoms</h5>
-							<h2 class="section-heading-title">Symptoms Of Novel
-								Coronavirus (COVID-19)</h2>
-							<h6 class="section-small-text">In some patients -
-								particularly the elderly and others with other chronic health
-								conditions these symptoms can develop into pneumonia, with chest
-								tightness.</h6>
-						</div>
-					</div>
-				</div>
-
-				<div class="row symptoms-round-border">
-					<div class="col-xl-6 col-lg-6 col-md-6 col-6">
-						<div class="single-symptoms-wrapper">
-							<div class="sympotoms-text-wrapper">
-								<div class="symptoms-text">
-									<h5 class="symptoms-title">Runny Nose</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-6 col-6">
-						<div class="single-symptoms-wrapper">
-							<div class="sympotoms-text-wrapper top-circle-right">
-								<div class="symptoms-text">
-									<h5 class="symptoms-title">Headche</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-6 col-6">
-						<div class="single-symptoms-wrapper">
-							<div class="sympotoms-text-wrapper middle-circle-left">
-								<div class="symptoms-text">
-									<h5 class="symptoms-title">shaking chills</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-6 col-6">
-						<div class="single-symptoms-wrapper">
-							<div class="sympotoms-text-wrapper middle-circle-right">
-								<div class="symptoms-text">
-									<h5 class="symptoms-title">throat pain</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-6 col-6">
-						<div class="single-symptoms-wrapper">
-							<div class="sympotoms-text-wrapper middle-circle-bottom-left">
-								<div class="symptoms-text">
-									<h5 class="symptoms-title">Dypsnoea</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-6 col-6">
-						<div class="single-symptoms-wrapper">
-							<div class="sympotoms-text-wrapper middle-circle-bottom-right">
-								<div class="symptoms-text">
-									<h5 class="symptoms-title">Fever</h5>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="woman-towel">
-						<img
-							src="<%=request.getContextPath()%>/resources/assets/img/woman-towel.png"
-							alt="">
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Symptoms Area End -->
-
-		<!-- Protective Measures Area Start -->
-		<div class="protective-measures-wrapper section-padding">
-			<div class="protective-measures-shape protective-measures-shape-1">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/purple-virus-shape.png"
-					alt="">
-			</div>
-			<div class="protective-measures-shape protective-measures-shape-2">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/purple-virus-shape.png"
-					alt="">
-			</div>
-			<div class="protective-measures-shape protective-measures-shape-3">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/purple-virus-shape.png"
-					alt="">
-			</div>
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-xl-12 col-lg-12">
-						<div class="section-title text-center semi-blue-section-title">
-							<h5 class="section-single-subtitle">Protection</h5>
-							<h2 class="section-heading-title">
-								Basic Protective Measures Against <span
-									class="section-blue-text"> Coronavirus (Covid-19)</span>
-							</h2>
-						</div>
-					</div>
-				</div>
-				<div class="row protective-measure-all">
-					<div class="col-xl-6 col-lg-6 col-md-6 protection-little-border-1">
-						<div
-							class="single-protective-measure-item page-margin-desktop page-margin-all page-mar-small left-angle">
-							<div class="protection-measure-section">
-								<div class="protective-measure-icon-wrap">
-									<div class="protective-icon">
-										<img
-											src="<%=request.getContextPath()%>/resources/assets/img/protection-1.png"
-											alt="">
-									</div>
-								</div>
-								<div class="protective-text">
-									<h4 class="protective-title">Avoid Gathering & Close
-										Contact</h4>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-6">
-						<div
-							class="single-protective-measure-item page-margin-desktop page-margin-all page-mar-small protection-all-left right-angle">
-							<div class="protection-measure-section">
-								<div class="protective-measure-icon-wrap">
-									<div class="protective-icon">
-										<img
-											src="<%=request.getContextPath()%>/resources/assets/img/protection-2.png"
-											alt="">
-									</div>
-								</div>
-								<div class="protective-text">
-									<h4 class="protective-title">Stay At Your Home Don't Go
-										Outside</h4>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-6 protection-little-border-2">
-						<div
-							class="single-protective-measure-item page-margin-desktop page-margin-all page-mar-small left-angle">
-							<div class="protection-measure-section">
-								<div class="protective-measure-icon-wrap">
-									<div class="protective-icon">
-										<img
-											src="<%=request.getContextPath()%>/resources/assets/img/protection-3.png"
-											alt="">
-									</div>
-								</div>
-								<div class="protective-text">
-									<h4 class="protective-title">Clean Your Hands For 20
-										Seconds</h4>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-6">
-						<div
-							class="single-protective-measure-item page-margin-desktop page-margin-all page-mar-small protection-all-left right-angle">
-							<div class="protection-measure-section">
-								<div class="protective-measure-icon-wrap">
-									<div class="protective-icon">
-										<img
-											src="<%=request.getContextPath()%>/resources/assets/img/protection-4.png"
-											alt="">
-									</div>
-								</div>
-								<div class="protective-text">
-									<h4 class="protective-title">Cover While Coughing And
-										Sneezes</h4>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-6 protection-little-border-3">
-						<div
-							class="single-protective-measure-item left-angle page-mar-mobile">
-							<div class="protection-measure-section">
-								<div class="protective-measure-icon-wrap">
-									<div class="protective-icon">
-										<img
-											src="<%=request.getContextPath()%>/resources/assets/img/protection-5.png"
-											alt="">
-									</div>
-								</div>
-								<div class="protective-text">
-									<h4 class="protective-title">Always Use Face Mask If You
-										Infected</h4>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-6">
-						<div
-							class="single-protective-measure-item protection-all-left right-angle">
-							<div class="protection-measure-section">
-								<div class="protective-measure-icon-wrap">
-									<div class="protective-icon">
-										<img
-											src="<%=request.getContextPath()%>/resources/assets/img/protection-6.png"
-											alt="">
-									</div>
-								</div>
-								<div class="protective-text">
-									<h4 class="protective-title">Clean And Disinfect Objects
-										Near You</h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Protective Measures Area End -->
-
-		<!-- FAQ Area Start -->
-		<div class="faq-wrapper section-padding purple-bg">
-			<div class="faq-virus-shape faq-virus-shape-1">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
-			</div>
-			<div class="faq-virus-shape faq-virus-shape-2">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
-			</div>
-			<div class="faq-virus-shape faq-virus-shape-3">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
-			</div>
-			<div class="faq-virus-shape faq-virus-shape-4">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-5 col-lg-12">
-						<div class="faq-left-section">
-							<div class="woman-tea-large">
-								<img
-									src="<%=request.getContextPath()%>/resources/assets/img/woman-tea.png"
-									alt="">
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-7 col-lg-12">
-						<div class="section-title">
-							<h5 class="section-single-subtitle">Ask Question</h5>
-							<h2 class="section-heading-title">Some Question And Answer
-								Of Coronavirus (Covid-19)</h2>
-						</div>
-						<div class="faq-right-section">
-							<div class="question-wrapper">
-								<div class="single-question-wrap">
-									<h4 class="question-title">01. How does COVID-19 spread?</h4>
-									<p class="ans-of-question">Data has shown that it spreads
-										from person to person among those in close contact (within
-										about 6 feet, or 2 meters). The virus spreads by respiratory
-										droplets released when someone infected with the virus coughs,
-										sneezes or talks.</p>
-								</div>
-								<div class="single-question-wrap">
-									<h4 class="question-title">02. What are the symptoms of
-										COVID-19?</h4>
-									<p class="ans-of-question">Data has shown that it spreads
-										from person to person among those in close contact (within
-										about 6 feet, or 2 meters). The virus spreads by respiratory
-										droplets released when someone infected with the virus coughs,
-										sneezes or talks.</p>
-								</div>
-								<div class="single-question-wrap">
-									<h4 class="question-title">03. Should I wear mask?</h4>
-									<p class="ans-of-question">Data has shown that it spreads
-										from person to person among those in close contact (within
-										about 6 feet, or 2 meters). The virus spreads by respiratory
-										droplets released when someone infected with the virus coughs,
-										sneezes or talks.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- FAQ Area End -->
-
-		<!-- Blog Area Start -->
-		<div class="blog-section-wrapper section-padding">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-12 col-lg-12">
-						<div class="section-title text-center semi-blue-section-title">
-							<h5 class="section-single-subtitle">Recent Post</h5>
-							<h2 class="section-heading-title">
-								Update News Of Coronavirus <span class="section-blue-text">(Covid-19)</span>
-							</h2>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="blog-carousel owl-carousel">
-						<div class="single-blog-wrap">
-							<div class="blog-single-bg"
-								style="background-image: url(<%=request.getContextPath()%>/resources/assets/img/about-video-bg.jpg);"></div>
-							<div class="blog-content">
-								<h5 class="blog-date-wrap">
-									<span class="date">22.04.2020 </span> <a href="blog.html"
-										class="blog-tag">COVID-19</a>
-								</h5>
-								<h4 class="blog-title">Incubation Period (how long it takes
-									symptoms to appear.</h4>
-
-								<a href="blog.html" class="blog-read-more">Read More</a>
-								<div class="blog-shape-bottom">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="single-blog-wrap">
-							<div class="blog-single-bg"
-								style="background-image: url(<%=request.getContextPath()%>/resources/assets/img/blog-1.jpg);"></div>
-
-							<div class="blog-content">
-								<h5 class="blog-date-wrap">
-									<span class="date">22.04.2020 </span> <a href="blog.html"
-										class="blog-tag">COVID-19</a>
-								</h5>
-								<h4 class="blog-title">Incubation Period (how long it takes
-									symptoms to appear.</h4>
-
-								<a href="blog.html" class="blog-read-more">Read More</a>
-								<div class="blog-shape-bottom">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="single-blog-wrap">
-							<div class="blog-single-bg"
-								style="background-image: url(<%=request.getContextPath()%>/resources/assets/img/blog-2.jpg);"></div>
-
-							<div class="blog-content">
-								<h5 class="blog-date-wrap">
-									<span class="date">22.04.2020 </span> <a href="blog.html"
-										class="blog-tag">COVID-19</a>
-								</h5>
-								<h4 class="blog-title">Incubation Period (how long it takes
-									symptoms to appear.</h4>
-
-								<a href="blog.html" class="blog-read-more">Read More</a>
-								<div class="blog-shape-bottom">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="single-blog-wrap">
-							<div class="blog-single-bg"
-								style="background-image: url(<%=request.getContextPath()%>/resources/assets/img/about-video-bg.jpg);"></div>
-
-							<div class="blog-content">
-								<h5 class="blog-date-wrap">
-									<span class="date">22.04.2020 </span> <a href="blog.html"
-										class="blog-tag">COVID-19</a>
-								</h5>
-								<h4 class="blog-title">Incubation Period (how long it takes
-									symptoms to appear.</h4>
-
-								<a href="blog-details.html" class="blog-read-more">Read More</a>
-								<div class="blog-shape-bottom">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="single-blog-wrap">
-							<div class="blog-single-bg"
-								style="background-image: url(<%=request.getContextPath()%>/resources/assets/img/blog-1.jpg);"></div>
-
-							<div class="blog-content">
-								<h5 class="blog-date-wrap">
-									<span class="date">22.04.2020 </span> <a href="blog.html"
-										class="blog-tag">COVID-19</a>
-								</h5>
-								<h4 class="blog-title">Incubation Period (how long it takes
-									symptoms to appear.</h4>
-
-								<a href="blog-details.html" class="blog-read-more">Read More</a>
-								<div class="blog-shape-bottom">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-						<div class="single-blog-wrap">
-							<div class="blog-single-bg"
-								style="background-image: url(<%=request.getContextPath()%>/resources/assets/img/blog-2.jpg);"></div>
-
-							<div class="blog-content">
-								<h5 class="blog-date-wrap">
-									<span class="date">22.04.2020 </span> <a href="blog.html"
-										class="blog-tag">COVID-19</a>
-								</h5>
-								<h4 class="blog-title">Incubation Period (how long it takes
-									symptoms to appear.</h4>
-
-								<a href="blog-details.html" class="blog-read-more">Read More</a>
-								<div class="blog-shape-bottom">
-									<img
-										src="<%=request.getContextPath()%>/resources/assets/img/grey-virus-shape.png"
-										alt="">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Blog Area End -->
-
-		<!-- CTA Area Start -->
-		<div class="cta-wrapper section-padding purple-bg">
-			<div class="cta-virus-shape cta-virus-shape-1">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
-			</div>
-			<div class="cta-virus-shape cta-virus-shape-2">
-				<img
-					src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
-					alt="">
-			</div>
-			<div class="container">
-				<div class="row d-flex align-items-center">
-					<div class="col-xl-9 col-lg-9 col-md-12">
-						<div class="cta-content">
-							<h5 class="cta-mini-title">Coronavirus (Covid-19)</h5>
-							<h2 class="cta-main-text">Have any question in your mind?
-								Let us now, we are help you.</h2>
-						</div>
-					</div>
-					<div class="col-xl-3 col-lg-3 col-md-12">
-						<div class="cta-main-button">
-							<a href="contact.html" class="cta-button btn">Contact Now <i
-								class="icofont-arrow-right"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- CTA Area End -->
 	</main>
 
 	<!-- footer -->
@@ -774,6 +200,205 @@
 
 	<!-- default JS -->
 	<%@ include file="../include/defaultJS.jsp"%>
+	
+	<!-- hightMaps JS -->
+	<script src="http://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="http://code.highcharts.com/maps/modules/drilldown.js"></script>
+    <script>
+    /*
+     *  - Highmaps
+     * 	Example : http://www.highcharts.com/maps/demo/map-drilldown
+     *  Document : http://api.highcharts.com/highmaps
+     * */
+     
+    $('#Lazaretto').click(function(){
+        $.ajax({
+            url:"<%=request.getContextPath()%>/index/selectLocationList.do",
+										type : "post",
+										dataType : "json",
+										data : {
+											locationNum : 99
+										},
+										success : function(data) {
+									        $('#gubun').text('검역');
+                                            $('#defCnt').text(data.defCnt);
+                                            $('#incDec').text(data.incDec);
+                                            $('#isolIngCnt').text(data.isolIngCnt);
+                                            $('#isolClearCnt').text(data.isolClearCnt);
+                                            $('#deathCnt2').text(data.deathCnt2);
+                                            $('#qurRate').text(data.qurRate);
+										},
+										error : function(data) {
+                                            $('#gubun').text('검역');
+                                            $('#defCnt').text(0);
+                                            $('#incDec').text(0);
+                                            $('#isolIngCnt').text(0);
+                                            $('#isolClearCnt').text(0);
+                                            $('#deathCnt2').text(0);
+                                            $('#qurRate').text(0);
+										}
+									});
+
+						})
+
+
+    
+    function highMaps() {
+
+        var me = this;
+
+        me.chart = null;
+        me.selected = '0';
+        me.event = {
+            select: function () {
+
+            },
+            unselect: function () {
+
+            },
+            drillup: function () {
+
+            }
+        };
+
+        me.init();
+    };
+    highMaps.prototype.init = function () {
+        var me = this;
+        var path = "<%=request.getContextPath()%>/resources/json/0.json";
+        // 전국단위 지도 로드
+        $.getJSON(path, function (geojson) {
+            var data = Highcharts.geojson(geojson, 'map');
+            $.each(data, function () {
+                this.drilldown = this.properties['code'];
+            });
+            $('#map').highcharts('Map', {
+                credits: { enabled: false },
+                chart: {
+                    events: {
+                    	click: function(e){
+                    		$.ajax({
+                                url:"<%=request.getContextPath()%>/index/selectLocationList.do",
+                    										type : "post",
+                    										dataType : "json",
+                    										data : {
+                    											locationNum : 80
+                    										},
+                    										success : function(data) {
+                    									        $('#gubun').text(data.gubun);
+                                                                $('#defCnt').text(data.defCnt);
+                                                                $('#incDec').text(data.incDec);
+                                                                $('#isolIngCnt').text(data.isolIngCnt);
+                                                                $('#isolClearCnt').text(data.isolClearCnt);
+                                                                $('#deathCnt2').text(data.deathCnt2);
+                                                                $('#qurRate').text(data.qurRate);
+                    										},
+                    										error : function(data) {
+                                                                $('#gubun').text('알수없음');
+                                                                $('#defCnt').text(0);
+                                                                $('#incDec').text(0);
+                                                                $('#isolIngCnt').text(0);
+                                                                $('#isolClearCnt').text(0);
+                                                                $('#deathCnt2').text(0);
+                                                                $('#qurRate').text(0);
+                    										}
+                    									});
+                    	},
+                    	/* 지역 버튼 클릭시 이벤트 발생 */
+                        drilldown: function (e) {
+                            if (!e.seriesOptions) {
+                                mapKey = e.point.drilldown
+                                console.log(mapKey);
+                                $.ajax({
+                                    url:"<%=request.getContextPath()%>/index/selectLocationList.do",
+                        										type : "post",
+                        										dataType : "json",
+                        										data : {
+                        											locationNum : mapKey
+                        										},
+                        										success : function(data) {
+                        									        $('#gubun').text(data.gubun);
+                                                                    $('#defCnt').text(data.defCnt);
+                                                                    $('#incDec').text(data.incDec);
+                                                                    $('#isolIngCnt').text(data.isolIngCnt);
+                                                                    $('#isolClearCnt').text(data.isolClearCnt);
+                                                                    $('#deathCnt2').text(data.deathCnt2);
+                                                                    $('#qurRate').text(data.qurRate);
+                        										},
+                        										error : function(data) {
+                                                                    $('#gubun').text('알수없음');
+                                                                    $('#defCnt').text(0);
+                                                                    $('#incDec').text(0);
+                                                                    $('#isolIngCnt').text(0);
+                                                                    $('#isolClearCnt').text(0);
+                                                                    $('#deathCnt2').text(0);
+                                                                    $('#qurRate').text(0);
+                        										}
+                        									});
+                                
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    data: data,
+                    showInLegend: false,
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        allowOverlap: false,
+                        shadow: false,
+                        format: '{point.properties.name}'
+                    },
+                    states: {
+                        // 상위 지도 hover 스타일 설정
+                        hover: {
+                            color: '#464196',
+                            borderColor: 'black'
+                        }
+                    },
+                    tooltip: {
+                        headerFormat: '',
+                        pointFormat: '{point.properties.name}'
+                    }
+                }],
+                // 제목 제거
+                title: null,
+                // 부제목 제거
+                subtitle: null,
+                // 줌 설정
+                mapNavigation: {
+                    enableMouseWheelZoom: false,
+                    enableTouchZoom: false
+                },
+                // 지역 선택시 하위 지도 띄우는 기능 설정
+                drilldown: {
+                    // 상위 지도 레이블 스타일 설정
+                    activeDataLabelStyle: {
+                        color: '#000',
+                        shadow: false,
+                        textShadow: '0 0 0px #000000',
+                        fontWeight: "none",
+                        textDecoration: 'none'
+                    },
+                    // 상위 지도 버튼 스타일 설정
+                    drillUpButton: {
+                        relativeTo: 'spacingBox'
+                    }
+                },
+            });
+            me.chart = $("#map").highcharts();
+        });
+    };
+
+    </script>
+    <script type="text/javascript">
+        var highMap = new highMaps();
+        highMap.init();
+        
+    </script>
+	
 
 </body>
 </html>
