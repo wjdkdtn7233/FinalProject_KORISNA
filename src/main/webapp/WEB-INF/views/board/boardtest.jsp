@@ -78,9 +78,9 @@
 						</div>
 					</div>
 				</div>
-				
-					<div class="row">
-						<div class="blog-carousel owl-carousel">
+
+				<div class="row">
+					<div class="blog-carousel owl-carousel">
 						<c:forEach items="${data }" var="board" begin="0" end="5">
 							<div class="single-blog-wrap">
 								<div class="blog-content">
@@ -102,7 +102,7 @@
 							</div>
 						</c:forEach>
 					</div>
-					</div>
+				</div>
 			</div>
 		</div>
 		<!-- Blog Area End -->
@@ -237,62 +237,8 @@
 		<!-- CTA Area End -->
 
 		<!-- Contact Information Area Start -->
-		<div class="contact-information-wrapper section-padding purple-bg">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-4 col-lg-4 col-md-4">
-						<div
-							class="single-contact-information-wrap border-right page-mar-mobile">
-							<div class="contact-info-icon-wrapper">
-								<i class="icofont-phone"></i>
-							</div>
-							<div class="contact-info-content">
-								<h5 class="contact-info-title">Call Us Now:</h5>
-								<h4 class="contact-info-bottom">
-									<a href="#">1339</a>
-								</h4>
-								<h4 class="contact-info-bottom">
-									<a href="#">120</a>
-								</h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4">
-						<div
-							class="single-contact-information-wrap border-right page-mar-mobile">
-							<div class="contact-info-icon-wrapper">
-								<i class="icofont-email"></i>
-							</div>
-							<div class="contact-info-content">
-								<h5 class="contact-info-title">Email Us Now:</h5>
-								<h4 class="contact-info-bottom">
-									<a href="mailto:korisnaadmin@mail.com">korisnaadmin@mail.com</a>
-								</h4>
-								<h4 class="contact-info-bottom">
-									<a href="mailto:support@gmail.com">support@gmail.com</a>
-								</h4>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-4 col-lg-4 col-md-4">
-						<div class="single-contact-information-wrap">
-							<div class="contact-info-icon-wrapper">
-								<i class="icofont-location-pin"></i>
-							</div>
-							<div class="contact-info-content">
-								<h5 class="contact-info-title">Address:</h5>
-								<p class="contact-address">
-									(28159) 충북 청주시 흥덕구 <br>오송읍 오송생명2로 187
-								</p>
-								<p class="contact-address">
-									오송보건의료행정타운내 <br>질병관리본부
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<!-- Contact Information-->
+		<%@ include file="../include/contactinformation.jsp"%>
 		<!-- Contact Information Area End -->
 	</main>
 
