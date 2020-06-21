@@ -78,10 +78,10 @@
 									Korea</p>
 							</div></li>
 						<li class="footer-list-mobile"><i class="fas fa-mobile-alt"></i>
-							<a href="tel:+820123456789">+8201087782348</a></li>
+							<a href="tel:+820123456789">+821012345678</a></li>
 						<li class="footer-mail"><i class="fas fa-paper-plane"></i>
 							<p class="footer-mail-addr">
-								<a href="mailto:korisna-admin@gmail.com">korisna-admin@gmail.com</a>
+								<a href="mailto: korisnacustomerassistance@gmail.com">korisnacustomerassistance@gmail.com</a>
 							</p></li>
 					</ul>
 				</div>

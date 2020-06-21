@@ -142,8 +142,7 @@
                                 </div>
                                 <div class="contact-info-content">
                                     <h5 class="contact-info-title">Email Us Now:</h5>
-                                    <h4 class="contact-info-bottom"><a href="mailto:korisnaadmin@mail.com">korisnaadmin@mail.com</a></h4>
-                                    <h4 class="contact-info-bottom"><a href="mailto:support@gmail.com">support@gmail.com</a></h4>
+                                    <h4 class="contact-info-bottom"><a href="mailto: korisnacustomerassistance@gmail.com">korisnacustomerassistance@gmail.com</a></h4>
                                 </div>
                             </div>
                         </div>
