@@ -76,10 +76,20 @@
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6">
                                                     <div class="blog-details-content-meta">
-                                                        <h3 class="font-weight-bold sunflower" style="color:#7C52CC">${productDetail.P_NAME}</h3>
+                                                    	<c:if test="${productDetail.P_CNT != 0 }">
+                                                    		<h3 class="font-weight-bold sunflower" style="color:#7C52CC">${productDetail.P_NAME}</h3>
+                                                    	</c:if>
+                                                    	<c:if test="${productDetail.P_CNT == 0 }">
+                                                    		<del><h3 class="font-weight-bold sunflower" style="color:red;">${productDetail.P_NAME}</h3></del>
+                                                    	</c:if>
                                                         <h4 class="pt-3 sunflower"><li><i class="fas fa-star"></i>  ${productDetail.P_STARSCORE}</h4>
                                                         <hr>
-                                                        <h3 class="pt-1 sunflower"><span>  ${productDetail.P_PRICE} 원</span></h3>
+                                                        <c:if test="${productDetail.P_CNT != 0 }">
+                                                        	<h3 class="pt-1 sunflower"><span>  ${productDetail.P_PRICE} 원</span></h3>
+                                                        </c:if>
+                                                        <c:if test="${productDetail.P_CNT == 0 }">
+                                                        	<del><h3 class="pt-1 sunflower" style="color:red;"><span>  ${productDetail.P_PRICE} 원</span></h3></del>
+                                                        </c:if>
                                                         <hr>
                                                         <h5 class="pt-1 sunflower">배송방법 : 택배</h5>
                                                         <h5 class="pt-1 sunflower">배송비 : 2500원</h5>
@@ -87,9 +97,16 @@
                                                         <h5 class="pt-1 sunflower" >구매 갯수( 최대 선택가능수량 :10개 )</h5>
                                                         <h6 class="pt-1 sunflower" style="color:red;" >*대량구매시 추가정보에 기재된 번호로 연락요망</h6>
                                                         <input type="number" name="c_cnt" id="c_cnt" value="1"/>
+                                                        <c:if test="${productDetail.P_CNT != 0 }">
                                                         <div class="cta-main-button pt-5 text-center">
                                                             <button class="cta-button btn sunflower" onclick="goCart()">장바구니 담기</button>
-                                                        </div>    
+                                                        </div>   
+                                                        </c:if> 
+                                                        <c:if test="${productDetail.P_CNT == 0 }">
+                                                        <div class="cta-main-button pt-5 text-center">
+                                                            <button class="cta-button btn sunflower" onclick="noCart()">상품 품절</button>
+                                                        </div>   
+                                                        </c:if>
                                                         
                                                     </div>
                                             </div>
@@ -390,14 +407,16 @@
     				
     				url:"<%=request.getContextPath()%>/cart/pickupproduct.do",
     				type : "post",
+    				dataType : "json",
     				data : {f_email : '${sessionScope.loginUser.F_EMAIL}',
+    					c_no : '${productDetail.C_NO}',
     					p_no : '${productDetail.P_NO}',
     					c_price : '${productDetail.P_PRICE}',
     					c_cnt : $('#c_cnt').val(),
     					c_image : '${productDetail.P_IMAGE}',
     					c_name : '${productDetail.P_NAME}'},
     				success : function(data) {
-    				if (data == "success") {							
+    				if (data.no == 1) {							
     					if (confirm("장바구니에 담겼습니다. 장바구니로 이동하시려면 확인버튼을 눌러주세요.") == true){ //확인
     						
     						
@@ -405,12 +424,32 @@
     	                }else{   //취소
     	                return false;
     	                }								
-    				} else if(data == "fail") {																	
+    				} else if(data.no == 6) {																	
     					alert('장바구니에 담는데 실패하였습니다.');		
-    				}else if(data == 0){
-    					alert('장바구니에 최대 수량이 담겼습니다. 장바구니를 확인해주세요.');		
-    				}else{
-    					alert(data+'개 까지만 추가 가능합니다.');
+    				}else if(data.no == 2){
+    					if(data.result == 0){
+    						alert('최대 수량 10개까지만 주문가능 \n장바구니에 최대 수량이 담겼습니다.\n 장바구니를 확인해주세요.');	
+    						$('#c_cnt').val("1");
+    					}else{
+    						alert(data.result+'개 까지만 추가 가능합니다.');
+    						$('#c_cnt').val(data.result);
+    					}
+    						
+    				}else if(data.no == 3){
+    					alert('현재 잔여 재고량 : ' + data.result +' 개\n' +data.result+'개 까지만 구매 가능합니다.');
+    					$('#c_cnt').val(data.result);
+    				}else if(data.no == 4){
+    					alert('현재 잔여 재고량 : ' + data.result +' 개 \n장바구니에 이미 초과분이 담겨\n   ' + data.result + ' 개로 수정됩니다.');
+    					$('#c_cnt').val("1");
+    				}else if(data.no == 5){
+    					if(data.result == 0){
+    						alert('현재 남은 재고량이 전부 회원님 장바구니에 담겼습니다.');
+    						$('#c_cnt').val("1");
+    					}else{
+    						alert('현재 잔여 재고량 : ' + data.result + ' 개\n' + data.result+'개 까지만 추가 가능합니다.');
+    						$('#c_cnt').val(data.result);
+    					}
+    					
     				}							
     														
     				},error : function(data) {										
@@ -562,7 +601,10 @@
       			});
       			
       		}); */
-      		
+      		function noCart(){
+      			alert('해당 상품은 품절되었습니다.\n재입고 예정입니다.');
+      			$('#c_cnt').val("1");
+      		}
       	</script>
       	
     </body>

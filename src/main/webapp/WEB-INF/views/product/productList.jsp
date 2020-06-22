@@ -84,13 +84,19 @@
                                         <div class="single-products-item page-margin-desktop">
                                             <div class="product-bg-wrap" style="background-image: url(<%=request.getContextPath()%>/resources/product/image/${productList.P_IMAGE});">
                                                 <div class="product-bg-hover">
-                                                    <span>Sale!</span>
+                                                	<c:if test="${productList.P_CNT != 0 }">
+                                                		<span>Sale!</span>
+                                                	</c:if>
+                                                	<c:if test="${productList.P_CNT == 0 }">
+                                                		<span style="background-color:red;">품절</span>
+                                                	</c:if>
                                                     <ul>
                                                         <li><a class="popup-image" href="<%=request.getContextPath()%>/resources/product/image/${productList.P_IMAGE}"><i class="fa fa-search"></i></a></li>
                                                         <li><a href="<%=request.getContextPath()%>/product/productdetail.do?p_no=${productList.P_NO}" ><i class="fas fa-shopping-cart"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
+                                            <c:if test="${productList.P_CNT != 0 }">
                                             <div class="product-info-wrap">
                                                 <h4><a href="<%=request.getContextPath()%>/product/productdetail.do?p_no=${productList.P_NO}" class="sunflower">${productList.P_NAME}</a></h4>
                                                 <div class="review-star">
@@ -103,21 +109,25 @@
                                                     <a href="<%=request.getContextPath()%>/product/productdetail.do?p_no=${productList.P_NO}" class="common-btn btn common-hover-3">상세보기</a>
                                                 </div>
                                             </div>
+                                            </c:if>
+                                            <c:if test="${productList.P_CNT == 0 }">
+                                            <div class="product-info-wrap">
+                                                <del><h4 style="color:red;"><a href="<%=request.getContextPath()%>/product/productdetail.do?p_no=${productList.P_NO}"  class="sunflower">${productList.P_NAME}</a></h4></del>
+                                                <div class="review-star">
+                                                    <i class="fas fa-star"></i><span class="pl-3 sunflower">${productList.P_STARSCORE} 점</span>
+                                                </div>
+                                                <div class="product-price-text sunflower">
+                                                    <del><span style="color:red;"><i class="fas fa-won-sign"></i>${productList.P_PRICE} 원</span></del>
+                                                </div>
+                                                <div class="cart-bottom sunflower">
+                                                    <a href="<%=request.getContextPath()%>/product/productdetail.do?p_no=${productList.P_NO}" class="common-btn btn common-hover-3">상세보기</a>
+                                                </div>
+                                            </div>
+                                            </c:if>
                                         </div>
                                     </div>
                                     </c:forEach>
                                     
-                                    <div class="col-xl-12">
-                                        <div class="blog-pagination shop-pagination">
-                                            <nav aria-label="Page navigation example">
-                                                <ul class="pagination">
-                                                <li class="page-item"><span class="page-link current">1</span></li>
-                                                <li class="page-item"><a class="page-link" href="blog.html" >2</a></li>
-                                                <li class="page-item"><a class="page-link" href="blog.html" ><i class="fas fa-angle-double-right"></i></a></li>
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                    </div>
                                 </div>
                             </div> 
                         </div>

@@ -33,50 +33,93 @@ public class CartController {
 		
 		PrintWriter out = response.getWriter();
 		
+		JSONObject job = new JSONObject();
 		Map<String, Object> map = cartService.selectCartYN(commandMap);
+		
+		int productStock = cartService.selectProductCnt(commandMap);
 		System.out.println(map);
 		int result = 0;
 		int price = Integer.parseInt((String) commandMap.get("c_price")) ;
 		System.out.println(price);
+		//현재 유저가 담길 원하는 갯수
 		int cnt = Integer.parseInt((String) commandMap.get("c_cnt")) ;
 		System.out.println(cnt);
 		int total = price * cnt;
+		//장바구니에 있는 갯수와 현재 담을 갯수를 합친 갯수
 		int pCnt = 0;
+		//장바구니에 이미 있을때 가능한 재고 수량
+		int posCnt = 0;
+		
 		if(map != null) { //같은 상품이 이미 카트에 담겨있다면
 			String a = String.valueOf(map.get("C_TOTALPRICE"));
 			String b = String.valueOf(map.get("C_CNT"));
 			String c = String.valueOf(map.get("C_NO"));
 			int addTotal = Integer.parseInt(a);
+			//현재 장바구니에 담겨있는 갯수
 			int addCnt = Integer.parseInt(b);
 			int cno = Integer.parseInt(c);
 			
 			int sumcnt = addCnt + cnt;
 			pCnt = 10 - addCnt;
-			if(sumcnt <= 10) {
-				map.put("c_no", cno);
-				map.put("c_totalprice", addTotal + total);
-				map.put("c_cnt", sumcnt);
-				result = cartService.updateCart(map);
+			if(addCnt > productStock) {
+				if(productStock == 0) {
+					map.put("c_no", cno);
+					cartService.deleteCart(commandMap);
+					result = -3;//장바구니에 이미 재고 초과분이 담겨있을때 / 재고가 없다면
+				}else {
+					map.put("c_no", cno);
+					map.put("c_cnt", productStock);
+					map.put("c_totalprice", price*productStock);
+					cartService.updateCart(map);
+					result = -3;//장바구니에 이미 재고 초과분이 담겨있을때 / 재고가 없다면
+				}
+				
+			}else if(sumcnt > productStock){
+				posCnt = productStock - addCnt;
+				result = -4;//장바구니에 담긴것과 추가분합친 갯수가 현재 상품재고보다 초과할때
 			}else {
-				result = -1;
+				if(sumcnt <= 10) {
+					map.put("c_no", cno);
+					map.put("c_totalprice", addTotal + total);
+					map.put("c_cnt", sumcnt);
+					result = cartService.updateCart(map);
+				}else {
+					result = -1;
+				}
 			}
 			
-			
 		}else { 
+			if(cnt > productStock) {
+				result = -2;
+			}else {
+				commandMap.put("c_totalprice", total);
+				result = cartService.insertCart(commandMap);	
+			}
 			
-			commandMap.put("c_totalprice", total);
-			result = cartService.insertCart(commandMap);
 		}
 	
 		
 		if(result > 0) {
-			out.print("success");
+			job.put("no", 1);
+			job.put("result", "success");
 		}else if( result == -1) {
-			out.print(pCnt);
+			job.put("no", 2);
+			job.put("result", pCnt);
+		}else if(result == -2){//장바구니에 담으려는 갯수가 재고분보다 초과할때 
+			job.put("no", 3);
+			job.put("result", productStock);
+		}else if(result == -3){//장바구니에 이미 초과분이 담겨있을때
+			job.put("no", 4);
+			job.put("result", productStock);
+		}else if(result == -4){//장바구니에 담긴것과 추가분합친 갯수가 현재 상품재고보다 초과할때
+			job.put("no", 5);
+			job.put("result", posCnt);
 		}else {
-			out.print("fail");
+			job.put("no", 6);
+			job.put("result", "fail");
 		}
 		
+		out.print(job);
 		
 	}
 	
@@ -97,7 +140,6 @@ public class CartController {
 			mav.setViewName("cart/cartList");
 		}
 		
-		///cart/updatecart.do
 		
 		return mav;
 	}
@@ -112,14 +154,26 @@ public class CartController {
 		int cnt = Integer.parseInt((String) commandMap.get("c_cnt")) ;
 		System.out.println(cnt);
 		int total = price * cnt;
+		int result =  0;
+		int productStock = cartService.selectProductCnt(commandMap);
 		
-		commandMap.put("c_totalprice", total);
-		int result = cartService.updateCart(commandMap);
+		if(productStock == 0) {
+			cartService.deleteCart(commandMap);
+		}else {
+			if(cnt <= productStock) {
+			commandMap.put("c_totalprice", total);
+			result = cartService.updateCart(commandMap);
+			}
+		}
+		
+		
+		
+		
 		
 		if(result > 0) {
 			out.print("success");
 		}else {
-			out.print("fail");
+			out.print(productStock);
 		}
 		
 	}
@@ -189,4 +243,47 @@ public class CartController {
 		return mav;
 	}
 	
+	
+	
+	@RequestMapping("/cart/stockcheck.do")
+	public void stockCheck(HttpServletResponse response,@RequestParam Map<String,Object> commandMap) throws IOException {
+		
+		JSONObject job = new JSONObject();
+		PrintWriter out = response.getWriter();
+		String userEmail = String.valueOf(commandMap.get("f_email"));
+		List<Map<String, Object>> map =  cartService.selectCartList(userEmail);
+		int total = cartService.selectSumPrice(userEmail);
+		List<String> updateList = new ArrayList<String>();
+		for (Map<String, Object> m : map) {
+			
+			int cnt = Integer.parseInt(String.valueOf(m.get("C_CNT")));
+			int pno = Integer.parseInt(String.valueOf(m.get("P_NO")));
+			int cno = Integer.parseInt(String.valueOf(m.get("C_NO")));
+			int price = Integer.parseInt(String.valueOf(m.get("C_PRICE")));
+			m.put("p_no", pno);
+			m.put("c_no", cno);
+			int productStock = cartService.selectProductCnt(m);
+			if(cnt > productStock) {
+				if(productStock == 0) {
+					cartService.deleteCart(m);
+					updateList.add("updateSuccess");
+					job.put("update", updateList);
+				}else {
+					m.put("c_totalprice", price*productStock);
+					m.put("c_cnt", productStock);
+					cartService.updateCart(m);
+					updateList.add("updateSuccess");
+					job.put("update", updateList);
+				}
+				
+			}else {
+				job.put("update", null);
+			}
+		}
+		
+		out.print(job);
+		
+		
+		
+	}
 }

@@ -93,6 +93,21 @@ public class OrderServiceImpl implements OrderService{
 	public int updateProductStarScore(Map<String, Object> commandMap) {
 		return orderDao.updateProductStarScore(commandMap);
 	}
+
+	@Override
+	public int selectProductCnt(Map<String, Object> commandMap) {
+		return orderDao.selectProductCnt(commandMap);
+	}
+
+	@Override
+	public int deleteCart(Map<String, Object> commandMap) {
+		return orderDao.deleteCart(commandMap);
+	}
+
+	@Override
+	public int updateCart(Map<String, Object> commandMap) {
+		return orderDao.updateCart(commandMap);
+	}
 	
 	
 

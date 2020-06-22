@@ -300,7 +300,8 @@
             				type : "post",
             				data : {c_no : cno,
             					c_price : cprice,
-            					c_cnt : ccnt},
+            					c_cnt : ccnt,
+            					p_no : pno},
             				success : function(data) {
             				if (data == "success") {							
             					
@@ -330,8 +331,16 @@
                     					}							
                     				});	
             					
-            				} else {																	
-            					alert('장바구니에 담는데 실패하였습니다.');				
+            				} else {			
+            					if(data == 0){
+            						alert( '해당 재고는 품절되었습니다.');	
+            						$(item).parent().parent().remove();
+            						$('tbody').html("<tr role='row' class='text-center'><td  colspan='6' >장바구니에 담긴 상품이 없습니다.</td></tr>");
+            					}else{
+            						alert( '남은 재고 : '+data +' 개\n'+ data + '개 까지만 추가 가능합니다.');	
+            						$(item).val(data);
+            					}
+            					
             				}								
             														
             				},error : function(data) {										
@@ -354,7 +363,35 @@
             	
             	
             	if('${cartList}' != '' ){
-            		location.href="<%=request.getContextPath()%>/order/orderwriting.do?f_email=" +'${sessionScope.loginUser.F_EMAIL}';
+            		
+            		$.ajax({
+        				
+        				url:"<%=request.getContextPath()%>/cart/stockcheck.do",
+        				type : "post",
+        				dataType : "json",
+        				data : {f_email : '${sessionScope.loginUser.F_EMAIL}',
+        					c_no : '${productDetail.C_NO}',
+        					p_no : '${productDetail.P_NO}',
+        					c_price : '${productDetail.P_PRICE}',
+        					c_cnt : $('#c_cnt').val(),
+        					c_image : '${productDetail.P_IMAGE}',
+        					c_name : '${productDetail.P_NAME}'},
+        				success : function(data) {
+        					if(data.update != null){
+        						alert('재고 변경사항이 있어 수량이 조절되었습니다.\n 확인 후 다시 구매하기 버튼을 눌러주세요.');
+        						location.href="<%=request.getContextPath()%>/cart/cartlist.do";
+        					}else{
+        						location.href="<%=request.getContextPath()%>/order/orderwriting.do?f_email=" +'${sessionScope.loginUser.F_EMAIL}';
+        					}		
+        					
+        				},error : function(data) {										
+        						alert('에러입니다.');				
+        										
+        					}							
+        				});	
+            		
+            		
+            		
             	}else{
             		alert('구매할 상품이 담기지 않았습니다.');
             	}

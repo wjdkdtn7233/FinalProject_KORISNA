@@ -32,6 +32,10 @@ P_STARSCORE
 	 <update id="updateProductCnt" parameterType="Map">
     	update tb_product set p_cnt = (p_cnt - ${o_count}) where p_no = #{p_no}
     </update>
+    
+    <select id="selectProductCnt" resultType="_int" parameterType="Map" >
+    	select p_cnt from tb_product where p_no = #{p_no}
+    </select>
 </mapper>
 
 
