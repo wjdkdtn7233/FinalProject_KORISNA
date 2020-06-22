@@ -85,4 +85,17 @@ public class OrderDao {
 	public int updateProductStarScore(Map<String, Object> commandMap) {
 		return sqlSession.update("Review.updateProductStarScore",commandMap);
 	}
+	
+	public int selectProductCnt(Map<String, Object> commandMap) {
+		return sqlSession.selectOne("Product.selectProductCnt",commandMap);
+	}
+	
+	public int deleteCart(Map<String, Object> commandMap) {
+		return sqlSession.delete("Cart.deleteCart",commandMap);
+	}
+	
+	public int updateCart(Map<String, Object> commandMap) {
+		return sqlSession.update("Cart.updateCart",commandMap);
+	}
+	
 }

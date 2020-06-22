@@ -2,7 +2,7 @@ package com.kh.finalpj.order.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -39,6 +39,57 @@ public class OrderController {
 		
 	}
 	
+	@RequestMapping("/order/stockcheck.do")
+	public void stockCheck(HttpServletResponse response,@RequestParam Map<String,Object> commandMap) throws IOException {
+		
+		PrintWriter out = response.getWriter();
+		
+		
+		String[] pno = String.valueOf(commandMap.get("p_no")).split(",");
+		String[] pcnt = String.valueOf(commandMap.get("c_cnt")).split(",");
+		String[] ptprice = String.valueOf(commandMap.get("c_price")).split(",");
+		String[] cno = String.valueOf(commandMap.get("c_no")).split(",");
+		List<String> updateList = new ArrayList<String>();
+		
+		
+		for(int i = 1; i < pno.length; i++) {
+			
+			commandMap.put("p_no",pno[i]);
+			commandMap.put("o_count",pcnt[i]);
+			commandMap.put("o_price",ptprice[i]);
+			commandMap.put("c_no",cno[i]);
+			int price = Integer.parseInt(ptprice[i])/Integer.parseInt(pcnt[i]);
+			int productStock = orderService.selectProductCnt(commandMap);
+			
+			if(Integer.parseInt(pcnt[i]) > productStock) {
+				
+				if(productStock == 0) {
+					orderService.deleteCart(commandMap);
+					updateList.add("updateCart");
+				}else {
+					commandMap.put("c_cnt", productStock);
+					commandMap.put("c_totalprice", price*productStock);
+					orderService.updateCart(commandMap);
+					updateList.add("updateCart");
+				}
+				
+					
+			}
+			
+		}
+		
+		if(updateList.size() > 0) {
+			out.print("fail");
+		}else {
+			out.print("success");
+		}
+		
+		
+		
+		
+		
+	}
+	
 	
 	@RequestMapping("/order/ordercomplete.do")
 	public ModelAndView orderComplete(HttpServletRequest request,ModelAndView mav,@RequestParam Map<String,Object> commandMap) {
@@ -49,8 +100,11 @@ public class OrderController {
 		String[] cno = String.valueOf(commandMap.get("c_no")).split(",");
 		
 		int result = 0;
-		
+		String result1 = "";
 		for(int i = 1; i < pno.length; i++) {
+			
+			
+			
 			if(i == 1) {
 				commandMap.put("number","ok");
 			}else {
@@ -61,10 +115,18 @@ public class OrderController {
 			commandMap.put("o_count",pcnt[i]);
 			commandMap.put("o_price",ptprice[i]);
 			commandMap.put("c_no",cno[i]);
-			result += orderService.insertOrderList(commandMap);
-			result += orderService.insertPayList(commandMap);
-			result += orderService.updateOrderYN(commandMap);
-			result += orderService.updateProductCnt(commandMap);
+			int price = Integer.parseInt(ptprice[i])/Integer.parseInt(pcnt[i]);
+			int productStock = orderService.selectProductCnt(commandMap);
+			
+			
+				result += orderService.insertOrderList(commandMap);
+				result += orderService.insertPayList(commandMap);
+				result += orderService.updateOrderYN(commandMap);
+				result += orderService.updateProductCnt(commandMap);
+				System.out.println("주문이 insert 되었따");
+		
+			
+			
 		}
 		
 		
@@ -75,7 +137,7 @@ public class OrderController {
 			mav.setViewName("common/result");
 		}else {
 			mav.addObject("alertMsg","결제에 실패하였습니다.");
-			mav.addObject("back","back");
+			mav.addObject("url",request.getContextPath() +"/cart/cartlist.do");
 			mav.setViewName("common/result");
 		}
 		

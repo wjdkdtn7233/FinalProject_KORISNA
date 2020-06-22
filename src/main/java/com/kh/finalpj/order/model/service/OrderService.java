@@ -40,5 +40,11 @@ public interface OrderService {
 	
 	public int updateProductStarScore(Map<String, Object> commandMap);
 	
+	public int selectProductCnt(Map<String, Object> commandMap);
+	
+	public int deleteCart(Map<String, Object> commandMap);
+	
+	public int updateCart(Map<String, Object> commandMap);
+	
 	
 }

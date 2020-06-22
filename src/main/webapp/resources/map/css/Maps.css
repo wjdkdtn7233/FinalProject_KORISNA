@@ -165,20 +165,20 @@ input:checked + .slider:before {
 	font-weight:bold;
 	position:absolute;
 	font-size:15px;
-	width:33%;
+	width:40%;
 	background-color:white;
 	z-index:999;
-	left:66%;
+	left:60%;
 	top:6%;
 }
 .switchSpan2{
 	font-weight:bold;
 	position:absolute;
 	font-size:15px;
-	width:40%;
+	width:45%;
 	background-color:white;
 	z-index:999;
-	left:60%;
+	left:54%;
 	top:6%;
 }
 .contact-form-inner{
@@ -201,7 +201,6 @@ input:checked + .slider:before {
 	width:20%;
 	left:79.5%;
 	top:1.5%;
-	z-index:999;
 	border-radius:10px;
 	background-color:#7c52cc;
 	color:white;

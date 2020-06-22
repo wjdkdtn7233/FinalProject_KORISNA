@@ -46,4 +46,12 @@ public class CartDao {
 		return sqlSession.selectOne("Cart.selectCartYN",commandMap);
 	}
 	
+	public int selectProductCnt(Map<String, Object> commandMap) {
+		return sqlSession.selectOne("Product.selectProductCnt",commandMap);
+	}
+	
+	public int updateProductCnt(Map<String, Object> commandMap) {
+		return sqlSession.update("Cart.updateProductCnt",commandMap);
+	}
+	
 }

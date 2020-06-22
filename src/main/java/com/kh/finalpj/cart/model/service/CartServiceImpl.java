@@ -56,6 +56,16 @@ public class CartServiceImpl implements CartService{
 		return cartDao.selectCartYN(commandMap);
 	}
 
+	@Override
+	public int selectProductCnt(Map<String, Object> commandMap) {
+		return cartDao.selectProductCnt(commandMap);
+	}
+
+	@Override
+	public int updateProductCnt(Map<String, Object> commandMap) {
+		return cartDao.updateProductCnt(commandMap);
+	}
+
 
 	
 	

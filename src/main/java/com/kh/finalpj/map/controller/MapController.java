@@ -26,7 +26,7 @@ public class MapController {
 	@Autowired
 	private MapService ms;
 	
-	@RequestMapping("map.do")
+	@RequestMapping("/map.do")
 	public ModelAndView doMap(ModelAndView mav,HttpSession session) {
 	
 		mav.setViewName("map/Map");
@@ -34,6 +34,8 @@ public class MapController {
 		return mav;
 		
 	}
+	
+	
 	
 	@RequestMapping("/getcoords.do")
 	@ResponseBody
@@ -50,7 +52,7 @@ public class MapController {
 		return resMap;
 	}
 	
-	@RequestMapping("getpharmacy.do")
+	@RequestMapping("/getpharmacy.do")
 	@ResponseBody
 	public Map<String,String> getPharmacy(@RequestParam Map<String,String> commandMap){
 		System.out.println("controller");
@@ -80,7 +82,7 @@ public class MapController {
 	}
 	
 	
-	@RequestMapping("insertfavorate.do")
+	@RequestMapping("/insertfavorate.do")
 	@ResponseBody
 	public String insertFavorate(@RequestParam Map<String,Object> commandMap) {
 		
@@ -95,7 +97,7 @@ public class MapController {
 		return res;
 	}
 	
-	@RequestMapping("getfavorate.do")
+	@RequestMapping("/getfavorate.do")
 	@ResponseBody
 	public List<Map<String,Object>> getFavorate(String userId){
 		System.out.println("hello");
@@ -105,7 +107,7 @@ public class MapController {
 		return resList;
 	}
 	
-	@RequestMapping("deletefavor.do")
+	@RequestMapping("/deletefavor.do")
 	@ResponseBody
 	public String deleteFavor(@RequestParam Map<String,String> commandMap) {
 		

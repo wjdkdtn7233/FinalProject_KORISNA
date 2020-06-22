@@ -8,10 +8,7 @@
 
 <body>
 
-   <script src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"></script>
- 
+   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
    <!-- Preloader -->
    <%@ include file="../include/preloader.jsp"%>
@@ -69,7 +66,7 @@
       <!-- Breadcrumb Area End -->
 
       <!-- Prevention Area Start -->
-      <div class="protective-measures-wrapper">
+      <div class="protective-measures-wrapper section-padding">
             <div class="faq-virus-shape faq-virus-shape-1">
                <img
                   src="<%=request.getContextPath()%>/resources/assets/img/mini-white-shape.png"
@@ -219,10 +216,10 @@
             </div>
             <!-- Protective Measures Area End -->
 
-         </div>
+         <!-- </div> -->
 
       <!-- Prevention Area Start -->
-      <div class="protective-measures-wrapper section-padding">
+      <!-- <div class="protective-measures-wrapper section-padding"> -->
          <div class="container pt-5">
             <form action="<%=request.getContextPath()%>/board2/board2search.do">
                <div class="single-right-small-blog blog-search-wrap" id="ss">
@@ -359,7 +356,8 @@
                </ul>
             </nav>
          </div>
-      </div>
+         </div>
+     <!--  </div> -->
       <!-- Prevention Area End -->
 
       <!-- Contact Information Area Start -->

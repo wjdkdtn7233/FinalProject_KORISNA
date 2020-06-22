@@ -694,7 +694,22 @@
                             }
                             
                             
-                            if (!$('#pay1').is(':checked')) {
+                            
+                          $.ajax({
+                				
+                				url:"<%=request.getContextPath()%>/order/stockcheck.do",
+                				type : "post",
+                				data : {f_email : '${sessionScope.loginUser.F_EMAIL}',
+                					c_no : cno,
+                					p_no : pno,
+                					c_price : ptprice,
+                					c_cnt : pcnt },
+                				success : function(data) {
+                					if(data == 'fail'){
+                						alert('상품이 품절되거나  재고 수량 변동이 있어\n장바구니로 이동합니다. 변동사항을 확인해주시고 다시 구매해주세요.');
+                						location.href="<%=request.getContextPath()%>/cart/cartlist.do";
+                					}else{
+                						if (!$('#pay1').is(':checked')) {
                             	 IMP.request_pay(
                                             {
                                                 pg : 'inicis',
@@ -749,6 +764,18 @@
 										+ queryString;
 
 							}
+                						
+                					}		
+                					
+                				},error : function(data) {										
+                						alert('에러입니다.');				
+                										
+                					}							
+                				});
+                            
+                            
+                            
+                            
 
 						});
 	</script>

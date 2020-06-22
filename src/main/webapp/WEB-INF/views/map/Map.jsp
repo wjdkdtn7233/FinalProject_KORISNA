@@ -5,7 +5,7 @@
 <html class="no-js" lang="en">
 <%@ include file="../include/head.jsp"%>
 <!-- map CSS -->
-<link rel="stylesheet" href="<%= request.getContextPath()%>/resources/map/css/Map.css"/>  
+<link rel="stylesheet" href="<%= request.getContextPath()%>/resources/map/css/Maps.css"/>  
 
 <body>
 	<!--  cdn -->
@@ -74,8 +74,6 @@
 			<div class="container">
 				<div class="contact-form-inner">
 					<div class="row justify-content-center">
-						
-						
 						<!-- map start -->
 						<div id="menu_wrap" class="bg_white">
 					        <div class="option">
@@ -148,13 +146,14 @@
 	<script>
 		sessionStorage.setItem("userId", "${loginUser.F_EMAIL}");
 		sessionStorage.setItem("userAddr", "${loginUser.F_ROADADDRESS}");
+		var contextPath = '<%=request.getContextPath()%>';
 	</script>
 
 	<!-- kakao map apiCDN -->
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac955fe2801d2050db1a02ed1fe41b64&libraries=services"></script>
 
-	<!-- map JS -->						
-	<script src="${pageContext.request.contextPath}/resources/map/js/map.js"></script>    
+ 	<!-- map JS -->						
+	<script src="${pageContext.request.contextPath}/resources/map/js/maps.js"></script>
 					
 
 </body>

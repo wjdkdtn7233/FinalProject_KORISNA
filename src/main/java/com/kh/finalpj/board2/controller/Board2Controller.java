@@ -78,7 +78,6 @@ public class Board2Controller {
 		res = bs.searchinfo(b2_yadmnm, currentPage, cntPerPage);
 		
 		
-		
 //		if(commandMap.get("b2_yadmnm") != null) {
 //			System.out.println(">>>>>>>>>>> " + commandMap.get("b2_yadmnm"));
 //			res.put("b2_yadmnm",commandMap.get("b2_yadmnm"));
