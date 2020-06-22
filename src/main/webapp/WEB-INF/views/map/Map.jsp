@@ -1,4 +1,3 @@
-<%@page import="com.kh.finalpj.map.common.Code"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -6,7 +5,7 @@
 <html class="no-js" lang="en">
 <%@ include file="../include/head.jsp"%>
 <!-- map CSS -->
-<link rel="stylesheet" href="<%= request.getContextPath()%>/resources/map/css/Map.css"/>  
+<link rel="stylesheet" href="<%= request.getContextPath()%>/resources/map/css/Maps.css"/>  
 
 <body>
 	<!--  cdn -->
@@ -148,14 +147,13 @@
 		sessionStorage.setItem("userId", "${loginUser.F_EMAIL}");
 		sessionStorage.setItem("userAddr", "${loginUser.F_ROADADDRESS}");
 		var contextPath = '<%=request.getContextPath()%>';
-		var sourcePath = '${pageContext.request.contextPath}';
 	</script>
 
 	<!-- kakao map apiCDN -->
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac955fe2801d2050db1a02ed1fe41b64&libraries=services"></script>
 
  	<!-- map JS -->						
-	<script src="${pageContext.request.contextPath}/resources/map/js/map.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/map/js/maps.js"></script>
 					
 
 </body>

@@ -14,6 +14,7 @@
 	var notInfoMarker = "/resources/map/img/noinfo.png";
 			
 	$(function(){
+		
 		coordFlag();// lat, lon 초기 설정 
 		
 	});
