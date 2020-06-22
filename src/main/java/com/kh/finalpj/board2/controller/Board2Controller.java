@@ -104,11 +104,14 @@ public class Board2Controller {
 	}
 
 	@RequestMapping("/board2map.do")
-	public ModelAndView board2map(HttpServletRequest request, String xpos, String ypos) {
+	public ModelAndView board2map(HttpServletRequest request,String name,String addr,String telno, String xpos, String ypos) {
 
 		ModelAndView mav = new ModelAndView();
 
 		Map<String, Object> mapmap = new HashMap<String, Object>();
+		mapmap.put("name", name);
+		mapmap.put("addr", addr);
+		mapmap.put("telno", telno);
 		mapmap.put("xpos", Double.parseDouble(xpos));
 		mapmap.put("ypos", Double.parseDouble(ypos));
 		System.out.println("컨트롤러" + mapmap);

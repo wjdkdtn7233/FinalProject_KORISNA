@@ -246,12 +246,16 @@
                         <p class="common-short-text">${board2.b2_sggucdNm }</p>
                         <p class="common-short-text">${board2.b2_addr }</p>
                         <p class="common-short-text">${board2.b2_telno }</p>
+                        <input type="hidden" id="name" value="${board2.b2_yadmNm }"/>
+                        <input type="hidden" id="addr" value="${board2.b2_addr }"/>
+                        <input type="hidden" id="telno" value="${board2.b2_telno }"/>
                         <input type="hidden" id="xpos" value="${board2.b2_XPos }"/>
                         <input type="hidden" id="ypos" value="${board2.b2_YPos }"/>
                         <div class="protective-measure-icon-wrap">
                            <div class="cart-bottom">
-                              <a href="<%=request.getContextPath()%>/board2/board2map.do?xpos=${board2.b2_XPos}&ypos=${board2.b2_YPos}" 
-                              onclick="window.open(this.href, '_blank', 'width=800px,height=800px,toolbars=no,scrollbars=no'); return false;" 
+                              <a href="<%=request.getContextPath()%>/board2/board2map.do?name=${board2.b2_yadmNm}&addr=${board2.b2_addr}
+                              &telno=${board2.b2_telno}&xpos=${board2.b2_XPos}&ypos=${board2.b2_YPos}" 
+                              onclick="window.open(this.href, '_blank', 'width=1000px,height=1000px,toolbars=no,scrollbars=no'); return false;" 
                               class="common-btn btn common">위치 확인</a>
                            </div>
                         </div>
