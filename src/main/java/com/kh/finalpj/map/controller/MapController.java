@@ -35,6 +35,8 @@ public class MapController {
 		
 	}
 	
+	
+	
 	@RequestMapping("/getcoords.do")
 	@ResponseBody
 	public Map<String,String> getInitCoords(String addr) {
