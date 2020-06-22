@@ -103,4 +103,12 @@ public class OrderDao {
 		return sqlSession.update("Cart.updateCart",commandMap);
 	}
 	
+	public int updateProductCntPlus(Map<String, Object> commandMap) {
+		return sqlSession.update("Product.updateProductCntPlus",commandMap);
+	}
+	
+	public int updatePayCancle(Map<String, Object> commandMap) {
+		return sqlSession.update("Order.updatePayCancle",commandMap);
+	}
+	
 }

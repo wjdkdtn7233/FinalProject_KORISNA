@@ -54,4 +54,6 @@ public class CartDao {
 		return sqlSession.update("Cart.updateProductCnt",commandMap);
 	}
 	
+	
+	
 }

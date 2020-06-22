@@ -48,5 +48,9 @@ public interface OrderService {
 	
 	public int updateCart(Map<String, Object> commandMap);
 	
+	public int updateProductCntPlus(Map<String, Object> commandMap);
+	
+	public int updatePayCancle(Map<String, Object> commandMap);
+	
 	
 }

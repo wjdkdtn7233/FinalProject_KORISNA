@@ -84,6 +84,10 @@ PY_BANKACCOUNT
 		select O_CANCLEREASON,O_BANKACCOUNT,O_BANKNAME,TO_CHAR(O_CANCLEDATE,'YYYY-MM-DD') from tb_order where F_EMAIL = #{F_EMAIL} and O_DETAILNO = #{O_DETAILNO} and O_STATUS = #{O_STATUS}
 	</select>
 	
+	<update id="updatePayCancle" parameterType="Map">
+		update tb_pay set py_yn = 'n' where o_no = #{o_no} and f_email = #{f_email}
+	</update>
+	
 </mapper>
 
 

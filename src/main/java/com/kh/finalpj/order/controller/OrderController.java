@@ -243,7 +243,7 @@ public class OrderController {
 	public void orderCancle(@RequestParam Map<String,Object> commandMap,HttpServletResponse response) throws IOException {
 		
 		PrintWriter out = response.getWriter();
-		
+		JSONObject job = new JSONObject();
 		int result = 0;
 		
 		String content = String.valueOf(commandMap.get("O_CANCLEREASON")).trim();
@@ -251,6 +251,24 @@ public class OrderController {
 		commandMap.put("O_CANCLEREASON", content);
 		
 		result = orderService.updateOrderCancle(commandMap);
+		//O_DETAILNO F_EMAIL
+		commandMap.put("o_detailno", String.valueOf(commandMap.get("O_DETAILNO")));
+		commandMap.put("f_email", String.valueOf(commandMap.get("F_EMAIL")));
+		
+		
+		List<Map<String, Object>> map = orderService.selectOrderDetailList(commandMap);
+		
+		for (Map<String, Object> m : map) {
+			
+			m.put("p_no",m.get("P_NO"));
+			m.put("o_no",m.get("O_NO"));
+			m.put("o_count",m.get("O_COUNT"));
+			m.put("f_email",m.get("F_EMAIL"));
+			orderService.updateProductCntPlus(m);
+			orderService.updatePayCancle(m);
+			
+		}
+		
 		
 		if(result > 0) {
 			out.print("success");

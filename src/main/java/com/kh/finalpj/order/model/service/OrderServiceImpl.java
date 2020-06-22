@@ -120,6 +120,17 @@ public class OrderServiceImpl implements OrderService{
 	public int updateCart(Map<String, Object> commandMap) {
 		return orderDao.updateCart(commandMap);
 	}
+
+	@Override
+	public int updateProductCntPlus(Map<String, Object> commandMap) {
+		return orderDao.updateProductCntPlus(commandMap);
+	}
+
+
+	@Override
+	public int updatePayCancle(Map<String, Object> commandMap) {
+		return orderDao.updatePayCancle(commandMap);
+	}
 	
 	
 
