@@ -132,17 +132,17 @@
 							<div class="small-virus-shape small-shape-1">
 								<img
 									src="<%=request.getContextPath()%>/resources/assets/img/mini-shape-1.png"
-									alt="">
+									alt="mini-shape-1">
 							</div>
 							<div class="small-virus-shape small-shape-2">
 								<img
 									src="<%=request.getContextPath()%>/resources/assets/img/mini-shape-1.png"
-									alt="">
+									alt="mini-shape-1">
 							</div>
 							<div class="small-virus-shape small-shape-3">
 								<img
 									src="<%=request.getContextPath()%>/resources/assets/img/mini-shape-1.png"
-									alt="">
+									alt="mini-shape-1">
 							</div>
 						</div>
 						<div class="home-banner-content">
@@ -177,12 +177,12 @@
 							<div class="small-virus-shape small-shape-4">
 								<img
 									src="<%=request.getContextPath()%>/resources/assets/img/mini-shape-1.png"
-									alt="">
+									alt="mini-shape-1">
 							</div>
 							<div class="small-virus-shape small-shape-5">
 								<img
 									src="<%=request.getContextPath()%>/resources/assets/img/mini-shape-1.png"
-									alt="">
+									alt="mini-shape-1">
 							</div>
 						</div>
 					</div>
