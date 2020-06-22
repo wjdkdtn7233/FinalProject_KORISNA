@@ -14,7 +14,7 @@ $(function(){
 
 function validateFavorate(){
 	$.ajax({
-		url:contextPath+"/map/getfavorate.do",
+		url:"/springmvc/map/getfavorate.do",
 		type:"POST",
 		data:{"userId" : userId},
 		async:false,
@@ -28,8 +28,6 @@ function validateFavorate(){
 
 function coordFlag(){
 
-	console.log("userid : "+userId);
-	console.log("userAddr : "+userAddr);
 	if(userAddr != ''){
 		sessionFlag = true;
 	}
@@ -41,7 +39,7 @@ function coordFlag(){
 	
 		$.ajax({
 		
-			url : contextPath+"/map/getcoords.do",
+			url : "/springmvc/map/getcoords.do",
 			type : "post",  
 			data : {'addr':userAddr},
 			dataType:"json",
@@ -69,7 +67,7 @@ function getPharmacy(lat,lon,level){
 	var coords = {"lat" : lat, "lon" : lon,"level":level}; 
 	$.ajax({
 		
-		url:contextPath+"/map/getpharmacy.do",
+		url:"/springmvc/map/getpharmacy.do",
 		data:coords,
 		type:"post",
 		dataType:"json",
@@ -155,11 +153,11 @@ function set_marker(data,lahting,map){
 	// 지도에 표시될 마커 변수 
 	var selecMarker = "";
 	// 각 마커 좌표 입력할 것
-	var greenMarker = contextPath+"resources/map/img/plentiful.png";
-	var yellowMarker = contextPath+"resources/map/img/some.png";
-	var redMarker = contextPath+"resources/map/img/few.png";
-	var grayMarker = contextPath+"resources/map/img/empty.png";
-	var notInfoMarker = contextPath+"resources/map/img/noinfo.png";
+	var greenMarker = "/springmvc/resources/map/img/plentiful.png";
+	var yellowMarker = "/springmvc/resources/map/img/some.png";
+	var redMarker = "/springmvc/resources/map/img/few.png";
+	var grayMarker = "/springmvc/resources/map/img/empty.png";
+	var notInfoMarker = "/springmvc/resources/map/img/noinfo.png";
 
 	switch(data.remain_stat){
 		case "plenty" : selecMarker =  greenMarker;
@@ -338,7 +336,7 @@ function set_fOverlay(map){
 function deleteFavorate(fCode,userId){
 	return function(){
 		$.ajax({
-			url:contextPath+"/map/deletefavor.do",
+			url:"/springmvc/map/deletefavor.do",
 			data:{"fCode" : fCode, "userId":userId},
 			type:"POST",
 			success:function(data){
@@ -384,7 +382,7 @@ function insertFavorate(data){
 	};
 	
 	$.ajax({
-		url:contextPath+"map/insertfavorate.do",
+		url:"/springmvc/map/insertfavorate.do",
 		async:false,
 		type:"get",
 		data:datas,

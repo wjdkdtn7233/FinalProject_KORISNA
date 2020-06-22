@@ -146,7 +146,6 @@
 	<script src="<%= request.getContextPath() %>/resources/assets/js/main.js"></script>
 	
 	<script>
-		var contextPath = '<%=request.getContextPath()%>/';
 		sessionStorage.setItem("userId", "${loginUser.F_EMAIL}");
 		sessionStorage.setItem("userAddr", "${loginUser.F_ROADADDRESS}");
 	</script>
