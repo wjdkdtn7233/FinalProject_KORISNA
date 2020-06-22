@@ -177,7 +177,7 @@ public class Board2ServiceImple implements Board2Service{
 	}
 
 
-
+	
 
 	
 	

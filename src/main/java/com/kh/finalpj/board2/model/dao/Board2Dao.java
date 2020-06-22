@@ -72,6 +72,8 @@ public class Board2Dao {
 	}
 
 
+	
+
 
 	
 	

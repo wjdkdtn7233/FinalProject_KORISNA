@@ -44,7 +44,17 @@
 		select count(*) from TB_BOARD2
 		where b2_yadmnm like '%'||#{b2_yadmnm}||'%'
 	</select>
+
+
+
+
+
 </mapper>
+
+
+
+
+
 
 
 
