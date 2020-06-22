@@ -228,7 +228,7 @@
                <div class="single-right-small-blog blog-search-wrap" id="ss">
                   <div class="blog-short-search-wrap">
                      <input type="search" name="b2_yadmnm" placeholder="Search...">
-                     <!-- <input type="hidden" id="searchKey" name="b2_yadmnm"/> -->
+                    <!--  <input type="hidden" id="searchKey" name="b2_yadmnm"/> -->
                      <button type="submit" class="btn btn-success">
                         <i class="fas fa-search"></i>
                      </button>
@@ -379,7 +379,7 @@
    <%@ include file="../include/defaultJS.jsp"%>
 
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
    
    var serarchKeyword = '${noticeData.b2_yadmnm}';
    if(serarchKeyword != ''){
@@ -395,6 +395,6 @@
       $("#searchKey").val(key);   
    }
    
-</script>  -->
+</script>
 </body>
 </html>
