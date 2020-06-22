@@ -48,6 +48,12 @@ public class OrderServiceImpl implements OrderService{
 	public List<Map<String, Object>> selectOrderList(Map<String, Object> commandMap) {
 		return orderDao.selectOrderList(commandMap);
 	}
+	
+	@Override
+	public List<Map<String, Object>> selectAllOrderList() {
+		return orderDao.selectAllOrderList();
+	}
+	
 
 	@Override
 	public List<Map<String, Object>> selectOrderDetailList(Map<String, Object> commandMap) {

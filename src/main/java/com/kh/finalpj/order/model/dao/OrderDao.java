@@ -44,6 +44,10 @@ public class OrderDao {
 		return sqlSession.selectList("Order.selectOrderList",commandMap);
 	}
 	
+	public List<Map<String, Object>> selectAllOrderList() {
+		return sqlSession.selectList("Order.selectAllOrderList");
+	}
+	
 	public List<Map<String, Object>> selectOrderDetailList(Map<String, Object> commandMap) {
 		return sqlSession.selectList("Order.selectOrderDetailList",commandMap);
 	}
@@ -63,6 +67,8 @@ public class OrderDao {
 	public List<Map<String, Object>> selectProductList() {
 		return sqlSession.selectList("Product.selectProductList");
 	}
+	
+	
 	
 	public int insertReview(Map<String, Object> commandMap) {
 		return sqlSession.insert("Review.insertReview",commandMap);

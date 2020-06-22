@@ -20,6 +20,8 @@ public interface OrderService {
 	
 	public List<Map<String, Object>> selectOrderList(Map<String, Object> commandMap);
 	
+	public List<Map<String, Object>> selectAllOrderList();
+	
 	public List<Map<String, Object>> selectOrderDetailList(Map<String, Object> commandMap);
 	
 	public int updateOrderStatus(Map<String, Object> commandMap);

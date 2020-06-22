@@ -110,6 +110,24 @@ public class OrderController {
 		return mav;
 	}
 	
+	@RequestMapping("/order/orderlistAdmin.do")
+	public ModelAndView orderListAdmin(HttpSession session,ModelAndView mav,@RequestParam Map<String,Object> commandMap) {
+		
+		List<Map<String, Object>> map = orderService.selectAllOrderList();
+		for (Map<String, Object> m : map) {
+			m.put("O_DATE",String.valueOf(m.get("TO_CHAR(O_DATE,'YYYY-MM-DD')")));
+			m.remove("TO_CHAR(O_DATE,'YYYY-MM-DD')");
+		}
+		
+		
+		//jsp에서 payList 가 널이라면
+		mav.addObject("productList",orderService.selectProductList());
+		mav.addObject("orderList",map);
+		mav.setViewName("order/orderListAdmin");
+		
+		return mav;
+	}
+	
 	@RequestMapping("/order/orderdetail.do")
 	public ModelAndView orderDetail(HttpSession session,ModelAndView mav,@RequestParam Map<String,Object> commandMap) {
 		Map<String, Object> loginUser= (Map<String, Object>) session.getAttribute("loginUser");
