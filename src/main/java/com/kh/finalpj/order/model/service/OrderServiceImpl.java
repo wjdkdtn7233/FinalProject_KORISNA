@@ -61,6 +61,12 @@ public class OrderServiceImpl implements OrderService{
 	}
 	
 	@Override
+	public List<Map<String, Object>> selectOrderDetailListAdmin(Map<String, Object> commandMap) {
+		return orderDao.selectOrderDetailList(commandMap);
+	}
+	
+	
+	@Override
 	public int updateOrderStatus(Map<String, Object> commandMap) {
 		return orderDao.updateOrderStatus(commandMap);
 	}

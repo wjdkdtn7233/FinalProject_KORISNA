@@ -39,7 +39,7 @@
 											<li><a
 												href="<%=request.getContextPath()%>/order/orderlist.do">Orders</a></li>
 											<li><a
-												href="<%=request.getContextPath()%>/order/orderlistAdmin.do">OrdersAdmin</a></li>
+												href="<%=request.getContextPath()%>/order/orderlistadmin.do">OrdersAdmin</a></li>
 											<li><a
 												href="<%=request.getContextPath()%>/member/leavemember.do">Membership
 													Withdrawal</a></li>

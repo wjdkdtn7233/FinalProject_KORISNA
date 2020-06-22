@@ -59,6 +59,10 @@ PY_BANKACCOUNT
 		select o.O_NO,o.F_EMAIL,p.P_NO,P_IMAGE,P_PRICE,P_NAME,PY_CATEGORY,PY_YN,TO_CHAR(O_DATE,'YYYY-MM-DD'),O_RECEIVER,O_PHONE,O_ADDRESS,O_MSG,O_STATUS,O_COUNT,O_PRICE,O_DETAILNO,O_CANCLEREASON from tb_order o inner join tb_product p on(p.p_no = o.p_no) inner join tb_pay py on(o.o_no = py.o_no) where o.f_email = #{f_email} and o_detailno = #{o_detailno}
 	</select>
 	
+	<select id="selectOrderDetailListAdmin" resultType="HashMap" parameterType="Map">
+		select o.O_NO,o.F_EMAIL,p.P_NO,P_IMAGE,P_PRICE,P_NAME,PY_CATEGORY,PY_YN,TO_CHAR(O_DATE,'YYYY-MM-DD'),O_RECEIVER,O_PHONE,O_ADDRESS,O_MSG,O_STATUS,O_COUNT,O_PRICE,O_DETAILNO,O_CANCLEREASON from tb_order o inner join tb_product p on(p.p_no = o.p_no) inner join tb_pay py on(o.o_no = py.o_no) where o_detailno = #{o_detailno}
+	</select>
+	
 	<select id="selectTotalPrice" resultType="_int" parameterType="Map">
 		select	sum(O_PRICE) from tb_order where f_email = #{f_email} and o_detailno = #{o_detailno}
 	</select>

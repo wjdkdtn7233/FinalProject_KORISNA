@@ -24,6 +24,8 @@ public interface OrderService {
 	
 	public List<Map<String, Object>> selectOrderDetailList(Map<String, Object> commandMap);
 	
+	public List<Map<String, Object>> selectOrderDetailListAdmin(Map<String, Object> commandMap);
+	
 	public int updateOrderStatus(Map<String, Object> commandMap);
 	
 	public int selectTotalPrice(Map<String, Object> commandMap);

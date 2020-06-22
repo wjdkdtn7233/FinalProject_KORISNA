@@ -172,7 +172,7 @@ public class OrderController {
 		return mav;
 	}
 	
-	@RequestMapping("/order/orderlistAdmin.do")
+	@RequestMapping("/order/orderlistadmin.do")
 	public ModelAndView orderListAdmin(HttpSession session,ModelAndView mav,@RequestParam Map<String,Object> commandMap) {
 		
 		List<Map<String, Object>> map = orderService.selectAllOrderList();
@@ -180,7 +180,6 @@ public class OrderController {
 			m.put("O_DATE",String.valueOf(m.get("TO_CHAR(O_DATE,'YYYY-MM-DD')")));
 			m.remove("TO_CHAR(O_DATE,'YYYY-MM-DD')");
 		}
-		
 		
 		//jsp에서 payList 가 널이라면
 		mav.addObject("productList",orderService.selectProductList());
@@ -210,6 +209,17 @@ public class OrderController {
 		return mav;
 	}
 	
+	@RequestMapping("/order/orderdetailadmin.do")
+	public ModelAndView orderDetailAdmin(HttpSession session,ModelAndView mav,@RequestParam Map<String,Object> commandMap) {
+		List<Map<String, Object>> map = orderService.selectOrderDetailListAdmin(commandMap);
+		for (Map<String, Object> m : map) {
+			m.put("O_DATE",String.valueOf(m.get("TO_CHAR(O_DATE,'YYYY-MM-DD')")));
+		}
+		mav.addObject("totalPrice",orderService.selectTotalPrice(commandMap));
+		mav.addObject("orderDetailList",map);
+		mav.setViewName("order/orderDetail");
+		return mav;
+	}
 	
 	@RequestMapping("/order/orderconfirmation.do")
 	public void orderConfirmation(@RequestParam Map<String,Object> commandMap,HttpServletResponse response) throws IOException {

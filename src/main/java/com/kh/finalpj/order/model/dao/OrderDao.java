@@ -52,6 +52,11 @@ public class OrderDao {
 		return sqlSession.selectList("Order.selectOrderDetailList",commandMap);
 	}
 	
+	public List<Map<String, Object>> selectOrderDetailListAdmin(Map<String, Object> commandMap) {
+		return sqlSession.selectList("Order.selectOrderDetailListAdmin",commandMap);
+	}
+	
+	
 	public int updateOrderStatus(Map<String, Object> commandMap) {
 		return sqlSession.update("Order.updateOrderStatus",commandMap);
 	}
