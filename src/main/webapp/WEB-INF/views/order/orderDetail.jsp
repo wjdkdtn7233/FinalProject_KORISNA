@@ -552,7 +552,7 @@
 						alert(status+' 실패');
 					}else{
 						alert(status + ' 완료');
-						$('.orderStatus').each(function(index,item){
+						/* $('.orderStatus').each(function(index,item){
 							$(item).html(status);
 						});
 						
@@ -561,7 +561,9 @@
 								$(item).children().eq(2).remove();
 							}
 							$(item).append("<div><button class='btn cancleInfo' style='background-color:red; font-size:20px;' data-toggle='modal' data-target='#orderCancleInfo-modal'>취소 정보</button></div>");
-						});
+						}); */
+						
+						location.href="<%=request.getContextPath()%>/order/orderdetail.do?o_detailno=" + '${userInfo.O_DETAILNO}' + "&f_email=" + '${sessionScope.loginUser.F_EMAIL}';
 					}
 					
 					

@@ -107,8 +107,14 @@ public class ReviewController {
 			result = reviewService.deleteEmpathy(commandMap);
 			}
 			result += reviewService.deleteReview(commandMap);
-			commandMap.put("p_starscore", reviewService.selectReviewStarScoreAvg(commandMap));
-			result += reviewService.updateProductStarScore(commandMap);
+			if(reviewService.selectReviewCnt(commandMap) == 0 ) {
+				commandMap.put("p_starscore", 0);
+				result += reviewService.updateProductStarScore(commandMap);
+			}else {
+				commandMap.put("p_starscore", reviewService.selectReviewStarScoreAvg(commandMap));
+				result += reviewService.updateProductStarScore(commandMap);
+			}
+			
 		}else {
 			mav.addObject("alertMsg","본인리뷰만 삭제가능합니다.");
 			mav.addObject("back","back");
