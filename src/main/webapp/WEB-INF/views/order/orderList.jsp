@@ -121,7 +121,7 @@
 									<c:forEach var="orderList" items="${orderList}" varStatus="st">
 										<tr role="row" class="text-center goOrderDetail">
 											<td>${orderList.O_DATE}<input type="hidden"
-												value="<%=request.getContextPath()%>/order/orderdetail.do?o_detailno=${orderList.O_DETAILNO}" /></td>
+												value="<%=request.getContextPath()%>/order/orderdetail.do?o_detailno=${orderList.O_DETAILNO}" /><div><h4 class="sunflower">주문번호</h4>100000${orderList.O_DETAILNO}</div></td>
 											<td style="width: 130px;"><img
 												style="width: 120px; height: 120px;"
 												src="<%=request.getContextPath()%>/resources/product/image/${orderList.P_IMAGE}"></td>
@@ -146,6 +146,7 @@
 												</div>
 											</td>
 										</tr>
+									
 									</c:forEach>
 
 								</c:if>

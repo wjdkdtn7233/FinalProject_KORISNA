@@ -105,7 +105,7 @@
 							<tbody>
 								<c:forEach var="orderDetailList" items="${orderDetailList}">
 									<tr role="row" class="text-center">
-										<td>${orderDetailList.O_DATE}</td>
+										<td>${orderDetailList.O_DATE}<div><h4 class="sunflower">주문번호</h4>100000${orderDetailList.O_DETAILNO}</div></td>
 										<td style="width: 130px;"><img
 											style="width: 120px; height: 120px;"
 											src="<%=request.getContextPath()%>/resources/product/image/${orderDetailList.P_IMAGE}"></td>
@@ -597,8 +597,9 @@
 					if(data == 'fail'){
 						alert('구매 확정 실패');
 					}else{
-						
-						$(item).parent().parent().children().eq(1).html("구매확정");
+						$('.confirmation').each(function(index,item2){
+							$(item2).parent().parent().children().eq(1).html("구매확정");
+						});
 						
 						$('.confirmation').each(function(index,item){
 							$(item).remove();
