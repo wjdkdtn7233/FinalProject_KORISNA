@@ -1,3 +1,4 @@
+<%@page import="com.kh.finalpj.map.common.Code"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -74,8 +75,6 @@
 			<div class="container">
 				<div class="contact-form-inner">
 					<div class="row justify-content-center">
-						
-						
 						<!-- map start -->
 						<div id="menu_wrap" class="bg_white">
 					        <div class="option">
@@ -148,6 +147,12 @@
 	<script>
 		sessionStorage.setItem("userId", "${loginUser.F_EMAIL}");
 		sessionStorage.setItem("userAddr", "${loginUser.F_ROADADDRESS}");
+	</script>
+
+	<script>
+	
+	const path = '${Code.PATH}';
+	
 	</script>
 
 	<!-- kakao map apiCDN -->

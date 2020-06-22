@@ -6,7 +6,7 @@ var fCount = 0; // 사용자 데이터 받을 것
 var userId = sessionStorage.getItem("userId");
 var favorate = null;
 var userAddr = sessionStorage.getItem("userAddr");
-			
+		
 $(function(){
 	coordFlag();// lat, lon 초기 설정 
 	
@@ -14,7 +14,7 @@ $(function(){
 
 function validateFavorate(){
 	$.ajax({
-		url:"/springmvc/map/getfavorate.do",
+		url:path+"/map/getfavorate.do",
 		type:"POST",
 		data:{"userId" : userId},
 		async:false,
@@ -39,7 +39,7 @@ function coordFlag(){
 	
 		$.ajax({
 		
-			url : "/springmvc/map/getcoords.do",
+			url : path+"/map/getcoords.do",
 			type : "post",  
 			data : {'addr':userAddr},
 			dataType:"json",
@@ -67,7 +67,7 @@ function getPharmacy(lat,lon,level){
 	var coords = {"lat" : lat, "lon" : lon,"level":level}; 
 	$.ajax({
 		
-		url:"/springmvc/map/getpharmacy.do",
+		url:path+"/map/getpharmacy.do",
 		data:coords,
 		type:"post",
 		dataType:"json",
@@ -76,6 +76,7 @@ function getPharmacy(lat,lon,level){
 			var stores = JSON.parse(data.stores);
 			pharmacy = stores.stores;
 			createMap(lat,lon,pharmacy);
+			  
 		}
 		
 	});
@@ -153,11 +154,11 @@ function set_marker(data,lahting,map){
 	// 지도에 표시될 마커 변수 
 	var selecMarker = "";
 	// 각 마커 좌표 입력할 것
-	var greenMarker = "/springmvc/resources/map/img/plentiful.png";
-	var yellowMarker = "/springmvc/resources/map/img/some.png";
-	var redMarker = "/springmvc/resources/map/img/few.png";
-	var grayMarker = "/springmvc/resources/map/img/empty.png";
-	var notInfoMarker = "/springmvc/resources/map/img/noinfo.png";
+	var greenMarker = path+"/resources/map/img/plentiful.png";
+	var yellowMarker = path+"/resources/map/img/some.png";
+	var redMarker = path+"/resources/map/img/few.png";
+	var grayMarker = path+"/resources/map/img/empty.png";
+	var notInfoMarker = path+"/resources/map/img/noinfo.png";
 
 	switch(data.remain_stat){
 		case "plenty" : selecMarker =  greenMarker;
@@ -336,7 +337,7 @@ function set_fOverlay(map){
 function deleteFavorate(fCode,userId){
 	return function(){
 		$.ajax({
-			url:"/springmvc/map/deletefavor.do",
+			url:path+"/map/deletefavor.do",
 			data:{"fCode" : fCode, "userId":userId},
 			type:"POST",
 			success:function(data){
@@ -382,7 +383,7 @@ function insertFavorate(data){
 	};
 	
 	$.ajax({
-		url:"/springmvc/map/insertfavorate.do",
+		url:path+"/map/insertfavorate.do",
 		async:false,
 		type:"get",
 		data:datas,
