@@ -36,8 +36,19 @@
 	
 	
 	<select id="searchinfo" resultType="Board2">
-		select * from TB_BOARD2
+		select * from(
+		select
+		rownum rnum, n1.* from(
+		select * from
+		TB_BOARD2
 		where b2_yadmnm like '%'||#{b2_yadmnm}||'%'
+		order by B2_NO desc
+		)n1
+		)
+		where rnum between #{page.start} and #{page.end}
+		
+		
+		
 	</select>
 	
 	<select id="searchPaging" resultType="int">
