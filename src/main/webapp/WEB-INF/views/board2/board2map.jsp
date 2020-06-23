@@ -77,7 +77,8 @@ span {
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1c4f80bf9112747caf6c6fd5086db6f6"></script>
 	<script>
 		var container = document.getElementById('map');
-		var Xpos = ${mapmap.xpos}, Ypos = ${mapmap.ypos};
+		var Xpos = ${mapmap.xpos};
+		var Ypos = ${mapmap.ypos};
 		var options = {
 			center : new kakao.maps.LatLng(Ypos,Xpos),
 			level : 3
