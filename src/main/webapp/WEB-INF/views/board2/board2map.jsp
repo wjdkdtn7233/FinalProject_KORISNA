@@ -83,7 +83,7 @@ span {
 			center : new kakao.maps.LatLng(Ypos,Xpos),
 			level : 3
 		};
-
+		
 		var map = new kakao.maps.Map(container, options);
 		
 		// 마커가 표시될 위치입니다 
@@ -97,6 +97,7 @@ span {
 		// 마커가 지도 위에 표시되도록 설정합니다
 		marker.setMap(map);
 		
+		
 		var content = '<div class="wrap">' + 
         '    <div class="info">' + 
         '        <div class="title">' + 
@@ -107,12 +108,13 @@ span {
         '            <div class="desc">' + 
         '                <div class="ellipsis">${mapmap.addr}</div>' + 
         '                <div class="ellipsis">${mapmap.telno}</div>' + 
-        '                <div class="btnmap"><a href="https://map.kakao.com/link/to/${mapmap.name},${mapmap.ypos},${mapmap.xpos}"  target="_blank" title="${mapmap.name}" ><span>길 찾기</span></a></div>' + 
+        '                <div class="btnmap"><a href="https://map.kakao.com/link/to/${mapmap.name},${mapmap.ypos},${mapmap.xpos}"  target="_blank" title="${mapmap.name}"><span>길 찾기</span></a></div>' + 
         '            </div>' + 
         '        </div>' + 
         '    </div>' +    
         '</div>';
         
+     
         
         
         var overlay = new kakao.maps.CustomOverlay({
