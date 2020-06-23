@@ -107,7 +107,7 @@ span {
         '            <div class="desc">' + 
         '                <div class="ellipsis">${mapmap.addr}</div>' + 
         '                <div class="ellipsis">${mapmap.telno}</div>' + 
-        '                <div class="btnmap"><a href="https://map.kakao.com/"><span>길 찾기</span></a></div>' + 
+        '                <div class="btnmap"><a href="https://map.kakao.com/AZ/link/to/${mapmap.addr}"><span>길 찾기</span></a></div>' + 
         '            </div>' + 
         '        </div>' + 
         '    </div>' +    
