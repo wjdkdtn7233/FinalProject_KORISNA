@@ -108,13 +108,19 @@ span {
         '            <div class="desc">' + 
         '                <div class="ellipsis">${mapmap.addr}</div>' + 
         '                <div class="ellipsis">${mapmap.telno}</div>' + 
-        '                <div class="btnmap"><a href="https://map.kakao.com/link/to/${mapmap.name},${mapmap.ypos},${mapmap.xpos}"  target="_blank" title="${mapmap.name}"><span>길 찾기</span></a></div>' + 
+        '                <div class="btnmap"><a href="https://map.kakao.com/link/to/${mapmap.name},${mapmap.ypos},${mapmap.xpos}"  target="_blank" title="${mapmap.name}" onclick="btn();"><span>길 찾기</span></a></div>' + 
         '            </div>' + 
         '        </div>' + 
         '    </div>' +    
         '</div>';
         
-     
+      /*  function btn(){
+        	
+        	var url = "https://map.kakao.com/link/to/${mapmap.name},${mapmap.ypos},${mapmap.xpos}";
+            window.open(url,"width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
+            
+            
+        } */
         
         
         var overlay = new kakao.maps.CustomOverlay({
