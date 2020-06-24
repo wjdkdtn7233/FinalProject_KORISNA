@@ -41,16 +41,17 @@
 												href="<%=request.getContextPath()%>/member/leavemember.do">Membership
 													Withdrawal</a></li>
 										</ul></li>
-									<li><a
-										href="<%=request.getContextPath()%>/member/infomodify.do">AdminPage</a>
-										<ul>
-											<c:if test="${sessionScope.loginUser.F_EMAIL eq 'korisnaCustomerContact@gmail.com'}">
+										<c:if test="${sessionScope.loginUser.F_EMAIL eq 'korisnaCustomerContact@gmail.com'}">
+											<li><a
+											href="<%=request.getContextPath()%>/member/infomodify.do">AdminPage</a>
+											<ul>
 												<li><a
 													href="<%=request.getContextPath()%>/order/orderlistadmin.do">OrdersAdmin</a></li>
 												<li><a
 													href="<%=request.getContextPath()%>/product/productlistadmin.do">productList</a></li>	
-											</c:if>
-									</ul></li>
+											</ul>
+											</li>
+										</c:if>
 									<li><a
 										href="<%=request.getContextPath()%>/member/logout.do">Logout</a></li>
 								</c:if>
