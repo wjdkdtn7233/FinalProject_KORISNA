@@ -64,7 +64,7 @@ public class ReviewController {
 		
 		int result1 = reviewService.selectEmpathyYN(commandMap);
 		
-		if(result1 == 1) {
+		if(result1 >= 1) {
 			out.print("exist");
 			return;
 		}
