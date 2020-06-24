@@ -33,4 +33,14 @@ public class ProductDao {
 	public int selectReviewCnt(String p_no) {
 		return sqlSession.selectOne("Review.selectReviewCnt",p_no);
 	}
+	
+	public int updateProductInfo(Map<String, Object> commandMap) {
+		return sqlSession.update("Product.updateProductInfo",commandMap);
+	}
+	
+	public int insertProductInfo(Map<String, Object> commandMap) {
+		return sqlSession.update("Product.insertProductInfo",commandMap);
+	}
+	
+	
 }

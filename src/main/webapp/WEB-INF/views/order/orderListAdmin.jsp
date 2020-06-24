@@ -119,14 +119,16 @@
 								</c:if>
 								<c:if test="${orderList != '[]'}">
 									<c:forEach var="orderList" items="${orderList}" varStatus="st">
-										<tr role="row" class="text-center goOrderDetail">
-											<td>${orderList.O_DATE}<input type="hidden"
-												value="<%=request.getContextPath()%>/order/orderdetailadmin.do?o_detailno=${orderList.O_NO}" /></td>
+										<tr role="row" class="text-center">
+											<td>${orderList.O_DATE}<input type="hidden" class="detailUrl"
+												value="<%=request.getContextPath()%>/order/orderdetailadmin.do?o_detailno=${orderList.O_DETAILNO}" /><div><h4 class="sunflower">주문번호</h4>100000${orderList.O_DETAILNO}<br>${orderList.F_EMAIL}
+												</div>
+												</td>
 											<td style="width: 130px;"><img
 												style="width: 120px; height: 120px;"
 												src="<%=request.getContextPath()%>/resources/product/image/${orderList.P_IMAGE}"></td>
 											<td><div>${orderList.P_NAME}</div>
-												<div style="color: red">${orderList.O_STATUS}</div></td>
+												<div class="orderStatus"style="color: red">${orderList.O_STATUS}</div></td>
 											<td><div>
 													<span>${orderList.P_PRICE}</span> 원
 												</div>
@@ -139,13 +141,26 @@
 												</div>
 												<div class="blog-post-tags">
 													<ul>
-														<li><a
-															href="<%=request.getContextPath()%>/product/productdetail.do?p_no=${orderList.P_NO}"
-															class="px-3">재구매</a></li>
+														<li class="liIndex">
+															<c:if test="${orderList.O_STATUS == '구매확정'}">
+																<input type="hidden" class=" btn btn-default px-3 beforeOrder" value="이전">
+															</c:if>
+															<c:if test="${orderList.O_STATUS == '구매확정'}">
+																<input type="hidden" class=" btn btn-default px-3 afterOrder" value="다음">
+															</c:if>
+															<c:if test="${orderList.O_STATUS != '구매확정'}">
+																<input type="button" class=" btn btn-default px-3 beforeOrder" value="이전">
+															</c:if>
+															<c:if test="${orderList.O_STATUS != '구매확정'}">
+																<input type="button" class=" btn btn-default px-3 afterOrder" value="다음">
+															</c:if>
+															</li>
 													</ul>
 												</div>
+												<input type="button" class=" btn btn-default px-3 goOrderDetail" value="상세보기">
 											</td>
 										</tr>
+										<input type="hidden" class="O_NO" value="${orderList.O_NO}">
 									</c:forEach>
 
 								</c:if>
@@ -154,12 +169,12 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="col-xl-12 col-lg-12 col-md-12 text-center">
+<!-- 					<div class="col-xl-12 col-lg-12 col-md-12 text-center">
 						<div class="cta-main-button">
 							<a class="cta-button btn" id="reviewReg" data-toggle="modal"
 								data-target="#reviewReg-modal">리뷰 쓰기</a>
 						</div>
-					</div>
+					</div> -->
 
 
 				</div>
@@ -167,20 +182,13 @@
 				<br>
 				<br>
 				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-
 
 
 			</div>
 		</div>
 		<!-- Contact Form Area End -->
 
-		<div class="modal fade sunflower" id="reviewReg-modal" tabindex="-1"
+<%-- 		<div class="modal fade sunflower" id="reviewReg-modal" tabindex="-1"
 			role="dialog" aria-labelledby="reviewReg-modal" aria-hidden="true">
 			<div class="modal-dialog " role="document">
 				<div class="modal-content">
@@ -246,7 +254,7 @@
 
 				</div>
 			</div>
-		</div>
+		</div> --%>
 
 		<!-- Contact Information Area Start -->
 		<!-- Contact Information-->
@@ -267,12 +275,16 @@
 	<script type="text/javascript"
 		src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script>
+	
+		
         $('.goOrderDetail').each(function(index,item){
         	$(item).click(function(){
-        		location.href= $(item).children().eq(0).children().eq(0).val();
+        		$('.detailUrl').each(function(index1,item1){
+        			if(index == index1){
+        				location.href= $(item1).val();
+        			}
+        		})
         	});
-        	
-        	
         });
         var starscore = 0;
         
@@ -306,8 +318,6 @@
         
         $('#reviewOK').click(function(){
         	
-        	
-        	
         	if($('#pno').val() == '1'){
         		alert('리뷰할 상품을 선택해주세요.');
         		return false;
@@ -322,9 +332,6 @@
         		alert('리뷰 내용을 적어주세요.');
         		return false;
         	}
-        	
-        	
-        	
         	
 			$.ajax({
 				
@@ -347,7 +354,7 @@
 											}
 
 										},
-										error : function(data) {
+				error : function(data) {
 											alert('에러입니다.');
 
 										}
@@ -355,6 +362,74 @@
 									});
 
 						});
+
+        /*orderStatus  */
+	        $('.beforeOrder').each(function(index, item){
+	        	$(item).click(function(){
+	        		var ono = '';
+	        		var status = '';
+	        		$('.O_NO').each(function(index1, item1){
+	        			if(index == index1){
+	        				console.log($(item1).val());
+	        				ono = $(item1).val();
+	    				}
+	        		})
+	        		$('.orderStatus').each(function(index1, item1){
+						if(index == index1){
+							console.log($(item1).text());
+							status = $(item1).text()
+						}
+					})
+	        		$.ajax({
+	        			url:"<%=request.getContextPath()%>/order/orderchange.do",
+	    				type : "post",
+	    				data : {O_NO : ono, O_STATUS : status, flag : false},
+	    				success : function(data) {
+	    					$('.orderStatus').each(function(index2, item2){
+	        					if(index == index2){
+	        						$(item2).html(data);
+	        					}
+	        				})
+	    				},
+	    				error : function(data){
+	    					alert("에러");
+	    				}
+	        		})
+	        		
+	        	})
+        })
+	       $('.afterOrder').each(function(index, item){
+        		$(item).click(function(){
+	        		var ono = '';
+	        		var status = '';
+	        		$('.O_NO').each(function(index1, item1){
+	        			if(index == index1){
+	        				ono = $(item1).val();
+	    				}
+	        		})
+	        		$('.orderStatus').each(function(index1, item1){
+						if(index == index1){
+							status = $(item1).text()
+						}
+					})
+	        		$.ajax({
+	        			url:"<%=request.getContextPath()%>/order/orderchange.do",
+	    				type : "post",
+	    				data : {O_NO : ono, O_STATUS : status, flag : true},
+	    				success : function(data) {
+	    					$('.orderStatus').each(function(index2, item2){
+	        					if(index == index2){
+	        						$(item2).html(data);
+	        					}
+	        				})
+	    				},
+	    				error : function(data){
+	    					alert("에러");
+	    				}
+	        		})
+	        		
+	        	})
+        })
 	</script>
 </body>
 

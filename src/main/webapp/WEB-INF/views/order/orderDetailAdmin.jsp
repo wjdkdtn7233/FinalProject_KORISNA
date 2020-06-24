@@ -225,16 +225,16 @@
 					</div>
 					<div class="col-xl-6 text-right pt-5 sunflower">
 						<div class="cta-main-button">
-							<a href="<%=request.getContextPath()%>/order/orderlist.do"
+							<a href="<%=request.getContextPath()%>/order/orderlistadmin.do"
 								class="cta-button btn">주문 목록</a>
 						</div>
 					</div>
-					<div class="col-xl-6 text-left pt-5 sunflower">
+					<!-- <div class="col-xl-6 text-left pt-5 sunflower">
 						<div class="cta-main-button">
 							<a class="cta-button btn" id="orderCencle" data-toggle="modal"
 								data-target="#orderCancle-modal">주문 취소 및 반품</a>
 						</div>
-					</div>
+					</div> -->
 
 
 				</div>

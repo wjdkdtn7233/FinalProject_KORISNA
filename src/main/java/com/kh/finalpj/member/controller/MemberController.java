@@ -102,8 +102,6 @@ public class MemberController {
 	
 		Map<String, Object> member =  null;
 		
-		
-		
 		member = memberService.selectLoginMember(commanMap);
 		
 		if(member != null) {

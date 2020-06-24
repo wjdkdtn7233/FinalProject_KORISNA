@@ -13,7 +13,7 @@
 						</a>
 					</div>
 				</div>
-				<div class="col-xl-7 col-lg-7">
+				<div class="col-xl-8 col-lg-8">
 					<div class="main-menu">
 						<nav id="mobile-menu">
 							<ul>
@@ -24,8 +24,7 @@
 									href="<%=request.getContextPath()%>/board/board.do">NEWS</a>
 								</li>
 								<li><a
-									href="<%=request.getContextPath()%>/board2/board2.do">Hospital
-										Information</a></li>
+									href="<%=request.getContextPath()%>/board2/board2.do">Hospital-Info</a></li>
 								<li><a
 									href="<%=request.getContextPath()%>/product/productlist.do">Shop</a></li>
 								<c:if test="${sessionScope.loginUser != null }">
@@ -39,11 +38,19 @@
 											<li><a
 												href="<%=request.getContextPath()%>/order/orderlist.do">Orders</a></li>
 											<li><a
-												href="<%=request.getContextPath()%>/order/orderlistadmin.do">OrdersAdmin</a></li>
-											<li><a
 												href="<%=request.getContextPath()%>/member/leavemember.do">Membership
 													Withdrawal</a></li>
 										</ul></li>
+									<li><a
+										href="<%=request.getContextPath()%>/member/infomodify.do">AdminPage</a>
+										<ul>
+											<c:if test="${sessionScope.loginUser.F_EMAIL eq 'korisnaCustomerContact@gmail.com'}">
+												<li><a
+													href="<%=request.getContextPath()%>/order/orderlistadmin.do">OrdersAdmin</a></li>
+												<li><a
+													href="<%=request.getContextPath()%>/product/productlistadmin.do">productList</a></li>	
+											</c:if>
+									</ul></li>
 									<li><a
 										href="<%=request.getContextPath()%>/member/logout.do">Logout</a></li>
 								</c:if>
@@ -55,7 +62,7 @@
 						</nav>
 					</div>
 				</div>
-				<div class="col-xl-3 col-lg-3 col-md-6 text-right">
+				<div class="col-xl-2 col-lg-2 col-md-2 ">
 					<div class="header-full-right">
 						<div class="cta-btn">
 							<a href="<%=request.getContextPath()%>/member/contact.do"

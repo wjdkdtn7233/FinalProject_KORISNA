@@ -39,4 +39,12 @@ public class ProductServiceImpl implements ProductService{
 		return productDao.selectReviewCnt(p_no);
 	}
 	
+	@Override
+	public int updateProductInfo(Map<String, Object> commandMap){
+		return productDao.updateProductInfo(commandMap);
+	}
+	
+	public int insertProductInfo(Map<String, Object> commandMap) {
+		return productDao.insertProductInfo(commandMap);
+	}
 }

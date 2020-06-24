@@ -30,6 +30,8 @@ public interface OrderService {
 	
 	public int selectTotalPrice(Map<String, Object> commandMap);
 	
+	public int selectTotalPriceAdmin(Map<String, Object> commandMap);
+	
 	public int updateOrderCancle(Map<String, Object> commandMap);
 	
 	public List<Map<String, Object>> selectProductList();
@@ -52,5 +54,7 @@ public interface OrderService {
 	
 	public int updatePayCancle(Map<String, Object> commandMap);
 	
+	public int selectOrderChange(Map<String, Object> commandMap);
 	
+	public String getOrder(Map<String, Object> commandMap);
 }

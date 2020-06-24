@@ -820,7 +820,7 @@ textarea {
 /* Menu CSS  */
 
 .main-menu {
-    text-align: right;
+    text-align: center;
 }
 
 .main-menu ul li {
@@ -957,14 +957,14 @@ textarea {
 }
 
 .header-full-right {
-    text-align: right;
+    text-align: left;
     margin: 16px 0;
 }
 
 .cta-btn {
     position: relative;
     z-index: 999999;
-    padding: 0px 0px 0px 10px;
+    /* padding: 0px 0px 0px 0px; */
     display: inline-block;
 }
 
@@ -976,8 +976,8 @@ textarea {
     color: #7d52cc;
     border: 2px solid;
     font-weight: 500;
-    font-size: 16px;
-    padding: 15px 40px;
+    font-size: 13px;
+    padding: 15px 30px;
     border-radius: 50px;
     display: inline-block;
     transition: all 0.6s ease 0s;
@@ -1016,7 +1016,7 @@ textarea {
 }
 
 .header-two .main-menu ul li {
-    padding: 23px 16px;
+    padding: 20px 10px;
 }
 
 /* Header Sticky */

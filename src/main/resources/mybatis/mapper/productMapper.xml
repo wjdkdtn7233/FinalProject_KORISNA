@@ -28,6 +28,14 @@ P_STARSCORE
 		select p_no,p_name,p_content,p_price,p_image,p_joindate,p_cnt,p_addinfo,p_starscore from tb_product where p_no = #{p_no}
 	</select>
 	
+	<update id="updateProductInfo" parameterType="Map">
+    	update tb_product set P_IMAGE = #{P_IMAGE}, P_NAME = #{P_NAME}, P_PRICE = #{P_PRICE}, P_CNT = #{P_CNT}, P_CONTENT = #{P_CONTENT}, P_ADDINFO = #{P_ADDINFO} where P_NO = #{P_NO}
+    </update>
+
+    <insert id="insertProductInfo" parameterType="Map">
+    	insert into tb_product(P_NO, P_NAME, P_CONTENT, P_PRICE, P_IMAGE, P_JOINDATE, P_CNT, P_ADDINFO, P_STARSCORE) values
+    	(P_NO_SEQ.nextval, #{P_NAME}, #{P_CONTENT}, #{P_PRICE}, #{P_IMAGE},sysdate, #{P_CNT}, #{P_ADDINFO}, 0)
+    </insert>
 	
 	 <update id="updateProductCnt" parameterType="Map">
     	update tb_product set p_cnt = (p_cnt - ${o_count}) where p_no = #{p_no}

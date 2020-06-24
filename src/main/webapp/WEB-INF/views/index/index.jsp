@@ -308,7 +308,6 @@
                         drilldown: function (e) {
                             if (!e.seriesOptions) {
                                 mapKey = e.point.drilldown
-                                console.log(mapKey);
                                 $.ajax({
                                     url:"<%=request.getContextPath()%>/index/selectLocationList.do",
                         										type : "post",

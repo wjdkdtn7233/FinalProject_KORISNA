@@ -3,6 +3,7 @@ package com.kh.finalpj.order.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,12 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kh.finalpj.member.model.vo.Member;
 import com.kh.finalpj.order.model.service.OrderService;
 
 import net.sf.json.JSONObject;
@@ -175,16 +178,24 @@ public class OrderController {
 	@RequestMapping("/order/orderlistadmin.do")
 	public ModelAndView orderListAdmin(HttpSession session,ModelAndView mav,@RequestParam Map<String,Object> commandMap) {
 		
-		List<Map<String, Object>> map = orderService.selectAllOrderList();
-		for (Map<String, Object> m : map) {
-			m.put("O_DATE",String.valueOf(m.get("TO_CHAR(O_DATE,'YYYY-MM-DD')")));
-			m.remove("TO_CHAR(O_DATE,'YYYY-MM-DD')");
-		}
+		Map<String, Object> loginUser = (Map<String, Object>) session.getAttribute("loginUser");
 		
-		//jsp에서 payList 가 널이라면
-		mav.addObject("productList",orderService.selectProductList());
-		mav.addObject("orderList",map);
-		mav.setViewName("order/orderListAdmin");
+		if(String.valueOf(loginUser.get("F_EMAIL")).equals("korisnaCustomerContact@gmail.com")) {
+			List<Map<String, Object>> map = orderService.selectAllOrderList();
+			for (Map<String, Object> m : map) {
+				m.put("O_DATE",String.valueOf(m.get("TO_CHAR(O_DATE,'YYYY-MM-DD')")));
+				m.remove("TO_CHAR(O_DATE,'YYYY-MM-DD')");
+			}
+			
+			//jsp에서 payList 가 널이라면
+			mav.addObject("productList",orderService.selectProductList());
+			mav.addObject("orderList",map);
+			mav.setViewName("order/orderListAdmin");
+		} else {
+			mav.addObject("back","back");
+			mav.addObject("alertMsg","관리자가 아닙니다.");
+			mav.setViewName("common/result");
+		}
 		
 		return mav;
 	}
@@ -212,14 +223,18 @@ public class OrderController {
 	@RequestMapping("/order/orderdetailadmin.do")
 	public ModelAndView orderDetailAdmin(HttpSession session,ModelAndView mav,@RequestParam Map<String,Object> commandMap) {
 		List<Map<String, Object>> map = orderService.selectOrderDetailListAdmin(commandMap);
+		System.out.println(map);
+		Map<String, Object> oneMap = map.get(0);
 		for (Map<String, Object> m : map) {
 			m.put("O_DATE",String.valueOf(m.get("TO_CHAR(O_DATE,'YYYY-MM-DD')")));
 		}
-		mav.addObject("totalPrice",orderService.selectTotalPrice(commandMap));
+		mav.addObject("userInfo", oneMap);
+		mav.addObject("totalPrice",orderService.selectTotalPriceAdmin(commandMap));
 		mav.addObject("orderDetailList",map);
-		mav.setViewName("order/orderDetail");
+		mav.setViewName("order/orderDetailAdmin");
 		return mav;
 	}
+	
 	
 	@RequestMapping("/order/orderconfirmation.do")
 	public void orderConfirmation(@RequestParam Map<String,Object> commandMap,HttpServletResponse response) throws IOException {
@@ -328,7 +343,24 @@ public class OrderController {
 		
 	}
 	
-	
-	
+//	주문변경
+	@RequestMapping("/order/orderchange.do")
+	public void orderchange(HttpSession session,ModelAndView mav,@RequestParam Map<String,Object> commandMap, HttpServletResponse response) throws IOException {
+		
+		String O_STATUS = (String) commandMap.get("O_STATUS");
+		
+		int result = orderService.selectOrderChange(commandMap);
+		PrintWriter out = response.getWriter();
+		
+		System.out.println("되라"+commandMap);
+		String order = "입금확인중";
+		if(result > 0) {
+			commandMap.put("O_STATUS", O_STATUS);
+			System.out.println("1실행되야함");
+			order = orderService.getOrder(commandMap);
+		}
+		System.out.println(order);
+		out.print(order);
+	}
 	
 }

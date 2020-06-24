@@ -53,6 +53,7 @@ public class OrderDao {
 	}
 	
 	public List<Map<String, Object>> selectOrderDetailListAdmin(Map<String, Object> commandMap) {
+		System.out.println("여기는되냐?");
 		return sqlSession.selectList("Order.selectOrderDetailListAdmin",commandMap);
 	}
 	
@@ -63,6 +64,10 @@ public class OrderDao {
 	
 	public int selectTotalPrice(Map<String, Object> commandMap) {
 		return sqlSession.selectOne("Order.selectTotalPrice",commandMap);
+	}
+	
+	public int selectTotalPriceAdmin(Map<String, Object> commandMap) {
+		return sqlSession.selectOne("Order.selectTotalPriceAdmin",commandMap);
 	}
 	
 	public int updateOrderCancle(Map<String, Object> commandMap) {
@@ -111,4 +116,7 @@ public class OrderDao {
 		return sqlSession.update("Order.updatePayCancle",commandMap);
 	}
 	
+	public int selectOrderChange(Map<String, Object> commandMap) {
+		return sqlSession.update("Order.selectOrderChange",commandMap);
+	}
 }

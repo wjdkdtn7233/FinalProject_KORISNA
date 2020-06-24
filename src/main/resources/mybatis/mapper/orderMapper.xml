@@ -67,6 +67,12 @@ PY_BANKACCOUNT
 		select	sum(O_PRICE) from tb_order where f_email = #{f_email} and o_detailno = #{o_detailno}
 	</select>
 	
+	<select id="selectTotalPriceAdmin" resultType="_int" parameterType="Map">
+		select	sum(O_PRICE) from tb_order where o_detailno = #{o_detailno}
+	</select>
+	
+	
+	
 	<update id="updateOrderStatus" parameterType="Map">
 		update tb_order set O_STATUS = #{O_STATUS} where O_DETAILNO = #{O_DETAILNO} and F_EMAIL = #{F_EMAIL}
 	</update>
@@ -86,6 +92,10 @@ PY_BANKACCOUNT
 	
 	<update id="updatePayCancle" parameterType="Map">
 		update tb_pay set py_yn = 'n' where o_no = #{o_no} and f_email = #{f_email}
+	</update>
+	
+	<update id="selectOrderChange" parameterType="Map">
+		update tb_order set O_STATUS = #{O_STATUS} where O_NO = #{O_NO}
 	</update>
 	
 </mapper>

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.kh.finalpj.order.model.dao.OrderDao;
 
 @Service
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
 
 	@Autowired
 	OrderDao orderDao;
@@ -48,32 +48,35 @@ public class OrderServiceImpl implements OrderService{
 	public List<Map<String, Object>> selectOrderList(Map<String, Object> commandMap) {
 		return orderDao.selectOrderList(commandMap);
 	}
-	
+
 	@Override
 	public List<Map<String, Object>> selectAllOrderList() {
 		return orderDao.selectAllOrderList();
 	}
-	
 
 	@Override
 	public List<Map<String, Object>> selectOrderDetailList(Map<String, Object> commandMap) {
 		return orderDao.selectOrderDetailList(commandMap);
 	}
-	
+
 	@Override
 	public List<Map<String, Object>> selectOrderDetailListAdmin(Map<String, Object> commandMap) {
-		return orderDao.selectOrderDetailList(commandMap);
+		return orderDao.selectOrderDetailListAdmin(commandMap);
 	}
-	
-	
+
 	@Override
 	public int updateOrderStatus(Map<String, Object> commandMap) {
 		return orderDao.updateOrderStatus(commandMap);
 	}
-	
+
 	@Override
 	public int selectTotalPrice(Map<String, Object> commandMap) {
 		return orderDao.selectTotalPrice(commandMap);
+	}
+
+	@Override
+	public int selectTotalPriceAdmin(Map<String, Object> commandMap) {
+		return orderDao.selectTotalPriceAdmin(commandMap);
 	}
 
 	@Override
@@ -126,16 +129,61 @@ public class OrderServiceImpl implements OrderService{
 		return orderDao.updateProductCntPlus(commandMap);
 	}
 
-
 	@Override
 	public int updatePayCancle(Map<String, Object> commandMap) {
 		return orderDao.updatePayCancle(commandMap);
 	}
-	
-	
 
+	@Override
+	public int selectOrderChange(Map<String, Object> commandMap) {
+		commandMap.put("O_STATUS", getOrder(commandMap));
+		return orderDao.selectOrderChange(commandMap);
+	}
 
-	
-	
-	
+	@Override
+	public String getOrder(Map<String, Object> commandMap) {
+		String O_STATUS = String.valueOf(commandMap.get("O_STATUS"));
+		String reString = "";
+		String flag = String.valueOf(commandMap.get("flag"));
+		if(flag.equals("true")) {
+			switch (O_STATUS) {
+			case "입금확인중":
+				reString = "배송준비중";
+				break;
+			case "배송준비중":
+				reString = "배송중";
+				break;
+			case "배송중":
+				reString = "배송완료";
+				break;
+			case "구매확정":
+				reString = "구매확정";
+				break;
+			default:
+				reString = "입금확인중";
+				break;
+			}
+		} else {
+			switch (O_STATUS) {
+			case "배송준비중":
+				reString = "입금확인중";
+				break;
+			case "배송중":
+				reString = "배송준비중";
+				break;
+			case "배송완료":
+				reString = "배송중";
+				break;
+			case "구매확정":
+				reString = "구매확정";
+				break;
+			default:
+				reString = "배송완료";
+				break;
+			}
+		}
+		
+		return reString;
+	}
+
 }
