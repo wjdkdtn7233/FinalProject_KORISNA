@@ -4,6 +4,8 @@ KH정보교육원 팀별 프로젝트 이며, 20년 최대의 이슈인 코로�
 ( 확진자 현황, 코로나 맵, 코로나 이슈 게시판, 주변 병원 정보, 코로나 상품 주문/결제 등등... )
 ## 주요기능<br>
  [위키로 이동하여 확인..](https://github.com/wjdkdtn7233/FinalProject_KORISNA/wiki)<br>
+## 개발한 사이트 이동<br>
+ [KORISNA SITE](https://www.korisna.site/)<br>
 ## 개발기간 및 환경<br>
 #### 개발기간 : 2020.05.27~2020.06.24<br>
 #### 개발인원 : 5인<br>
