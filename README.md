@@ -10,7 +10,8 @@ KH정보교육원 팀별 파이널 프로젝트 이며, 20년 최대의 이슈�
 #### 개발기간 : 2020.05.27~2020.06.24<br>
 #### 개발인원 : 5인<br>
 #### 개발환경<br>
-  * JAVA(SPring FrameWork)<br>
+  * JAVA<br>
+  * SPring FrameWork<br>
   * MYBATIS<br>
   * JSP<br>
   * JAVASCRIPT<br>
